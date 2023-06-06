@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "480141769084",
+    "project_id": "mad2-b8f93",
+    "storage_bucket": "mad2-b8f93.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:480141769084:android:c2bf046ce1721c64cc8cf9",
+        "android_client_info": {
+          "package_name": "sg.edu.np.mad"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "480141769084-abodg89qqlpqvu247joup8be67fgc31m.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDFOLwrUUvi-hamlN96rpxQAakENYEE558"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "480141769084-abodg89qqlpqvu247joup8be67fgc31m.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
