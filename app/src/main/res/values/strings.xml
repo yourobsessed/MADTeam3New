@@ -1,3 +1,13 @@
 <resources>
-    <string name="app_name">MAD_Assignemnt</string>
+    <string name="app_name">MAD_Assignment</string>
+    <string name="usernameText">Username</string>
+    <string name="passwordText">Password</string>
+    <string name="LoginButton">LOGIN</string>
+    <string name="newUserText">Not a User? Register Here!</string>
+
+    <string name="createAcctTitle">CREATE ACCOUNT</string>
+    <string name="confirmCreationText">Create</string>
+    <string name="cancelCreationText">Cancel</string>
+    <string name="mainlandingPageTitle">MAIN PAGE</string>
+
 </resources>
