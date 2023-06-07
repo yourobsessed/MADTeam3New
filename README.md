@@ -17,12 +17,14 @@ Ultimately, resolving the overcrowding issue in food places at Ngee Ann Polytech
 Stage 1: 
 
 Food Catalogue - Jovin 
+
 Uses a Recyclerview showing all the NP Food courts 
 User will choose a food court of their choice, then the food stalls of the chosen food court appear 
 Users will then choose a stall, then the foods provided by the stall will appear, showing the picture, name, price and calories of each food 
 
 
 Food court crowdedness - Colin 
+
 Users will be able to view how crowded each food court is 
 When inside a food court users can provide information on how crowded the food court is, on a scale of 1 – 10. 
 App notifies users when it detects user’s GPS location is in the food court, to ask for crowd information 
@@ -31,6 +33,7 @@ If there is not data on crowdedness provided by other users, the app will displa
 
 
 Login Page - Rae 
+
 Allow users to login into their account 
 If newcomer: 
 A simple login, username, name, and student id will be needed to register for an account.  
@@ -40,6 +43,7 @@ Username and password
 
  
 Limit options – Leroy 
+
 Input calories for all the food options 
 Food will be categorised into the categories  
 When user presses certain category, food options will be listed down in recyclerView 
@@ -49,6 +53,7 @@ When user presses certain category, food options will be listed down in recycler
 Stage 2: 
 
 Rating of food - Colin 
+
 The food that the user ate can be critiqued by the user. 
 A range from 1 to 5 stars, along with a short review on why they inputted that number of stars. 
 Other users would be able to see the ratings of foods and take that into consideration. 
@@ -58,17 +63,20 @@ Will have a short introduction about the app and also a how to get there video??
 
 
 Wishlist with a notification – Jovin 
+
 Food that the users would like to try in the future may be added to the list by pressing a button 
 When it’s around the lunch hour, a food suggestion notification with a random food generated can prompt user to have that for lunch 
 Notification would include information about which food court to get that certain order, and it’s name 
 Main page may have an imageview that changes everyday to remind the users to try the food soon 
 
 All-time favourite page - Rae
+
 Shows a collection of all the favourite food (top 10) at the main page 
 All-time favourites would be in a recycler view format to view all the information about the food. When clicked into the food, information will be shown 
 User can choose whether to add the food to the wishlist 
 
 
 Feedback to school - Leroy 
+
 Have a page for students to submit their feedback related to food, canteen to the school  
 In charge person of the canteen will be able to receive a consolidated feedback every month as an email 
