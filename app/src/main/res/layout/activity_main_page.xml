@@ -59,7 +59,7 @@
         app:srcCompat="@android:drawable/arrow_up_float" />
 
     <ImageView
-        android:id="@+id/SidePanelButton"
+        android:id="@+id/SidePanelButtonMain"
         android:layout_width="52dp"
         android:layout_height="45dp"
         android:layout_marginStart="16dp"
@@ -70,9 +70,19 @@
 
     <ImageView
         android:id="@+id/imageView7"
-        android:layout_width="231dp"
-        android:layout_height="51dp"
-        app:srcCompat="@android:drawable/sym_def_app_icon"
-        tools:layout_editor_absoluteX="98dp"
-        tools:layout_editor_absoluteY="10dp" />
+        android:layout_width="316dp"
+        android:layout_height="62dp"
+        android:layout_marginStart="28dp"
+        android:layout_marginTop="8dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/SidePanelButtonMain"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@android:drawable/sym_def_app_icon" />
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:layout_width="419dp"
+        android:layout_height="581dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/imageView7" />
+
 </androidx.constraintlayout.widget.ConstraintLayout>
