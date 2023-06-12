@@ -28,7 +28,7 @@ public class GeneralViewPage extends AppCompatActivity {
         super.onStart();
     }
 
-    searchView.setOnQueryTextListener(new SearchView.OnQueryTextListener(){
+    /*searchView.setOnQueryTextListener(new SearchView.OnQueryTextListener(){
         @Override
         public boolean onQueryTextSubmit(String query){
             searchList=new ArrayList<>();
@@ -41,5 +41,5 @@ public class GeneralViewPage extends AppCompatActivity {
                                 RecyclerView.LayoutManager layoutManager=new LinearLayoutManager( context: MainActivity.this);recyclerView.setLayoutManager(layoutManager) ;
                                 FruitAdapter fruitAdapter=new FruitAdapter( context: MainActivity.this,searchList);recyclerView. setAdapter(fruitAdapter);
                             }
-                            return false;
+                            return false;*/
 }
