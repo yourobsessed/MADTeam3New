@@ -6,10 +6,14 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import android.os.Bundle;
 
+import java.util.ArrayList;
+
 public class GeneralViewPage extends AppCompatActivity {
 
     SearchView searchView;
     RecyclerView recyclerView;
+    ArrayList<Store> storeList = new ArrayList<>();
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
