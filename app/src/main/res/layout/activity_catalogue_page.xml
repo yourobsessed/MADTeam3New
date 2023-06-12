@@ -60,7 +60,7 @@
                         android:layout_height="150dp"
                         android:layout_margin="0dp"
                         android:elevation="10dp"
-                        android:src="@drawable/YONGTAUFOO">
+                        android:src="@drawable/chickenrice">
 
                     </androidx.appcompat.widget.AppCompatImageView>
                 </LinearLayout>
@@ -83,7 +83,7 @@
                         android:layout_height="150dp"
                         android:layout_margin="0dp"
                         android:elevation="10dp"
-                        android:src="@drawable/BANMIAN">
+                        android:src="@drawable/mala">
 
                     </androidx.appcompat.widget.AppCompatImageView>
                 </LinearLayout>
