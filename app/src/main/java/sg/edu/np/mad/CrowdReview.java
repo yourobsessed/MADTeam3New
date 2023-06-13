@@ -6,9 +6,9 @@ import java.time.LocalDateTime;
 public class CrowdReview {
     String foodcourt;
     int crowd;
-    LocalDateTime time;
+    int time;
 
-    public CrowdReview(String foodcourt, int crowd, LocalDateTime time) {
+    public CrowdReview(String foodcourt, int crowd, int time) {
         this.foodcourt = foodcourt;
         this.crowd = crowd;
         this.time = time;

@@ -26,7 +26,7 @@ public class MainPage extends AppCompatActivity {
         FirebaseDatabase database = FirebaseDatabase.getInstance();
         DatabaseReference DatabaseRef = database.getReference();
 
-        DatabaseRef.child("Crowdedness").push().setValue(new CrowdReview("FoodClub", 5, LocalDateTime.now()));
+        DatabaseRef.child("Crowdedness").push().setValue(new CrowdReview("FoodClub", 5, 1));
 
 
 
