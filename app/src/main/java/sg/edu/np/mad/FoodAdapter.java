@@ -18,7 +18,7 @@ public class FoodAdapter extends RecyclerView.Adapter<storeView_ViewHolder> {
     }
 
     public storeView_ViewHolder onCreateViewHolder(ViewGroup parent, int viewType){
-        View view = LayoutInflater.from(parent.getContext()).inflate(android.R.layout.recyclerView, parent, false);
+        View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.activity_store_view_page, parent, false);
         storeView_ViewHolder holder = new storeView_ViewHolder(view);
         return holder;
     }

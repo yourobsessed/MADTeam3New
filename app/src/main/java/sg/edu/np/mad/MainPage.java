@@ -29,7 +29,7 @@ public class MainPage extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 // Code to execute when the button is clicked
-                Intent OpenCatalogue = new Intent(MainPage.this, CataloguePage.class);
+                Intent OpenCatalogue = new Intent(MainPage.this, StoreViewPage.class);
                 startActivity(OpenCatalogue);
             }
         });
