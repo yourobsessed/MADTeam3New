@@ -28,7 +28,10 @@ public class StoreViewPage extends AppCompatActivity {
         LinearLayoutManager foodLayout = new LinearLayoutManager(this);
         recyclerView.setLayoutManager(foodLayout);
         recyclerView.setAdapter(adapter);
+    }
 
-
+    @Override
+    protected void onStart(){
+        super.onStart();
     }
 }

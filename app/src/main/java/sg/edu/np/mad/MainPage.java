@@ -53,6 +53,10 @@ public class MainPage extends AppCompatActivity {
                 startActivity(toSidePanel);
             }
         });
-
     }
+    @Override
+    public void onStart(){
+        super.onStart();
+    }
+
 }
