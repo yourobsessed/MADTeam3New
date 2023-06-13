@@ -7,12 +7,28 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.ImageView;
 
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
+
+import java.time.LocalDateTime;
+
+
 public class MainPage extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main_page);
+
+
+
+        // Write a message to the database
+        FirebaseDatabase database = FirebaseDatabase.getInstance();
+        DatabaseReference DatabaseRef = database.getReference();
+
+        DatabaseRef.child("Crowdedness").push().setValue(new CrowdReview("FoodClub", 5, LocalDateTime.now()));
+
+
 
         ImageView WishlistButton = findViewById(R.id.WishlistButton);
         WishlistButton.setOnClickListener(new View.OnClickListener() {
