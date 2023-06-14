@@ -15,6 +15,7 @@ public class StoreViewPage extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_store_view_page);
+
         Food tryFood = new Food();
         tryFood.setFoodImage(R.drawable.chickenrice);
         tryFood.setFoodName("Ayam Penyet");
@@ -22,6 +23,7 @@ public class StoreViewPage extends AppCompatActivity {
         tryFood.setLocation("Food Club");
         tryFood.setCalories(500);
         tryFood.setPrice(4.50);
+        foodArrayList.add(tryFood);
 
         Food food1 = new Food();
         food1.setFoodImage(R.drawable.chickenrice);
@@ -31,7 +33,6 @@ public class StoreViewPage extends AppCompatActivity {
         food1.setDescription("Hainanese Chicken Rice, very favourful");
         food1.setLocation("Food Club");
 
-        foodArrayList.add(tryFood);
         foodArrayList.add(food1);
 
         RecyclerView recyclerView = findViewById(R.id.recyclerView);

@@ -68,4 +68,8 @@ public class Food {
     public void setFoodImage(int foodImage) {
         this.foodImage = foodImage;
     }
+
+    public String toString() {
+        return String.format("%s,%s","%s",this.foodName,this.location, this.description);
+    }
 }
