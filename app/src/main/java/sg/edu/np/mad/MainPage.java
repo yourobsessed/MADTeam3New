@@ -5,7 +5,9 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.Button;
 import android.widget.ImageView;
+import android.widget.Spinner;
 
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
@@ -21,12 +23,36 @@ public class MainPage extends AppCompatActivity {
         setContentView(R.layout.activity_main_page);
 
 
-
-        // Write a message to the database
         FirebaseDatabase database = FirebaseDatabase.getInstance();
         DatabaseReference DatabaseRef = database.getReference();
 
-        DatabaseRef.child("Crowdedness").push().setValue(new CrowdReview("FoodClub", 5, 1));
+        Spinner FCSpinner = findViewById(R.id.FCSpinner);
+        Spinner CrowdSpinner = findViewById(R.id.CrowdSpinner);
+        Button SendButton = findViewById(R.id.SendCrowdButton);
+
+        SendButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                int crowd = 0;
+                if(CrowdSpinner.getSelectedItem().toString().equals("Full")) {
+                    crowd = 10;
+                }
+                else if(CrowdSpinner.getSelectedItem().toString().equals("Almost Full")) {
+                    crowd = 8;
+                }
+                else if(CrowdSpinner.getSelectedItem().toString().equals("Not Crowded")) {
+                    crowd = 5;
+                }
+                else if(CrowdSpinner.getSelectedItem().toString().equals("Almost Empty")) {
+                    crowd = 2;
+                }
+                else if(CrowdSpinner.getSelectedItem().toString().equals("Empty")) {
+                    crowd = 0;
+                }
+                DatabaseRef.child("Crowdedness").push().setValue(new CrowdReview(FCSpinner.getSelectedItem().toString(), crowd, (LocalDateTime.now()).toString()));
+            }
+        });
+
 
 
 

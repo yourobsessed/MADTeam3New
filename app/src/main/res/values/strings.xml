@@ -28,4 +28,16 @@
     <string name="FoodLocation">Location: </string>
     <string name="FoodPrice">Price: </string>
     <string name="FoodCalories">Calories</string>
+    <string-array name="FoodCourts">
+            <item>Food Club</item>
+            <item>Makan Place</item>
+            <item>Munch</item>
+    </string-array>
+    <string-array name="Crowdedness">
+        <item>Full</item>
+        <item>Almost Full</item>
+        <item>Not Crowded</item>
+        <item>Almost Empty</item>
+        <item>Empty</item>
+    </string-array>
 </resources>
