@@ -30,7 +30,7 @@ public class StoreViewPage extends AppCompatActivity {
         food1.setFoodName("Roasted Chicken Rice");
         food1.setPrice(3);
         food1.setCalories(500);
-        food1.setDescription("Hainanese Chicken Rice, very favourful");
+        food1.setDescription("Very favourful");
         food1.setLocation("Food Club");
 
         foodArrayList.add(food1);
