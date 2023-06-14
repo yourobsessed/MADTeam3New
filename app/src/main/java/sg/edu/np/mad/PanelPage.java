@@ -29,7 +29,7 @@ public class PanelPage extends AppCompatActivity {
         limitOptText.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent toCataloguePage = new Intent(PanelPage.this, MainPage.class);
+                Intent toCataloguePage = new Intent(PanelPage.this, GeneralViewPage.class);
                 startActivity(toCataloguePage);
             }
         });

@@ -21,8 +21,8 @@
         android:id="@+id/FoodNameVH"
         android:layout_width="94dp"
         android:layout_height="30dp"
-        android:layout_marginStart="8dp"
-        android:layout_marginTop="18dp"
+        android:layout_marginStart="9dp"
+        android:layout_marginTop="16dp"
         app:layout_constraintStart_toEndOf="@+id/FoodImageVH"
         app:layout_constraintTop_toTopOf="parent" />
 

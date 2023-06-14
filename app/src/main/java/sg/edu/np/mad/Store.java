@@ -4,14 +4,16 @@ public class Store {
     private String storeName;
     private String location;
     private String description;
+    private int image;
 
     public Store() {
     }
 
-    public Store(String StoreName, String Location, String Description) {
+    public Store(String StoreName, String Location, String Description, int Image) {
         StoreName = storeName;
         Location = location;
         Description = description;
+        Image = image;
     }
 
     public String getStoreName() {
@@ -36,5 +38,13 @@ public class Store {
 
     public void setDescription(String description) {
         this.description = description;
+    }
+
+    public int getImage() {
+        return image;
+    }
+
+    public void setImage(int image) {
+        this.image = image;
     }
 }

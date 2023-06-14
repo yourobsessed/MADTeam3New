@@ -2,6 +2,8 @@ package sg.edu.np.mad;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.SearchView;
+import androidx.recyclerview.widget.DefaultItemAnimator;
+import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import android.os.Bundle;
@@ -21,6 +23,18 @@ public class GeneralViewPage extends AppCompatActivity {
         setContentView(R.layout.activity_general_view_page);
         recyclerView=findViewById(R.id.recyclerView);
         searchView=findViewById(R.id.searchView);
+
+        Store store1 = new Store("Chicken Rice", "Food Club", "Sells Chicken Rice", R.drawable.chickenrice);
+        Store store2 = new Store("Chicken Rice", "Food Club", "Sells Chicken Rice", R.drawable.chickenrice);
+        storeList.add(store1);
+        storeList.add(store2);
+
+        RecyclerView GeneralView_recyclerView = findViewById(R.id.recyclerView);
+        GeneralView_Adapter gAdapter = new GeneralView_Adapter(storeList);
+        LinearLayoutManager gLayoutManager = new LinearLayoutManager(this);
+        GeneralView_recyclerView.setLayoutManager(gLayoutManager);
+        GeneralView_recyclerView.setItemAnimator(new DefaultItemAnimator());
+        GeneralView_recyclerView.setAdapter(gAdapter);
     }
 
     @Override
