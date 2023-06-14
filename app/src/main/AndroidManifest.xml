@@ -13,7 +13,7 @@
         android:theme="@style/Theme.MAD_Assignemnt"
         tools:targetApi="31">
         <activity
-            android:name=".storeView_ViewHolder"
+            android:name=".StoreView_ViewHolder"
             android:exported="false" />
         <activity
             android:name=".GeneralViewPage"
