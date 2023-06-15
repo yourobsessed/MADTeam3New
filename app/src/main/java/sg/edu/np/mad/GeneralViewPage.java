@@ -5,17 +5,21 @@ import androidx.appcompat.widget.SearchView;
 import androidx.recyclerview.widget.DefaultItemAnimator;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
+import com.google.android.material.chip.Chip;
+import com.google.android.material.chip.ChipGroup;
+
 
 import android.os.Bundle;
+import android.widget.Toast;
 
 import java.util.ArrayList;
+import java.util.List;
 
 public class GeneralViewPage extends AppCompatActivity {
 
-    SearchView searchView;
-    RecyclerView recyclerView;
-    ArrayList<Store> storeList = new ArrayList<>();
-
+    private SearchView searchView;
+    private RecyclerView recyclerView;
+    private ArrayList<Store> storeList = new ArrayList<>();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -23,6 +27,19 @@ public class GeneralViewPage extends AppCompatActivity {
         setContentView(R.layout.activity_general_view_page);
         recyclerView=findViewById(R.id.recyclerView);
         searchView=findViewById(R.id.searchView);
+        searchView.clearFocus();
+        searchView.setOnQueryTextListener(new SearchView.OnQueryTextListener() {
+            @Override
+            public boolean onQueryTextSubmit(String query) {
+                return false;
+            }
+
+            @Override
+            public boolean onQueryTextChange(String newText) {
+                filterList(newText);
+                return true;
+            }
+        });
 
         Store store1 = new Store("Chicken Rice", "Food Club", "Sells Chicken Rice", R.drawable.chickenrice);
         Store store2 = new Store("Chicken Rice", "Food Club", "Sells Chicken Rice", R.drawable.chickenrice);
@@ -35,6 +52,24 @@ public class GeneralViewPage extends AppCompatActivity {
         GeneralView_recyclerView.setLayoutManager(gLayoutManager);
         GeneralView_recyclerView.setItemAnimator(new DefaultItemAnimator());
         GeneralView_recyclerView.setAdapter(gAdapter);
+
+        private void filterList(String text) {
+            List<Store> filteredList = new ArrayList<>();
+            for (Store store : storeList) {
+                if (store.getStoreName().toLowerCase().contains(text.toLowerCase())) {
+                    filteredList.add(store);
+
+                }
+            }
+            if (filteredList.isEmpty()) {
+                Toast.makeText(this,"No data found",Toast.LENGTH_SHORT).show();
+            }
+            else {
+                gAdapter.setFilteredList(filteredList);
+            }
+
+        }
+
     }
 
     @Override
@@ -56,4 +91,7 @@ public class GeneralViewPage extends AppCompatActivity {
                                 FruitAdapter fruitAdapter=new FruitAdapter( context: MainActivity.this,searchList);recyclerView. setAdapter(fruitAdapter);
                             }
                             return false;*/
+
+
+
 }
