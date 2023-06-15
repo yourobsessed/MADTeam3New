@@ -1,5 +1,6 @@
 package sg.edu.np.mad;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
@@ -7,12 +8,24 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ImageView;
+import android.widget.ProgressBar;
 import android.widget.Spinner;
+import android.widget.Toast;
 
+import com.google.firebase.database.ChildEventListener;
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.ValueEventListener;
 
+import org.jetbrains.annotations.Nullable;
+
+import java.sql.Date;
+import java.time.Duration;
 import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
+import java.util.ArrayList;
 
 
 public class MainPage extends AppCompatActivity {
@@ -53,6 +66,40 @@ public class MainPage extends AppCompatActivity {
             }
         });
 
+        ArrayList<CrowdReview> CrowdReviewsList = new ArrayList<>();
+        DatabaseRef.child("Crowdedness").addListenerForSingleValueEvent(new ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull DataSnapshot snapshot) {
+                for (DataSnapshot reviewSnapshot : snapshot.getChildren()) {
+                    CrowdReview crowdReview = reviewSnapshot.getValue(CrowdReview.class);
+                    DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd'T'HH:mm:ss.SSS");
+                    //Toast.makeText(getApplicationContext(), "" + crowdReview.time, Toast.LENGTH_SHORT).show();
+                    LocalDateTime ReviewDate = LocalDateTime.parse(crowdReview.time, formatter);
+                    if (Duration.between(LocalDateTime.now(), ReviewDate).abs().toHours() <= 1) {
+                        CrowdReviewsList.add(crowdReview);
+                    } else {
+                        reviewSnapshot.getRef().removeValue();
+                    }
+                }
+            }
+
+            @Override
+            public void onCancelled(@NonNull DatabaseError error) {
+
+            }
+
+
+        });
+
+        ProgressBar FCBar = findViewById(R.id.FCBar);
+        ProgressBar MPBar = findViewById(R.id.MPBar);
+        ProgressBar MBar = findViewById(R.id.MBar);
+
+        updateBar("");
+
+
+
+
 
 
 
@@ -60,7 +107,6 @@ public class MainPage extends AppCompatActivity {
         WishlistButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                // Code to execute when the button is clicked
                 Intent OpenWishList = new Intent(MainPage.this, WishlistPage.class);
                 startActivity(OpenWishList);
             }
@@ -70,7 +116,6 @@ public class MainPage extends AppCompatActivity {
         CatalogueButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                // Code to execute when the button is clicked
                 Intent OpenCatalogue = new Intent(MainPage.this, StoreViewPage.class);
                 startActivity(OpenCatalogue);
             }
@@ -80,7 +125,6 @@ public class MainPage extends AppCompatActivity {
         NotificationButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                // Code to execute when the button is clicked
                 Intent OpenNotification = new Intent(MainPage.this, MainPage.class);
                 startActivity(OpenNotification);
                 //to be implemented in stage 2
@@ -99,6 +143,10 @@ public class MainPage extends AppCompatActivity {
     @Override
     public void onStart(){
         super.onStart();
+    }
+
+    private void updateBar(String foodCourt){
+
     }
 
 }
