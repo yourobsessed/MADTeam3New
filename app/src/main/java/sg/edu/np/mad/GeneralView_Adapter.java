@@ -9,6 +9,7 @@ import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
 import java.util.ArrayList;
+import java.util.List;
 
 public class GeneralView_Adapter extends RecyclerView.Adapter<GeneralView_Viewholder> {
     ArrayList<Store> data;
@@ -17,6 +18,10 @@ public class GeneralView_Adapter extends RecyclerView.Adapter<GeneralView_Viewho
         data = input;
     }
 
+    public void setFilteredList(List<Store> filteredList) {
+        this.data = filteredList;
+        GeneralView_Adapter.notifyDataSetChanged();
+    }
     @Override
     public GeneralView_Viewholder onCreateViewHolder(ViewGroup parent, int viewType) {
         View item = LayoutInflater.from(parent.getContext()).inflate(R.layout.food_file, parent, false);
