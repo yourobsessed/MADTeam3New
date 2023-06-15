@@ -22,7 +22,7 @@ public class FoodCourt_Adapter extends RecyclerView.Adapter<FoodCourt_ViewHolder
 
     public void onBindViewHolder(FoodCourt_ViewHolder holder, int position){
         FoodCourt fc = data.get(position);
-        holder.foodCourtName.setText(data.get(position).getFoodCourtName());
+        holder.foodCourtName.setText(fc.getFoodCourtName());
         holder.foodCourtDescription.setText(fc.getFoodCourtDesc());
         holder.foodCourtImage.setImageResource(fc.getFoodCourtImage());
     }

@@ -2,6 +2,7 @@ package sg.edu.np.mad;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.DefaultItemAnimator;
+import androidx.recyclerview.widget.DividerItemDecoration;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
@@ -31,6 +32,8 @@ public class FoodCourtViewPage extends AppCompatActivity {
         recyclerView.setLayoutManager(fclayoutManager);
         recyclerView.setItemAnimator(new DefaultItemAnimator());
         recyclerView.setAdapter(fcadapter);
+        DividerItemDecoration fcDividerItemDeco = new DividerItemDecoration(recyclerView.getContext(), fclayoutManager.getOrientation());
+        recyclerView.addItemDecoration(fcDividerItemDeco);
 
     }
 }

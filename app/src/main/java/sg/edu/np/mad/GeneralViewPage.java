@@ -19,7 +19,7 @@ public class GeneralViewPage extends AppCompatActivity {
 
     private SearchView searchView;
     private RecyclerView recyclerView;
-    private ArrayList<Store> storeList = new ArrayList<>();
+    ArrayList<Store> storeList = new ArrayList<>();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -28,7 +28,7 @@ public class GeneralViewPage extends AppCompatActivity {
         recyclerView=findViewById(R.id.recyclerView);
         searchView=findViewById(R.id.searchView);
         searchView.clearFocus();
-        searchView.setOnQueryTextListener(new SearchView.OnQueryTextListener() {
+        /*searchView.setOnQueryTextListener(new SearchView.OnQueryTextListener() {
             @Override
             public boolean onQueryTextSubmit(String query) {
                 return false;
@@ -39,13 +39,13 @@ public class GeneralViewPage extends AppCompatActivity {
                 filterList(newText);
                 return true;
             }
-        });
+        })*/
 
         Store store1 = new Store("Chicken Rice", "Food Club", "Sells Chicken Rice", R.drawable.chickenrice);
         Store store2 = new Store("Chicken Rice", "Food Club", "Sells Chicken Rice", R.drawable.chickenrice);
         storeList.add(store1);
         storeList.add(store2);
-
+        System.out.println(storeList.size());
         RecyclerView GeneralView_recyclerView = findViewById(R.id.recyclerView);
         GeneralView_Adapter gAdapter = new GeneralView_Adapter(storeList);
         LinearLayoutManager gLayoutManager = new LinearLayoutManager(this);
@@ -53,7 +53,7 @@ public class GeneralViewPage extends AppCompatActivity {
         GeneralView_recyclerView.setItemAnimator(new DefaultItemAnimator());
         GeneralView_recyclerView.setAdapter(gAdapter);
 
-        private void filterList(String text) {
+        /*private void filterList(String text) {
             List<Store> filteredList = new ArrayList<>();
             for (Store store : storeList) {
                 if (store.getStoreName().toLowerCase().contains(text.toLowerCase())) {
@@ -68,7 +68,7 @@ public class GeneralViewPage extends AppCompatActivity {
                 gAdapter.setFilteredList(filteredList);
             }
 
-        }
+        }*/
 
     }
 

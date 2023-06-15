@@ -10,10 +10,10 @@ public class Store {
     }
 
     public Store(String StoreName, String Location, String Description, int Image) {
-        StoreName = storeName;
-        Location = location;
-        Description = description;
-        Image = image;
+        this.storeName = StoreName;
+        this.location = Location;
+        this.description = Description;
+        this.image = Image;
     }
 
     public String getStoreName() {
