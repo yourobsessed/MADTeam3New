@@ -16,14 +16,7 @@ public class StoreViewPage extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_store_view_page);
 
-        Food tryFood = new Food();
-        tryFood.setFoodImage(R.drawable.chickenrice);
-        tryFood.setFoodName("Ayam Penyet");
-        tryFood.setDescription("Fried Chicken with curry rice");
-        tryFood.setLocation("Food Club");
-        tryFood.setCalories(500);
-        tryFood.setPrice(4.50);
-        foodArrayList.add(tryFood);
+        Food munchMala = new Food();
 
         Food food1 = new Food();
         food1.setFoodImage(R.drawable.chickenrice);
