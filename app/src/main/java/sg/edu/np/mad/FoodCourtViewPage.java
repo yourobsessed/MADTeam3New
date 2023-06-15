@@ -6,11 +6,12 @@ import androidx.recyclerview.widget.DividerItemDecoration;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import android.content.Intent;
 import android.os.Bundle;
 
 import java.util.ArrayList;
 
-public class FoodCourtViewPage extends AppCompatActivity {
+public class FoodCourtViewPage extends AppCompatActivity implements SelectListenerFC{
     ArrayList<FoodCourt> foodCourtArrayList = new ArrayList<FoodCourt>();
 
     @Override
@@ -27,13 +28,30 @@ public class FoodCourtViewPage extends AppCompatActivity {
         foodCourtArrayList.add(Munch);
 
         RecyclerView recyclerView = findViewById(R.id.recyclerView2);
-        FoodCourt_Adapter fcadapter = new FoodCourt_Adapter(foodCourtArrayList);
+        FoodCourt_Adapter fcadapter = new FoodCourt_Adapter(foodCourtArrayList, this);
         LinearLayoutManager fclayoutManager = new LinearLayoutManager(this);
         recyclerView.setLayoutManager(fclayoutManager);
         recyclerView.setItemAnimator(new DefaultItemAnimator());
         recyclerView.setAdapter(fcadapter);
-        DividerItemDecoration fcDividerItemDeco = new DividerItemDecoration(recyclerView.getContext(), fclayoutManager.getOrientation());
-        recyclerView.addItemDecoration(fcDividerItemDeco);
+
+    }
+
+    @Override
+    public void onItemClicked(FoodCourt foodCourt) {
+        for(FoodCourt f : foodCourtArrayList){
+            if (f.getFoodCourtName() == "Makan Place"){
+                Intent toGeneralPage = new Intent(FoodCourtViewPage.this, GeneralViewPage.class);
+                startActivity(toGeneralPage);
+            }
+            else if (f.getFoodCourtName() == "Munch"){
+                Intent toGeneralPage = new Intent(FoodCourtViewPage.this, GeneralViewPage.class); //planning to have multiple general view page for each of the foodcourt
+                startActivity(toGeneralPage);
+            }
+            else if(f.getFoodCourtName() =="Food Club"){
+                Intent toGeneralPage = new Intent(FoodCourtViewPage.this, GeneralViewPage.class);
+                startActivity(toGeneralPage);
+            }
+        }
 
     }
 }

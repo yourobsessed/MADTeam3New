@@ -38,7 +38,7 @@ public class PanelPage extends AppCompatActivity {
         CatalogueText.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent toCataloguePage = new Intent(PanelPage.this, StoreViewPage.class);
+                Intent toCataloguePage = new Intent(PanelPage.this, GeneralViewPage.class);
                 //will go to the storeView general page first then from the store page then go to the specific food item page
                 startActivity(toCataloguePage);
             }

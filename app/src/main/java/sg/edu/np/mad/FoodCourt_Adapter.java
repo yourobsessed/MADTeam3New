@@ -10,9 +10,11 @@ import java.util.ArrayList;
 
 public class FoodCourt_Adapter extends RecyclerView.Adapter<FoodCourt_ViewHolder> {
     ArrayList<FoodCourt> data;
+    private SelectListenerFC listenerFC;
 
-    public FoodCourt_Adapter(ArrayList<FoodCourt> input){
+    public FoodCourt_Adapter(ArrayList<FoodCourt> input, SelectListenerFC listenerFC){
         this.data = input;
+        this.listenerFC = listenerFC;
     }
 
     public FoodCourt_ViewHolder onCreateViewHolder(ViewGroup parent, int viewType){
@@ -25,6 +27,13 @@ public class FoodCourt_Adapter extends RecyclerView.Adapter<FoodCourt_ViewHolder
         holder.foodCourtName.setText(fc.getFoodCourtName());
         holder.foodCourtDescription.setText(fc.getFoodCourtDesc());
         holder.foodCourtImage.setImageResource(fc.getFoodCourtImage());
+
+        holder.cardView.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                listenerFC.onItemClicked(fc);
+            }
+        });
     }
 
     public int getItemCount(){

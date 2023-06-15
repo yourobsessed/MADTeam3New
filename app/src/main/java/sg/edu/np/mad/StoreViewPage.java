@@ -16,7 +16,7 @@ public class StoreViewPage extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_store_view_page);
 
-        Food munchMala = new Food();
+        Food munchSaladBowl = new Food("Regular", "Munch", 4, 400, "Filling amount for one person", R.drawable.store);
 
         Food food1 = new Food();
         food1.setFoodImage(R.drawable.chickenrice);
@@ -27,6 +27,7 @@ public class StoreViewPage extends AppCompatActivity {
         food1.setLocation("Food Club");
 
         foodArrayList.add(food1);
+        foodArrayList.add(munchSaladBowl);
 
         RecyclerView recyclerView = findViewById(R.id.recyclerView);
         FoodAdapter adapter = new FoodAdapter(foodArrayList); //need to create foodList

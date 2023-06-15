@@ -97,7 +97,7 @@ public class MainPage extends AppCompatActivity {
         CatalogueButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent OpenCatalogue = new Intent(MainPage.this, StoreViewPage.class);
+                Intent OpenCatalogue = new Intent(MainPage.this, FoodCourtViewPage.class);
                 startActivity(OpenCatalogue);
             }
         });

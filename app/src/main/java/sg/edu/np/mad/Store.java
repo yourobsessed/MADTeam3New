@@ -1,6 +1,7 @@
 package sg.edu.np.mad;
 
-public class Store {
+public class Store extends FoodCourt{
+
     private String storeName;
     private String location;
     private String description;
@@ -11,7 +12,7 @@ public class Store {
 
     public Store(String StoreName, String Location, String Description, int Image) {
         this.storeName = StoreName;
-        this.location = Location;
+        this.location = getFoodCourtName();
         this.description = Description;
         this.image = Image;
     }

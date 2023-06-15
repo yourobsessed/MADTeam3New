@@ -19,7 +19,10 @@ public class GeneralViewPage extends AppCompatActivity {
 
     private SearchView searchView;
     private RecyclerView recyclerView;
-    ArrayList<Store> storeList = new ArrayList<>();
+    ArrayList<ArrayList> storeList;
+    ArrayList<Store> FoodClubstoreList = new ArrayList<>();
+    ArrayList<Store> MakanstoreList = new ArrayList<>();
+    ArrayList<Store> MunchstoreList = new ArrayList<>();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -42,16 +45,28 @@ public class GeneralViewPage extends AppCompatActivity {
         })*/
 
         Store store1 = new Store("Chicken Rice", "Food Club", "Sells Chicken Rice", R.drawable.chickenrice);
-        Store store2 = new Store("Chicken Rice", "Food Club", "Sells Chicken Rice", R.drawable.chickenrice);
-        storeList.add(store1);
-        storeList.add(store2);
-        System.out.println(storeList.size());
-        RecyclerView GeneralView_recyclerView = findViewById(R.id.recyclerView);
-        GeneralView_Adapter gAdapter = new GeneralView_Adapter(storeList);
-        LinearLayoutManager gLayoutManager = new LinearLayoutManager(this);
-        GeneralView_recyclerView.setLayoutManager(gLayoutManager);
-        GeneralView_recyclerView.setItemAnimator(new DefaultItemAnimator());
-        GeneralView_recyclerView.setAdapter(gAdapter);
+        Store store2 = new Store("Korean Cuisine", "Munch", "Sells korean food", R.drawable.chickenrice);
+        Store store3 = new Store("Japanese Cuisine", "Makan Place", "Sells Japanese food", R.drawable.chickenrice);
+
+        FoodClubstoreList.add(store1);
+        MakanstoreList.add(store2);
+        MunchstoreList.add(store3);
+        /*storeList.add(FoodClubstoreList);
+        storeList.add(MakanstoreList);
+        storeList.add(MunchstoreList);*/
+
+        for (Store s: MakanstoreList) { //accessing the objects in the list
+            if (s.getLocation() == "Makan Place"){
+                RecyclerView GeneralView_recyclerView = findViewById(R.id.recyclerView);
+                GeneralView_Adapter gAdapter = new GeneralView_Adapter(MakanstoreList);
+                LinearLayoutManager gLayoutManager = new LinearLayoutManager(this);
+                GeneralView_recyclerView.setLayoutManager(gLayoutManager);
+                GeneralView_recyclerView.setItemAnimator(new DefaultItemAnimator());
+                GeneralView_recyclerView.setAdapter(gAdapter);
+            }
+        }
+
+
 
         /*private void filterList(String text) {
             List<Store> filteredList = new ArrayList<>();
@@ -93,5 +108,13 @@ public class GeneralViewPage extends AppCompatActivity {
                             return false;*/
 
 
+    @Override
+    protected void onResume(){
+        super.onResume();
+
+        //for( int i = 0; i < storeList.size(); i++){
+
+        //}
+    }
 
 }
