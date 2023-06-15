@@ -19,8 +19,12 @@ public class GeneralView_Adapter extends RecyclerView.Adapter<GeneralView_Viewho
     }
 
     public void setFilteredList(List<Store> filteredList) {
-        this.data = filteredList;
-        GeneralView_Adapter.notifyDataSetChanged();
+        // below line is to add our filtered
+        // list in our course array list.
+        data = filteredList;
+        // below line is to notify our adapter
+        // as change in recycler view data.
+        notifyDataSetChanged();
     }
     @Override
     public GeneralView_Viewholder onCreateViewHolder(ViewGroup parent, int viewType) {
