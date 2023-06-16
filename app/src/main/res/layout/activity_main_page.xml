@@ -74,8 +74,9 @@
         android:layout_height="61dp"
         android:layout_marginStart="1dp"
         android:layout_marginTop="8dp"
-        android:layout_marginEnd="77dp"
+        android:layout_marginEnd="70dp"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toEndOf="@+id/SidePanelButtonMain"
         app:layout_constraintTop_toTopOf="parent"
         app:srcCompat="@android:drawable/sym_def_app_icon" />
@@ -203,8 +204,8 @@
 
     <Spinner
         android:id="@+id/CrowdSpinner"
-        android:layout_width="218dp"
-        android:layout_height="38dp"
+        android:layout_width="221dp"
+        android:layout_height="48dp"
         android:layout_marginStart="13dp"
         android:entries="@array/Crowdedness"
         app:layout_constraintStart_toStartOf="parent"
@@ -212,8 +213,8 @@
 
     <Spinner
         android:id="@+id/FCSpinner"
-        android:layout_width="218dp"
-        android:layout_height="38dp"
+        android:layout_width="221dp"
+        android:layout_height="48dp"
         android:layout_marginStart="13dp"
         android:entries="@array/FoodCourts"
         app:layout_constraintStart_toStartOf="parent"
@@ -231,14 +232,15 @@
 
     <Button
         android:id="@+id/RefreshButton"
-        android:layout_width="93dp"
-        android:layout_height="37dp"
+        android:layout_width="99dp"
+        android:layout_height="48dp"
         android:layout_marginStart="36dp"
-        android:layout_marginTop="19dp"
+        android:layout_marginTop="8dp"
         android:text="Refresh"
         android:textAlignment="center"
-        android:textSize="9sp"
+        android:textSize="12sp"
         app:layout_constraintStart_toEndOf="@+id/textView12"
         app:layout_constraintTop_toBottomOf="@+id/imageView7" />
+
 
 </androidx.constraintlayout.widget.ConstraintLayout>

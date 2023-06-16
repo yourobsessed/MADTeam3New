@@ -2,7 +2,7 @@ package sg.edu.np.mad;
 
 import java.util.ArrayList;
 
-public class Store extends FoodCourt{
+public class Store {
 
     private String storeName;
     private String location;
