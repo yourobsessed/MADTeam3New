@@ -231,12 +231,12 @@
 
     <Button
         android:id="@+id/RefreshButton"
-        android:layout_width="80dp"
-        android:layout_height="39dp"
+        android:layout_width="93dp"
+        android:layout_height="37dp"
         android:layout_marginStart="36dp"
         android:layout_marginTop="19dp"
         android:text="Refresh"
-        android:textAlignment="textStart"
+        android:textAlignment="center"
         android:textSize="9sp"
         app:layout_constraintStart_toEndOf="@+id/textView12"
         app:layout_constraintTop_toBottomOf="@+id/imageView7" />
