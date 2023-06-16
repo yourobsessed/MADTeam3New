@@ -1,9 +1,12 @@
 package sg.edu.np.mad;
 
+import java.util.ArrayList;
+
 public class FoodCourt {
     private String foodCourtName;
     private String foodCourtDesc;
     private int foodCourtImage;
+    public ArrayList<Store> storeList;
 
     public FoodCourt() {
     }
@@ -36,6 +39,14 @@ public class FoodCourt {
 
     public void setFoodCourtImage(int foodCourtImage) {
         this.foodCourtImage = foodCourtImage;
+    }
+
+    public ArrayList<Store> getStoreList() {
+        return storeList;
+    }
+
+    public void setStoreList(ArrayList<Store> storeList) {
+        this.storeList = storeList;
     }
 
     public String toString() {

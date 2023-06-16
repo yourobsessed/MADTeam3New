@@ -1,20 +1,26 @@
 package sg.edu.np.mad;
 
+import java.util.ArrayList;
+
 public class Store extends FoodCourt{
 
     private String storeName;
     private String location;
     private String description;
-    private int image;
+
+    private Boolean halal;
+    private Boolean vegetarian;
+
 
     public Store() {
     }
 
-    public Store(String StoreName, String Location, String Description, int Image) {
+    public Store(String StoreName, String Location, String Description, Boolean Halal, Boolean Vegetarian) {
         this.storeName = StoreName;
-        this.location = getFoodCourtName();
+        this.location = Location;
         this.description = Description;
-        this.image = Image;
+        this.halal = Halal;
+        this.vegetarian = Vegetarian;
     }
 
     public String getStoreName() {
@@ -41,11 +47,19 @@ public class Store extends FoodCourt{
         this.description = description;
     }
 
-    public int getImage() {
-        return image;
+    public Boolean getHalal() {
+        return halal;
     }
 
-    public void setImage(int image) {
-        this.image = image;
+    public void setHalal(Boolean halal) {
+        this.halal = halal;
+    }
+
+    public Boolean getVegetarian() {
+        return vegetarian;
+    }
+
+    public void setVegetarian(Boolean vegetarian) {
+        this.vegetarian = vegetarian;
     }
 }

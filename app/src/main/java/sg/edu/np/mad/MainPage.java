@@ -97,7 +97,7 @@ public class MainPage extends AppCompatActivity {
         CatalogueButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent OpenCatalogue = new Intent(MainPage.this, FoodCourtViewPage.class);
+                Intent OpenCatalogue = new Intent(MainPage.this, GeneralViewPage.class);
                 startActivity(OpenCatalogue);
             }
         });
@@ -153,8 +153,6 @@ public class MainPage extends AppCompatActivity {
             public void onCancelled(@NonNull DatabaseError error) {
 
             }
-
-
         });
     }
 

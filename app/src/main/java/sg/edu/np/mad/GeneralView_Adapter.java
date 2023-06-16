@@ -9,14 +9,15 @@ import androidx.recyclerview.widget.RecyclerView;
 import java.util.ArrayList;
 import java.util.List;
 
-public class GeneralView_Adapter extends RecyclerView.Adapter<GeneralView_Viewholder> {
-    List<Store> data;
-
-    public GeneralView_Adapter(ArrayList<Store> input){
+public class GeneralView_Adapter extends RecyclerView.Adapter<GeneralView_Viewholder>  {
+    List<Food> data;
+    private SelectListenerFood listenerFood;
+    public GeneralView_Adapter(ArrayList<Food> input, SelectListenerFood ListenerFood){
         this.data = input;
+        this.listenerFood = ListenerFood;
     }
 
-    public void setFilteredList(List<Store> filteredList) {
+    public void setFilteredList(List<Food> filteredList) {
         // below line is to add our filtered
         // list in our course array list.
         data = filteredList;
@@ -32,10 +33,16 @@ public class GeneralView_Adapter extends RecyclerView.Adapter<GeneralView_Viewho
 
     @Override
     public void onBindViewHolder(GeneralView_Viewholder holder, int position){
-        Store s = data.get(position);
-        holder.storeName.setText(s.getStoreName());
-        holder.storeDescription.setText(s.getDescription());
-        holder.storeImage.setImageResource(s.getImage());
+        Food f = data.get(position);
+        holder.foodName.setText(f.getFoodName());
+        holder.foodDescription.setText(f.getDescription());
+        holder.foodImage.setImageResource(f.getFoodImage());
+        holder.cardView.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                listenerFood.onItemClicked(f);
+            }
+        });
     }
 
     public int getItemCount(){

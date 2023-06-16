@@ -9,6 +9,7 @@ import com.google.android.material.chip.Chip;
 import com.google.android.material.chip.ChipGroup;
 
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.widget.Toast;
 
@@ -16,7 +17,7 @@ import java.util.ArrayList;
 import java.util.Collection;
 import java.util.List;
 
-public class GeneralViewPage extends AppCompatActivity {
+public class GeneralViewPage extends AppCompatActivity implements SelectListenerFood{
 
     private SearchView searchView;
     private RecyclerView recyclerView;
@@ -25,10 +26,7 @@ public class GeneralViewPage extends AppCompatActivity {
     private Chip chipHalal,chipVegeterian,chipHealthy,chipAffordable,chipNoodles,chipRice,chipDessert,chipDrinks;
 
     ArrayList<String> selectedChipData = new ArrayList<>();
-    ArrayList<Store> storeList = new ArrayList<>();
-    ArrayList<Store> FoodClubstoreList = new ArrayList<>();
-    ArrayList<Store> MakanstoreList = new ArrayList<>();
-    ArrayList<Store> MunchstoreList = new ArrayList<>();
+    ArrayList<Food> storeList = new ArrayList<>();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -39,14 +37,14 @@ public class GeneralViewPage extends AppCompatActivity {
         searchView.clearFocus();
 
         //chips
-        chipHalal=findViewById(R.id.chipHealthy);
+        /*chipHalal=findViewById(R.id.chipHealthy);
         chipVegeterian=findViewById(R.id.chipVegeterian);
         chipHealthy=findViewById(R.id.chipHealthy);
         chipAffordable=findViewById(R.id.chipAffordable);
         chipNoodles=findViewById(R.id.chipNoodles);
         chipRice=findViewById(R.id.chipRice);
         chipDessert=findViewById(R.id.chipDessert);
-        chipDrinks=findViewById(R.id.chipDrinks);
+        chipDrinks=findViewById(R.id.chipDrinks);*/
 
         searchView.setOnQueryTextListener(new SearchView.OnQueryTextListener() {
             @Override
@@ -56,10 +54,10 @@ public class GeneralViewPage extends AppCompatActivity {
 
             @Override
             public boolean onQueryTextChange(String newText) {
-                List<Store> filteredList = new ArrayList<>();
-                for (Store store : storeList) {
-                    if (store.getStoreName().toLowerCase().contains(newText.toLowerCase())) {
-                        filteredList.add(store);
+                List<Food> filteredList = new ArrayList<>();
+                for (Food food : storeList) {
+                    if (food.getStoreName().toLowerCase().contains(newText.toLowerCase())) {
+                        filteredList.add(food);
 
                     }
                 }
@@ -72,47 +70,32 @@ public class GeneralViewPage extends AppCompatActivity {
                 return true;
             }
         });
+        Food munchSaladBowl = new Food("Regular", "Munch", 4, 400, "Filling amount for one person", R.drawable.store, true, false, true);
 
-        Store store1 = new Store("Chicken Rice", "Food Club", "Sells Chicken Rice", R.drawable.chickenrice);
-        Store store2 = new Store("Korean Cuisine", "Munch", "Sells Korean food", R.drawable.chickenrice);
-        Store store3 = new Store("Japanese Cuisine", "Makan Place", "Sells Japanese food", R.drawable.chickenrice);
+        Food food1 = new Food("Roasted Chicken Rice", "Food Club", 3, 500, "Very favourful", R.drawable.chickenrice, false, true, true);
 
-        FoodClubstoreList.add(store1);
-        MakanstoreList.add(store2);
-        MunchstoreList.add(store3);
-        storeList.addAll(new ArrayList<>(FoodClubstoreList));
-        storeList.addAll(new ArrayList<>(MakanstoreList));
-        storeList.addAll(new ArrayList<>(MunchstoreList));
+        storeList.add(munchSaladBowl);
+        storeList.add(food1);
 
-        gAdapter = new GeneralView_Adapter(storeList);
+        gAdapter = new GeneralView_Adapter(storeList, this);
         LinearLayoutManager layoutManager = new LinearLayoutManager(this);
         recyclerView.setLayoutManager(layoutManager);
         recyclerView.setItemAnimator(new DefaultItemAnimator());
         recyclerView.setAdapter(gAdapter);
 
+    }
 
 
-        /*for (Store s: MakanstoreList) { //accessing the objects in the list
-            if (s.getLocation() == "Makan Place"){
-                RecyclerView GeneralView_recyclerView = findViewById(R.id.recyclerView);
-                GeneralView_Adapter gAdapter = new GeneralView_Adapter(MakanstoreList);
-                LinearLayoutManager gLayoutManager = new LinearLayoutManager(this);
-                GeneralView_recyclerView.setLayoutManager(gLayoutManager);
-                GeneralView_recyclerView.setItemAnimator(new DefaultItemAnimator());
-                GeneralView_recyclerView.setAdapter(gAdapter);
-            }
-        }*/
-
-
-
-
-
-        }
+    @Override
+    public void onItemClicked(Food food) {
+        Intent toCataloguePage = new Intent(GeneralViewPage.this, CataloguePage.class);
+        startActivity(toCataloguePage);
+    }
     private void filterList(String text) {
-        List<Store> filteredList = new ArrayList<>();
-        for (Store store : storeList) {
-            if (store.getStoreName().toLowerCase().contains(text.toLowerCase())) {
-                filteredList.add(store);
+        List<Food> filteredList = new ArrayList<>();
+        for (Food food : storeList) {
+            if (food.getStoreName().toLowerCase().contains(text.toLowerCase())) {
+                filteredList.add(food);
 
             }
         }
