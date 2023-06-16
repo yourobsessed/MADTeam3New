@@ -48,49 +48,73 @@
         <com.google.android.material.chip.ChipGroup
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            app:singleLine="true"
-            app:singleSelection="true">
+            app:singleLine="true">
+
 
             <com.google.android.material.chip.Chip
+                android:id="@+id/chipHalal"
                 android:layout_width="wrap_content"
-                android:text="This"
-                android:layout_height="wrap_content" />
+                android:layout_height="wrap_content"
+                android:text="Halal"/>
 
             <com.google.android.material.chip.Chip
+                android:id="@+id/chipVegeterian"
                 android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="is" />
+                android:text="Vegeterian"
+                android:layout_height="wrap_content"/>
+
             <com.google.android.material.chip.Chip
+                android:id="@+id/chipHealthy"
                 android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="is" />
+                android:text="Healthy (Less than 500kcal)"
+                android:layout_height="wrap_content"/>
+
             <com.google.android.material.chip.Chip
+                android:id="@+id/chipAffordable"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="is" />
+                android:text="Affordable (Less than $5.00)"/>
+
             <com.google.android.material.chip.Chip
+                android:id="@+id/chipNoodles"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="is" />
+                android:text="Noodles"/>
+
             <com.google.android.material.chip.Chip
+                android:id="@+id/chipRice"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="is" />
+                android:text="Rice"/>
+
             <com.google.android.material.chip.Chip
+                android:id="@+id/chipDessert"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="is" />
+                android:text="Dessert"/>
+
             <com.google.android.material.chip.Chip
+                android:id="@+id/chipDrinks"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="is" />
-            <com.google.android.material.chip.Chip
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="is" />
+                android:text="Drinks"/>
 
         </com.google.android.material.chip.ChipGroup>
     </HorizontalScrollView>
+
+    <com.google.android.material.floatingactionbutton.FloatingActionButton
+        android:id="@+id/filterbutton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="bottom|end"
+        android:layout_margin="16dp"
+        android:layout_marginTop="596dp"
+        android:layout_marginEnd="8dp"
+        app:layout_constraintEnd_toEndOf="@+id/recyclerView"
+        app:layout_constraintTop_toTopOf="@+id/recyclerView"
+        app:srcCompat="@drawable/filter" />
+
+
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

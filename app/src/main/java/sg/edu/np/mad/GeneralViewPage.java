@@ -21,6 +21,10 @@ public class GeneralViewPage extends AppCompatActivity {
     private SearchView searchView;
     private RecyclerView recyclerView;
     private GeneralView_Adapter gAdapter;
+
+    private Chip chipHalal,chipVegeterian,chipHealthy,chipAffordable,chipNoodles,chipRice,chipDessert,chipDrinks;
+
+    ArrayList<String> selectedChipData = new ArrayList<>();
     ArrayList<Store> storeList = new ArrayList<>();
     ArrayList<Store> FoodClubstoreList = new ArrayList<>();
     ArrayList<Store> MakanstoreList = new ArrayList<>();
@@ -33,6 +37,17 @@ public class GeneralViewPage extends AppCompatActivity {
         recyclerView=findViewById(R.id.recyclerView);
         searchView=findViewById(R.id.searchView);
         searchView.clearFocus();
+
+        //chips
+        chipHalal=findViewById(R.id.chipHealthy);
+        chipVegeterian=findViewById(R.id.chipVegeterian);
+        chipHealthy=findViewById(R.id.chipHealthy);
+        chipAffordable=findViewById(R.id.chipAffordable);
+        chipNoodles=findViewById(R.id.chipNoodles);
+        chipRice=findViewById(R.id.chipRice);
+        chipDessert=findViewById(R.id.chipDessert);
+        chipDrinks=findViewById(R.id.chipDrinks);
+
         searchView.setOnQueryTextListener(new SearchView.OnQueryTextListener() {
             @Override
             public boolean onQueryTextSubmit(String query) {
