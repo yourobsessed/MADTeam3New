@@ -37,5 +37,6 @@ public class CataloguePage extends AppCompatActivity {
         foodCalories.setText(String.valueOf(getIntent().getExtras().getInt("FoodCalories")));
         int foodImg = getIntent().getIntExtra("FoodImg", 0);
         foodImage.setImageResource(foodImg);
+
     }
 }
