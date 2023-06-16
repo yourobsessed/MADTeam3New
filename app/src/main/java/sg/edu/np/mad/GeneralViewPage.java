@@ -164,13 +164,37 @@ public class GeneralViewPage extends AppCompatActivity implements SelectListener
         String selectedDataString = data.getStringExtra("data");
         if(requestCode==101)
         {
-
             String[] foodStrings = selectedDataString.split(",");
+
             List<Food> filteredList = new ArrayList<>();
-            /*for (String foodString : foodStrings) {
+
+            for (Food food : storeList)
+            {
+                for (String chip : foodStrings){
+                    if (chip == "Makan Place"){
+                        if (food.getLocation() == "Makan Place")
+                        {
+                            filteredList.add(food);
+                        }
+                    }
+                    else if (chip == "Food Club"){
+                        if (food.getLocation() == "Food Club")
+                        {
+                            filteredList.add(food);
+                        }
+                    }
+                    else if (chip == "Munch"){
+                        if (food.getLocation() == "Munch")
+                        {
+                            filteredList.add(food);
+                        }
+                    }
+                }
+
+            }
                 Food food = Food.fromString(foodString); // Use a method in the Food class to create an instance from the string
                 selectedDataList.add(food);
-            }*/
+
             gAdapter.setFilteredList(filteredList);
         }
 
