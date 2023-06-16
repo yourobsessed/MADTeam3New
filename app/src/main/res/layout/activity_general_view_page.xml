@@ -89,7 +89,19 @@
                 android:text="is" />
 
         </com.google.android.material.chip.ChipGroup>
+
     </HorizontalScrollView>
 
+    <com.google.android.material.floatingactionbutton.FloatingActionButton
+        android:id="@+id/filterbutton"
+        app:srcCompat="@drawable/filter"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="bottom|end"
+        android:layout_margin="16dp"
+        android:layout_marginTop="596dp"
+        android:layout_marginEnd="8dp"
+        app:layout_constraintEnd_toEndOf="@+id/recyclerView"
+        app:layout_constraintTop_toTopOf="@+id/recyclerView" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

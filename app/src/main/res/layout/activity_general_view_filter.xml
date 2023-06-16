@@ -8,47 +8,37 @@
     tools:context=".GeneralView_Filter">
 
     <TextView
-        android:id="@+id/textView9"
+        android:id="@+id/textView"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="Location"
         android:textAppearance="@style/TextAppearance.AppCompat.Medium" />
 
 
-    <HorizontalScrollView
-        android:id="@+id/horizontalScrollView"
+
+    <com.google.android.material.chip.ChipGroup
         android:layout_width="match_parent"
-        android:layout_height="48dp"
-        android:layout_marginTop="5dp"
-        android:layout_marginBottom="5dp"
-        app:layout_constraintBottom_toTopOf="@+id/recyclerView"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/searchView">
+        android:layout_height="wrap_content">
 
-        <com.google.android.material.chip.ChipGroup
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content">
+        <com.google.android.material.chip.Chip
+            android:id="@+id/chipMakan"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Makan Place" />
 
-            <com.google.android.material.chip.Chip
-                android:id="@+id/chipMakan"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Makan Place" />
+        <com.google.android.material.chip.Chip
+            android:id="@+id/chipClub"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Food Club" />
 
-            <com.google.android.material.chip.Chip
-                android:id="@+id/chipClub"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Food Club" />
+        <com.google.android.material.chip.Chip
+            android:id="@+id/chipMunch"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Munch" />
+    </com.google.android.material.chip.ChipGroup>
 
-            <com.google.android.material.chip.Chip
-                android:id="@+id/chipMunch"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Munch" />
-        </com.google.android.material.chip.ChipGroup>
-    </HorizontalScrollView>
 
     <Button
         android:id="@+id/buttonApply"
