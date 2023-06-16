@@ -20,7 +20,7 @@ public class GeneralView_Adapter extends RecyclerView.Adapter<GeneralView_Viewho
     public void setFilteredList(List<Food> filteredList) {
         // below line is to add our filtered
         // list in our course array list.
-        data = filteredList;
+        this.data = filteredList;
         // below line is to notify our adapter
         // as change in recycler view data.
         notifyDataSetChanged();

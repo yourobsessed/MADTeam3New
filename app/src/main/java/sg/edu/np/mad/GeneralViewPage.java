@@ -71,19 +71,7 @@ public class GeneralViewPage extends AppCompatActivity implements SelectListener
 
             @Override
             public boolean onQueryTextChange(String newText) {
-                List<Food> filteredList = new ArrayList<>();
-                for (Food food : foodList) {
-                    if (food.getStoreName().toLowerCase().contains(newText.toLowerCase())) {
-                        filteredList.add(food);
-
-                    }
-                }
-                if (filteredList.isEmpty()) {
-                    Toast.makeText(GeneralViewPage.this,"No data found",Toast.LENGTH_SHORT).show();
-                }
-                else {
-                    gAdapter.setFilteredList(filteredList);
-                }
+                filterList(newText);
                 return true;
             }
         });
@@ -219,6 +207,7 @@ public class GeneralViewPage extends AppCompatActivity implements SelectListener
         }
 
     }
+
 
     @Override
     protected void onStart(){
