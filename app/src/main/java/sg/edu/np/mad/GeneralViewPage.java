@@ -187,7 +187,7 @@ public class GeneralViewPage extends AppCompatActivity implements SelectListener
         foodList.add(munchNasiPadang3);
 
 
-        gAdapter = new GeneralView_Adapter(foodList, this);
+        gAdapter = new GeneralView_Adapter(GeneralViewPage.this, foodList, this);
         LinearLayoutManager layoutManager = new LinearLayoutManager(this);
         recyclerView.setLayoutManager(layoutManager);
         recyclerView.setItemAnimator(new DefaultItemAnimator());
@@ -247,6 +247,15 @@ public class GeneralViewPage extends AppCompatActivity implements SelectListener
 
         //}
     }
+
+    private void switchToActivity(int position) {
+        Intent intent = new Intent(GeneralViewPage.this, CataloguePage.class);
+        intent.putExtra("position", position); // Pass any data if required
+        startActivity(intent);
+    }
+
+
+
     @Override
     protected void onActivityResult(int requestCode,int resultCode, @Nullable Intent data){
         super.onActivityResult(requestCode,resultCode,data);

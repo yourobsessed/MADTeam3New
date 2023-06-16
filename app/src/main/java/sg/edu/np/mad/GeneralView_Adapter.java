@@ -1,5 +1,7 @@
 package sg.edu.np.mad;
 
+import android.content.Context;
+import android.content.Intent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -9,10 +11,12 @@ import androidx.recyclerview.widget.RecyclerView;
 import java.util.ArrayList;
 import java.util.List;
 
-public class GeneralView_Adapter extends RecyclerView.Adapter<GeneralView_Viewholder>  {
-    List<Food> data;
+public class GeneralView_Adapter extends RecyclerView.Adapter<GeneralView_Viewholder> {
+    private Context context;
+    private List<Food> data;
     private SelectListenerFood listenerFood;
-    public GeneralView_Adapter(ArrayList<Food> input, SelectListenerFood ListenerFood){
+    public GeneralView_Adapter(Context context, List<Food> input, SelectListenerFood ListenerFood){
+        this.context = context;
         this.data = input;
         this.listenerFood = ListenerFood;
     }
@@ -37,10 +41,17 @@ public class GeneralView_Adapter extends RecyclerView.Adapter<GeneralView_Viewho
         holder.foodName.setText(f.getFoodName());
         holder.foodDescription.setText(f.getDescription());
         holder.foodImage.setImageResource(f.getFoodImage());
+        System.out.println(f);
         holder.cardView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                listenerFood.onItemClicked(f);
+                Intent toCatalogue = new Intent(v.getContext(), CataloguePage.class);
+                toCatalogue.putExtra("FoodName", data.get(holder.getAdapterPosition()).getFoodName());
+                toCatalogue.putExtra("FoodPrice", data.get(holder.getAdapterPosition()).getPrice());
+                toCatalogue.putExtra("FoodCalories", data.get(holder.getAdapterPosition()).getCalories());
+                toCatalogue.putExtra("FoodImg", f.getFoodImage());
+                context.startActivity(toCatalogue);
+
             }
         });
     }
@@ -49,4 +60,6 @@ public class GeneralView_Adapter extends RecyclerView.Adapter<GeneralView_Viewho
         //System.out.println(data.size());
         return data.size();
     }
+
+
 }
