@@ -20,6 +20,8 @@ import java.util.ArrayList;
 import java.util.Collection;
 import java.util.List;
 
+
+
 public class GeneralViewPage extends AppCompatActivity implements SelectListenerFood{
 
     private SearchView searchView;
