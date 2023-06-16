@@ -1,5 +1,6 @@
 package sg.edu.np.mad;
 
+import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.SearchView;
 import androidx.recyclerview.widget.DefaultItemAnimator;
@@ -136,6 +137,23 @@ public class GeneralViewPage extends AppCompatActivity implements SelectListener
         //for( int i = 0; i < storeList.size(); i++){
 
         //}
+    }
+    @Override
+    protected void onActivityResult(int requestCode,int resultCode, @Nullable Intent data){
+        super.onActivityResult(requestCode,resultCode,data);
+        String selectedDataString = data.getStringExtra("data");
+        if(requestCode==101)
+        {
+
+            String[] foodStrings = selectedDataString.split(",");
+            List<Food> filteredList = new ArrayList<>();
+            /*for (String foodString : foodStrings) {
+                Food food = Food.fromString(foodString); // Use a method in the Food class to create an instance from the string
+                selectedDataList.add(food);
+            }*/
+            gAdapter.setFilteredList(filteredList);
+        }
+
     }
 
 }
