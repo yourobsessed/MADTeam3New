@@ -22,15 +22,8 @@ public class CataloguePage extends AppCompatActivity {
         foodPrice = findViewById(R.id.CATfoodPrice);
         foodCalories = findViewById(R.id.CATfoodCalories);
         foodImage= findViewById(R.id.imageView3);
-        System.out.println(foodName);
 
-        /*Bundle bundle = getIntent().getExtras();
-        if (bundle != null){
-            foodName.setText(bundle.getString("FoodName"));
-            foodCalories.setText(bundle.getInt("FoodCalories"));
-            foodPrice.setText(String.valueOf(bundle.getDouble("FoodPrice", 0.0)));
-            foodImage.setImageResource(bundle.getInt("FoodImg"));
-        }*/
+
         foodName.setText(getIntent().getExtras().getString("FoodName"));
         System.out.println(foodName);
         foodPrice.setText("$" + String.valueOf(getIntent().getExtras().getDouble("FoodPrice")));
