@@ -27,7 +27,7 @@ public class GeneralViewPage extends AppCompatActivity implements SelectListener
     private Chip chipHalal,chipVegeterian,chipHealthy,chipAffordable,chipNoodles,chipRice,chipDessert,chipDrinks;
 
     ArrayList<String> selectedChipData = new ArrayList<>();
-    ArrayList<Food> storeList = new ArrayList<>();
+    ArrayList<Food> foodList = new ArrayList<>();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -56,7 +56,7 @@ public class GeneralViewPage extends AppCompatActivity implements SelectListener
             @Override
             public boolean onQueryTextChange(String newText) {
                 List<Food> filteredList = new ArrayList<>();
-                for (Food food : storeList) {
+                for (Food food : foodList) {
                     if (food.getStoreName().toLowerCase().contains(newText.toLowerCase())) {
                         filteredList.add(food);
 
@@ -75,10 +75,10 @@ public class GeneralViewPage extends AppCompatActivity implements SelectListener
 
         Food food1 = new Food("Roasted Chicken Rice", "Food Club", 3, 500, "Very favourful", R.drawable.chickenrice, false, true, true);
 
-        storeList.add(munchSaladBowl);
-        storeList.add(food1);
+        foodList.add(munchSaladBowl);
+        foodList.add(food1);
 
-        gAdapter = new GeneralView_Adapter(storeList, this);
+        gAdapter = new GeneralView_Adapter(foodList, this);
         LinearLayoutManager layoutManager = new LinearLayoutManager(this);
         recyclerView.setLayoutManager(layoutManager);
         recyclerView.setItemAnimator(new DefaultItemAnimator());
@@ -94,7 +94,7 @@ public class GeneralViewPage extends AppCompatActivity implements SelectListener
     }
     private void filterList(String text) {
         List<Food> filteredList = new ArrayList<>();
-        for (Food food : storeList) {
+        for (Food food : foodList) {
             if (food.getStoreName().toLowerCase().contains(text.toLowerCase())) {
                 filteredList.add(food);
 
@@ -146,11 +146,20 @@ public class GeneralViewPage extends AppCompatActivity implements SelectListener
         {
 
             String[] foodStrings = selectedDataString.split(",");
+            List<String> stringfilteredList = new ArrayList<>();
+
             List<Food> filteredList = new ArrayList<>();
             /*for (String foodString : foodStrings) {
                 Food food = Food.fromString(foodString); // Use a method in the Food class to create an instance from the string
                 selectedDataList.add(food);
             }*/
+            for (String chips : stringfilteredList){
+                for (Food food : foodList) {
+                    //how to get the attribute of the foods from the string list
+                    //eg. [Makan Place, Munch]
+                    //food.getLocation() ???
+                }
+            }
             gAdapter.setFilteredList(filteredList);
         }
 
