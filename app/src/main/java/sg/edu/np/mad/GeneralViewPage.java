@@ -27,7 +27,7 @@ public class GeneralViewPage extends AppCompatActivity implements SelectListener
     private Chip chipHalal,chipVegeterian,chipHealthy,chipAffordable,chipNoodles,chipRice,chipDessert,chipDrinks;
 
     ArrayList<String> selectedChipData = new ArrayList<>();
-    ArrayList<Food> foodList = new ArrayList<>();
+    ArrayList<Food> storeList = new ArrayList<>();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -56,7 +56,7 @@ public class GeneralViewPage extends AppCompatActivity implements SelectListener
             @Override
             public boolean onQueryTextChange(String newText) {
                 List<Food> filteredList = new ArrayList<>();
-                for (Food food : foodList) {
+                for (Food food : storeList) {
                     if (food.getStoreName().toLowerCase().contains(newText.toLowerCase())) {
                         filteredList.add(food);
 
@@ -71,14 +71,34 @@ public class GeneralViewPage extends AppCompatActivity implements SelectListener
                 return true;
             }
         });
-        Food munchSaladBowl = new Food("Regular", "Munch", 4, 400, "Filling amount for one person", R.drawable.store, true, false, true);
+
+        //creating all the food items
+        //Munch
+        Food munchSaladBowlL = new Food("Large", "Munch", 9.5, 645, "Suitable for 2 to 4 pax. Available for dine-in Only!", R.drawable.chickenrice, true, false, true);
+        Food munchSaladBowlR = new Food("Regular", "Munch", 4, 400, "Filling amount for one person", R.drawable.store, true, false, true);
+        Food munchWestern1 = new Food("Ribeye Steak", "Munch", 8.3, 567, "Delicious Ribeye steak with 2 sides", R.drawable.chickenrice, true, false, true);
+        Food munchWestern2 = new Food("Mixed Grilled", "Munch", 9.8, 650, "Multiple Varieties of grills with 2 sides", R.drawable.chickenrice, false, false, false);
+        Food munchWestern3 = new Food("Grilled Salmon", "Munch", 8.5, 250, "Grilled Salmon and it comes with 2 sides!", R.drawable.chickenrice,false, false, false);
+        Food munchWestern4 = new Food("Chicken Chop", "Munch", 5, 480, "Delicious chicken chop with 2 sides", R.drawable.chickenrice, false, false, true);
+        Food munchWestern5 = new Food("Chicken Teriyaki", "Munch", 5, 490, "Delicious chicken chop with Teriyaki sauce and 2 sides", R.drawable.chickenrice, false, false, false);
+        Food munchWestern6 = new Food("Chicken Cutlet", "Munch", 5, 490, "Fried chicken cutlet with 2 sides!", R.drawable.chickenrice,false, false, false);
 
         Food food1 = new Food("Roasted Chicken Rice", "Food Club", 3, 500, "Very favourful", R.drawable.chickenrice, false, true, true);
 
-        foodList.add(munchSaladBowl);
-        foodList.add(food1);
+        storeList.add(munchSaladBowlR);
+        storeList.add(munchSaladBowlL);
+        storeList.add(munchWestern1);
+        storeList.add(munchWestern2);
+        storeList.add(munchWestern3);
+        storeList.add(munchWestern4);
+        storeList.add(munchWestern5);
+        storeList.add(munchWestern6);
+        storeList.add(food1);
+        //storeList.add(munchWestern8);
+        //storeList.add(munchWestern9);
 
-        gAdapter = new GeneralView_Adapter(foodList, this);
+
+        gAdapter = new GeneralView_Adapter(storeList, this);
         LinearLayoutManager layoutManager = new LinearLayoutManager(this);
         recyclerView.setLayoutManager(layoutManager);
         recyclerView.setItemAnimator(new DefaultItemAnimator());
@@ -94,7 +114,7 @@ public class GeneralViewPage extends AppCompatActivity implements SelectListener
     }
     private void filterList(String text) {
         List<Food> filteredList = new ArrayList<>();
-        for (Food food : foodList) {
+        for (Food food : storeList) {
             if (food.getStoreName().toLowerCase().contains(text.toLowerCase())) {
                 filteredList.add(food);
 
@@ -146,20 +166,11 @@ public class GeneralViewPage extends AppCompatActivity implements SelectListener
         {
 
             String[] foodStrings = selectedDataString.split(",");
-            List<String> stringfilteredList = new ArrayList<>();
-
             List<Food> filteredList = new ArrayList<>();
             /*for (String foodString : foodStrings) {
                 Food food = Food.fromString(foodString); // Use a method in the Food class to create an instance from the string
                 selectedDataList.add(food);
             }*/
-            for (String chips : stringfilteredList){
-                for (Food food : foodList) {
-                    //how to get the attribute of the foods from the string list
-                    //eg. [Makan Place, Munch]
-                    //food.getLocation() ???
-                }
-            }
             gAdapter.setFilteredList(filteredList);
         }
 
