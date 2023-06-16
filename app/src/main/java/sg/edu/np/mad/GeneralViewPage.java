@@ -8,10 +8,12 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 import com.google.android.material.chip.Chip;
 import com.google.android.material.chip.ChipGroup;
+import com.google.android.material.floatingactionbutton.FloatingActionButton;
 
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.view.View;
 import android.widget.Toast;
 
 import java.util.ArrayList;
@@ -46,6 +48,18 @@ public class GeneralViewPage extends AppCompatActivity implements SelectListener
         chipRice=findViewById(R.id.chipRice);
         chipDessert=findViewById(R.id.chipDessert);
         chipDrinks=findViewById(R.id.chipDrinks);*/
+
+        FloatingActionButton fab = findViewById(R.id.filterbutton);
+        fab.setOnClickListener(new View.OnClickListener() {
+           @Override
+           public void onClick(View view) {
+
+               Intent toFilter = new Intent(GeneralViewPage.this, GeneralView_Filter.class);
+               startActivityForResult(toFilter,101);
+           }
+
+       });
+
 
         searchView.setOnQueryTextListener(new SearchView.OnQueryTextListener() {
             @Override
@@ -171,19 +185,19 @@ public class GeneralViewPage extends AppCompatActivity implements SelectListener
             for (Food food : storeList)
             {
                 for (String chip : foodStrings){
-                    if (chip == "Makan Place"){
+                    if (chip.equals("Makan Place")){
                         if (food.getLocation() == "Makan Place")
                         {
                             filteredList.add(food);
                         }
                     }
-                    else if (chip == "Food Club"){
+                    else if (chip.equals("Food Club")){
                         if (food.getLocation() == "Food Club")
                         {
                             filteredList.add(food);
                         }
                     }
-                    else if (chip == "Munch"){
+                    else if (chip.equals("Munch")){
                         if (food.getLocation() == "Munch")
                         {
                             filteredList.add(food);
@@ -192,8 +206,6 @@ public class GeneralViewPage extends AppCompatActivity implements SelectListener
                 }
 
             }
-                Food food = Food.fromString(foodString); // Use a method in the Food class to create an instance from the string
-                selectedDataList.add(food);
 
             gAdapter.setFilteredList(filteredList);
         }
