@@ -270,8 +270,53 @@ public class GeneralViewPage extends AppCompatActivity implements SelectListener
         Food munchKorean23 = new Food("Kimchi Udon", "Munch", R.drawable.munchmap, 4.50, 460, "Kimchi soup based with udon noodles", R.drawable.store, true, true, false);
         Food munchKorean24 = new Food("Chicken Cutlet Mayo and Omelette curry rice", "Munch", R.drawable.munchmap, 4.50, 460, "Fluffy omelette filled with fried rice, and comes with delicious curry sauce and a piece of chicken cutlet", R.drawable.store, false, true, true);
 
+        //FOODCLUB
+        Food chickenrice1 = new Food("Roasted Chicken Rice Set", "Food Club", R.drawable.foodclubmap,4.2, 669, "A healthy set of chicken rice that comes with vegetable!", R.drawable.chickenrice, false, true, true);
+        Food chickenrice2 = new Food("Roasted Chicken Rice", "Food Club", R.drawable.foodclubmap,3, 500, "Very flavourful plate of roasted chicken rice! Do choose the type of meat you want!", R.drawable.chickenrice, false, true, true);
+        Food chickenrice3 = new Food("Steamed Chicken Rice", "Food Club", R.drawable.foodclubmap,3, 500, "Very flavourful plate of steamed chicken rice! Do choose the type of meat you want!", R.drawable.chickenrice, false, true, true);
+        Food chickenrice4 = new Food("Lemon Chicken Rice", "Food Club", R.drawable.foodclubmap,3, 596, "Crispy chicken cutlet drizzled with sweet and sour sauce!", R.drawable.chickenrice, false, true, true);
+        Food chickenrice5 = new Food("Chicken Cutlet Noodle", "Food Club", R.drawable.foodclubmap,3, 500, "A plate of seasoned noodles topped with crispy chicken cutlet!", R.drawable.chickenrice, true, true, false);
+        Food chickenrice6 = new Food("Roasted Chicken Noodle", "Food Club", R.drawable.foodclubmap,3, 475, "A plate of seasoned noodles, top with roasted chicken!", R.drawable.chickenrice, true, true, false);
 
-        Food food1 = new Food("Roasted Chicken Rice", "Food Club", R.drawable.foodclubmap,3, 500, "Very favourful", R.drawable.chickenrice, false, true, true);
+
+        Food pasta1 = new Food("Aglio Olio", "Food Club", R.drawable.foodclubmap,2.5, 300, "A plate of flavourful pasta. Do add on more ingredients to make it healthier meal!", R.drawable.chickenrice, true, false, false);
+        Food pasta2 = new Food("Tomato pasta", "Food Club", R.drawable.foodclubmap,2.5, 325, "A plate of tomato pasta that is slightly tangy. Do add on more ingredients to make it healthier meal!", R.drawable.chickenrice, true, false, false);
+        Food pasta3 = new Food("Cream pasta", "Food Club", R.drawable.foodclubmap,2.5, 375, "A plate of creamy pasta, with every strand of noodle clung with the creamy sauce. Do add on more ingredients to make it healthier meal! ", R.drawable.chickenrice, true, false, false);
+        Food pasta4 = new Food("Tom yum pasta", "Food Club", R.drawable.foodclubmap,2.5, 350, "A plate of pasta that has a spicy and sour taste. Do add on more ingredients to make it healthier meal!", R.drawable.chickenrice, true, false, false);
+        Food pasta5 = new Food("Vegetable: corn", "Food Club", R.drawable.foodclubmap,0.5, 30, "Wide varieties of Vegetable for you to choose", R.drawable.chickenrice, false, false, false);
+        Food pasta6 = new Food("Meat: Chicken Breast", "Food Club", R.drawable.foodclubmap,1, 50, "Wide varieties of meat options for you to choose", R.drawable.chickenrice, false, false, false);
+        Food pasta7 = new Food("Premium: Sliced Smoked Duck", "Food Club", R.drawable.foodclubmap,1.5, 60, "Wide varieties of other meat options for you to choose", R.drawable.chickenrice, false, false, false);
+
+        Food saladbar1 = new Food("Low Calorie Salad Bowl", "Food CLub", R.drawable.foodclubmap, 3.5, 350, "Greens + 3 Normal Sides",R.drawable.chickenrice, false,false,false);
+        Food saladbar2 = new Food("Signature Salad Bowl", "Food CLub", R.drawable.foodclubmap, 4.2, 400, "Greens + 2 Normal Sides + 1 Premium Side",R.drawable.chickenrice, false,false,false);
+        Food saladbar3 = new Food("Fill-me-up Salad Bowl", "Food CLub", R.drawable.foodclubmap, 4.5, 476, "Greens + 1 Normal Side + 2 Premium Sides",R.drawable.chickenrice, false,false,false);
+        Food saladbar4 = new Food("Party Salad Bowl", "Food CLub", R.drawable.foodclubmap, 8, 700, "Greens + 5 Normal Sides + 3 Premium Sides",R.drawable.chickenrice, false,false,false);
+
+
+        Food kkFriedRice1 = new Food("Egg Fried Rice", "Food Club", R.drawable.foodclubmap,2.5, 250, "Signature fried rice flavour!", R.drawable.chickenrice, false,false,true);
+        Food kkFriedRice2 = new Food("Sambal Fried Rice", "Food Club", R.drawable.foodclubmap,3, 313, "Signature sambal fried rice that is sweet and spicy!", R.drawable.chickenrice, false,false,true);
+        Food kkFriedRice3 = new Food("Tom Yum Fried Rice", "Food Club", R.drawable.foodclubmap,3, 320, "Signature tom yum fried rice that is spicy and sour!", R.drawable.chickenrice, false,false,true);
+        Food kkFriedRice4 = new Food("Meat: Chicken Cutlet", "Food Club", R.drawable.foodclubmap,1.5, 123, "Additional ingredients to make the fried rice extra flavourful", R.drawable.chickenrice, false,false,false);
+        Food kkFriedRice5 = new Food("Add-Ons: Cabbage", "Food Club", R.drawable.foodclubmap,0.8, 50, "Additional ingredients to make the meal healthier!", R.drawable.chickenrice, false,false,false);
+
+
+        Food Indonesian1 = new Food("Ayam Penyet Set", "Food CLub", R.drawable.foodclubmap, 4.50, 650, "Signature! With a gigantic piece of drumstick, drenched in curry!", R.drawable.chickenrice, false, false, true);
+
+        //MAKAN PLACE
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
         foodList.add(munchSaladBowlR);
         foodList.add(munchSaladBowlL);
