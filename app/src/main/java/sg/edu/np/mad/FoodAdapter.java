@@ -27,7 +27,7 @@ public class FoodAdapter extends RecyclerView.Adapter<StoreView_ViewHolder> {
         Food foodItem = food.get(position);
         holder.foodName.setText(foodItem.getFoodName());
         holder.foodDescription.setText(foodItem.getDescription());
-        holder.foodImage.setImageResource(foodItem.getFoodImage());
+        holder.foodImage.setImageResource(foodItem.getFoodImage1());
 
     }
 

@@ -4,26 +4,30 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="wrap_content">
+
     <androidx.cardview.widget.CardView
         android:id="@+id/Foodcardview"
-        android:layout_width="396dp"
-        android:layout_height="154dp"
+        android:layout_width="401dp"
+        android:layout_height="194dp"
         android:layout_marginTop="8dp"
+        android:elevation="10dp"
+        app:cardBackgroundColor="#9467A2EA"
+        app:cardCornerRadius="20dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent">
 
         <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:padding="10dp">
+            android:layout_height="193dp">
 
 
             <ImageView
                 android:id="@+id/FoodImageVH"
-                android:layout_width="127dp"
-                android:layout_height="127dp"
-                android:layout_marginStart="4dp"
+                android:layout_width="140dp"
+                android:layout_height="152dp"
+                android:layout_marginStart="24dp"
+                android:layout_marginTop="24dp"
                 android:contentDescription="@string/FoodImage"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent"
@@ -31,21 +35,23 @@
 
             <TextView
                 android:id="@+id/FoodNameVH"
-                android:layout_width="224dp"
-                android:layout_height="40dp"
-                android:layout_marginStart="16dp"
-                android:layout_marginTop="28dp"
-                android:textSize="16sp"
+                android:layout_width="206dp"
+                android:layout_height="46dp"
+                android:layout_marginStart="12dp"
+                android:layout_marginTop="44dp"
+                android:gravity="bottom"
+                android:textSize="20sp"
                 android:textStyle="bold"
                 app:layout_constraintStart_toEndOf="@+id/FoodImageVH"
                 app:layout_constraintTop_toTopOf="parent" />
 
             <TextView
                 android:id="@+id/FoodDescriptionVH"
-                android:layout_width="231dp"
-                android:layout_height="53dp"
-                android:layout_marginStart="16dp"
-                android:layout_marginTop="8dp"
+                android:layout_width="205dp"
+                android:layout_height="92dp"
+                android:layout_marginStart="12dp"
+                android:gravity="top|left"
+                android:textSize="12sp"
                 app:layout_constraintStart_toEndOf="@+id/FoodImageVH"
                 app:layout_constraintTop_toBottomOf="@+id/FoodNameVH" />
         </androidx.constraintlayout.widget.ConstraintLayout>

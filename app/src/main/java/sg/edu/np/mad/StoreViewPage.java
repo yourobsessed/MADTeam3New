@@ -16,9 +16,9 @@ public class StoreViewPage extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_store_view_page);
 
-        Food munchSaladBowl = new Food("Regular", "Munch", 4, 400, "Filling amount for one person", R.drawable.store, true, false, true);
+        Food munchSaladBowl = new Food("Regular", "Munch", R.drawable.munchmap,4, 400, "Filling amount for one person", R.drawable.store, true, false, true);
 
-        Food food1 = new Food("Roasted Chicken Rice", "Food Club", 3, 500, "Very favourful", R.drawable.chickenrice, false, true, true);
+        Food food1 = new Food("Roasted Chicken Rice", "Food Club",  R.drawable.munchmap,3, 500, "Very favourful", R.drawable.chickenrice, false, true, true);
 
         foodArrayList.add(food1);
         foodArrayList.add(munchSaladBowl);
