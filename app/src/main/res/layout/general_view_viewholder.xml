@@ -7,19 +7,20 @@
 
     <androidx.cardview.widget.CardView
         android:id="@+id/Foodcardview"
-        android:layout_width="401dp"
-        android:layout_height="194dp"
+        android:layout_width="381dp"
+        android:layout_height="188dp"
         android:layout_marginTop="8dp"
         android:elevation="10dp"
-        app:cardBackgroundColor="#9467A2EA"
+        app:cardBackgroundColor="@color/white"
         app:cardCornerRadius="20dp"
+        app:cardElevation="10dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent">
 
         <androidx.constraintlayout.widget.ConstraintLayout
-            android:layout_width="match_parent"
-            android:layout_height="193dp">
+            android:layout_width="381dp"
+            android:layout_height="match_parent">
 
 
             <ImageView
