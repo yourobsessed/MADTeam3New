@@ -24,10 +24,10 @@
     <string name="invalid_password">Password must be >5 characters</string>
     <string name="login_failed">"Login failed"</string>
 
-    <string name="FoodName">Name: </string>
-    <string name="FoodLocation">Location: </string>
-    <string name="FoodPrice">Price: </string>
-    <string name="FoodCalories">Calories</string>
+    <string name="FoodName">Name:</string>
+    <string name="FoodLocation">Location:</string>
+    <string name="FoodPrice">Price:</string>
+    <string name="FoodCalories">Calories:</string>
     <string name="FoodImage">Food Image</string>
     <string-array name="FoodCourts">
         <item>Food Club</item>
@@ -61,4 +61,5 @@
     <string name="menu_home">Home</string>
     <string name="menu_gallery">Gallery</string>
     <string name="menu_slideshow">Slideshow</string>
+    <string name="mapView">Get there using this NP map!</string>
 </resources>
