@@ -17,8 +17,9 @@ public class StoreViewPage extends AppCompatActivity {
         setContentView(R.layout.activity_store_view_page);
 
         Store munch1 = new Store("Mala", "Munch", "Get your favourite mala combination here with the huge varieties of food!", true, false);
-
+        Store munch2 = new Store("Korean", "Munch", "get your korean cravings satisfied here!", true, false);
         storeList.add(munch1);
+        storeList.add(munch2);
 
         RecyclerView recyclerView = findViewById(R.id.recyclerView);
         StoreAdapter adapter = new StoreAdapter(storeList); //need to create foodList
