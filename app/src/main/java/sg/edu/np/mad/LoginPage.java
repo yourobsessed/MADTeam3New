@@ -65,6 +65,7 @@ public class LoginPage extends AppCompatActivity {
                                     incorrectText.setVisibility(View.INVISIBLE);
                                     //Toast.makeText(getApplicationContext(), "Account Valid", Toast.LENGTH_SHORT).show();
                                     Intent OpenMain = new Intent(LoginPage.this, HomePage.class);
+                                    OpenMain.putExtra("Username", UsernameText.getText().toString());
                                     startActivity(OpenMain);
                                 } else {
                                     incorrectText.setVisibility(View.VISIBLE);
