@@ -6,110 +6,115 @@
     android:layout_height="match_parent"
     tools:context=".LoginPage">
 
-    <View
-        android:id="@+id/view2"
-        android:layout_width="366dp"
-        android:layout_height="409dp"
-        android:layout_marginStart="22dp"
-        android:layout_marginTop="150dp"
-        android:layout_marginEnd="23dp"
-        android:layout_marginBottom="172dp"
-        android:background="@drawable/rectangle"
-        android:elevation='8dp'
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
-
     <EditText
-        android:id="@+id/editTextText"
-        android:layout_width="313dp"
-        android:layout_height="52dp"
-        android:layout_marginTop="92dp"
+        android:id="@+id/UsernameEdit"
+        android:layout_width="337dp"
+        android:layout_height="54dp"
+        android:layout_marginStart="46dp"
+        android:layout_marginTop="29dp"
+        android:layout_marginEnd="46dp"
         android:background="@drawable/rectangle2"
         android:ems="10"
         android:inputType="text"
-        android:text="  Username"
+        android:hint="Username"
+        android:paddingStart="16dp"
         android:textAlignment="textStart"
-        android:textColor="#B3B3B3"
+        android:textColor="#FFB3B3B3"
         android:textColorHint="#B3B3B3"
         android:textSize="14sp"
-        android:translationZ="8dp"
-        app:layout_constraintEnd_toEndOf="@+id/view2"
-        app:layout_constraintHorizontal_bias="0.528"
-        app:layout_constraintStart_toStartOf="@+id/view2"
-        app:layout_constraintTop_toTopOf="@+id/view2" />
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView9" />
 
     <EditText
-        android:id="@+id/editTextText2"
-        android:layout_width="313dp"
-        android:layout_height="52dp"
-        android:layout_marginTop="28dp"
+        android:id="@+id/PasswordEdit"
+        android:layout_width="337dp"
+        android:layout_height="54dp"
+        android:layout_marginStart="45dp"
+        android:layout_marginTop="12dp"
+        android:layout_marginEnd="45dp"
         android:background="@drawable/rectangle2"
         android:ems="10"
         android:inputType="text"
-        android:text="  Password"
+        android:hint="Password"
+        android:paddingStart="16dp"
         android:textColor="#B3B3B3"
         android:textSize="14sp"
-        android:translationZ="8dp"
-        app:layout_constraintEnd_toEndOf="@+id/view2"
-        app:layout_constraintHorizontal_bias="0.528"
-        app:layout_constraintStart_toStartOf="@+id/view2"
-        app:layout_constraintTop_toBottomOf="@+id/editTextText" />
-
-    <TextView
-        android:id="@+id/RegisterButton"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="16dp"
-        android:text="Not a User? Register now"
-        android:textColor="#0091D4"
-        android:translationZ="8dp"
-        app:layout_constraintEnd_toEndOf="@+id/view2"
-        app:layout_constraintStart_toStartOf="@+id/view2"
-        app:layout_constraintTop_toBottomOf="@+id/textView8" />
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/UsernameEdit" />
 
     <Button
-        android:id="@+id/LoginButton"
-        android:layout_width="234dp"
-        android:layout_height="44dp"
-        android:layout_marginTop="40dp"
+        android:id="@+id/SignInButton"
+        android:layout_width="314dp"
+        android:layout_height="50dp"
+        android:layout_marginStart="57dp"
+        android:layout_marginTop="39dp"
+        android:layout_marginEnd="57dp"
         android:background="@drawable/outlinebutton"
         android:stateListAnimator="@null"
         android:text="Sign In"
         android:textColor="#0091D4"
         android:translationZ="8dp"
-        app:layout_constraintEnd_toEndOf="@+id/view2"
-        app:layout_constraintStart_toStartOf="@+id/view2"
-        app:layout_constraintTop_toBottomOf="@+id/editTextText2" />
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/PasswordEdit" />
 
     <TextView
         android:id="@+id/textView8"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="20dp"
+        android:layout_marginStart="208dp"
+        android:layout_marginTop="13dp"
+        android:layout_marginEnd="207dp"
         android:text="or"
         android:textColor="#B3B3B3"
         android:translationZ="8dp"
-        app:layout_constraintEnd_toEndOf="@+id/view2"
-        app:layout_constraintHorizontal_bias="0.501"
-        app:layout_constraintStart_toStartOf="@+id/view2"
-        app:layout_constraintTop_toBottomOf="@+id/LoginButton" />
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/SignInButton" />
+
+    <TextView
+        android:id="@+id/RegisterButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="136dp"
+        android:layout_marginTop="19dp"
+        android:layout_marginEnd="134dp"
+        android:text="Not a User? Register now"
+        android:textColor="#0091D4"
+        android:translationZ="8dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView8" />
 
     <TextView
         android:id="@+id/textView9"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="24dp"
+        android:layout_marginStart="142dp"
+        android:layout_marginTop="59dp"
+        android:layout_marginEnd="142dp"
         android:fontFamily="sans-serif-medium"
-        android:text="Sign in"
+        android:text="Login Now"
         android:textColor="#5A5A5A"
         android:textSize="30sp"
         android:translationZ="8dp"
-        app:layout_constraintEnd_toEndOf="@+id/view2"
-        app:layout_constraintHorizontal_bias="0.102"
-        app:layout_constraintStart_toStartOf="@+id/view2"
-        app:layout_constraintTop_toTopOf="@+id/view2" />
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/imageView3" />
+
+    <ImageView
+        android:id="@+id/imageView3"
+        android:layout_width="378dp"
+        android:layout_height="263dp"
+        android:layout_marginStart="25dp"
+        android:layout_marginTop="30dp"
+        android:layout_marginEnd="25dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/logo" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

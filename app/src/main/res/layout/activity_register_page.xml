@@ -4,6 +4,92 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".RegisterPage">
+    tools:context=".LoginPage">
+
+    <EditText
+        android:id="@+id/UsernameEdit"
+        android:layout_width="337dp"
+        android:layout_height="54dp"
+        android:layout_marginStart="37dp"
+        android:layout_marginTop="70dp"
+        android:layout_marginEnd="37dp"
+        android:background="@drawable/rectangle2"
+        android:ems="10"
+        android:hint="Username"
+        android:inputType="text"
+        android:textAlignment="textStart"
+        android:textColor="#FFB3B3B3"
+        android:textColorHint="#B3B3B3"
+        android:textSize="14sp"
+        android:paddingStart="16dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView9" />
+
+    <EditText
+        android:id="@+id/PasswordEdit"
+        android:layout_width="337dp"
+        android:layout_height="54dp"
+        android:layout_marginStart="37dp"
+        android:layout_marginTop="16dp"
+        android:layout_marginEnd="37dp"
+        android:background="@drawable/rectangle2"
+        android:ems="10"
+        android:hint="Password"
+        android:inputType="text"
+        android:paddingStart="16dp"
+        android:textAlignment="textStart"
+        android:textColor="#B3B3B3"
+        android:textSize="14sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/UsernameEdit" />
+
+    <Button
+        android:id="@+id/SignUpButton"
+        android:layout_width="314dp"
+        android:layout_height="50dp"
+        android:layout_marginStart="48dp"
+        android:layout_marginTop="47dp"
+        android:layout_marginEnd="49dp"
+        android:background="@drawable/outlinebutton"
+        android:stateListAnimator="@null"
+        android:text="Sign Up"
+        android:textColor="#0091D4"
+        android:translationZ="8dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/PasswordEdit" />
+
+    <TextView
+        android:id="@+id/BackButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="190dp"
+        android:layout_marginTop="32dp"
+        android:layout_marginEnd="190dp"
+        android:text="Back"
+        android:textColor="#0091D4"
+        android:translationZ="8dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/SignUpButton" />
+
+    <TextView
+        android:id="@+id/textView9"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="155dp"
+        android:layout_marginTop="109dp"
+        android:layout_marginEnd="155dp"
+        android:fontFamily="sans-serif-medium"
+        android:text="Sign up"
+        android:textColor="#5A5A5A"
+        android:textSize="30sp"
+        android:translationZ="8dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
 
 </androidx.constraintlayout.widget.ConstraintLayout>
