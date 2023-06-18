@@ -74,7 +74,7 @@ public class RegisterPage extends AppCompatActivity {
                                 ExistsText.setVisibility(View.INVISIBLE);
                                 DatabaseRef.child("Accounts").push().setValue(new Account(UsernameText.getText().toString(), PasswordText.getText().toString()));
                                 Toast.makeText(getApplicationContext(), "Account Created", Toast.LENGTH_SHORT).show();
-                                Intent OpenMain = new Intent(RegisterPage.this, MainPage.class);
+                                Intent OpenMain = new Intent(RegisterPage.this, HomePage.class);
                                 startActivity(OpenMain);
                             } else if (exists) {
                                 ExistsText.setVisibility(View.VISIBLE);
