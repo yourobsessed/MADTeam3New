@@ -6,17 +6,58 @@
     android:layout_height="match_parent"
     tools:context=".LoginPage">
 
+    <TextView
+        android:id="@+id/existsText"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="57dp"
+        android:layout_marginTop="28dp"
+        android:layout_marginEnd="197dp"
+        android:text="This username doesn't exist"
+        android:textColor="@color/design_default_color_error"
+        android:visibility="visible"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView9" />
+
+    <TextView
+        android:id="@+id/emptyText"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="59dp"
+        android:layout_marginTop="5dp"
+        android:layout_marginEnd="119dp"
+        android:text="Username and Password can't be empty"
+        android:textColor="@color/design_default_color_error"
+        android:visibility="visible"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/incorrectText" />
+
+    <TextView
+        android:id="@+id/incorrectText"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="59dp"
+        android:layout_marginEnd="233dp"
+        android:text="Password is incorrect"
+        android:textColor="@color/design_default_color_error"
+        android:visibility="visible"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/PasswordEdit" />
+
     <EditText
         android:id="@+id/UsernameEdit"
         android:layout_width="337dp"
         android:layout_height="54dp"
-        android:layout_marginStart="46dp"
-        android:layout_marginTop="29dp"
+        android:layout_marginStart="45dp"
         android:layout_marginEnd="46dp"
         android:background="@drawable/rectangle2"
         android:ems="10"
-        android:inputType="text"
         android:hint="Username"
+        android:inputType="text"
         android:paddingStart="16dp"
         android:textAlignment="textStart"
         android:textColor="#FFB3B3B3"
@@ -24,19 +65,19 @@
         android:textSize="14sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView9" />
+        app:layout_constraintTop_toBottomOf="@+id/existsText" />
 
     <EditText
         android:id="@+id/PasswordEdit"
         android:layout_width="337dp"
         android:layout_height="54dp"
-        android:layout_marginStart="45dp"
-        android:layout_marginTop="12dp"
+        android:layout_marginStart="46dp"
+        android:layout_marginTop="8dp"
         android:layout_marginEnd="45dp"
         android:background="@drawable/rectangle2"
         android:ems="10"
-        android:inputType="text"
         android:hint="Password"
+        android:inputType="text"
         android:paddingStart="16dp"
         android:textColor="#B3B3B3"
         android:textSize="14sp"
@@ -49,7 +90,7 @@
         android:layout_width="314dp"
         android:layout_height="50dp"
         android:layout_marginStart="57dp"
-        android:layout_marginTop="39dp"
+        android:layout_marginTop="21dp"
         android:layout_marginEnd="57dp"
         android:background="@drawable/outlinebutton"
         android:stateListAnimator="@null"
@@ -58,7 +99,21 @@
         android:translationZ="8dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/PasswordEdit" />
+        app:layout_constraintTop_toBottomOf="@+id/emptyText" />
+
+    <TextView
+        android:id="@+id/RegisterButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="136dp"
+        android:layout_marginTop="22dp"
+        android:layout_marginEnd="134dp"
+        android:text="Not a User? Register now"
+        android:textColor="#0091D4"
+        android:translationZ="8dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView8" />
 
     <TextView
         android:id="@+id/textView8"
@@ -75,25 +130,11 @@
         app:layout_constraintTop_toBottomOf="@+id/SignInButton" />
 
     <TextView
-        android:id="@+id/RegisterButton"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="136dp"
-        android:layout_marginTop="19dp"
-        android:layout_marginEnd="134dp"
-        android:text="Not a User? Register now"
-        android:textColor="#0091D4"
-        android:translationZ="8dp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView8" />
-
-    <TextView
         android:id="@+id/textView9"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="142dp"
-        android:layout_marginTop="59dp"
+        android:layout_marginTop="344dp"
         android:layout_marginEnd="142dp"
         android:fontFamily="sans-serif-medium"
         android:text="Login Now"
@@ -101,15 +142,16 @@
         android:textSize="30sp"
         android:translationZ="8dp"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/imageView3" />
+        app:layout_constraintTop_toTopOf="parent" />
 
     <ImageView
         android:id="@+id/imageView3"
         android:layout_width="378dp"
         android:layout_height="263dp"
         android:layout_marginStart="25dp"
-        android:layout_marginTop="30dp"
+        android:layout_marginTop="36dp"
         android:layout_marginEnd="25dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"

@@ -35,7 +35,11 @@ public class RegisterPage extends AppCompatActivity {
         DatabaseReference DatabaseRef = database.getReference();
         EditText UsernameText = findViewById(R.id.UsernameEdit);
         EditText PasswordText = findViewById(R.id.PasswordEdit);
+        TextView ExistsText = findViewById(R.id.ExistsText);
+        TextView EmptyText = findViewById(R.id.EmptyText);
 
+        ExistsText.setVisibility(View.INVISIBLE);
+        EmptyText.setVisibility(View.INVISIBLE);
 
         TextView BackButton = findViewById(R.id.BackButton);
         BackButton.setOnClickListener(new View.OnClickListener() {
@@ -50,31 +54,41 @@ public class RegisterPage extends AppCompatActivity {
         SignUpButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                DatabaseRef.child("Accounts").addListenerForSingleValueEvent(new ValueEventListener() {
-                    @Override
-                    public void onDataChange(@NonNull DataSnapshot snapshot) {
-                        boolean exists = false;
-                        for (DataSnapshot reviewSnapshot : snapshot.getChildren()) {
-                            Account account = reviewSnapshot.getValue(Account.class);
-                            if(account.Username.equals(UsernameText.getText().toString())){
-                                exists = true;
+                if(UsernameText.getText().toString().equals("") || PasswordText.getText().toString().equals("")){
+                    EmptyText.setVisibility(View.VISIBLE);
+                    ExistsText.setVisibility(View.INVISIBLE);
+                }
+                else {
+                    EmptyText.setVisibility(View.INVISIBLE);
+                    DatabaseRef.child("Accounts").addListenerForSingleValueEvent(new ValueEventListener() {
+                        @Override
+                        public void onDataChange(@NonNull DataSnapshot snapshot) {
+                            boolean exists = false;
+                            for (DataSnapshot reviewSnapshot : snapshot.getChildren()) {
+                                Account account = reviewSnapshot.getValue(Account.class);
+                                if (account.Username.equals(UsernameText.getText().toString())) {
+                                    exists = true;
+                                }
                             }
-                        }
-                        if(!exists) {
-                            DatabaseRef.child("Accounts").push().setValue(new Account(UsernameText.getText().toString(), PasswordText.getText().toString()));
-                            Toast.makeText(getApplicationContext(), "Account Created", Toast.LENGTH_SHORT).show();
-                        }
-                        else if(exists){
-                            Toast.makeText(getApplicationContext(), "Username Exists", Toast.LENGTH_SHORT).show();
+                            if (!exists) {
+                                ExistsText.setVisibility(View.INVISIBLE);
+                                DatabaseRef.child("Accounts").push().setValue(new Account(UsernameText.getText().toString(), PasswordText.getText().toString()));
+                                Toast.makeText(getApplicationContext(), "Account Created", Toast.LENGTH_SHORT).show();
+                                Intent OpenMain = new Intent(RegisterPage.this, MainPage.class);
+                                startActivity(OpenMain);
+                            } else if (exists) {
+                                ExistsText.setVisibility(View.VISIBLE);
+                                Toast.makeText(getApplicationContext(), "Username Exists", Toast.LENGTH_SHORT).show();
+                            }
+
                         }
 
-                    }
-                    @Override
-                    public void onCancelled(@NonNull DatabaseError error) {
+                        @Override
+                        public void onCancelled(@NonNull DatabaseError error) {
 
-                    }
-                });
-
+                        }
+                    });
+                }
 
 
             }
