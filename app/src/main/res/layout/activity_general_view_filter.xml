@@ -19,24 +19,29 @@
 
     <com.google.android.material.chip.ChipGroup
         android:layout_width="match_parent"
-        android:layout_height="wrap_content">
+        android:layout_height="wrap_content"
+        app:singleSelection = "false"
+        app:singleLine="true">
 
         <com.google.android.material.chip.Chip
             android:id="@+id/chipMakan"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:checked="true"
             android:text="Makan Place" />
 
         <com.google.android.material.chip.Chip
             android:id="@+id/chipClub"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:checked="true"
             android:text="Food Club" />
 
         <com.google.android.material.chip.Chip
             android:id="@+id/chipMunch"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:checked="true"
             android:text="Munch" />
     </com.google.android.material.chip.ChipGroup>
 
