@@ -62,7 +62,4 @@
     <string name="menu_gallery">Gallery</string>
     <string name="menu_slideshow">Slideshow</string>
     <string name="mapView">Get there using this NP map!</string>
-
-    <string name="nav_open">Open</string>
-    <string name="nav_close">Close</string>
 </resources>
