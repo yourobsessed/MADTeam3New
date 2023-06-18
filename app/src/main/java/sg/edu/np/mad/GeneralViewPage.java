@@ -26,12 +26,13 @@ public class GeneralViewPage extends AppCompatActivity implements SelectListener
 
     private SearchView searchView;
     private RecyclerView recyclerView;
-    private GeneralView_Adapter gAdapter;
 
     private Chip chipHalal,chipVegeterian,chipHealthy,chipAffordable,chipNoodles,chipRice,chipDessert,chipDrinks;
 
     ArrayList<String> selectedChipData = new ArrayList<>();
     ArrayList<Food> foodList = new ArrayList<>();
+    GeneralView_Adapter gAdapter;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -94,13 +95,13 @@ public class GeneralViewPage extends AppCompatActivity implements SelectListener
     private void filterList(String text) {
         List<Food> filteredList = new ArrayList<>();
         for (Food food : foodList) {
-            if (food.getStoreName().toLowerCase().contains(text.toLowerCase())) {
+            if (food.getFoodName().toLowerCase().contains(text.toLowerCase())) {
                 filteredList.add(food);
 
             }
         }
         if (filteredList.isEmpty()) {
-            Toast.makeText(GeneralViewPage.this,"No data found",Toast.LENGTH_SHORT).show();
+            Toast.makeText(this,"No data found",Toast.LENGTH_SHORT).show();
         }
         else {
             gAdapter.setFilteredList(filteredList);
