@@ -353,10 +353,31 @@ public class GeneralViewPage extends AppCompatActivity implements SelectListener
         Food MPGoPizza5 = new Food("Shaker Fries", "Makan Place", R.drawable.makanplacemap, 2.80, 430, "Choose either sea salt of seaweed flavour for your shaker fries", R.drawable.store, false, false, false);
 
         //left ban mian, yong tau foo, mala, drinks + add them into the list
+        Food MPBanMian1 = new Food("Ban Mian", "Makan Place", R.drawable.makanplacemap, 2.80, 350, "Healthy bowl of noodles with egg and minced meat!", R.drawable.store, true, true, false);
+        Food MPBanMian2 = new Food("Hot & Spicy Ban Mian / You Mian", "Makan Place", R.drawable.makanplacemap, 3.80, 450, "A bowl of spicy noodles with egg and minced meat! Do specify the type of noodles you want!", R.drawable.store, true, true, false);
+        Food MPBanMian3 = new Food("Fried Fish soup", "Makan Place", R.drawable.makanplacemap, 3.50, 400, "A bowl of warm and savoury fish soup, with the fried fishes dipped in the bowl of soup.", R.drawable.store, false, true, false);
+        Food MPBanMian4 = new Food("Signatue La Mian", "Makan Place", R.drawable.makanplacemap, 3.50, 400, "Healthy bowl of noodles with egg and minced meat!", R.drawable.store, true, true, false);
+        Food MPBanMian5 = new Food("Tom Yum Ramen", "Makan Place", R.drawable.makanplacemap, 3.60, 476, "Hot bowl of noodles that is spicy and sour! ", R.drawable.store, true, true, false);
 
+        Food MPmala = new Food("Mala Xiang Guo", "Makan Place", R.drawable.makanplacemap, 7, 600, "Pick and choose your favourite ingredients in your bowl of mala(dry/soup)! Price ranges!", R.drawable.store, true, false, true);
 
+        Food MPWokQueen1 = new Food("Tomyum Fried Rice", "Makan Place", R.drawable.makanplacemap, 4.50, 363, "Tomyum Flavoured fried rice, make sure to choose chicken or prawn!", R.drawable.store, false, false, true);
+        Food MPWokQueen2 = new Food("Sambal Fried Rice", "Makan Place", R.drawable.makanplacemap, 4.50, 363, "Sambal Flavoured fried rice, make sure to choose chicken or prawn!", R.drawable.store, false, false, true);
+        Food MPWokQueen3 = new Food("Egg Fried Rice", "Makan Place", R.drawable.makanplacemap, 4.50, 363, "Flavourful Fried rice, make sure to choose chicken or prawn!", R.drawable.store, false, false, true);
+        Food MPWokQueen4 = new Food("Seafood Tomyum soup with rice and egg", "Makan Place", R.drawable.makanplacemap, 5.00, 560, "A bowl of tomyum soup with a lot of ingredients!", R.drawable.store, false, true, true);
+        Food MPWokQueen5 = new Food("Green curry chicken with rice and egg", "Makan Place", R.drawable.makanplacemap, 5.00, 363, "A bowl of green curry with rice and a piece of egg on the side!", R.drawable.store, false, true, true);
 
+        Food YongTauFoo1 = new Food ("Yong Tau Foo (Laksa)", "Makan Place", R.drawable.makanplacemap, 4.50, 654, "A customisable bowl of noodles with various ingredients and noodles with laksa soup base!", R.drawable.store, true, true, false);
+        Food YongTauFoo2 = new Food ("Yong Tau Foo (Tomyum)", "Makan Place", R.drawable.makanplacemap, 4.50, 654, "A customisable bowl of noodles with various ingredients and noodles, with tomyum soup base!", R.drawable.store, true, true, false);
+        Food YongTauFoo3 = new Food ("Yong Tau Foo (Dry/Soup)", "Makan Place", R.drawable.makanplacemap, 3, 654, "A customisable bowl of noodles with various ingredients and noodles with normal/no soup base!", R.drawable.store, true, true, false);
 
+        Food MPSalad1 = new Food("Garden Salad", "Makan Place", R.drawable.makanplacemap, 4.50, 345, "A bowl salad with vegetable. Do make a choice if you want to add on salad dressing!", R.drawable.store, false, false, false);
+        Food MPSalad2 = new Food("Chicken Salad", "Makan Place", R.drawable.makanplacemap, 5.50, 413, "A bowl salad with vegetable and chicken breast. Do make a choice if you want to add on salad dressing!", R.drawable.store, false, false, false);
+        Food MPSalad3 = new Food("Wraps", "Makan Place", R.drawable.makanplacemap, 5.50, 456, "Healthy ingredients all wrap together!", R.drawable.store, false, false, false);
+
+        Food Mbingsu1 = new Food("Matcha Bingsu", "Makan Place", R.drawable.makanplacemap, 5.90, 346, "A refreshing bowl of matcha flavoured shaved ice", R.drawable.store, false, false, false);
+        Food Mbingsu2 = new Food("Mango Bingsu", "Makan Place", R.drawable.makanplacemap, 5.90, 346, "A refreshing bowl of mango flavoured shaved ice", R.drawable.store, false, false, false);
+        Food Obingsu3 = new Food("Orea Bingsu", "Makan Place", R.drawable.makanplacemap, 5.90, 346, "A refreshing bowl of orea flavoured shaved ice", R.drawable.store, false, false, false);
 
 
 
@@ -489,6 +510,63 @@ public class GeneralViewPage extends AppCompatActivity implements SelectListener
         foodList.add(coffeeClub2);
         foodList.add(coffeeClub3);
         foodList.add(coffeeClub4);
+
+        foodList.add(MPBanMian1);
+        foodList.add(MPBanMian2);
+        foodList.add(MPBanMian3);
+        foodList.add(MPBanMian4);
+        foodList.add(MPBanMian5);
+
+        foodList.add(MPmala);
+
+        foodList.add(MPWokQueen1);
+        foodList.add(MPWokQueen2);
+        foodList.add(MPWokQueen3);
+        foodList.add(MPWokQueen4);
+        foodList.add(MPWokQueen5);
+
+        foodList.add(YongTauFoo1);
+        foodList.add(YongTauFoo2);
+        foodList.add(YongTauFoo3);
+
+        foodList.add(MPSalad1);
+        foodList.add(MPSalad2);
+        foodList.add(MPSalad3);
+
+        foodList.add(Mbingsu1);
+        foodList.add(Mbingsu2);
+        foodList.add(Obingsu3);
+
+        foodList.add(MPKoreanFusion1);
+        foodList.add(MPKoreanFusion2);
+        foodList.add(MPKoreanFusion3);
+        foodList.add(MPKoreanFusion4);
+        foodList.add(MPKoreanFusion5);
+
+        foodList.add(MPWestern1);
+        foodList.add(MPWestern2);
+        foodList.add(MPWestern3);
+        foodList.add(MPWestern4);
+        foodList.add(MPWestern5);
+
+        foodList.add(MPHotto1);
+        foodList.add(MPHotto2);
+        foodList.add(MPHotto3);
+        foodList.add(MPHotto4);
+        foodList.add(MPHotto5);
+
+        foodList.add(MPJap1);
+        foodList.add(MPJap2);
+        foodList.add(MPJap3);
+        foodList.add(MPJap4);
+        foodList.add(MPJap5);
+
+        foodList.add(MPGoPizza1);
+        foodList.add(MPGoPizza2);
+        foodList.add(MPGoPizza3);
+        foodList.add(MPGoPizza4);
+        foodList.add(MPGoPizza5);
+
         return foodList;
     }
 

@@ -14,33 +14,38 @@
         android:id="@+id/searchView"
         android:layout_width="358dp"
         android:layout_height="59dp"
+        android:layout_marginStart="30dp"
         android:layout_marginTop="16dp"
-        android:background="@color/material_dynamic_neutral90"
+        android:layout_marginEnd="30dp"
         app:iconifiedByDefault="false"
+        app:layout_constraintBottom_toTopOf="@+id/horizontalScrollView"
+        app:layout_constraintCircleRadius="500dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.49"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintCircleRadius="500dp"
-        app:queryHint="Search here!">
-    </androidx.appcompat.widget.SearchView>
+        app:layout_constraintVertical_bias="0.52"
+        app:queryHint="Search here!"></androidx.appcompat.widget.SearchView>
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/recyclerView"
-        android:layout_width="408dp"
-        android:layout_height="697dp"
+        android:layout_width="394dp"
+        android:layout_height="693dp"
         android:layout_margin="10dp"
-        android:layout_marginBottom="80dp"
+        android:layout_marginStart="3dp"
+        android:layout_marginEnd="3dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent">
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/horizontalScrollView"
+        app:layout_constraintVertical_bias="0.304">
 
     </androidx.recyclerview.widget.RecyclerView>
 
     <HorizontalScrollView
         android:id="@+id/horizontalScrollView"
-        android:layout_width="367dp"
-        android:layout_height="48dp"
+        android:layout_width="391dp"
+        android:layout_height="54dp"
         android:layout_marginTop="5dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
