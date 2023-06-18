@@ -2,11 +2,19 @@ package sg.edu.np.mad;
 
 
 import androidx.appcompat.app.AppCompatActivity;
+
+import android.annotation.SuppressLint;
+import android.content.Intent;
 import android.os.Bundle;
+import android.os.Parcelable;
+import android.view.View;
+import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.TextView;
 
-public class CataloguePage extends AppCompatActivity {
+import java.io.Serializable;
+
+public class CataloguePage extends AppCompatActivity implements Serializable {
     TextView foodName;
     ImageView foodImage;
     ImageView foodImage2;
@@ -14,7 +22,9 @@ public class CataloguePage extends AppCompatActivity {
     ImageView locationimg;
     TextView foodPrice;
     TextView foodCalories;
-    ImageView locationImage;
+    TextView storeLocation;
+    //Food object;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -27,17 +37,36 @@ public class CataloguePage extends AppCompatActivity {
         foodImage= findViewById(R.id.image1);
         foodImage2= findViewById(R.id.image2);
         foodImage3= findViewById(R.id.image3);
-        locationimg = findViewById(R.id.imageView3);
+        locationimg = findViewById(R.id.map);
+        storeLocation = findViewById(R.id.storeLocation);
+
 
         foodName.setText(getIntent().getExtras().getString("FoodName"));
         foodPrice.setText("$ " + String.valueOf(getIntent().getExtras().getDouble("FoodPrice",0.00)));
         foodCalories.setText(String.valueOf(getIntent().getExtras().getInt("FoodCalories")));
+        storeLocation.setText(getIntent().getExtras().getString("storeLocation"));
+
         int foodImg = getIntent().getIntExtra("FoodImg", 0);
         foodImage.setImageResource(foodImg);
         foodImage2.setImageResource(foodImg);
         foodImage3.setImageResource(foodImg);
+
         int locationImg = getIntent().getIntExtra("LocationImg", 0);
         locationimg.setImageResource(locationImg);
 
+        //object = (Food)getIntent().getExtras().getSerializable("object");
+    }
+
+    @Override
+    protected void onStart(){
+        super.onStart();
+        /*locationimg.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent tomap = new Intent(CataloguePage.this, map.class);
+                tomap.putExtra("object", object.getLocationImage());
+                startActivity(tomap);
+            }
+        });*/
     }
 }

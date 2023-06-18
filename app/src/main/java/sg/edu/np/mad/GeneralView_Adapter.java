@@ -8,10 +8,11 @@ import android.view.ViewGroup;
 
 import androidx.recyclerview.widget.RecyclerView;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
 
-public class GeneralView_Adapter extends RecyclerView.Adapter<GeneralView_Viewholder> {
+public class GeneralView_Adapter extends RecyclerView.Adapter<GeneralView_Viewholder> { //implements Serializable
     private Context context;
     private List<Food> data;
     private SelectListenerFood listenerFood;
@@ -50,6 +51,8 @@ public class GeneralView_Adapter extends RecyclerView.Adapter<GeneralView_Viewho
                 toCatalogue.putExtra("FoodCalories", data.get(holder.getAdapterPosition()).getCalories());
                 toCatalogue.putExtra("FoodImg", f.getFoodImage1());
                 toCatalogue.putExtra("LocationImg", f.getLocationImage());
+                toCatalogue.putExtra("storeLocation", f.getLocation());
+                //toCatalogue.putExtra("object", (Serializable)f);
                 context.startActivity(toCatalogue);
 
             }

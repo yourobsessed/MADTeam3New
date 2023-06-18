@@ -12,9 +12,10 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.MAD_Assignemnt"
         tools:targetApi="31">
-
         <activity
-            android:name="sg.edu.np.mad.GeneralView_Filter" />
+            android:name=".map"
+            android:exported="false" />
+        <activity android:name=".GeneralView_Filter" />
         <activity
             android:name=".StoreView_ViewHolder"
             android:exported="false" />
@@ -47,9 +48,11 @@
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
-
-
         </activity>
+
+        <meta-data
+            android:name="preloaded_fonts"
+            android:resource="@array/preloaded_fonts" />
     </application>
 
 </manifest>

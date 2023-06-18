@@ -271,8 +271,97 @@ public class GeneralViewPage extends AppCompatActivity implements SelectListener
         Food munchKorean23 = new Food("Kimchi Udon", "Munch", R.drawable.munchmap, 4.50, 460, "Kimchi soup based with udon noodles", R.drawable.store, true, true, false);
         Food munchKorean24 = new Food("Chicken Cutlet Mayo and Omelette curry rice", "Munch", R.drawable.munchmap, 4.50, 460, "Fluffy omelette filled with fried rice, and comes with delicious curry sauce and a piece of chicken cutlet", R.drawable.store, false, true, true);
 
+        //FOODCLUB
+        Food chickenrice1 = new Food("Roasted Chicken Rice Set", "Food Club", R.drawable.foodclubmap,4.2, 669, "A healthy set of chicken rice that comes with vegetable!", R.drawable.chickenrice, false, true, true);
+        Food chickenrice2 = new Food("Roasted Chicken Rice", "Food Club", R.drawable.foodclubmap,3, 500, "Very flavourful plate of roasted chicken rice! Do choose the type of meat you want!", R.drawable.chickenrice, false, true, true);
+        Food chickenrice3 = new Food("Steamed Chicken Rice", "Food Club", R.drawable.foodclubmap,3, 500, "Very flavourful plate of steamed chicken rice! Do choose the type of meat you want!", R.drawable.chickenrice, false, true, true);
+        Food chickenrice4 = new Food("Lemon Chicken Rice", "Food Club", R.drawable.foodclubmap,3, 596, "Crispy chicken cutlet drizzled with sweet and sour sauce!", R.drawable.chickenrice, false, true, true);
+        Food chickenrice5 = new Food("Chicken Cutlet Noodle", "Food Club", R.drawable.foodclubmap,3, 500, "A plate of seasoned noodles topped with crispy chicken cutlet!", R.drawable.chickenrice, true, true, false);
+        Food chickenrice6 = new Food("Roasted Chicken Noodle", "Food Club", R.drawable.foodclubmap,3, 475, "A plate of seasoned noodles, top with roasted chicken!", R.drawable.chickenrice, true, true, false);
 
-        Food food1 = new Food("Roasted Chicken Rice", "Food Club", R.drawable.foodclubmap,3, 500, "Very favourful", R.drawable.chickenrice, false, true, true);
+
+        Food pasta1 = new Food("Aglio Olio", "Food Club", R.drawable.foodclubmap,2.5, 300, "A plate of flavourful pasta. Do add on more ingredients to make it healthier meal!", R.drawable.chickenrice, true, false, false);
+        Food pasta2 = new Food("Tomato pasta", "Food Club", R.drawable.foodclubmap,2.5, 325, "A plate of tomato pasta that is slightly tangy. Do add on more ingredients to make it healthier meal!", R.drawable.chickenrice, true, false, false);
+        Food pasta3 = new Food("Cream pasta", "Food Club", R.drawable.foodclubmap,2.5, 375, "A plate of creamy pasta, with every strand of noodle clung with the creamy sauce. Do add on more ingredients to make it healthier meal! ", R.drawable.chickenrice, true, false, false);
+        Food pasta4 = new Food("Tom yum pasta", "Food Club", R.drawable.foodclubmap,2.5, 350, "A plate of pasta that has a spicy and sour taste. Do add on more ingredients to make it healthier meal!", R.drawable.chickenrice, true, false, false);
+        Food pasta5 = new Food("Vegetable: corn", "Food Club", R.drawable.foodclubmap,0.5, 30, "Wide varieties of Vegetable for you to choose", R.drawable.chickenrice, false, false, false);
+        Food pasta6 = new Food("Meat: Chicken Breast", "Food Club", R.drawable.foodclubmap,1, 50, "Wide varieties of meat options for you to choose", R.drawable.chickenrice, false, false, false);
+        Food pasta7 = new Food("Premium: Sliced Smoked Duck", "Food Club", R.drawable.foodclubmap,1.5, 60, "Wide varieties of other meat options for you to choose", R.drawable.chickenrice, false, false, false);
+
+        Food saladbar1 = new Food("Low Calorie Salad Bowl", "Food CLub", R.drawable.foodclubmap, 3.5, 350, "Greens + 3 Normal Sides",R.drawable.chickenrice, false,false,false);
+        Food saladbar2 = new Food("Signature Salad Bowl", "Food CLub", R.drawable.foodclubmap, 4.2, 400, "Greens + 2 Normal Sides + 1 Premium Side",R.drawable.chickenrice, false,false,false);
+        Food saladbar3 = new Food("Fill-me-up Salad Bowl", "Food CLub", R.drawable.foodclubmap, 4.5, 476, "Greens + 1 Normal Side + 2 Premium Sides",R.drawable.chickenrice, false,false,false);
+        Food saladbar4 = new Food("Party Salad Bowl", "Food CLub", R.drawable.foodclubmap, 8, 700, "Greens + 5 Normal Sides + 3 Premium Sides",R.drawable.chickenrice, false,false,false);
+
+
+        Food kkFriedRice1 = new Food("Egg Fried Rice", "Food Club", R.drawable.foodclubmap,2.5, 250, "Signature fried rice flavour!", R.drawable.chickenrice, false,false,true);
+        Food kkFriedRice2 = new Food("Sambal Fried Rice", "Food Club", R.drawable.foodclubmap,3, 313, "Signature sambal fried rice that is sweet and spicy!", R.drawable.chickenrice, false,false,true);
+        Food kkFriedRice3 = new Food("Tom Yum Fried Rice", "Food Club", R.drawable.foodclubmap,3, 320, "Signature tom yum fried rice that is spicy and sour!", R.drawable.chickenrice, false,false,true);
+        Food kkFriedRice4 = new Food("Meat: Chicken Cutlet", "Food Club", R.drawable.foodclubmap,1.5, 123, "Additional ingredients to make the fried rice extra flavourful", R.drawable.chickenrice, false,false,false);
+        Food kkFriedRice5 = new Food("Add-Ons: Cabbage", "Food Club", R.drawable.foodclubmap,0.8, 50, "Additional ingredients to make the meal healthier!", R.drawable.chickenrice, false,false,false);
+
+
+        Food Indonesian1 = new Food("Ayam Penyet Set", "Food CLub", R.drawable.foodclubmap, 4.50, 650, "Signature! With a gigantic piece of drumstick, drenched in curry!", R.drawable.chickenrice, false, false, true);
+        Food Indonesian2 = new Food("Udang Penyet Set", "Food CLub", R.drawable.foodclubmap, 4.50, 502, "Signature! With prawn pieces, drenched in curry!", R.drawable.chickenrice, false, false, true);
+        Food Indonesian3 = new Food("Ikan Dory Set", "Food CLub", R.drawable.foodclubmap, 4.40, 657, "Huge portion of fish, drenched in curry!", R.drawable.chickenrice, false, false, true);
+        Food Indonesian4 = new Food("Otah Penyet Set", "Food CLub", R.drawable.foodclubmap, 4.50, 650, "Favourite fried otah, drenched in curry!", R.drawable.chickenrice, false, false, true);
+        Food Indonesian5 = new Food("Mee Siam Set", "Food CLub", R.drawable.foodclubmap, 4.50, 571, "Bee hoon with a unique sweet and sour gravy", R.drawable.chickenrice, true, true, false);
+
+
+        Food creamyDuck1 = new Food("Waffles", "Food Club", R.drawable.foodclubmap, 1.8, 200, "Multiple variations of the waffle filling to choose from!", R.drawable.chickenrice, false, false, false);
+        Food creamyDuck2 = new Food("Corn butter salt", "Food Club", R.drawable.foodclubmap, 1.7, 150, "Steamed corn mixed with butter and salt, very delicious", R.drawable.chickenrice, false, false, false);
+        Food creamyDuck3 = new Food("Corn butter choc", "Food Club", R.drawable.foodclubmap, 1.9, 173, "Steamed corn mixed with butter and chocolate, sweet and savoury", R.drawable.chickenrice, false, false, false);
+        Food creamyDuck4 = new Food("Takoyaki", "Food Club", R.drawable.foodclubmap, 2.8, 350, "Multiple variations of the Takoyaki fillings to choose from! Either choose prawn, ham, octopus or crabstick!", R.drawable.chickenrice, false, false, false);
+        Food creamyDuck5 = new Food("Ice Cream", "Food Club", R.drawable.foodclubmap, 1.8, 230, "Comes in different sizes, choose either 6oz or 12oz single scoop", R.drawable.chickenrice, false, false, false);
+
+
+        Food coffeeClub1 = new Food("Breakfast Set A", "Food Club", R.drawable.foodclubmap, 2, 450, "Comes with 2 toasted bread + 2 half boiled eggs and 1 hot beverage", R.drawable.chickenrice, false, false, false);
+        Food coffeeClub2 = new Food("Breakfast Set B", "Food Club", R.drawable.foodclubmap, 2.20, 435, "Comes with 1 Apollo bread + 2 half boiled eggs and 1 hot beverage", R.drawable.chickenrice, false, false, false);
+        Food coffeeClub3 = new Food("Breakfast Set C", "Food Club", R.drawable.foodclubmap, 2.40, 440, "Comes with 1 thick bread + 2 half boiled eggs and 1 hot beverage", R.drawable.chickenrice, false, false, false);
+        Food coffeeClub4 = new Food("Breakfast Set D", "Food Club", R.drawable.foodclubmap, 2.40, 463, "Comes with 4 cream crackers + 2 half boiled eggs and 1 hot beverage", R.drawable.chickenrice, false, false, false);
+
+        //MAKAN PLACE
+        Food MPKoreanFusion1 = new Food("Hotplate Saba Fish", "Makan Place", R.drawable.makanplacemap, 5.30, 530, "Grilled saba fish that comes in a set with korean rice and a bowl of soup!", R.drawable.store, false, true, true);
+        Food MPKoreanFusion2 = new Food("Hotplate Chicken Fish", "Makan Place", R.drawable.makanplacemap, 5.00, 546, "Korean spicy marinated chicken that comes in a set with korean rice and a bowl of soup!", R.drawable.store, false, true, true);
+        Food MPKoreanFusion3 = new Food("Beef Ramen", "Makan Place", R.drawable.makanplacemap, 5.30, 530, "Korean ramen with marinated and tender beef!", R.drawable.store, true, true, false);
+        Food MPKoreanFusion4 = new Food("Bibimbap (Chicken)", "Makan Place", R.drawable.makanplacemap, 4.40, 450, "Korean rice with various vegetables and a spoonful of gochujang sauce!", R.drawable.store, false, true, true);
+        Food MPKoreanFusion5 = new Food("Hotplate Chicken + Saba Fish", "Makan Place", R.drawable.makanplacemap, 6.30, 530, "Grilled saba fish and spicy marinated chicken that comes in a set with korean rice and a bowl of soup!", R.drawable.store, false, true, true);
+
+
+        Food MPWestern1 = new Food("Chicken Chop", "Makan Place", R.drawable.makanplacemap, 5, 430, "Grilled chicken with BBQ sauce and it comes with 2 sides!", R.drawable.store, false, false, false);
+        Food MPWestern2 = new Food("Fish Rice Set", "Makan Place", R.drawable.makanplacemap, 5.80, 460, "Big piece of fried fish and it comes with rice and 1 side!", R.drawable.store, false, false, true);
+        Food MPWestern3 = new Food("Fish with Aglio Olio", "Makan Place", R.drawable.makanplacemap, 5.50, 560, "Big piece of fried fish and it comes with aglio olio on the side!", R.drawable.store, true, false, false);
+        Food MPWestern4 = new Food("Fried chicken with tomato spaghetti", "Makan Place", R.drawable.makanplacemap, 5.5, 580, "Fried chicken with BBQ sauce and it comes with tomato spaghetti on the side!", R.drawable.store, true, false, false);
+        Food MPWestern5 = new Food("Chicken Chop rice set", "Makan Place", R.drawable.makanplacemap, 5, 430, "Grilled chicken with BBQ sauce and it comes with rice and 1 side!", R.drawable.store, false, false, true);
+
+        Food MPHotto1 = new Food("Beef Roll Hotto Rice", "Makan Place", R.drawable.makanplacemap, 5.9, 500, "Beef slices and rice on a hot plate, sizzlingly delicious", R.drawable.store, false, false, true);
+        Food MPHotto2 = new Food("Salmon Hotto Rice", "Makan Place", R.drawable.makanplacemap, 6.9, 500, "Salmon and rice on a hot plate, sizzlingly delicious", R.drawable.store, false, false, true);
+        Food MPHotto3 = new Food("Chicken Hotto Rice", "Makan Place", R.drawable.makanplacemap, 4.9, 500, "Chicken cubes and rice on a hot plate, sizzlingly delicious", R.drawable.store, false, false, true);
+        Food MPHotto4 = new Food("Black pepper chicken burger", "Makan Place", R.drawable.makanplacemap, 3.9, 370, "Chicken patty with black pepper sauce in a burger", R.drawable.store, false, false, false);
+        Food MPHotto5 = new Food("Creamy Shroom Pasta", "Makan Place", R.drawable.makanplacemap, 4.9, 510, "Creamy mushroom pasta", R.drawable.store, true, false, false);
+
+        Food MPJap1 = new Food("Hotplate Chicken Fuyong", "Makan Place", R.drawable.makanplacemap, 4, 500, "Fried chicken with egg, drizzled with the special sweet sauce", R.drawable.store, false, true, true);
+        Food MPJap2 = new Food("Chicken and pork bento", "Makan Place", R.drawable.makanplacemap, 4.50, 560, "Fried chicken and pork in a bento with rice", R.drawable.store, false, true, true);
+        Food MPJap3 = new Food("Salmon Don", "Makan Place", R.drawable.makanplacemap, 4.50, 500, "Geilled salmon with store's special sauce on top of a bowl of rice", R.drawable.store, false, true, true);
+        Food MPJap4 = new Food("Ebi fry Katsu Curry Rice", "Makan Place", R.drawable.makanplacemap, 4.50, 560, "Fried ebi with japanese curry rice", R.drawable.store, false, true, true);
+        Food MPJap5 = new Food("Pork Shabu shabu curry udon", "Makan Place", R.drawable.makanplacemap, 4, 500, "Thin slices of pork shabu shabu with japanese udon curry", R.drawable.store, true, true, false);
+
+        Food MPGoPizza1 = new Food("American Cheese Pizza", "Makan Place", R.drawable.makanplacemap, 6.0, 560, "Pizza topped with multiple variations of cheese", R.drawable.store, false, false, false);
+        Food MPGoPizza2 = new Food("K-Bulgogi Pizza", "Makan Place", R.drawable.makanplacemap, 10.0, 600, "Pizza topped with of cheese and korean marinated beef", R.drawable.store, false, false, false);
+        Food MPGoPizza3 = new Food("Original Wings", "Makan Place", R.drawable.makanplacemap, 6.80, 560, "Three pieces of original flavoured wings for 6.80! Crispy on the outside, tender & juicy on the insider!", R.drawable.store, false, false, false);
+        Food MPGoPizza4 = new Food("Cheese Stick", "Makan Place", R.drawable.makanplacemap, 4.80, 516, "Cheesy cheese stick that is savoury and suitable for all ages!", R.drawable.store, false, false, false);
+        Food MPGoPizza5 = new Food("Shaker Fries", "Makan Place", R.drawable.makanplacemap, 2.80, 430, "Choose either sea salt of seaweed flavour for your shaker fries", R.drawable.store, false, false, false);
+
+        //left ban mian, yong tau foo, mala, drinks + add them into the list
+
+
+
+
+
+
+
+
+
 
         foodList.add(munchSaladBowlR);
         foodList.add(munchSaladBowlL);
@@ -357,6 +446,49 @@ public class GeneralViewPage extends AppCompatActivity implements SelectListener
         foodList.add(munchKorean23);
         foodList.add(munchKorean24);
 
+
+        foodList.add(chickenrice1);
+        foodList.add(chickenrice2);
+        foodList.add(chickenrice3);
+        foodList.add(chickenrice4);
+        foodList.add(chickenrice5);
+        foodList.add(chickenrice6);
+
+        foodList.add(pasta1);
+        foodList.add(pasta2);
+        foodList.add(pasta3);
+        foodList.add(pasta4);
+        foodList.add(pasta5);
+        foodList.add(pasta6);
+        foodList.add(pasta7);
+
+        foodList.add(saladbar1);
+        foodList.add(saladbar2);
+        foodList.add(saladbar3);
+        foodList.add(saladbar4);
+
+        foodList.add(kkFriedRice1);
+        foodList.add(kkFriedRice2);
+        foodList.add(kkFriedRice3);
+        foodList.add(kkFriedRice4);
+        foodList.add(kkFriedRice5);
+
+        foodList.add(Indonesian1);
+        foodList.add(Indonesian2);
+        foodList.add(Indonesian3);
+        foodList.add(Indonesian4);
+        foodList.add(Indonesian5);
+
+        foodList.add(creamyDuck1);
+        foodList.add(creamyDuck2);
+        foodList.add(creamyDuck3);
+        foodList.add(creamyDuck4);
+        foodList.add(creamyDuck5);
+
+        foodList.add(coffeeClub1);
+        foodList.add(coffeeClub2);
+        foodList.add(coffeeClub3);
+        foodList.add(coffeeClub4);
         return foodList;
     }
 

@@ -10,21 +10,19 @@ import android.os.Bundle;
 import java.util.ArrayList;
 
 public class StoreViewPage extends AppCompatActivity {
-    ArrayList<Food> foodArrayList = new ArrayList<Food>();
+    ArrayList<Store> storeList = new ArrayList<Store>();
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_store_view_page);
 
-        Food munchSaladBowl = new Food("Regular", "Munch", R.drawable.munchmap,4, 400, "Filling amount for one person", R.drawable.store, true, false, true);
-
-        Food food1 = new Food("Roasted Chicken Rice", "Food Club",  R.drawable.munchmap,3, 500, "Very favourful", R.drawable.chickenrice, false, true, true);
-
-        foodArrayList.add(food1);
-        foodArrayList.add(munchSaladBowl);
+        Store munch1 = new Store("Mala", "Munch", "Get your favourite mala combination here with the huge varieties of food!", true, false);
+        Store munch2 = new Store("Korean", "Munch", "get your korean cravings satisfied here!", true, false);
+        storeList.add(munch1);
+        storeList.add(munch2);
 
         RecyclerView recyclerView = findViewById(R.id.recyclerView);
-        FoodAdapter adapter = new FoodAdapter(foodArrayList); //need to create foodList
+        StoreAdapter adapter = new StoreAdapter(storeList); //need to create foodList
         LinearLayoutManager foodLayout = new LinearLayoutManager(this);
         recyclerView.setLayoutManager(foodLayout);
         recyclerView.setItemAnimator(new DefaultItemAnimator());
