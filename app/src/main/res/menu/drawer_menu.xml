@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:showIn="navigation_view">
+
+
+
+    <group android:checkableBehavior="single">
+        <item android:id="@+id/HomeButton"
+            android:icon="@drawable/ic_homebutton"
+            android:title="Home"/>
+        <item android:id="@+id/foodbank"
+            android:icon="@drawable/ic_limitoption"
+            android:title="Food Menu"/>
+        <item android:id="@+id/NotificationButton"
+            android:icon="@drawable/ic_notificationbutton"
+            android:title="Notifications"/>
+        <item android:id="@+id/WishlistButton"
+            android:icon="@drawable/ic_wishlist"
+            android:title="Wishlist"/>
+        <item android:id="@+id/reviewButton"
+            android:icon="@drawable/ic_review"
+            android:title="Review"/>
+        <item android:id="@+id/directionButton"
+            android:icon="@drawable/ic_direction"
+            android:title="How to get there?"/>
+        <item android:id="@+id/profileButton"
+            android:icon="@drawable/ic_profile"
+            android:title="Profile"/>
+
+        <item android:id="@+id/aboutusbutton"
+            android:title="About us"/>
+        <item android:id="@+id/feedbackbutton"
+            android:title="Feedback"/>
+    </group>
+</menu>

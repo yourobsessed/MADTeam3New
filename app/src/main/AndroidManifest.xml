@@ -42,7 +42,8 @@
             android:exported="false" />
         <activity
             android:name=".MainPage"
-            android:exported="false" />
+            android:exported="false"
+            android:theme="@style/AppTheme.NoActionBar"/>
         <activity
             android:name=".LoginPage"
             android:exported="true">
