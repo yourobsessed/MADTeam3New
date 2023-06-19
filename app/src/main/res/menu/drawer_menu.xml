@@ -10,7 +10,7 @@
             android:icon="@drawable/ic_homebutton"
             android:title="Home"/>
         <item android:id="@+id/foodbank"
-            android:icon="@drawable/ic_homebutton"
+            android:icon="@drawable/ic_foodmenu"
             android:title="Food Menu"/>
         <item android:id="@+id/NotificationButton"
             android:icon="@drawable/ic_notificationbutton"

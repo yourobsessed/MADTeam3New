@@ -90,7 +90,7 @@ public class MainPage extends AppCompatActivity {
 
 
 
-        ImageView WishlistButton = findViewById(R.id.WishlistButton);
+        /*ImageView WishlistButton = findViewById(R.id.WishlistButton);
         WishlistButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -116,7 +116,7 @@ public class MainPage extends AppCompatActivity {
                 startActivity(OpenNotification);
                 //to be implemented in stage 2
             }
-        });
+        });*/
 
         /*ImageView sidePanelButton = findViewById(R.id.SidePanelButtonMain);
         sidePanelButton.setOnClickListener(new View.OnClickListener() {
@@ -127,13 +127,13 @@ public class MainPage extends AppCompatActivity {
             }
         });*/
 
-        Toolbar toolbar = findViewById(R.id.toolbar);
+        /*Toolbar toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
 
         drawer = findViewById(R.id.drawer_layout);
         ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(this, drawer, toolbar, R.string.navigation_drawer_open, R.string.navigation_drawer_close);
         drawer.addDrawerListener(toggle);
-        toggle.syncState();
+        toggle.syncState();*/
     }
     @Override
     public void onBackPressed(){
