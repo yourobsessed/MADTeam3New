@@ -1,4 +1,5 @@
 <resources xmlns:tools="http://schemas.android.com/tools">
+
     <!-- Base application theme. -->
     <style name="Base.Theme.MAD_Assignemnt" parent="Theme.Material3.DayNight.NoActionBar">
         <item name="colorPrimary">#0091D4</item>
@@ -17,12 +18,12 @@
 
     <style name="Theme.MAD_Assignemnt.PopupOverlay" parent="ThemeOverlay.AppCompat.Light" />
 
-
-    <style name="AppTheme" parents="Theme.AppCompat.Light.DarkActiionBar"></style>
+    <style name="AppTheme" parent="Theme.MAD_Assignemnt.NoActionBar" />
 
     <style name="AppTheme.NoActionBar">
         <item name="windowActionBar">false</item>
         <item name="windowNoTitle">true</item>
         <item name="android:statusBarColor">@android:color/transparent</item>
     </style>
+
 </resources>
