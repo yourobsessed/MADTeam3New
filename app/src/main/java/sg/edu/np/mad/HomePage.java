@@ -30,6 +30,14 @@ public class HomePage extends AppCompatActivity {
                 startActivity(openMap);
             }
         });
+        Button CrowdButton = findViewById(R.id.button);
+        CrowdButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent openCrowd = new Intent(HomePage.this, MainPage.class);
+                startActivity(openCrowd);
+            }
+        });
 
     }
 }
