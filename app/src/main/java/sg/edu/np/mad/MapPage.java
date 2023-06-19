@@ -9,6 +9,8 @@ import androidx.core.app.ActivityCompat;
 
 import com.mapbox.android.core.permissions.PermissionsManager;
 import com.mapbox.mapboxsdk.Mapbox;
+import com.mapbox.mapboxsdk.annotations.IconFactory;
+import com.mapbox.mapboxsdk.annotations.MarkerOptions;
 import com.mapbox.mapboxsdk.camera.CameraPosition;
 import com.mapbox.mapboxsdk.geometry.LatLng;
 import com.mapbox.mapboxsdk.location.LocationComponent;
@@ -19,6 +21,9 @@ import com.mapbox.mapboxsdk.maps.MapView;
 import com.mapbox.mapboxsdk.maps.MapboxMap;
 import com.mapbox.mapboxsdk.maps.OnMapReadyCallback;
 import com.mapbox.mapboxsdk.maps.Style;
+import com.mapbox.mapboxsdk.plugins.annotation.Symbol;
+import com.mapbox.mapboxsdk.plugins.annotation.SymbolManager;
+import com.mapbox.mapboxsdk.plugins.annotation.SymbolOptions;
 
 public class MapPage extends AppCompatActivity implements OnMapReadyCallback {
     private MapView mapView;
@@ -45,10 +50,24 @@ public class MapPage extends AppCompatActivity implements OnMapReadyCallback {
                 enableLocationComponent(style);
                 mapboxMap.setCameraPosition(
                         new CameraPosition.Builder()
-                                .target(new LatLng(1.3326, 103.7741))
+                                .target(new LatLng(1.3330002217556243, 103.77539301191698))
                                 .zoom(16)
                                 .build()
                 );
+
+                MarkerOptions mpmarker = new MarkerOptions()
+                        .position(new LatLng(1.3319990257787873, 103.77473837340155))
+                        .icon(IconFactory.getInstance(MapPage.this).fromResource(R.drawable.mpmarker));
+                mapboxMap.addMarker(mpmarker);
+                MarkerOptions mmarker = new MarkerOptions()
+                        .position(new LatLng(1.3319319886684464, 103.77688414058471))
+                        .icon(IconFactory.getInstance(MapPage.this).fromResource(R.drawable.mmarker));
+                mapboxMap.addMarker(mmarker);
+                MarkerOptions fcmarker = new MarkerOptions()
+                        .position(new LatLng(1.3343284438398109, 103.77561425385555))
+                        .icon(IconFactory.getInstance(MapPage.this).fromResource(R.drawable.fcmarker));
+                mapboxMap.addMarker(fcmarker);
+
             }
         });
     }
