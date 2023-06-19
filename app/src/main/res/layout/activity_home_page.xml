@@ -30,7 +30,28 @@
         <FrameLayout
             android:id="@+id/fragment_container"
             android:layout_width="match_parent"
-            android:layout_height="match_parent" />
+            android:layout_height="match_parent">
+
+            <Button
+                android:id="@+id/SearchButton"
+                android:layout_width="140dp"
+                android:layout_height="140dp"
+                android:layout_marginStart="16dp"
+                android:layout_marginLeft="16dp"
+                android:layout_marginTop="300dp"
+                android:layout_marginEnd="255dp"
+                android:layout_marginRight="255dp"
+                android:layout_marginBottom="513dp"
+                android:background="@drawable/rectangle2"
+                android:text="Search"
+                android:textColor="#FFFFFF"
+                android:textColorHighlight="#A33535"
+                android:textColorLink="#635C5C"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+        </FrameLayout>
     </LinearLayout>
 
     <com.google.android.material.navigation.NavigationView

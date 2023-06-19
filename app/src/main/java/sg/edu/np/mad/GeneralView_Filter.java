@@ -9,12 +9,16 @@ import android.widget.Button;
 import android.widget.CompoundButton;
 
 import com.google.android.material.chip.Chip;
+import com.google.android.material.chip.ChipGroup;
 
 import java.util.ArrayList;
 
 public class GeneralView_Filter extends AppCompatActivity {
 
     private Chip chipMakan,chipClub,chipMunch;
+
+    private ChipGroup chipGroupLocation;
+
 
     private Button buttonApply;
 
@@ -27,12 +31,13 @@ public class GeneralView_Filter extends AppCompatActivity {
         chipMakan=findViewById(R.id.chipMakan);
         chipClub=findViewById(R.id.chipClub);
         chipMunch=findViewById(R.id.chipMunch);
+        chipGroupLocation=findViewById(R.id.chipGroupLocation);
 
         selectedChipData=new ArrayList<>();
 
-        CompoundButton.OnCheckedChangeListener checkedChangeListener = new CompoundButton.OnCheckedChangeListener(){
+        CompoundButton.OnCheckedChangeListener checkedChangeListener = new CompoundButton.OnCheckedChangeListener() {
             @Override
-            public void onCheckedChanged(CompoundButton buttonView, boolean isChecked){
+            public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
                 if(isChecked)
                 {
                     selectedChipData.add(buttonView.getText().toString());
@@ -43,9 +48,10 @@ public class GeneralView_Filter extends AppCompatActivity {
                 }
             }
         };
-        chipMunch.setOnCheckedChangeListener(checkedChangeListener);
         chipClub.setOnCheckedChangeListener(checkedChangeListener);
         chipMakan.setOnCheckedChangeListener(checkedChangeListener);
+        chipClub.setOnCheckedChangeListener(checkedChangeListener);
+
 
         buttonApply = findViewById(R.id.buttonApply);
         buttonApply.setOnClickListener(new View.OnClickListener(){

@@ -49,6 +49,15 @@ public class HomePage extends AppCompatActivity{// implements NavigationView.OnN
             }
         });
 
+        Button SearchButton = findViewById(R.id.SearchButton);
+        SearchButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent openGeneralView = new Intent(HomePage.this, GeneralViewPage.class);
+                startActivity(openGeneralView);
+            }
+        });
+
         Toolbar toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
 
