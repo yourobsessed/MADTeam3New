@@ -1,12 +1,19 @@
 package sg.edu.np.mad;
 
+import static sg.edu.np.mad.R.id.drawer_layout;
+import static sg.edu.np.mad.R.id.nav_HomeButton;
+
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.ActionBarDrawerToggle;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
+import androidx.core.app.NavUtils;
 import androidx.core.view.GravityCompat;
 import androidx.drawerlayout.widget.DrawerLayout;
+import androidx.fragment.app.Fragment;
 
+import android.annotation.SuppressLint;
+import android.app.Activity;
 import android.app.Notification;
 import android.content.Intent;
 import android.graphics.Color;
@@ -35,12 +42,14 @@ import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
 import java.util.List;
 
-public class HomePage extends AppCompatActivity{// implements NavigationView.OnNavigationItemSelectedListener {
+public class HomePage extends AppCompatActivity{//} implements NavigationView.OnNavigationItemSelectedListener {
     private DrawerLayout drawer;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_home_page);
+        //initNavigationDrawer();
 
         String Username = getIntent().getStringExtra("Username");
 
@@ -68,29 +77,154 @@ public class HomePage extends AppCompatActivity{// implements NavigationView.OnN
             }
         });
 
+
         List<CrowdReview> CrowdReviewsList = new ArrayList<>();
         getCrowd(CrowdReviewsList, CrowdButton, MapButton);
 
 
-
-        Toolbar toolbar = findViewById(R.id.toolbar);
+        Toolbar toolbar = drawer.findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
 
-
-        drawer = (DrawerLayout)getLayoutInflater().inflate(R.layout.activity_home_page, null);
-        //FrameLayout container = drawer.findViewById(R.id.)
-        NavigationView navigationView = findViewById(R.id.nav_view);
-        //navigationView.setNavigationItemSelectedListener(this);
-
+        drawer = findViewById(R.id.drawer_layout);
 
         ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(this, drawer, toolbar, R.string.navigation_drawer_open, R.string.navigation_drawer_close);
         drawer.addDrawerListener(toggle);
         toggle.syncState();
+
+    }
+    private void handleNavigationDrawerItemClick(int itemId) {
+        switch (itemId) {
+            case R.id.nav_HomeButton:
+                Intent toHomePage = new Intent(HomePage.this, HomePage.class);
+                startActivity(toHomePage);
+                break;
+            case R.id.nav_foodbank:
+                // Handle item 2 selection
+                Intent toGeneralviewpage = new Intent(HomePage.this, GeneralViewPage.class);
+                startActivity(toGeneralviewpage);
+                break;
+            // Add more cases for other items
+        }
+    }
+    /*@Override
+    public void setContentView(View view){
+        drawer = (DrawerLayout) getLayoutInflater().inflate(R.layout.activity_home_page, null);
+
+        Toolbar toolbar = drawer.findViewById(R.id.toolbar);
+        setSupportActionBar(toolbar);
+
+        NavigationView navigationView = findViewById(R.id.nav_view);
+        navigationView.setNavigationItemSelectedListener(this);
+
+        ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(this, drawer, toolbar, R.string.navigation_drawer_open, R.string.navigation_drawer_close);
+        drawer.addDrawerListener(toggle);
+        toggle.syncState();
+    }*/
+
+
+    /*public boolean onNavigationItemSelected(@NonNull MenuItem item){
+
+        drawer.closeDrawer(GravityCompat.START);
+        switch(item.getItemId()){
+            case R.id.nav_HomeButton:
+                Intent toHomePage = new Intent(HomePage.this, HomePage.class);
+                startActivity(toHomePage);
+                overridePendingTransition(0,0);
+                break;
+            case R.id.nav_foodbank:
+                Intent toGeneralviewpage = new Intent(HomePage.this, GeneralViewPage.class);
+                startActivity(toGeneralviewpage);
+                overridePendingTransition(0,0);
+                break;
+            case R.id.nav_NotificationButton:
+                Intent toNotification = new Intent(HomePage.this, NotificationViewPage.class);
+                startActivity(toNotification);
+                overridePendingTransition(0,0);
+                break;
+            case R.id.nav_WishlistButton:
+                Intent toWishlist = new Intent(HomePage.this, WishlistPage.class);
+                startActivity(toWishlist);
+                overridePendingTransition(0,0);
+                break;
+            case R.id.nav_reviewButton:
+                Intent toReview = new Intent(HomePage.this, ReviewPage.class);
+                startActivity(toReview);
+                overridePendingTransition(0,0);
+                break;
+            case R.id.nav_profileButton:
+                Intent toProfile = new Intent(HomePage.this, Profile.class);
+                startActivity(toProfile);
+                overridePendingTransition(0,0);
+                break;
+        }
+        drawer.closeDrawer(GravityCompat.START);
+        return true;
+
     }
 
-    /*@Override
-    public boolean onNavigationItemSelected(@NonNull MenuItem item) {
-        switch(item.getItemId()){
+    protected void allocatedActivityTitle(String titleString){
+        if (getSupportActionBar() != null){
+            getSupportActionBar().setTitle(titleString);
+        }
+    }
+    @Override
+    public void onBackPressed(){
+        if (drawer.isDrawerOpen(GravityCompat.START)){
+            drawer.closeDrawer(GravityCompat.START);
+        }
+        else{
+            super.onBackPressed();
+        }
+    }*/
+
+
+
+    /*public void initNavigationDrawer(){
+        NavigationView navigationView = findViewById(R.id.nav_view);
+        navigationView.setNavigationItemSelectedListener(new NavigationView.OnNavigationItemSelectedListener() {
+            @Override
+            public boolean onNavigationItemSelected(@NonNull MenuItem item) {
+                int id = item.getItemId();
+
+                switch (id){
+                    case nav_HomeButton:
+                        getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container, new Fragment().commit)
+                        startActivity(toHomePage);
+                        break;
+                    case R.id.nav_foodbank:
+                        Intent toGeneralviewpage = new Intent(HomePage.this, GeneralViewPage.class);
+                        startActivity(toGeneralviewpage);
+                        break;
+                    case R.id.nav_NotificationButton:
+                        Intent toNotification = new Intent(HomePage.this, NotificationViewPage.class);
+                        startActivity(toNotification);
+                        break;
+                    case R.id.nav_WishlistButton:
+                        Intent toWishlist = new Intent(HomePage.this, WishlistPage.class);
+                        startActivity(toWishlist);
+                        break;
+                    case R.id.nav_reviewButton:
+                        Intent toReview = new Intent(HomePage.this, ReviewPage.class);
+                        startActivity(toReview);
+                        break;
+                    case R.id.nav_profileButton:
+                        Intent toProfile = new Intent(HomePage.this, Profile.class);
+                        startActivity(toProfile);
+                        break;
+
+                    default:
+                        break;
+                }
+                return true;
+            }
+        });
+
+
+    }*/
+
+
+
+        /*switch(item.getItemId()){
             case R.id.nav_HomeButton:
                 Intent toHomePage = new Intent(HomePage.this, HomePage.class);
                 startActivity(toHomePage);
@@ -119,11 +253,8 @@ public class HomePage extends AppCompatActivity{// implements NavigationView.OnN
         drawer.closeDrawer(GravityCompat.START);
         return true;
     }
-    protected void allocateActivityTitile(String titleString){
-        if (getSupportActionBar() != null){
-            getSupportActionBar().setTitle(titleString);
-        }
-    }*/
+    */
+
     @Override
     public void onResume() {
         super.onResume();
@@ -133,15 +264,7 @@ public class HomePage extends AppCompatActivity{// implements NavigationView.OnN
         getCrowd(CrowdReviewsList, CrowdButton, MapButton);
 
     }
-    @Override
-    public void onBackPressed(){
-        if (drawer.isDrawerOpen(GravityCompat.START)){
-            drawer.closeDrawer(GravityCompat.START);
-        }
-        else{
-            super.onBackPressed();
-        }
-    }
+
 
     public void getCrowd(List CrowdReviewsList, TextView txt, TextView txt2) {
         CrowdReviewsList.clear();
@@ -234,6 +357,7 @@ public class HomePage extends AppCompatActivity{// implements NavigationView.OnN
 
 
     }
+
 
 
     public static int calculateAverage(List<Integer> list) {

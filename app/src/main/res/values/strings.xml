@@ -42,15 +42,6 @@
         <item>Empty</item>
     </string-array>
 
-    <!-- Checkout activity -->
-    <string name="title_activity_panel_view_page">PanelViewPage</string>
-    <string name="checkout_item_description">Description</string>
-    <string name="googlepay_status_unavailable" translatable="false">Unfortunately, Google Pay is
-        not available on this phone.
-    </string>
-    <string name="payments_show_name" translatable="false">Successfully received payment data for
-        %s!
-    </string>
     <string name="navigation_drawer_open">Open navigation drawer</string>
     <string name="navigation_drawer_close">Close navigation drawer</string>
     <string name="nav_header_title">Android Studio</string>
@@ -62,6 +53,7 @@
     <string name="menu_gallery">Gallery</string>
     <string name="menu_slideshow">Slideshow</string>
     <string name="mapView">Get there using this NP map!</string>
+    <string name="title_activity_drawer">Drawer</string>
 
 
 </resources>
