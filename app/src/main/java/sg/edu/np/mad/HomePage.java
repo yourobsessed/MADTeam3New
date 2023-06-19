@@ -13,12 +13,13 @@ import android.os.Bundle;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
+import android.widget.FrameLayout;
 import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.google.android.material.navigation.NavigationView;
 
-public class HomePage extends AppCompatActivity{//} implements NavigationView.OnNavigationItemSelectedListener {
+public class HomePage extends AppCompatActivity{// implements NavigationView.OnNavigationItemSelectedListener {
     private DrawerLayout drawer;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -51,7 +52,9 @@ public class HomePage extends AppCompatActivity{//} implements NavigationView.On
         Toolbar toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
 
-        drawer = findViewById(R.id.drawer_layout);
+
+        drawer = (DrawerLayout)getLayoutInflater().inflate(R.layout.activity_home_page, null);
+        //FrameLayout container = drawer.findViewById(R.id.)
         NavigationView navigationView = findViewById(R.id.nav_view);
         //navigationView.setNavigationItemSelectedListener(this);
 
@@ -91,6 +94,11 @@ public class HomePage extends AppCompatActivity{//} implements NavigationView.On
         }
         drawer.closeDrawer(GravityCompat.START);
         return true;
+    }
+    protected void allocateActivityTitile(String titleString){
+        if (getSupportActionBar() != null){
+            getSupportActionBar().setTitle(titleString);
+        }
     }*/
 
     @Override
