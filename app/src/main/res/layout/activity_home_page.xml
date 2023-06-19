@@ -30,7 +30,9 @@
         <FrameLayout
             android:id="@+id/fragment_container"
             android:layout_width="match_parent"
-            android:layout_height="match_parent" />
+            android:layout_height="match_parent" >
+
+        </FrameLayout>
     </LinearLayout>
 
     <com.google.android.material.navigation.NavigationView
@@ -93,15 +95,18 @@
 
         <TextView
             android:id="@+id/crowdbutton"
-            android:layout_width="225dp"
+            android:layout_width="205dp"
             android:layout_height="140dp"
-            android:layout_marginStart="16dp"
+            android:layout_marginStart="13dp"
             android:layout_marginTop="60dp"
             android:background="@drawable/rectangle2"
             android:backgroundTint="#2196F3"
+            android:fontFamily="@font/alata"
             android:gravity="center"
             android:text="Crowd"
-            android:textAlignment="center"
+            android:textAlignment="textStart"
+            android:textStyle="bold"
+            android:paddingLeft="10sp"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/textView16" />
 
@@ -111,13 +116,41 @@
             android:layout_width="140dp"
             android:layout_height="140dp"
             android:layout_marginTop="60dp"
+            android:layout_marginEnd="5dp"
             android:background="@drawable/rectangle"
+            android:fontFamily="@font/alata"
             android:gravity="center"
             android:text="Map"
             android:textAlignment="center"
+            android:textColor="#000000"
+            android:textStyle="bold"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toEndOf="@+id/crowdbutton"
             app:layout_constraintTop_toBottomOf="@+id/textView16" />
+
+        <ImageView
+            android:id="@+id/imageView4"
+            android:layout_width="42dp"
+            android:layout_height="40dp"
+            android:layout_marginEnd="160dp"
+            android:layout_marginBottom="120dp"
+            app:layout_constraintBottom_toBottomOf="@+id/crowdbutton"
+            app:layout_constraintEnd_toEndOf="@+id/crowdbutton"
+            app:layout_constraintStart_toStartOf="@+id/crowdbutton"
+            app:layout_constraintTop_toTopOf="@+id/crowdbutton"
+            app:srcCompat="@drawable/forkicon" />
+
+        <ImageView
+            android:id="@+id/imageView5"
+            android:layout_width="42dp"
+            android:layout_height="40dp"
+            android:layout_marginEnd="90dp"
+            android:layout_marginBottom="120dp"
+            app:layout_constraintBottom_toBottomOf="@+id/MapButton"
+            app:layout_constraintEnd_toEndOf="@+id/MapButton"
+            app:layout_constraintStart_toStartOf="@+id/MapButton"
+            app:layout_constraintTop_toTopOf="@+id/MapButton"
+            app:srcCompat="@drawable/mapicon" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 </androidx.drawerlayout.widget.DrawerLayout>
