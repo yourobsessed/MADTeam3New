@@ -15,9 +15,20 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.MAD_Assignemnt"
         tools:targetApi="31">
+        <activity
+            android:name=".Profile"
+            android:exported="false" />
+        <activity
+            android:name=".ReviewPage"
+            android:exported="false" />
+        <activity
+            android:name=".NotificationViewPage"
+            android:exported="false" />
+
         <meta-data
             android:name="com.mapbox.token"
             android:value="sk.eyJ1IjoiY29saW5jaGFuZzEiLCJhIjoiY2xqMmJtM2lvMTI5NjNncDk1ZmowcTNpOSJ9.KEOtKofPYsAoJ6_G4OZkbg" />
+
         <activity
             android:name=".MapPage"
             android:exported="false" />

@@ -40,7 +40,7 @@ import sg.edu.np.mad.databinding.DrawerHeaderBinding;
 
 
 public class MainPage extends AppCompatActivity {
-    private DrawerLayout drawer;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -60,19 +60,15 @@ public class MainPage extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 int crowd = 0;
-                if(CrowdSpinner.getSelectedItem().toString().equals("Full")) {
+                if (CrowdSpinner.getSelectedItem().toString().equals("Full")) {
                     crowd = 100;
-                }
-                else if(CrowdSpinner.getSelectedItem().toString().equals("Almost Full")) {
+                } else if (CrowdSpinner.getSelectedItem().toString().equals("Almost Full")) {
                     crowd = 80;
-                }
-                else if(CrowdSpinner.getSelectedItem().toString().equals("Not Crowded")) {
+                } else if (CrowdSpinner.getSelectedItem().toString().equals("Not Crowded")) {
                     crowd = 50;
-                }
-                else if(CrowdSpinner.getSelectedItem().toString().equals("Almost Empty")) {
+                } else if (CrowdSpinner.getSelectedItem().toString().equals("Almost Empty")) {
                     crowd = 20;
-                }
-                else if(CrowdSpinner.getSelectedItem().toString().equals("Empty")) {
+                } else if (CrowdSpinner.getSelectedItem().toString().equals("Empty")) {
                     crowd = 0;
                 }
                 DatabaseRef.child("Crowdedness").push().setValue(new CrowdReview(FCSpinner.getSelectedItem().toString(), crowd, (LocalDateTime.now()).toString()));
@@ -126,23 +122,6 @@ public class MainPage extends AppCompatActivity {
                 startActivity(toSidePanel);
             }
         });*/
-
-        /*Toolbar toolbar = findViewById(R.id.toolbar);
-        setSupportActionBar(toolbar);
-
-        drawer = findViewById(R.id.drawer_layout);
-        ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(this, drawer, toolbar, R.string.navigation_drawer_open, R.string.navigation_drawer_close);
-        drawer.addDrawerListener(toggle);
-        toggle.syncState();*/
-    }
-    @Override
-    public void onBackPressed(){
-        if (drawer.isDrawerOpen(GravityCompat.START)){
-            drawer.closeDrawer(GravityCompat.START);
-        }
-        else{
-            super.onBackPressed();
-        }
     }
     @Override
     public void onStart(){
