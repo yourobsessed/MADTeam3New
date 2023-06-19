@@ -86,16 +86,15 @@ public class MainPage extends AppCompatActivity {
 
 
 
-        /*ImageView WishlistButton = findViewById(R.id.WishlistButton);
-        WishlistButton.setOnClickListener(new View.OnClickListener() {
+        ImageView BackButton = findViewById(R.id.Back);
+        BackButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent OpenWishList = new Intent(MainPage.this, WishlistPage.class);
-                startActivity(OpenWishList);
+                finish();
             }
         });
 
-        ImageView CatalogueButton = findViewById(R.id.CatalogueButton);
+        /*ImageView CatalogueButton = findViewById(R.id.CatalogueButton);
         CatalogueButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
