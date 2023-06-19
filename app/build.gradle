@@ -35,6 +35,9 @@ android {
 }
 
 dependencies {
+    implementation ('com.mapbox.mapboxsdk:mapbox-android-sdk:9.2.0'){
+        exclude group: 'group_name', module: 'module_name'
+    }
     implementation 'androidx.appcompat:appcompat:1.4.0'
     implementation 'androidx.drawerlayout:drawerlayout:1.1.1'
     implementation 'com.google.android.material:material:1.4.0'
