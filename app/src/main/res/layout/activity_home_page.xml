@@ -53,7 +53,8 @@
             android:id="@+id/UsernameText"
             android:layout_width="228dp"
             android:layout_height="41dp"
-            android:layout_marginTop="76dp"
+            android:layout_marginTop="20dp"
+            android:layout_marginEnd="1dp"
             android:fontFamily="@font/alata"
             android:text="Hello Username, "
             android:textSize="25sp"
@@ -67,7 +68,7 @@
             android:id="@+id/textView16"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="116dp"
+            android:layout_marginTop="60dp"
             android:fontFamily="@font/alata"
             android:text="What Would You Like To Do Today?"
             android:textSize="15sp"
@@ -80,7 +81,7 @@
             android:id="@+id/textView18"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="164dp"
+            android:layout_marginTop="110dp"
             android:fontFamily="@font/alata"
             android:text="Food Courts"
             android:textSize="15sp"
@@ -90,33 +91,32 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
 
-        <Button
-            android:id="@+id/button"
-            android:layout_width="140dp"
+        <TextView
+            android:id="@+id/crowdbutton"
+            android:layout_width="225dp"
             android:layout_height="140dp"
             android:layout_marginStart="16dp"
-            android:layout_marginTop="14dp"
-            android:layout_marginEnd="255dp"
+            android:layout_marginTop="60dp"
             android:background="@drawable/rectangle2"
+            android:backgroundTint="#2196F3"
+            android:gravity="center"
             android:text="Crowd"
-            android:textColor="#FFFFFF"
-            android:textColorHighlight="#A33535"
-            android:textColorLink="#635C5C"
-            app:layout_constraintEnd_toEndOf="parent"
+            android:textAlignment="center"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/textView18" />
+            app:layout_constraintTop_toBottomOf="@+id/textView16" />
 
-        <Button
+
+        <TextView
             android:id="@+id/MapButton"
             android:layout_width="140dp"
             android:layout_height="140dp"
-            android:layout_marginStart="21dp"
-            android:layout_marginTop="62dp"
-            android:layout_marginEnd="94dp"
-            android:background="@drawable/rectangle2"
+            android:layout_marginTop="60dp"
+            android:background="@drawable/rectangle"
+            android:gravity="center"
             android:text="Map"
+            android:textAlignment="center"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toEndOf="@+id/button"
+            app:layout_constraintStart_toEndOf="@+id/crowdbutton"
             app:layout_constraintTop_toBottomOf="@+id/textView16" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
