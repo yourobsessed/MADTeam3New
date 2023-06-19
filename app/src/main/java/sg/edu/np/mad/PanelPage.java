@@ -69,8 +69,7 @@ public class PanelPage extends AppCompatActivity {
         sidePanelButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent backToMainPage = new Intent(PanelPage.this, MainPage.class);
-                startActivity(backToMainPage);
+                finish();
             }
         });
     }
