@@ -5,11 +5,15 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".MainPage">
-    <androidx.constraintlayout.widget.ConstraintLayout
-        android:layout_height="match_parent"
-        android:layout_width="match_parent">
+    android:id="@+id/drawer_layout"
+    android:fitsSystemWindows="true"
+    tools:context=".MainPage"
+    tools:openDrawer="start">
 
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
         <androidx.appcompat.widget.Toolbar
             android:id="@+id/toolbar"
             android:layout_width="match_parent"
@@ -19,6 +23,29 @@
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintTop_toTopOf="parent"
             app:popupTheme="@style/Theme.AppCompat.Light" />
+
+        <FrameLayout
+            android:id="@+id/fragment_container"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"/>
+    </LinearLayout>
+
+    <com.google.android.material.navigation.NavigationView
+        android:layout_width="wrap_content"
+        android:layout_height="match_parent"
+        android:layout_gravity="start"
+        android:id="@+id/nav_view"
+        app:headerLayout="@layout/drawer_header"
+        app:menu="@menu/drawer_menu">
+
+    </com.google.android.material.navigation.NavigationView>
+
+
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_height="match_parent"
+        android:layout_width="match_parent">
+
 
         <ImageView
             android:id="@+id/NotificationButton"
@@ -236,14 +263,17 @@
 
         <Button
             android:id="@+id/SendCrowdButton"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            android:layout_width="97dp"
+            android:layout_height="41dp"
             android:layout_marginTop="13dp"
-            android:layout_marginEnd="47dp"
-            android:text="Send"
+            android:layout_marginEnd="40dp"
             android:background="@drawable/outlinebutton"
+            android:text="Send"
+            android:textAlignment="center"
+            android:textSize="16sp"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/textView17" />
+            app:layout_constraintStart_toEndOf="@+id/FCSpinner"
+            app:layout_constraintTop_toTopOf="@+id/FCSpinner" />
 
         <Button
             android:id="@+id/RefreshButton"
@@ -251,13 +281,14 @@
             android:layout_height="48dp"
             android:layout_marginStart="36dp"
             android:layout_marginTop="8dp"
+            android:background="@drawable/outlinebutton"
             android:text="Refresh"
             android:textAlignment="center"
-            android:textSize="12sp"
-            android:background="@drawable/outlinebutton"
+            android:textSize="16sp"
             app:layout_constraintStart_toEndOf="@+id/textView12"
             app:layout_constraintTop_toBottomOf="@+id/imageView7" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
+
 
 </androidx.drawerlayout.widget.DrawerLayout>
