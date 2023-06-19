@@ -1,24 +1,32 @@
 package sg.edu.np.mad;
 
+import android.content.pm.PackageManager;
 import android.os.Bundle;
+
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.core.app.ActivityCompat;
+
+import com.mapbox.android.core.permissions.PermissionsManager;
 import com.mapbox.mapboxsdk.Mapbox;
 import com.mapbox.mapboxsdk.camera.CameraPosition;
 import com.mapbox.mapboxsdk.geometry.LatLng;
+import com.mapbox.mapboxsdk.location.LocationComponent;
+import com.mapbox.mapboxsdk.location.modes.CameraMode;
+import com.mapbox.mapboxsdk.location.modes.RenderMode;
 import com.mapbox.mapboxsdk.maps.MapView;
 import com.mapbox.mapboxsdk.maps.MapboxMap;
 import com.mapbox.mapboxsdk.maps.OnMapReadyCallback;
 import com.mapbox.mapboxsdk.maps.Style;
 
 public class MapPage extends AppCompatActivity implements OnMapReadyCallback {
-
     private MapView mapView;
+    private MapboxMap mapboxMap;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        Mapbox.getInstance(this, "sk.eyJ1IjoiY29saW5jaGFuZzEiLCJhIjoiY2xqMW00MG1jMG80cTNlbGxsZzM5MGxnOCJ9.Irl35qwaGKJZ0G_1dkkmZQ");
+        Mapbox.getInstance(this, "sk.eyJ1IjoiY29saW5jaGFuZzEiLCJhIjoiY2xqMmJtM2lvMTI5NjNncDk1ZmowcTNpOSJ9.KEOtKofPYsAoJ6_G4OZkbg");
         setContentView(R.layout.activity_map_page);
 
         mapView = findViewById(R.id.mapView);
@@ -27,25 +35,46 @@ public class MapPage extends AppCompatActivity implements OnMapReadyCallback {
     }
 
     @Override
-    public void onMapReady(@NonNull final MapboxMap mapboxMap) {
+    public void onMapReady(@NonNull MapboxMap mapboxMap) {
+        this.mapboxMap = mapboxMap;
+
         mapboxMap.setStyle(Style.MAPBOX_STREETS, new Style.OnStyleLoaded() {
             @Override
             public void onStyleLoaded(@NonNull Style style) {
-                // Customize the map style here
-
-                // Set a fixed location
+                enableLocationComponent(style);
                 mapboxMap.setCameraPosition(
                         new CameraPosition.Builder()
                                 .target(new LatLng(1.3326, 103.7741))
-                                .zoom(10)
+                                .zoom(16)
                                 .build()
                 );
-
-                // Enable the user location
-                //mapboxMap.getUiSettings().setMyLocationEnabled(true);
             }
         });
     }
+
+    private void enableLocationComponent(@NonNull Style style) {
+        // Check if permissions are granted and location services are enabled
+        if (PermissionsManager.areLocationPermissionsGranted(this)) {
+            // Enable the location component
+            LocationComponent locationComponent = mapboxMap.getLocationComponent();
+            locationComponent.activateLocationComponent(this, style);
+            if (ActivityCompat.checkSelfPermission(this, android.Manifest.permission.ACCESS_FINE_LOCATION) != PackageManager.PERMISSION_GRANTED && ActivityCompat.checkSelfPermission(this, android.Manifest.permission.ACCESS_COARSE_LOCATION) != PackageManager.PERMISSION_GRANTED) {
+                // TODO: Consider calling
+                //    ActivityCompat#requestPermissions
+                // here to request the missing permissions, and then overriding
+                //   public void onRequestPermissionsResult(int requestCode, String[] permissions,
+                //                                          int[] grantResults)
+                // to handle the case where the user grants the permission. See the documentation
+                // for ActivityCompat#requestPermissions for more details.
+                return;
+            }
+            locationComponent.setLocationComponentEnabled(true);
+            locationComponent.setCameraMode(CameraMode.TRACKING);
+            locationComponent.setRenderMode(RenderMode.COMPASS);
+        }
+    }
+
+    // Other lifecycle methods for the MapView
 
     @Override
     public void onStart() {
