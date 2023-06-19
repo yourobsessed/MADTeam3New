@@ -18,7 +18,7 @@ import android.widget.TextView;
 
 import com.google.android.material.navigation.NavigationView;
 
-public class HomePage extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener {
+public class HomePage extends AppCompatActivity{//} implements NavigationView.OnNavigationItemSelectedListener {
     private DrawerLayout drawer;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -53,7 +53,7 @@ public class HomePage extends AppCompatActivity implements NavigationView.OnNavi
 
         drawer = findViewById(R.id.drawer_layout);
         NavigationView navigationView = findViewById(R.id.nav_view);
-        navigationView.setNavigationItemSelectedListener(this);
+        //navigationView.setNavigationItemSelectedListener(this);
 
 
         ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(this, drawer, toolbar, R.string.navigation_drawer_open, R.string.navigation_drawer_close);
@@ -61,7 +61,7 @@ public class HomePage extends AppCompatActivity implements NavigationView.OnNavi
         toggle.syncState();
     }
 
-    @Override
+    /*@Override
     public boolean onNavigationItemSelected(@NonNull MenuItem item) {
         switch(item.getItemId()){
             case R.id.nav_HomeButton:
@@ -91,7 +91,7 @@ public class HomePage extends AppCompatActivity implements NavigationView.OnNavi
         }
         drawer.closeDrawer(GravityCompat.START);
         return true;
-    }
+    }*/
 
     @Override
     public void onBackPressed(){
