@@ -10,8 +10,8 @@
     android:orientation="vertical">
 
     <ImageView
-        android:layout_width="71dp"
-        android:layout_height="60dp"
+        android:layout_width="78dp"
+        android:layout_height="73dp"
         android:src="@drawable/npfoodielogo" />
 
     <TextView

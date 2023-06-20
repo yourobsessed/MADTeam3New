@@ -2,6 +2,8 @@ package sg.edu.np.mad;
 
 import static sg.edu.np.mad.R.id.drawer_layout;
 import static sg.edu.np.mad.R.id.nav_HomeButton;
+import static sg.edu.np.mad.R.id.nav_foodbank;
+import static sg.edu.np.mad.R.id.nav_view;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.ActionBarDrawerToggle;
@@ -19,6 +21,7 @@ import android.content.Intent;
 import android.graphics.Color;
 import android.graphics.PorterDuff;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
@@ -42,9 +45,18 @@ import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
 import java.util.List;
 
-public class HomePage extends AppCompatActivity{//} implements NavigationView.OnNavigationItemSelectedListener {
+public class HomePage extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener {
     private DrawerLayout drawer;
-
+    String title;
+    @Override
+    public void onBackPressed(){
+        if (drawer.isDrawerOpen(GravityCompat.START)){
+            drawer.closeDrawer(GravityCompat.START);
+        }
+        else{
+            super.onBackPressed();
+        }
+    }
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -77,7 +89,6 @@ public class HomePage extends AppCompatActivity{//} implements NavigationView.On
             }
         });
 
-
         List<CrowdReview> CrowdReviewsList = new ArrayList<>();
         getCrowd(CrowdReviewsList, CrowdButton, MapButton);
 
@@ -86,13 +97,44 @@ public class HomePage extends AppCompatActivity{//} implements NavigationView.On
         Toolbar toolbar = drawer.findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
 
-
-
         ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(this, drawer, toolbar, R.string.navigation_drawer_open, R.string.navigation_drawer_close);
         drawer.addDrawerListener(toggle);
         toggle.syncState();
+        //NavigationView navigationView = findViewById(R.id.nav_view);
+        //navigationView.handleNavigationDrawerItemClick(drawer.getId());
 
+        //navigationView.setNavigationItemSelectedListener(this);
+        NavigationView navigationView = (NavigationView) findViewById(R.id.nav_view);
+
+        if (navigationView != null) {
+            navigationView.setNavigationItemSelectedListener(this);
+        }
+
+        System.out.println("HELLLLLOOOOOOOOO");
     }
+
+    @Override
+    public boolean onNavigationItemSelected(@NonNull MenuItem menuItem) {
+        System.out.println(menuItem.getItemId());
+        if (menuItem.getItemId() == R.id.nav_HomeButton){
+
+            Log.i(title, "HomeButton pressed");
+
+            Intent newIntent = new Intent(HomePage.this, HomePage.class);
+            startActivity(newIntent);
+
+        }
+        else if (menuItem.getItemId() == R.id.nav_foodbank){
+            Log.i(title, "FoodBank pressed");
+            Intent newIntent = new Intent(HomePage.this, GeneralViewPage.class);
+            startActivity(newIntent);
+        }
+        drawer.closeDrawer(GravityCompat.START);
+
+        return true;
+    }
+
+
      /*void handleNavigationDrawerItemClick(int itemId) {
         switch (itemId) {
             case R.id.nav_HomeButton:
@@ -107,15 +149,17 @@ public class HomePage extends AppCompatActivity{//} implements NavigationView.On
             // Add more cases for other items
         }
     }*/
-    void handleNavigationDrawerItemClick(int itemId) {
+    /*public void handleNavigationDrawerItemClick(int itemId) {
         if (itemId == R.id.nav_HomeButton) {
             Intent toHomePage = new Intent(HomePage.this, HomePage.class);
             startActivity(toHomePage);
+            overridePendingTransition(0, 0);
         } else if (itemId == R.id.nav_foodbank) {
             Intent toGeneralviewpage = new Intent(HomePage.this, GeneralViewPage.class);
             startActivity(toGeneralviewpage);
         } else if (itemId == R.id.nav_NotificationButton) {
-            // Handle item 3 selection
+            Intent toNotificationpage = new Intent(HomePage.this, NotificationViewPage.class);
+            startActivity(toNotificationpage);
         } else if (itemId == R.id.nav_WishlistButton) {
             // Handle item 4 selection
         } else if (itemId == R.id.nav_reviewButton) {
@@ -129,7 +173,46 @@ public class HomePage extends AppCompatActivity{//} implements NavigationView.On
         } else if (itemId == R.id.nav_feedbackbutton) {
             // Handle item 9 selection
         }
-    }
+    }*/
+
+
+
+    /*private void handleNavigationDrawerItemClick(int itemId) {
+        NavigationView navigationView = findViewById(itemId);
+        navigationView.setNavigationItemSelectedListener(new NavigationView.OnNavigationItemSelectedListener() {
+            @Override
+            public boolean onNavigationItemSelected(@NonNull MenuItem item) {
+                // Handle the item click event here
+                int itemId = item.getItemId();
+                if (itemId == R.id.nav_HomeButton) {
+                    Intent toHomePage = new Intent(HomePage.this, HomePage.class);
+                    startActivity(toHomePage);
+                    overridePendingTransition(0, 0);
+                } else if (itemId == R.id.nav_foodbank) {
+                    Intent toGeneralViewPage = new Intent(HomePage.this, GeneralViewPage.class);
+                    startActivity(toGeneralViewPage);
+                } else if (itemId == R.id.nav_NotificationButton) {
+                    Intent toNotificationPage = new Intent(HomePage.this, NotificationViewPage.class);
+                    startActivity(toNotificationPage);
+                } else if (itemId == R.id.nav_WishlistButton) {
+                    // Handle item 4 selection
+                } else if (itemId == R.id.nav_reviewButton) {
+                    // Handle item 5 selection
+                } else if (itemId == R.id.nav_directionButton) {
+                    // Handle item 6 selection
+                } else if (itemId == R.id.nav_profileButton) {
+                    // Handle item 7 selection
+                } else if (itemId == R.id.nav_aboutusbutton) {
+                    // Handle item 8 selection
+                } else if (itemId == R.id.nav_feedbackbutton) {
+                    // Handle item 9 selection
+                }
+
+                drawer.closeDrawer(GravityCompat.START);
+                return true;
+            }
+        });
+    }*/
 
     /*@Override
     public void setContentView(View view){
