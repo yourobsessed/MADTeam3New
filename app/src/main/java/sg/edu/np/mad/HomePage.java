@@ -81,18 +81,19 @@ public class HomePage extends AppCompatActivity{//} implements NavigationView.On
         List<CrowdReview> CrowdReviewsList = new ArrayList<>();
         getCrowd(CrowdReviewsList, CrowdButton, MapButton);
 
+        drawer = findViewById(R.id.drawer_layout);
 
         Toolbar toolbar = drawer.findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
 
-        drawer = findViewById(R.id.drawer_layout);
+
 
         ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(this, drawer, toolbar, R.string.navigation_drawer_open, R.string.navigation_drawer_close);
         drawer.addDrawerListener(toggle);
         toggle.syncState();
 
     }
-    private void handleNavigationDrawerItemClick(int itemId) {
+     /*void handleNavigationDrawerItemClick(int itemId) {
         switch (itemId) {
             case R.id.nav_HomeButton:
                 Intent toHomePage = new Intent(HomePage.this, HomePage.class);
@@ -105,7 +106,31 @@ public class HomePage extends AppCompatActivity{//} implements NavigationView.On
                 break;
             // Add more cases for other items
         }
+    }*/
+    void handleNavigationDrawerItemClick(int itemId) {
+        if (itemId == R.id.nav_HomeButton) {
+            Intent toHomePage = new Intent(HomePage.this, HomePage.class);
+            startActivity(toHomePage);
+        } else if (itemId == R.id.nav_foodbank) {
+            Intent toGeneralviewpage = new Intent(HomePage.this, GeneralViewPage.class);
+            startActivity(toGeneralviewpage);
+        } else if (itemId == R.id.nav_NotificationButton) {
+            // Handle item 3 selection
+        } else if (itemId == R.id.nav_WishlistButton) {
+            // Handle item 4 selection
+        } else if (itemId == R.id.nav_reviewButton) {
+            // Handle item 5 selection
+        } else if (itemId == R.id.nav_directionButton) {
+            // Handle item 6 selection
+        } else if (itemId == R.id.nav_profileButton) {
+            // Handle item 7 selection
+        } else if (itemId == R.id.nav_aboutusbutton) {
+            // Handle item 8 selection
+        } else if (itemId == R.id.nav_feedbackbutton) {
+            // Handle item 9 selection
+        }
     }
+
     /*@Override
     public void setContentView(View view){
         drawer = (DrawerLayout) getLayoutInflater().inflate(R.layout.activity_home_page, null);
