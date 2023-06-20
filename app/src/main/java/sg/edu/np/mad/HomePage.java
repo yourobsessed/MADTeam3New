@@ -81,11 +81,12 @@ public class HomePage extends AppCompatActivity{//} implements NavigationView.On
         List<CrowdReview> CrowdReviewsList = new ArrayList<>();
         getCrowd(CrowdReviewsList, CrowdButton, MapButton);
 
+        drawer = findViewById(R.id.drawer_layout);
 
         Toolbar toolbar = drawer.findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
 
-        drawer = findViewById(R.id.drawer_layout);
+
 
         ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(this, drawer, toolbar, R.string.navigation_drawer_open, R.string.navigation_drawer_close);
         drawer.addDrawerListener(toggle);
