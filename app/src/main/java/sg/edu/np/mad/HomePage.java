@@ -1,9 +1,5 @@
 package sg.edu.np.mad;
 
-import static sg.edu.np.mad.R.id.drawer_layout;
-import static sg.edu.np.mad.R.id.nav_HomeButton;
-import static sg.edu.np.mad.R.id.nav_foodbank;
-import static sg.edu.np.mad.R.id.nav_view;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.ActionBarDrawerToggle;
@@ -12,14 +8,8 @@ import androidx.appcompat.widget.Toolbar;
 import androidx.core.app.NavUtils;
 import androidx.core.view.GravityCompat;
 import androidx.drawerlayout.widget.DrawerLayout;
-import androidx.fragment.app.Fragment;
 
-import android.annotation.SuppressLint;
-import android.app.Activity;
-import android.app.Notification;
 import android.content.Intent;
-import android.graphics.Color;
-import android.graphics.PorterDuff;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.MenuItem;
@@ -114,15 +104,6 @@ public class HomePage extends AppCompatActivity implements NavigationView.OnNavi
 
     @Override
     public boolean onNavigationItemSelected(@NonNull MenuItem menuItem) {
-        //System.out.println("Helllllllllllllllllooooo");
-        /*if (menuItem.getItemId() == R.id.nav_HomeButton){
-
-            Log.i(title, "HomeButton pressed");
-
-            Intent newIntent = new Intent(HomePage.this, HomePage.class);
-            startActivity(newIntent);
-
-        }*/
         if (menuItem.getItemId() == R.id.nav_foodbank){
             Log.i(title, "FoodBank pressed");
             Intent newIntent = new Intent(HomePage.this, GeneralViewPage.class);

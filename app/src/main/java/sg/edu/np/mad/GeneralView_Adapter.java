@@ -41,7 +41,7 @@ public class GeneralView_Adapter extends RecyclerView.Adapter<GeneralView_Viewho
         Food f = data.get(position);
         holder.foodName.setText(f.getFoodName());
         holder.foodDescription.setText(f.getDescription());
-        holder.foodImage.setImageResource(f.getFoodImage1());
+        holder.foodImage.setImageResource(f.getFoodImage2());
         holder.cardView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -50,6 +50,7 @@ public class GeneralView_Adapter extends RecyclerView.Adapter<GeneralView_Viewho
                 toCatalogue.putExtra("FoodPrice", data.get(holder.getAdapterPosition()).getPrice());
                 toCatalogue.putExtra("FoodCalories", data.get(holder.getAdapterPosition()).getCalories());
                 toCatalogue.putExtra("FoodImg", f.getFoodImage1());
+                toCatalogue.putExtra("FoodImg2", f.getFoodImage2());
                 toCatalogue.putExtra("LocationImg", f.getLocationImage());
                 toCatalogue.putExtra("storeLocation", f.getLocation());
                 //toCatalogue.putExtra("object", (Serializable)f);

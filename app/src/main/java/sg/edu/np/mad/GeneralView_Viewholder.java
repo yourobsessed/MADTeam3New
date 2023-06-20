@@ -15,6 +15,7 @@ public class GeneralView_Viewholder extends RecyclerView.ViewHolder {
     ImageView foodImage;
     TextView foodCourtLocation;
     CardView cardView;
+    ImageView foodImage2;
 
     public GeneralView_Viewholder (View itemView){
         super(itemView);
