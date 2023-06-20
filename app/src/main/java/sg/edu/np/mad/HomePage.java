@@ -46,17 +46,11 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class HomePage extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener {
-    private DrawerLayout drawer;
+    DrawerLayout drawer;
+    NavigationView navigationView;
     String title;
-    @Override
-    public void onBackPressed(){
-        if (drawer.isDrawerOpen(GravityCompat.START)){
-            drawer.closeDrawer(GravityCompat.START);
-        }
-        else{
-            super.onBackPressed();
-        }
-    }
+
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -93,18 +87,20 @@ public class HomePage extends AppCompatActivity implements NavigationView.OnNavi
         getCrowd(CrowdReviewsList, CrowdButton, MapButton);
 
         drawer = findViewById(R.id.drawer_layout);
-
+        navigationView = findViewById(R.id.nav_view);
         Toolbar toolbar = drawer.findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
 
+        navigationView.bringToFront();
         ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(this, drawer, toolbar, R.string.navigation_drawer_open, R.string.navigation_drawer_close);
         drawer.addDrawerListener(toggle);
+        Log.i(title, "drawer added");
         toggle.syncState();
         //NavigationView navigationView = findViewById(R.id.nav_view);
         //navigationView.handleNavigationDrawerItemClick(drawer.getId());
 
         //navigationView.setNavigationItemSelectedListener(this);
-        NavigationView navigationView = (NavigationView) findViewById(R.id.nav_view);
+        //NavigationView navigationView = (NavigationView) findViewById(R.id.nav_view);
 
         if (navigationView != null) {
             navigationView.setNavigationItemSelectedListener(this);
@@ -112,10 +108,19 @@ public class HomePage extends AppCompatActivity implements NavigationView.OnNavi
 
         System.out.println("HELLLLLOOOOOOOOO");
     }
+    @Override
+    public void onBackPressed(){
+        if (drawer.isDrawerOpen(GravityCompat.START)){
+            drawer.closeDrawer(GravityCompat.START);
+        }
+        else{
+            super.onBackPressed();
+        }
+    }
 
     @Override
     public boolean onNavigationItemSelected(@NonNull MenuItem menuItem) {
-        System.out.println(menuItem.getItemId());
+        System.out.println("Helllllllllllllllllooooo");
         if (menuItem.getItemId() == R.id.nav_HomeButton){
 
             Log.i(title, "HomeButton pressed");
@@ -128,6 +133,34 @@ public class HomePage extends AppCompatActivity implements NavigationView.OnNavi
             Log.i(title, "FoodBank pressed");
             Intent newIntent = new Intent(HomePage.this, GeneralViewPage.class);
             startActivity(newIntent);
+        }
+        else if (menuItem.getItemId() == R.id.nav_NotificationButton) {
+            Intent toNotificationpage = new Intent(HomePage.this, NotificationViewPage.class);
+            startActivity(toNotificationpage);
+
+        } else if (menuItem.getItemId() == R.id.nav_WishlistButton) {
+            Intent toWishlistpage = new Intent(HomePage.this, WishlistPage.class);
+            startActivity(toWishlistpage);
+
+        } else if (menuItem.getItemId() == R.id.nav_reviewButton) {
+            Intent toReviewPage = new Intent(HomePage.this, ReviewPage.class);
+            startActivity(toReviewPage);
+
+        } else if (menuItem.getItemId() == R.id.nav_directionButton) {
+            Intent todirectionPage = new Intent(HomePage.this, Direction.class);
+            startActivity(todirectionPage);
+
+        } else if (menuItem.getItemId() == R.id.nav_profileButton) {
+            Intent toProfilePage = new Intent(HomePage.this, Profile.class);
+            startActivity(toProfilePage);
+
+        } else if (menuItem.getItemId() == R.id.nav_aboutusbutton) {
+            Intent toAboutUs = new Intent(HomePage.this, Infomation.class);
+            startActivity(toAboutUs);
+
+        } else if (menuItem.getItemId() == R.id.nav_feedbackbutton) {
+            Intent toFeedbackPage = new Intent(HomePage.this, Feedback.class);
+            startActivity(toFeedbackPage);
         }
         drawer.closeDrawer(GravityCompat.START);
 
