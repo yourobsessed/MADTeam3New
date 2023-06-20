@@ -14,6 +14,7 @@ import com.google.android.material.chip.ChipGroup;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.function.Predicate;
 import java.util.stream.Collectors;
 
 public class GeneralView_Filter extends AppCompatActivity {
@@ -58,17 +59,17 @@ public class GeneralView_Filter extends AppCompatActivity {
         chipMakan.setOnCheckedChangeListener(checkedChangeListener);
         chipClub.setOnCheckedChangeListener(checkedChangeListener);*/
 
-        /*chipClub.setOnCheckedChangeListener(new ChipGroup.OnCheckedChangeListener() {
+        chipClub.setOnCheckedChangeListener(new ChipGroup.OnCheckedChangeListener() {
             @Override
             public void onCheckedChanged(ChipGroup group, int checkedId) {
                 Chip chip = group.findViewById(checkedId);
                 if (chip != null) {
                     final String chipText = chip.getText().toString();
 
-                    selectedChipData<Items> filteredData = prepareData().stream().filter(new Predicate<Items>() {
+                    selectedChipData<Food> filteredData = prepareData().stream().filter(new Predicate<Food>() {
                         @Override
-                        public boolean test(Items item) {
-                            return item.getCategory().equals(chipText);
+                        public boolean test(Food item) {
+                            return item.getNoodle().equals(chipText);
                         }
                     }).collect(Collectors.toList());
 
@@ -77,7 +78,7 @@ public class GeneralView_Filter extends AppCompatActivity {
                     adapter.setData(prepareData());
                 }
             }
-        });*/
+        });
 
 
 
@@ -85,11 +86,11 @@ public class GeneralView_Filter extends AppCompatActivity {
         buttonApply.setOnClickListener(new View.OnClickListener(){
             @Override
             public void onClick(View v) {
-                Intent resultIntent = new Intent();
+                Intent resultIntent = new Intent(GeneralView_Filter.this, GeneralViewPage.class);
                 resultIntent.putExtra("data",selectedChipData.toString());
                 setResult(101,resultIntent);
                 finish();
-
+                startActivity(resultIntent);
             }
         });
     }
