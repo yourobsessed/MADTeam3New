@@ -28,15 +28,13 @@ import java.util.List;
 
 
 
-public class GeneralViewPage extends AppCompatActivity implements SelectListenerFood, NavigationView.OnNavigationItemSelectedListener{
+public class GeneralViewPage extends AppCompatActivity implements SelectListenerFood{
 
     private SearchView searchView;
     private RecyclerView recyclerView;
 
     private Chip chipHalal,chipVegeterian,chipHealthy,chipAffordable,chipNoodles,chipRice,chipDessert,chipDrinks;
 
-    DrawerLayout drawer;
-    NavigationView navigationView;
 
     ArrayList<String> selectedChipData = new ArrayList<>();
     ArrayList<Food> foodList = new ArrayList<>();
@@ -105,80 +103,8 @@ public class GeneralViewPage extends AppCompatActivity implements SelectListener
         recyclerView.setItemAnimator(new DefaultItemAnimator());
         recyclerView.setAdapter(gAdapter);
 
-        drawer = findViewById(R.id.drawer_layout);
-        navigationView = findViewById(R.id.nav_view);
-        Toolbar toolbar = drawer.findViewById(R.id.toolbar);
-        setSupportActionBar(toolbar);
-
-        navigationView.bringToFront();
-        ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(this, drawer, toolbar, R.string.navigation_drawer_open, R.string.navigation_drawer_close);
-        drawer.addDrawerListener(toggle);
-        //Log.i(title, "drawer added");
-        toggle.syncState();
-
-
-        if (navigationView != null) {
-            navigationView.setNavigationItemSelectedListener(this);
-        }
-    }
-    @Override
-    public void onBackPressed(){
-        if (drawer.isDrawerOpen(GravityCompat.START)){
-            drawer.closeDrawer(GravityCompat.START);
-        }
-        else{
-            super.onBackPressed();
-        }
     }
 
-    @Override
-    public boolean onNavigationItemSelected(@NonNull MenuItem menuItem) {
-        System.out.println("Helllllllllllllllllooooo");
-        if (menuItem.getItemId() == R.id.nav_HomeButton){
-
-            //Log.i(title, "HomeButton pressed");
-
-            Intent newIntent = new Intent(GeneralViewPage.this, HomePage.class);
-            startActivity(newIntent);
-
-        }
-        else if (menuItem.getItemId() == R.id.nav_foodbank){
-            //Log.i(title, "FoodBank pressed");
-            Intent newIntent = new Intent(GeneralViewPage.this, GeneralViewPage.class);
-            startActivity(newIntent);
-        }
-        else if (menuItem.getItemId() == R.id.nav_NotificationButton) {
-            Intent toNotificationpage = new Intent(GeneralViewPage.this, NotificationViewPage.class);
-            startActivity(toNotificationpage);
-
-        } else if (menuItem.getItemId() == R.id.nav_WishlistButton) {
-            Intent toWishlistpage = new Intent(GeneralViewPage.this, WishlistPage.class);
-            startActivity(toWishlistpage);
-
-        } else if (menuItem.getItemId() == R.id.nav_reviewButton) {
-            Intent toReviewPage = new Intent(GeneralViewPage.this, ReviewPage.class);
-            startActivity(toReviewPage);
-
-        } else if (menuItem.getItemId() == R.id.nav_directionButton) {
-            Intent todirectionPage = new Intent(GeneralViewPage.this, Direction.class);
-            startActivity(todirectionPage);
-
-        } else if (menuItem.getItemId() == R.id.nav_profileButton) {
-            Intent toProfilePage = new Intent(GeneralViewPage.this, Profile.class);
-            startActivity(toProfilePage);
-
-        } else if (menuItem.getItemId() == R.id.nav_aboutusbutton) {
-            Intent toAboutUs = new Intent(GeneralViewPage.this, Infomation.class);
-            startActivity(toAboutUs);
-
-        } else if (menuItem.getItemId() == R.id.nav_feedbackbutton) {
-            Intent toFeedbackPage = new Intent(GeneralViewPage.this, Feedback.class);
-            startActivity(toFeedbackPage);
-        }
-        drawer.closeDrawer(GravityCompat.START);
-
-        return true;
-    }
 
     @Override
     public void onItemClicked(Food food) {
@@ -201,7 +127,6 @@ public class GeneralViewPage extends AppCompatActivity implements SelectListener
         }
 
     }
-
 
     @Override
     protected void onStart(){
