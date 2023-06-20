@@ -14,6 +14,7 @@ import com.google.android.material.chip.ChipGroup;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.stream.Collectors;
 
 public class GeneralView_Filter extends AppCompatActivity {
 
@@ -25,7 +26,8 @@ public class GeneralView_Filter extends AppCompatActivity {
     private Button buttonApply;
 
     private ArrayList<String> selectedChipData;
-    /*@Override
+
+    @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_general_view_filter);
@@ -52,9 +54,31 @@ public class GeneralView_Filter extends AppCompatActivity {
                 }
             }
         };
-        chipClub.setOnCheckedChangeListener(checkedChangeListener);
+        /*chipClub.setOnCheckedChangeListener(checkedChangeListener);
         chipMakan.setOnCheckedChangeListener(checkedChangeListener);
-        chipClub.setOnCheckedChangeListener(checkedChangeListener);
+        chipClub.setOnCheckedChangeListener(checkedChangeListener);*/
+
+        /*chipClub.setOnCheckedChangeListener(new ChipGroup.OnCheckedChangeListener() {
+            @Override
+            public void onCheckedChanged(ChipGroup group, int checkedId) {
+                Chip chip = group.findViewById(checkedId);
+                if (chip != null) {
+                    final String chipText = chip.getText().toString();
+
+                    selectedChipData<Items> filteredData = prepareData().stream().filter(new Predicate<Items>() {
+                        @Override
+                        public boolean test(Items item) {
+                            return item.getCategory().equals(chipText);
+                        }
+                    }).collect(Collectors.toList());
+
+                    adapter.setData(filteredData);
+                } else {
+                    adapter.setData(prepareData());
+                }
+            }
+        });*/
+
 
 
         buttonApply = findViewById(R.id.buttonApply);
@@ -68,7 +92,7 @@ public class GeneralView_Filter extends AppCompatActivity {
 
             }
         });
-    }*/
+    }
 
     /*@Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -104,7 +128,7 @@ public class GeneralView_Filter extends AppCompatActivity {
 
     //private ChipGroup chipGroupLocation;
     //private Button buttonApply;
-    private List<Chip> selectedChips;
+    /*private List<Chip> selectedChips;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -139,6 +163,6 @@ public class GeneralView_Filter extends AppCompatActivity {
                 // Perform further processing or send the selected data
             }
         });
-    }
+    }*/
 
 }

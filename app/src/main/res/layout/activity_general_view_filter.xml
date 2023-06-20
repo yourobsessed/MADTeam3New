@@ -8,21 +8,25 @@
     android:orientation="vertical"
     tools:context=".GeneralView_Filter">
 
+
     <TextView
         android:id="@+id/textView"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="Location"
-        android:textAppearance="@style/TextAppearance.AppCompat.Medium" />
-
+        android:layout_height="58dp"
+        android:gravity="center_vertical"
+        android:text="   Location"
+        android:textAlignment="gravity"
+        android:textAppearance="@style/TextAppearance.AppCompat.Medium"
+        android:textSize="20sp" />
 
 
     <com.google.android.material.chip.ChipGroup
         android:id="@+id/chipGroupLocation"
-        android:layout_width="match_parent"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        app:singleSelection = "false"
-        app:singleLine="true">
+        android:layout_gravity="center_horizontal"
+        app:singleLine="true"
+        app:singleSelection="false">
 
         <com.google.android.material.chip.Chip
             android:id="@+id/chipMakan"
@@ -46,11 +50,10 @@
             android:text="Munch" />
     </com.google.android.material.chip.ChipGroup>
 
-
     <Button
         android:id="@+id/buttonApply"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_width="193dp"
+        android:layout_height="38dp"
         android:layout_marginTop="10dp"
         android:text="Apply" />
 </LinearLayout>
