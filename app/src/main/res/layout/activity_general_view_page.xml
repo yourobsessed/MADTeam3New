@@ -65,49 +65,57 @@
                     android:id="@+id/chipHalal"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="Halal" />
+                    android:text="Halal"
+                    style="@style/Widget.MaterialComponents.Chip.Filter"/>
 
                 <com.google.android.material.chip.Chip
                     android:id="@+id/chipVegeterian"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="Vegeterian" />
+                    android:text="Vegeterian"
+                    style="@style/Widget.MaterialComponents.Chip.Filter"/>
 
                 <com.google.android.material.chip.Chip
                     android:id="@+id/chipHealthy"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="Healthy (Less than 500kcal)" />
+                    android:text="Healthy (Less than 500kcal)"
+                    style="@style/Widget.MaterialComponents.Chip.Filter"/>
 
                 <com.google.android.material.chip.Chip
                     android:id="@+id/chipAffordable"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="Affordable (Less than $5)" />
+                    android:text="Affordable (Less than $5)"
+                    style="@style/Widget.MaterialComponents.Chip.Filter"/>
 
                 <com.google.android.material.chip.Chip
                     android:id="@+id/chipNoodles"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="Noodles" />
+                    android:text="Noodles"
+                    style="@style/Widget.MaterialComponents.Chip.Filter"/>
 
                 <com.google.android.material.chip.Chip
                     android:id="@+id/chipRice"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="Rice" />
+                    android:text="Rice"
+                    style="@style/Widget.MaterialComponents.Chip.Filter"/>
 
                 <com.google.android.material.chip.Chip
                     android:id="@+id/chipDessert"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="Dessert" />
+                    android:text="Dessert"
+                    style="@style/Widget.MaterialComponents.Chip.Filter"/>
 
                 <com.google.android.material.chip.Chip
                     android:id="@+id/chipDrinks"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="Drinks" />
+                    android:text="Drinks"
+                    style="@style/Widget.MaterialComponents.Chip.Filter"/>
 
 
             </com.google.android.material.chip.ChipGroup>
