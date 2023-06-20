@@ -40,10 +40,12 @@ public class GeneralView_Filter extends AppCompatActivity {
             public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
                 if(isChecked)
                 {
+                    buttonView.setChecked(true);
                     selectedChipData.add(buttonView.getText().toString());
                 }
                 else
                 {
+                    buttonView.setChecked(false);
                     selectedChipData.remove(buttonView.getText().toString());
                 }
             }

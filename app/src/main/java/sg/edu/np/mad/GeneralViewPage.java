@@ -31,6 +31,8 @@ public class GeneralViewPage extends AppCompatActivity implements SelectListener
     ArrayList<Food> foodList = new ArrayList<>();
     GeneralView_Adapter gAdapter;
 
+    ArrayList<Chip> filterchips = new ArrayList<>();
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -49,6 +51,15 @@ public class GeneralViewPage extends AppCompatActivity implements SelectListener
         chipRice=findViewById(R.id.chipRice);
         chipDessert=findViewById(R.id.chipDessert);
         chipDrinks=findViewById(R.id.chipDrinks);
+
+        filterchips.add(chipHalal);
+        filterchips.add(chipAffordable);
+        filterchips.add(chipNoodles);
+        filterchips.add(chipVegeterian);
+        filterchips.add(chipRice);
+        filterchips.add(chipDessert);
+        filterchips.add(chipDrinks);
+
 
         FloatingActionButton fab = findViewById(R.id.filterbutton);
         fab.setOnClickListener(new View.OnClickListener() {
@@ -157,6 +168,7 @@ public class GeneralViewPage extends AppCompatActivity implements SelectListener
             {
                 for (String chip : foodStrings){
                     if (chip.equals("Makan Place")){
+
                         if (food.getLocation() == "Makan Place")
                         {
                             filteredList.add(food);
