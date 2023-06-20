@@ -32,14 +32,18 @@ Users will be able to view how crowded each food court is
 
 When inside a food court users can provide information on how crowded the food court is, on a scale of 1 – 10. 
 
-App notifies users when it detects user’s GPS location is in the food court, to ask for crowd information 
-
 The data provided will be shown to other users finding a less crowded food court to dine in 
 
 If there is not data on crowdedness provided by other users, the app will display as unknown 
 
  
+NP Food courts map - Colin 
 
+A map of NP as well as each food court location can be seen
+
+Users will also be able to view their current location and facing direction
+
+This would guide them to get to the food court of their choice
  
 
 Login Page - Rae 
@@ -52,8 +56,6 @@ A simple login, username, name, and student id will be needed to register for an
 
 In this process, a user row will be created/added to the user table 
 
- 
-
 Logging into the app 
 
 Username and password 
@@ -61,8 +63,6 @@ Username and password
  
 
 Limit options – Leroy 
-
-Input calories for all the food options 
 
 Food will be categorised into the categories  
 
@@ -75,7 +75,6 @@ When user presses certain category, food options will be listed down in recycler
 Stage 2: 
 
  
-
 Rating of food - Colin 
 
 The food that the user ate can be critiqued by the user. 
@@ -84,13 +83,6 @@ A range from 1 to 5 stars, along with a short review on why they inputted that n
 
 Other users would be able to see the ratings of foods and take that into consideration. 
 
- 
-
-How to get there and introduction of the food courts (information page)  
-
-Helpful for the new users/freshies who just joined NP 
-
-Will have a short introduction about the app and also a how to get there video?? 
 
  
 
