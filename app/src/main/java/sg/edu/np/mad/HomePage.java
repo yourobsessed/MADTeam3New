@@ -259,7 +259,7 @@ public class HomePage extends AppCompatActivity{//} implements NavigationView.On
     public void onResume() {
         super.onResume();
         TextView MapButton = findViewById(R.id.MapButton);
-        TextView CrowdButton = findViewById(R.id.crowdbutton);
+        TextView CrowdButton = findViewById(R.id.button);
         List<CrowdReview> CrowdReviewsList = new ArrayList<>();
         getCrowd(CrowdReviewsList, CrowdButton, MapButton);
 

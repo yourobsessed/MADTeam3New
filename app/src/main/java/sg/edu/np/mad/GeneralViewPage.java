@@ -41,14 +41,14 @@ public class GeneralViewPage extends AppCompatActivity implements SelectListener
         searchView.clearFocus();
 
         //chips
-        /*chipHalal=findViewById(R.id.chipHealthy);
+        chipHalal=findViewById(R.id.chipHalal);
         chipVegeterian=findViewById(R.id.chipVegeterian);
         chipHealthy=findViewById(R.id.chipHealthy);
         chipAffordable=findViewById(R.id.chipAffordable);
         chipNoodles=findViewById(R.id.chipNoodles);
         chipRice=findViewById(R.id.chipRice);
         chipDessert=findViewById(R.id.chipDessert);
-        chipDrinks=findViewById(R.id.chipDrinks);*/
+        chipDrinks=findViewById(R.id.chipDrinks);
 
         FloatingActionButton fab = findViewById(R.id.filterbutton);
         fab.setOnClickListener(new View.OnClickListener() {
