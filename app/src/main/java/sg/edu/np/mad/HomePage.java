@@ -101,8 +101,6 @@ public class HomePage extends AppCompatActivity implements NavigationView.OnNavi
         if (navigationView != null) {
             navigationView.setNavigationItemSelectedListener(this);
         }
-
-        System.out.println("HELLLLLOOOOOOOOO");
     }
     @Override
     public void onBackPressed(){
@@ -116,16 +114,16 @@ public class HomePage extends AppCompatActivity implements NavigationView.OnNavi
 
     @Override
     public boolean onNavigationItemSelected(@NonNull MenuItem menuItem) {
-        System.out.println("Helllllllllllllllllooooo");
-        if (menuItem.getItemId() == R.id.nav_HomeButton){
+        //System.out.println("Helllllllllllllllllooooo");
+        /*if (menuItem.getItemId() == R.id.nav_HomeButton){
 
             Log.i(title, "HomeButton pressed");
 
             Intent newIntent = new Intent(HomePage.this, HomePage.class);
             startActivity(newIntent);
 
-        }
-        else if (menuItem.getItemId() == R.id.nav_foodbank){
+        }*/
+        if (menuItem.getItemId() == R.id.nav_foodbank){
             Log.i(title, "FoodBank pressed");
             Intent newIntent = new Intent(HomePage.this, GeneralViewPage.class);
             startActivity(newIntent);
