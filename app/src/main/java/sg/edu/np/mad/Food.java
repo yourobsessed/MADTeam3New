@@ -15,12 +15,15 @@ public class Food extends Store{
     private Boolean noodle;
     private Boolean soup;
     private Boolean rice;
+    private Boolean halal;
+    private Boolean vegetarian;
+    private Boolean dessert;
 
 
     public Food() {
     }
 
-    public Food(String FoodName, String Location, int LocationImage, double Price, int Calories, String Description, int FoodImage, Boolean Noodle, Boolean Soup, Boolean Rice) {
+    public Food(String FoodName, String Location, int LocationImage, double Price, int Calories, String Description, int FoodImage, Boolean Noodle, Boolean Soup, Boolean Rice, Boolean Halal, Boolean Vegetarian, Boolean Dessert) {
         this.foodName = FoodName;
         this.location = Location;
         this.locationImage = LocationImage;
@@ -31,6 +34,9 @@ public class Food extends Store{
         this.noodle = Noodle;
         this.soup = Soup;
         this.rice = Rice;
+        this.halal = Halal;
+        this.vegetarian = Vegetarian;
+        this.dessert = Dessert;
     }
 
     public String getFoodName() {
@@ -128,6 +134,34 @@ public class Food extends Store{
 
     public void setLocationImage(int locationImage) {
         this.locationImage = locationImage;
+    }
+
+    @Override
+    public Boolean getHalal() {
+        return halal;
+    }
+
+    @Override
+    public void setHalal(Boolean halal) {
+        this.halal = halal;
+    }
+
+    @Override
+    public Boolean getVegetarian() {
+        return vegetarian;
+    }
+
+    @Override
+    public void setVegetarian(Boolean vegetarian) {
+        this.vegetarian = vegetarian;
+    }
+
+    public Boolean getDessert() {
+        return dessert;
+    }
+
+    public void setDessert(Boolean dessert) {
+        this.dessert = dessert;
     }
 
     public String toString() {
