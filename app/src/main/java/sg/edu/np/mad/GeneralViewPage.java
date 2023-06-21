@@ -155,13 +155,6 @@ public class GeneralViewPage extends AppCompatActivity implements SelectListener
 
     }
 
-    private void switchToActivity(int position) {
-        Intent intent = new Intent(GeneralViewPage.this, CataloguePage.class);
-        intent.putExtra("position", position); // Pass any data if required
-        startActivity(intent);
-    }
-
-
 
     @Override
     protected void onActivityResult(int requestCode,int resultCode, @Nullable Intent data){
@@ -211,6 +204,8 @@ public class GeneralViewPage extends AppCompatActivity implements SelectListener
         Food munchSaladBowlR = new Food("Regular bowl Salad", "Munch",R.drawable.munchmap ,4, 400, "Filling amount for one person", R.drawable.saladbowl, true, false, true, false, true, false);
         munchSaladBowlR.setFoodImage1(R.drawable.munchsalad);
         munchSaladBowlL.setFoodImage1(R.drawable.munchsalad);
+
+
         Food munchWestern1 = new Food("Ribeye Steak", "Munch", R.drawable.munchmap,8.3, 567, "Delicious Ribeye steak with 2 sides", R.drawable.ribeye, true, false, true, true, false, false);
         Food munchWestern2 = new Food("Mixed Grilled", "Munch",R.drawable.munchmap, 9.8, 650, "Multiple Varieties of grills with 2 sides", R.drawable.mixgrill, false, false, false,true, false, false);
         Food munchWestern3 = new Food("Grilled Salmon", "Munch",R.drawable.munchmap, 8.5, 250, "Grilled Salmon and it comes with 2 sides!", R.drawable.grilledfish,false, false, false,true, false, false);
