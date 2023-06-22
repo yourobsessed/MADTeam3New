@@ -32,22 +32,22 @@
             android:id="@+id/chipMakan"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:checked="true"
-            android:text="Makan Place" />
+            android:text="Makan Place"
+            style="@style/Widget.MaterialComponents.Chip.Filter"/>
 
         <com.google.android.material.chip.Chip
             android:id="@+id/chipClub"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:checked="true"
-            android:text="Food Club" />
+            android:text="Food Club"
+            style="@style/Widget.MaterialComponents.Chip.Filter"/>
 
         <com.google.android.material.chip.Chip
             android:id="@+id/chipMunch"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:checked="true"
-            android:text="Munch" />
+            android:text="Munch"
+            style="@style/Widget.MaterialComponents.Chip.Filter"/>
     </com.google.android.material.chip.ChipGroup>
 
     <Button
@@ -56,5 +56,6 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="10dp"
         android:gravity="center_horizontal"
+        android:shape="rectangle"
         android:text="Apply" />
 </LinearLayout>

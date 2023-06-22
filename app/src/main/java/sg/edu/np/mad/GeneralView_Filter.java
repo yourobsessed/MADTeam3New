@@ -4,10 +4,13 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.text.TextUtils;
 import android.util.Log;
+import android.util.SparseBooleanArray;
 import android.view.View;
 import android.widget.Button;
 import android.widget.CompoundButton;
+import android.widget.Toast;
 
 import com.google.android.material.chip.Chip;
 import com.google.android.material.chip.ChipGroup;
@@ -40,7 +43,20 @@ public class GeneralView_Filter extends AppCompatActivity {
 
         selectedChipData=new ArrayList<>();
 
-        CompoundButton.OnCheckedChangeListener checkedChangeListener = new CompoundButton.OnCheckedChangeListener() {
+        for (int i = 0; i < chipGroupLocation.getChildCount(); i++) {
+            View child = chipGroupLocation.getChildAt(i);
+            if (child instanceof Chip) {
+                Chip chip = (Chip) child;
+                chip.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+                    @Override
+                    public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
+                        registerFilterChanged();
+                    }
+                });
+            }
+        }
+
+        /*CompoundButton.OnCheckedChangeListener checkedChangeListener = new CompoundButton.OnCheckedChangeListener() {
             @Override
             public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
                 if(isChecked)
@@ -93,6 +109,30 @@ public class GeneralView_Filter extends AppCompatActivity {
                 startActivity(resultIntent);
             }
         });
+    }
+    private void registerFilterChanged() {
+        ArrayList<Integer> checkedIds = new ArrayList<>();
+        List<CharSequence> titles = new ArrayList<>();
+
+        for (int i = 0; i < chipGroupLocation.getChildCount(); i++) {
+            View childView = chipGroupLocation.getChildAt(i);
+            if (childView instanceof Chip) {
+                Chip chip = (Chip) childView;
+                if (chip.isChecked()) {
+                    checkedIds.add(chip.getId());
+                    titles.add(chip.getText());
+                }
+            }
+        }
+
+        String text;
+        if (!titles.isEmpty()) {
+            text = TextUtils.join(", ", titles);
+        } else {
+            text = "No Choice";
+        }
+
+        Toast.makeText(this, text, Toast.LENGTH_SHORT).show();
     }
 
     /*@Override
