@@ -42,7 +42,9 @@ public class GeneralViewPage extends AppCompatActivity implements SelectListener
     ArrayList<String> selectedChipData = new ArrayList<>();
     ArrayList<Food> foodList = new ArrayList<>();
     GeneralView_Adapter gAdapter;
-
+    ArrayList<Food> filteredListFromGVF;
+    ArrayList<Food> secondFilterList;
+    ArrayList<Food> originalList;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -63,6 +65,9 @@ public class GeneralViewPage extends AppCompatActivity implements SelectListener
         chipDessert=findViewById(R.id.chipDessert);
         chipDrinks=findViewById(R.id.chipDrinks);
 
+
+        filteredListFromGVF = (ArrayList<Food>) getIntent().getSerializableExtra("filteredList");
+
         ImageView BackButton = findViewById(R.id.imageView7);
         BackButton.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -77,12 +82,63 @@ public class GeneralViewPage extends AppCompatActivity implements SelectListener
            public void onClick(View view) {
 
                Intent toFilter = new Intent(GeneralViewPage.this, GeneralView_Filter.class);
-               startActivityForResult(toFilter,101);
+               startActivity(toFilter);//,101);
            }
 
         });
-/*
-        chipHalal.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+        foodList = CreateObject(originalList);
+        chipHalal.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                if (chipHalal.isChecked()){
+                    if (filteredListFromGVF != null){
+                        for (Food food : filteredListFromGVF) {
+                            if (food.getHalal() == true) {
+                                secondFilterList.add(food);
+                            } else if (food.getHalal() == false) {
+                                continue;
+                            }
+                        }
+                    }
+                    else if (filteredListFromGVF == null){
+                        for (Food food : foodList){
+                            if (food.getHalal() == true) {
+                                foodList.add(food);
+                            } else if (food.getHalal() == false) {
+                                continue;
+                            }
+                        }
+                    }
+                }
+            }
+        });
+
+        chipVegeterian.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                if (chipVegeterian.isChecked()){
+                    if (filteredListFromGVF != null){
+                        for (Food food : filteredListFromGVF) {
+                            if (food.getHalal() == true) {
+                                secondFilterList.add(food);
+                            } else if (food.getHalal() == false) {
+                                continue;
+                            }
+                        }
+                    }
+                    else if (filteredListFromGVF == null){
+                        for (Food food : foodList){
+                            if (food.getVegetarian() == true) {
+                                foodList.add(food);
+                            } else if (food.getVegetarian() == false) {
+                                continue;
+                            }
+                        }
+                    }
+                }
+            }
+        });
+/*        chipHalal.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
             @Override
             public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
                 if (buttonView != null) {
@@ -131,7 +187,7 @@ public class GeneralViewPage extends AppCompatActivity implements SelectListener
         });
 
         foodList = CreateObject(foodList);
-        gAdapter = new GeneralView_Adapter(GeneralViewPage.this, foodList, this);
+        gAdapter = new GeneralView_Adapter(GeneralViewPage.this, secondFilterList, this);
         LinearLayoutManager layoutManager = new LinearLayoutManager(this);
         recyclerView.setLayoutManager(layoutManager);
         recyclerView.setItemAnimator(new DefaultItemAnimator());
