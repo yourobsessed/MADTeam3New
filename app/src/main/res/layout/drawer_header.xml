@@ -18,7 +18,7 @@
         android:layout_width="78dp"
         android:layout_height="28dp"
         android:paddingTop="8dp"
-        android:text="NP Foodie"
+        android:text="   NP Eats"
         android:textAppearance="@style/TextAppearance.AppCompat.Body1" />
 
 </LinearLayout>

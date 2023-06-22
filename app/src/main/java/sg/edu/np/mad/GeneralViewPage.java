@@ -23,6 +23,7 @@ import android.util.Log;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.CompoundButton;
+import android.widget.ImageView;
 import android.widget.Toast;
 
 import java.util.ArrayList;
@@ -62,7 +63,13 @@ public class GeneralViewPage extends AppCompatActivity implements SelectListener
         chipDessert=findViewById(R.id.chipDessert);
         chipDrinks=findViewById(R.id.chipDrinks);
 
-
+        ImageView BackButton = findViewById(R.id.imageView7);
+        BackButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                finish();
+            }
+        });
 
         FloatingActionButton fab = findViewById(R.id.filterbutton);
         fab.setOnClickListener(new View.OnClickListener() {
@@ -74,7 +81,7 @@ public class GeneralViewPage extends AppCompatActivity implements SelectListener
            }
 
         });
-
+/*
         chipHalal.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
             @Override
             public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
@@ -101,7 +108,7 @@ public class GeneralViewPage extends AppCompatActivity implements SelectListener
 
         gAdapter.setFilteredList(mainfilterList);
 
-        private List<Food> filterDataByHalal(List<Food> foodList, boolean category) {
+        private ArrayList<Food> filterDataByHalal(ArrayList<Food> foodList, boolean category) {
             List<Food> filteredList = new ArrayList<>();
             for (Food food : foodList) {
                 if (food.getHalal() == true) {
@@ -109,7 +116,7 @@ public class GeneralViewPage extends AppCompatActivity implements SelectListener
                 }
             }
             return filteredList;
-        }
+        } */
         searchView.setOnQueryTextListener(new SearchView.OnQueryTextListener() {
             @Override
             public boolean onQueryTextSubmit(String query) {
