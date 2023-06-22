@@ -45,7 +45,9 @@ public class GeneralView_Filter extends AppCompatActivity {
         chipGroupLocation=findViewById(R.id.chipGroupLocation);
 
         selectedChipData=new ArrayList<>();
+        ArrayList<Food> filteredList;
 
+        filteredList = (ArrayList<Food>) getIntent().getSerializableExtra("filteredList");
         for (int i = 0; i < chipGroupLocation.getChildCount(); i++) {
             View child = chipGroupLocation.getChildAt(i);
             if (child instanceof Chip) {

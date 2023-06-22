@@ -65,6 +65,7 @@ public class GeneralViewPage extends AppCompatActivity implements SelectListener
         chipDessert=findViewById(R.id.chipDessert);
         chipDrinks=findViewById(R.id.chipDrinks);
 
+        foodList = CreateObject(foodList);
 
         filteredListFromGVF = (ArrayList<Food>) getIntent().getSerializableExtra("filteredList");
 
@@ -76,17 +77,8 @@ public class GeneralViewPage extends AppCompatActivity implements SelectListener
             }
         });
 
-        FloatingActionButton fab = findViewById(R.id.filterbutton);
-        fab.setOnClickListener(new View.OnClickListener() {
-           @Override
-           public void onClick(View view) {
 
-               Intent toFilter = new Intent(GeneralViewPage.this, GeneralView_Filter.class);
-               startActivity(toFilter);//,101);
-           }
 
-        });
-        foodList = CreateObject(originalList);
         chipHalal.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -103,7 +95,7 @@ public class GeneralViewPage extends AppCompatActivity implements SelectListener
                     else if (filteredListFromGVF == null){
                         for (Food food : foodList){
                             if (food.getHalal() == true) {
-                                foodList.add(food);
+                                originalList.add(food);
                             } else if (food.getHalal() == false) {
                                 continue;
                             }
@@ -129,7 +121,7 @@ public class GeneralViewPage extends AppCompatActivity implements SelectListener
                     else if (filteredListFromGVF == null){
                         for (Food food : foodList){
                             if (food.getVegetarian() == true) {
-                                foodList.add(food);
+                                originalList.add(food);
                             } else if (food.getVegetarian() == false) {
                                 continue;
                             }
@@ -186,12 +178,24 @@ public class GeneralViewPage extends AppCompatActivity implements SelectListener
             }
         });
 
-        foodList = CreateObject(foodList);
-        gAdapter = new GeneralView_Adapter(GeneralViewPage.this, secondFilterList, this);
+
+        gAdapter = new GeneralView_Adapter(GeneralViewPage.this, foodList, this);
         LinearLayoutManager layoutManager = new LinearLayoutManager(this);
         recyclerView.setLayoutManager(layoutManager);
         recyclerView.setItemAnimator(new DefaultItemAnimator());
         recyclerView.setAdapter(gAdapter);
+
+        FloatingActionButton fab = findViewById(R.id.filterbutton);
+        fab.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+
+                Intent toFilter = new Intent(GeneralViewPage.this, GeneralView_Filter.class);
+                toFilter.putExtra("filteredList", originalList);
+                startActivity(toFilter);//,101);
+            }
+
+        });
 
     }
 
