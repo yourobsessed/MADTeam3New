@@ -107,7 +107,7 @@ public class GeneralViewPage extends AppCompatActivity implements SelectListener
 
         gAdapter.setFilteredList(mainfilterList);
 
-        private List<Food> filterDataByHalal(List<Food> foodList, boolean category) {
+        private ArrayList<Food> filterDataByHalal(ArrayList<Food> foodList, boolean category) {
             List<Food> filteredList = new ArrayList<>();
             for (Food food : foodList) {
                 if (food.getHalal() == true) {

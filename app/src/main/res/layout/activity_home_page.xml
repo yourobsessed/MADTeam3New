@@ -143,9 +143,10 @@
             app:layout_constraintTop_toTopOf="@+id/MapButton"
             app:layout_constraintVertical_bias="0.7"
             app:srcCompat="@drawable/mapicon" />
+
         <TextView
             android:id="@+id/textView18"
-            android:layout_width="wrap_content"
+            android:layout_width="82dp"
             android:layout_height="wrap_content"
             android:layout_marginTop="148dp"
             android:fontFamily="@font/alata"
