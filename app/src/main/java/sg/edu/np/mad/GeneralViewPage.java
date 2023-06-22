@@ -73,7 +73,7 @@ public class GeneralViewPage extends AppCompatActivity implements SelectListener
            }
 
         });
-
+/*
         chipHalal.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
             @Override
             public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
@@ -108,7 +108,7 @@ public class GeneralViewPage extends AppCompatActivity implements SelectListener
                 }
             }
             return filteredList;
-        }
+        } */
         searchView.setOnQueryTextListener(new SearchView.OnQueryTextListener() {
             @Override
             public boolean onQueryTextSubmit(String query) {

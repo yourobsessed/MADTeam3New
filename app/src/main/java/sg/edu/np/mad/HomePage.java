@@ -122,7 +122,10 @@ public class HomePage extends AppCompatActivity implements NavigationView.OnNavi
             startActivity(toReviewPage);
 
         } else if (menuItem.getItemId() == R.id.nav_directionButton) {
-            Intent todirectionPage = new Intent(HomePage.this, Direction.class);
+            Intent todirectionPage = new Intent(HomePage.this, MapPage.class);
+            startActivity(todirectionPage);
+        } else if (menuItem.getItemId() == R.id.nav_crowdbutton) {
+            Intent todirectionPage = new Intent(HomePage.this, MainPage.class);
             startActivity(todirectionPage);
 
         } else if (menuItem.getItemId() == R.id.nav_profileButton) {
