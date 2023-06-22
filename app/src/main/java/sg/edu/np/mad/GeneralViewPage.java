@@ -22,6 +22,7 @@ import android.util.Log;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.CompoundButton;
+import android.widget.ImageView;
 import android.widget.Toast;
 
 import java.util.ArrayList;
@@ -61,7 +62,13 @@ public class GeneralViewPage extends AppCompatActivity implements SelectListener
         chipDessert=findViewById(R.id.chipDessert);
         chipDrinks=findViewById(R.id.chipDrinks);
 
-
+        ImageView BackButton = findViewById(R.id.imageView7);
+        BackButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                finish();
+            }
+        });
 
         FloatingActionButton fab = findViewById(R.id.filterbutton);
         fab.setOnClickListener(new View.OnClickListener() {
