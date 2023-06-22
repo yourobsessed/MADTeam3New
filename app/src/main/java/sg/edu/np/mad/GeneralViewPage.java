@@ -21,6 +21,7 @@ import android.os.Bundle;
 import android.util.Log;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.CompoundButton;
 import android.widget.Toast;
 
 import java.util.ArrayList;
@@ -39,8 +40,6 @@ public class GeneralViewPage extends AppCompatActivity implements SelectListener
     ArrayList<String> selectedChipData = new ArrayList<>();
     ArrayList<Food> foodList = new ArrayList<>();
     GeneralView_Adapter gAdapter;
-
-    ArrayList<Chip> filterchips = new ArrayList<>();
 
 
     @Override
@@ -62,13 +61,6 @@ public class GeneralViewPage extends AppCompatActivity implements SelectListener
         chipDessert=findViewById(R.id.chipDessert);
         chipDrinks=findViewById(R.id.chipDrinks);
 
-        filterchips.add(chipHalal);
-        filterchips.add(chipAffordable);
-        filterchips.add(chipNoodles);
-        filterchips.add(chipVegeterian);
-        filterchips.add(chipRice);
-        filterchips.add(chipDessert);
-        filterchips.add(chipDrinks);
 
 
         FloatingActionButton fab = findViewById(R.id.filterbutton);
@@ -80,9 +72,43 @@ public class GeneralViewPage extends AppCompatActivity implements SelectListener
                startActivityForResult(toFilter,101);
            }
 
-       });
+        });
+
+        chipHalal.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+            @Override
+            public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
+                if (buttonView != null) {
+                    boolean category = buttonView.getHalal();
+                    List<Food> filteredData = filterDataByHalal(allData, category);
+                    adapter.setData(filteredData);
+                }
+            }
+        });
+
+        chipGroup.setOnCheckedChangeListener(new ChipGroup.OnCheckedChangeListener() {
+            @Override
+            public void onCheckedChanged(ChipGroup group, int checkedId) {
+                if (checkedId == R.id.chipAll) {
+                    adapter.setData(allData);
+                } else {
+                    Chip chip = group.findViewById(checkedId);
+
+                }
+            }
+        });
 
 
+        gAdapter.setFilteredList(mainfilterList);
+
+        private List<Food> filterDataByHalal(List<Food> foodList, boolean category) {
+            List<Food> filteredList = new ArrayList<>();
+            for (Food food : foodList) {
+                if (food.getHalal() == true) {
+                    filteredList.add(food);
+                }
+            }
+            return filteredList;
+        }
         searchView.setOnQueryTextListener(new SearchView.OnQueryTextListener() {
             @Override
             public boolean onQueryTextSubmit(String query) {

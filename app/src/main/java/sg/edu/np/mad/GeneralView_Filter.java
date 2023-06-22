@@ -55,11 +55,11 @@ public class GeneralView_Filter extends AppCompatActivity {
                 }
             }
         };
-        /*chipClub.setOnCheckedChangeListener(checkedChangeListener);
+        chipClub.setOnCheckedChangeListener(checkedChangeListener);
         chipMakan.setOnCheckedChangeListener(checkedChangeListener);
-        chipClub.setOnCheckedChangeListener(checkedChangeListener);*/
+        chipClub.setOnCheckedChangeListener(checkedChangeListener);
 
-        chipClub.setOnCheckedChangeListener(new ChipGroup.OnCheckedChangeListener() {
+        /*chipClub.setOnCheckedChangeListener(new ChipGroup.OnCheckedChangeListener() {
             @Override
             public void onCheckedChanged(ChipGroup group, int checkedId) {
                 Chip chip = group.findViewById(checkedId);
@@ -78,7 +78,7 @@ public class GeneralView_Filter extends AppCompatActivity {
                     adapter.setData(prepareData());
                 }
             }
-        });
+        });*/
 
 
 
