@@ -66,7 +66,7 @@ public class GeneralView_Filter extends AppCompatActivity {
                 if (chip != null) {
                     final String chipText = chip.getText().toString();
 
-                    selectedChipData<Food> filteredData = prepareData().stream().filter(new Predicate<Food>() {
+                     selectedChipData<Food> filteredData = prepareData().stream().filter(new Predicate<Food>() {
                         @Override
                         public boolean test(Food item) {
                             return item.getNoodle().equals(chipText);
