@@ -68,7 +68,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 app:singleLine="true"
-                app:singleSelection="false">
+                app:singleSelection="true">
 
                 <com.google.android.material.chip.Chip
                     android:id="@+id/chipClub"
@@ -77,6 +77,7 @@
                     android:text="Food Club"
                     app:chipIcon="@drawable/locationchipsmarker"
                     app:chipIconVisible="true"
+                    android:checkable="false"
                     style="@style/Widget.MaterialComponents.Chip.Filter"/>
 
                 <com.google.android.material.chip.Chip
@@ -86,6 +87,7 @@
                     android:text="Makan Place"
                     app:chipIcon="@drawable/locationchipsmarker"
                     app:chipIconVisible="true"
+                    android:checkable="false"
                     style="@style/Widget.MaterialComponents.Chip.Filter"/>
 
                 <com.google.android.material.chip.Chip
@@ -95,6 +97,7 @@
                     android:text="Munch"
                     app:chipIcon="@drawable/locationchipsmarker"
                     app:chipIconVisible="true"
+                    android:checkable="false"
                     style="@style/Widget.MaterialComponents.Chip.Filter"/>
 
                 <com.google.android.material.chip.Chip

@@ -103,11 +103,11 @@ public class GeneralViewPage extends AppCompatActivity implements SelectListener
         chipClub.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                if (chipClub.isChecked()){
+                if (!fc){
                     fc = true;
 
                 }
-                else if (!chipClub.isChecked()) {
+                else if (fc) {
                     fc = false;
 
                 }
@@ -118,27 +118,27 @@ public class GeneralViewPage extends AppCompatActivity implements SelectListener
         chipMakan.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                if (chipMakan.isChecked()){
+                if (!makan){
                     makan = true;
 
                 }
-                else if (!chipMakan.isChecked()) {
-                    makan = false;
+                else if (makan) {
+                     makan = false;
 
                 }
                 limitoption();
             }
+
         });
 
         chipMunch.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                if (chipMunch.isChecked()){
+                if (!munch){
                     munch = true;
-                    makan = false;
-                    fc = false;
+
                 }
-                else if (!chipMunch.isChecked()) {
+                else if (munch) {
                     munch = false;
 
                 }
