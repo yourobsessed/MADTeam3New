@@ -58,9 +58,6 @@
             android:name=".StoreViewPage"
             android:exported="false" />
         <activity
-            android:name=".PanelPage"
-            android:exported="false" />
-        <activity
             android:name=".RegisterPage"
             android:exported="false" />
         <activity

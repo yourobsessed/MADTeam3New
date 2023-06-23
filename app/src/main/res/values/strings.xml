@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">MAD_Assignment</string>
+    <string name="app_name">NP Eats</string>
     <string name="usernameText">Username</string>
     <string name="passwordText">Password</string>
     <string name="LoginButton">LOGIN</string>
