@@ -37,7 +37,7 @@ public class GeneralViewPage extends AppCompatActivity implements SelectListener
     private SearchView searchView;
     private RecyclerView recyclerView;
 
-    private Chip chipClub,chipMakan,chipMunch,chipHalal,chipVegeterian,chipHealthy,chipAffordable,chipNoodles,chipRice,chipSoup,chipDessert,chipDrinks;
+    private Chip chipClub,chipMakan,chipMunch,chipHalal,chipVegeterian,chipHealthy,chipAffordable,chipNoodles,chipRice,chipSoup,chipDessert;
     private ChipGroup chipGroup;
 
     ArrayList<String> selectedChipData = new ArrayList<>();
@@ -83,7 +83,6 @@ public class GeneralViewPage extends AppCompatActivity implements SelectListener
         chipRice=findViewById(R.id.chipRice);
         chipSoup=findViewById(R.id.chipSoup);
         chipDessert=findViewById(R.id.chipDessert);
-        chipDrinks=findViewById(R.id.chipDrinks);
 
         foodList = CreateObject(foodList);
 
@@ -234,18 +233,7 @@ public class GeneralViewPage extends AppCompatActivity implements SelectListener
                 limitoption();
             }
         });
-        chipDrinks.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                if (chipDrinks.isChecked()){
-                    drinks = true;
-                }
-                else if (!chipDrinks.isChecked()) {
-                    drinks = false;
-                }
-                limitoption();
-            }
-        });
+
 
 
         searchView.setOnQueryTextListener(new SearchView.OnQueryTextListener() {
