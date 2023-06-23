@@ -105,9 +105,11 @@ public class GeneralViewPage extends AppCompatActivity implements SelectListener
             public void onClick(View v) {
                 if (chipClub.isChecked()){
                     fc = true;
+
                 }
                 else if (!chipClub.isChecked()) {
                     fc = false;
+
                 }
                 limitoption();
             }
@@ -118,9 +120,11 @@ public class GeneralViewPage extends AppCompatActivity implements SelectListener
             public void onClick(View v) {
                 if (chipMakan.isChecked()){
                     makan = true;
+
                 }
                 else if (!chipMakan.isChecked()) {
                     makan = false;
+
                 }
                 limitoption();
             }
@@ -131,9 +135,12 @@ public class GeneralViewPage extends AppCompatActivity implements SelectListener
             public void onClick(View v) {
                 if (chipMunch.isChecked()){
                     munch = true;
+                    makan = false;
+                    fc = false;
                 }
                 else if (!chipMunch.isChecked()) {
                     munch = false;
+
                 }
                 limitoption();
             }
@@ -345,6 +352,7 @@ public class GeneralViewPage extends AppCompatActivity implements SelectListener
 
         gAdapter.setFilteredList(filteredList);
     }
+
 
     private void filterList(String text) {
         List<Food> filteredList = new ArrayList<>();
