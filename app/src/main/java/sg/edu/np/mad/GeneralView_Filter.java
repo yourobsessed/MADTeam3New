@@ -27,12 +27,12 @@ public class GeneralView_Filter extends AppCompatActivity {
     private ChipGroup chipGroupLocation;
 
 
-    private Button buttonApply;
+    //private Button buttonApply;
 
-    private ArrayList<String> selectedChipData;
+    private ArrayList<String> selectedChipData = new ArrayList<>();
 
-    ArrayList<Food> filteredFoodList;
-    ArrayList<Food> foodList;
+    ArrayList<Food> filteredFoodList= new ArrayList<>();
+    ArrayList<Food> foodList= new ArrayList<>();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -109,12 +109,13 @@ public class GeneralView_Filter extends AppCompatActivity {
         });
 
         Button ButtonApply = findViewById(R.id.buttonApply);
-        buttonApply.setOnClickListener(new View.OnClickListener() {
+        ButtonApply.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 Intent toGeneralView = new Intent(GeneralView_Filter.this, GeneralViewPage.class);
                 toGeneralView.putExtra("filteredList", filteredFoodList);
                 startActivity(toGeneralView);
+
             }
         });
         /*CompoundButton.OnCheckedChangeListener checkedChangeListener = new CompoundButton.OnCheckedChangeListener() {

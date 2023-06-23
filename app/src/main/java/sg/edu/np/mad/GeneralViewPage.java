@@ -42,6 +42,8 @@ public class GeneralViewPage extends AppCompatActivity implements SelectListener
     ArrayList<String> selectedChipData = new ArrayList<>();
     ArrayList<Food> foodList = new ArrayList<>();
     GeneralView_Adapter gAdapter;
+
+    private CustomAdapterFood adapter;
     ArrayList<Food> filteredListFromGVF;
     ArrayList<Food> secondFilterList;
     ArrayList<Food> originalList;
@@ -90,6 +92,8 @@ public class GeneralViewPage extends AppCompatActivity implements SelectListener
                             } else if (food.getHalal() == false) {
                                 continue;
                             }
+
+
                         }
                     }
                     else if (filteredListFromGVF == null){
@@ -102,6 +106,7 @@ public class GeneralViewPage extends AppCompatActivity implements SelectListener
                         }
                     }
                 }
+
             }
         });
 
@@ -125,6 +130,16 @@ public class GeneralViewPage extends AppCompatActivity implements SelectListener
                             } else if (food.getVegetarian() == false) {
                                 continue;
                             }
+                        }
+                    }
+                    else if (foodList != null) {
+                        for (Food food : foodList) {
+                            if (food.getVegetarian()) {
+                                originalList.add(food);
+                            } else {
+                                continue;
+                            }
+
                         }
                     }
                 }
@@ -165,6 +180,16 @@ public class GeneralViewPage extends AppCompatActivity implements SelectListener
             }
             return filteredList;
         } */
+
+        chipHalal.setOnCheckedChangeListener((buttonView, isChecked) -> {
+            if(isChecked) {
+                filterDataByHalal(chipHalal.getText().toString());
+
+            }
+            else {
+                adapter.setData(foodList);
+            }
+        });
         searchView.setOnQueryTextListener(new SearchView.OnQueryTextListener() {
             @Override
             public boolean onQueryTextSubmit(String query) {
@@ -178,7 +203,7 @@ public class GeneralViewPage extends AppCompatActivity implements SelectListener
             }
         });
 
-
+        //gAdapter.setFilteredList(filteredListFromGVF);
         gAdapter = new GeneralView_Adapter(GeneralViewPage.this, foodList, this);
         LinearLayoutManager layoutManager = new LinearLayoutManager(this);
         recyclerView.setLayoutManager(layoutManager);
@@ -250,10 +275,10 @@ public class GeneralViewPage extends AppCompatActivity implements SelectListener
     }
 
 
-    @Override
+    /*@Override
     protected void onActivityResult(int requestCode,int resultCode, @Nullable Intent data){
         super.onActivityResult(requestCode,resultCode,data);
-        String selectedDataString = data.getStringExtra("data");
+        String selectedDataString = data.getStringExtra("filteredFoodList");
         if(requestCode==101)
         {
             String[] foodStrings = selectedDataString.split(",");
@@ -286,9 +311,19 @@ public class GeneralViewPage extends AppCompatActivity implements SelectListener
 
             }
 
-            gAdapter.setFilteredList(filteredList);
+
         }
 
+    }*/
+
+    private void filterDataByHalal(String chipText) {
+        List<Food> filteredList = new ArrayList<>();
+        for (Food item : foodList) {
+            if (item.getHalal().equals(chipText)) {
+                filteredList.add(item);
+            }
+        }
+        adapter.setData(foodList);
     }
 
     public ArrayList<Food> CreateObject(ArrayList<Food> foodList){
