@@ -235,34 +235,36 @@ public class GeneralViewPage extends AppCompatActivity implements SelectListener
         }
         //Toast.makeText(this, "" + filteredList.get(0).getHalal(), Toast.LENGTH_SHORT).show();
 
-        Iterator<Food> iterator = filteredList.iterator();
-        while (iterator.hasNext()) {
-            Food food = iterator.next();
+        List<Food> itemsToRemove = new ArrayList<>();
+
+        for (Food food : filteredList) {
             if (halal && !food.getHalal()) {
-                iterator.remove();
+                itemsToRemove.add(food);
             }
             if (vegetarian && !food.getVegetarian()) {
-                iterator.remove();
+                itemsToRemove.add(food);
             }
             if (healthy && !food.isHealthy()) {
-                iterator.remove();
+                itemsToRemove.add(food);
             }
             if (affordable && !food.isAffordable()) {
-                iterator.remove();
+                itemsToRemove.add(food);
             }
             if (noodles && !food.getNoodle()) {
-                iterator.remove();
+                itemsToRemove.add(food);
             }
             if (rice && !food.getRice()) {
-                iterator.remove();
+                itemsToRemove.add(food);
             }
             if (dessert && !food.getDessert()) {
-                iterator.remove();
+                itemsToRemove.add(food);
             }
             if (drinks && !food.isDrinks()) {
-                iterator.remove();
+                itemsToRemove.add(food);
             }
         }
+
+        filteredList.removeAll(itemsToRemove);
 
 
         gAdapter.setFilteredList(filteredList);
