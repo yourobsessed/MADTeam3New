@@ -27,6 +27,7 @@ import android.widget.ImageView;
 import android.widget.Toast;
 
 import java.util.ArrayList;
+import java.util.Iterator;
 import java.util.List;
 
 
@@ -42,11 +43,18 @@ public class GeneralViewPage extends AppCompatActivity implements SelectListener
     ArrayList<String> selectedChipData = new ArrayList<>();
     ArrayList<Food> foodList = new ArrayList<>();
     GeneralView_Adapter gAdapter;
+    ArrayList<Food> filteredListFromGVF = new ArrayList<>();
+    ArrayList<Food> secondFilterList = new ArrayList<>();
+    ArrayList<Food> originalList = new ArrayList<>();
 
-    private CustomAdapterFood adapter;
-    ArrayList<Food> filteredListFromGVF;
-    ArrayList<Food> secondFilterList;
-    ArrayList<Food> originalList;
+    private Boolean halal = false;
+    private Boolean vegetarian = false;
+    private Boolean healthy = false;
+    private Boolean affordable = false;
+    private Boolean noodles = false;
+    private Boolean rice = false;
+    private Boolean dessert = false;
+    private Boolean drinks = false;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -85,111 +93,100 @@ public class GeneralViewPage extends AppCompatActivity implements SelectListener
             @Override
             public void onClick(View v) {
                 if (chipHalal.isChecked()){
-                    if (filteredListFromGVF != null){
-                        for (Food food : filteredListFromGVF) {
-                            if (food.getHalal() == true) {
-                                secondFilterList.add(food);
-                            } else if (food.getHalal() == false) {
-                                continue;
-                            }
-
-
-                        }
-                    }
-                    else if (filteredListFromGVF == null){
-                        for (Food food : foodList){
-                            if (food.getHalal() == true) {
-                                originalList.add(food);
-                            } else if (food.getHalal() == false) {
-                                continue;
-                            }
-                        }
-                    }
+                    halal = true;
                 }
-
+                else if (!chipHalal.isChecked()) {
+                    halal = false;
+                }
+                limitoption();
             }
         });
-
         chipVegeterian.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 if (chipVegeterian.isChecked()){
-                    if (filteredListFromGVF != null){
-                        for (Food food : filteredListFromGVF) {
-                            if (food.getHalal() == true) {
-                                secondFilterList.add(food);
-                            } else if (food.getHalal() == false) {
-                                continue;
-                            }
-                        }
-                    }
-                    else if (filteredListFromGVF == null){
-                        for (Food food : foodList){
-                            if (food.getVegetarian() == true) {
-                                originalList.add(food);
-                            } else if (food.getVegetarian() == false) {
-                                continue;
-                            }
-                        }
-                    }
-                    else if (foodList != null) {
-                        for (Food food : foodList) {
-                            if (food.getVegetarian()) {
-                                originalList.add(food);
-                            } else {
-                                continue;
-                            }
-
-                        }
-                    }
+                    vegetarian = true;
                 }
+                else if (!chipVegeterian.isChecked()) {
+                    vegetarian = false;
+                }
+                limitoption();
             }
         });
-/*        chipHalal.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+        chipHealthy.setOnClickListener(new View.OnClickListener() {
             @Override
-            public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
-                if (buttonView != null) {
-                    boolean category = buttonView.getHalal();
-                    List<Food> filteredData = filterDataByHalal(allData, category);
-                    adapter.setData(filteredData);
+            public void onClick(View v) {
+                if (chipHealthy.isChecked()){
+                    healthy = true;
                 }
+                else if (!chipHealthy.isChecked()) {
+                    healthy = false;
+                }
+                limitoption();
             }
         });
-
-        chipGroup.setOnCheckedChangeListener(new ChipGroup.OnCheckedChangeListener() {
+        chipAffordable.setOnClickListener(new View.OnClickListener() {
             @Override
-            public void onCheckedChanged(ChipGroup group, int checkedId) {
-                if (checkedId == R.id.chipAll) {
-                    adapter.setData(allData);
-                } else {
-                    Chip chip = group.findViewById(checkedId);
-
+            public void onClick(View v) {
+                if (chipAffordable.isChecked()){
+                    affordable = true;
                 }
+                else if (!chipAffordable.isChecked()) {
+                    affordable = false;
+                }
+                limitoption();
+            }
+        });
+        chipNoodles.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                if (chipNoodles.isChecked()){
+                    noodles = true;
+                }
+                else if (!chipNoodles.isChecked()) {
+                    noodles = false;
+                }
+                limitoption();
+            }
+        });
+        chipRice.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                if (chipRice.isChecked()){
+                    rice = true;
+                }
+                else if (!chipRice.isChecked()) {
+                    rice = false;
+                }
+                limitoption();
+            }
+        });
+        chipDessert.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                if (chipDessert.isChecked()){
+                    dessert = true;
+                }
+                else if (!chipDessert.isChecked()) {
+                    dessert = false;
+                }
+                limitoption();
+            }
+        });
+        chipDrinks.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                if (chipDrinks.isChecked()){
+                    drinks = true;
+                }
+                else if (!chipDrinks.isChecked()) {
+                    drinks = false;
+                }
+                limitoption();
             }
         });
 
 
-        gAdapter.setFilteredList(mainfilterList);
-
-        private ArrayList<Food> filterDataByHalal(ArrayList<Food> foodList, boolean category) {
-            List<Food> filteredList = new ArrayList<>();
-            for (Food food : foodList) {
-                if (food.getHalal() == true) {
-                    filteredList.add(food);
-                }
-            }
-            return filteredList;
-        } */
-
-        chipHalal.setOnCheckedChangeListener((buttonView, isChecked) -> {
-            if(isChecked) {
-                filterDataByHalal(chipHalal.getText().toString());
-
-            }
-            else {
-                adapter.setData(foodList);
-            }
-        });
         searchView.setOnQueryTextListener(new SearchView.OnQueryTextListener() {
             @Override
             public boolean onQueryTextSubmit(String query) {
@@ -203,7 +200,7 @@ public class GeneralViewPage extends AppCompatActivity implements SelectListener
             }
         });
 
-        //gAdapter.setFilteredList(filteredListFromGVF);
+
         gAdapter = new GeneralView_Adapter(GeneralViewPage.this, foodList, this);
         LinearLayoutManager layoutManager = new LinearLayoutManager(this);
         recyclerView.setLayoutManager(layoutManager);
@@ -230,6 +227,49 @@ public class GeneralViewPage extends AppCompatActivity implements SelectListener
         Intent toCataloguePage = new Intent(GeneralViewPage.this, CataloguePage.class);
         startActivity(toCataloguePage);
     }
+
+    private void limitoption() {
+        List<Food> filteredList = new ArrayList<>();
+        for (Food food : foodList) {
+            filteredList.add(food);
+        }
+        //Toast.makeText(this, "" + filteredList.get(0).getHalal(), Toast.LENGTH_SHORT).show();
+
+        List<Food> itemsToRemove = new ArrayList<>();
+
+        for (Food food : filteredList) {
+            if (halal && !food.getHalal()) {
+                itemsToRemove.add(food);
+            }
+            if (vegetarian && !food.getVegetarian()) {
+                itemsToRemove.add(food);
+            }
+            if (healthy && !food.isHealthy()) {
+                itemsToRemove.add(food);
+            }
+            if (affordable && !food.isAffordable()) {
+                itemsToRemove.add(food);
+            }
+            if (noodles && !food.getNoodle()) {
+                itemsToRemove.add(food);
+            }
+            if (rice && !food.getRice()) {
+                itemsToRemove.add(food);
+            }
+            if (dessert && !food.getDessert()) {
+                itemsToRemove.add(food);
+            }
+            if (drinks && !food.isDrinks()) {
+                itemsToRemove.add(food);
+            }
+        }
+
+        filteredList.removeAll(itemsToRemove);
+
+
+        gAdapter.setFilteredList(filteredList);
+    }
+
     private void filterList(String text) {
         List<Food> filteredList = new ArrayList<>();
         for (Food food : foodList) {
@@ -275,10 +315,10 @@ public class GeneralViewPage extends AppCompatActivity implements SelectListener
     }
 
 
-    /*@Override
+    @Override
     protected void onActivityResult(int requestCode,int resultCode, @Nullable Intent data){
         super.onActivityResult(requestCode,resultCode,data);
-        String selectedDataString = data.getStringExtra("filteredFoodList");
+        String selectedDataString = data.getStringExtra("data");
         if(requestCode==101)
         {
             String[] foodStrings = selectedDataString.split(",");
@@ -311,19 +351,9 @@ public class GeneralViewPage extends AppCompatActivity implements SelectListener
 
             }
 
-
+            gAdapter.setFilteredList(filteredList);
         }
 
-    }*/
-
-    private void filterDataByHalal(String chipText) {
-        List<Food> filteredList = new ArrayList<>();
-        for (Food item : foodList) {
-            if (item.getHalal().equals(chipText)) {
-                filteredList.add(item);
-            }
-        }
-        adapter.setData(foodList);
     }
 
     public ArrayList<Food> CreateObject(ArrayList<Food> foodList){

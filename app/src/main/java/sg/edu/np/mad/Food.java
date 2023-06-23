@@ -164,6 +164,15 @@ public class Food extends Store{
         this.dessert = dessert;
     }
 
+    public Boolean isHealthy(){
+        return calories < 500;
+    }
+    public Boolean isAffordable(){
+        return price < 5;
+    }
+    public Boolean isDrinks(){
+        return !noodle && !rice && !dessert;
+    }
     public String toString() {
         return String.format("%s,%s","%s",this.foodName,this.location, this.description);
     }
