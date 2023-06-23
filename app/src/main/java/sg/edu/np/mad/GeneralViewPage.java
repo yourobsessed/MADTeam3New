@@ -37,7 +37,7 @@ public class GeneralViewPage extends AppCompatActivity implements SelectListener
     private SearchView searchView;
     private RecyclerView recyclerView;
 
-    private Chip chipHalal,chipVegeterian,chipHealthy,chipAffordable,chipNoodles,chipRice,chipDessert,chipDrinks;
+    private Chip chipClub,chipMakan,chipMunch,chipHalal,chipVegeterian,chipHealthy,chipAffordable,chipNoodles,chipRice,chipSoup,chipDessert,chipDrinks;
     private ChipGroup chipGroup;
 
     ArrayList<String> selectedChipData = new ArrayList<>();
@@ -47,12 +47,17 @@ public class GeneralViewPage extends AppCompatActivity implements SelectListener
     ArrayList<Food> secondFilterList = new ArrayList<>();
     ArrayList<Food> originalList = new ArrayList<>();
 
+    private Boolean makan = false;
+    private Boolean fc = false;
+    private Boolean munch = false;
     private Boolean halal = false;
     private Boolean vegetarian = false;
     private Boolean healthy = false;
     private Boolean affordable = false;
     private Boolean noodles = false;
     private Boolean rice = false;
+
+    private Boolean soup = false;
     private Boolean dessert = false;
     private Boolean drinks = false;
 
@@ -66,18 +71,23 @@ public class GeneralViewPage extends AppCompatActivity implements SelectListener
         searchView.clearFocus();
 
         //chips
+        chipClub=findViewById(R.id.chipClub);
+        chipMakan=findViewById(R.id.chipMakan);
+        chipMunch=findViewById(R.id.chipMunch);
+
         chipHalal=findViewById(R.id.chipHalal);
         chipVegeterian=findViewById(R.id.chipVegeterian);
         chipHealthy=findViewById(R.id.chipHealthy);
         chipAffordable=findViewById(R.id.chipAffordable);
         chipNoodles=findViewById(R.id.chipNoodles);
         chipRice=findViewById(R.id.chipRice);
+        chipSoup=findViewById(R.id.chipSoup);
         chipDessert=findViewById(R.id.chipDessert);
         chipDrinks=findViewById(R.id.chipDrinks);
 
         foodList = CreateObject(foodList);
 
-        filteredListFromGVF = (ArrayList<Food>) getIntent().getSerializableExtra("filteredList");
+        //filteredListFromGVF = (ArrayList<Food>) getIntent().getSerializableExtra("filteredList");
 
         ImageView BackButton = findViewById(R.id.imageView7);
         BackButton.setOnClickListener(new View.OnClickListener() {
@@ -88,7 +98,46 @@ public class GeneralViewPage extends AppCompatActivity implements SelectListener
         });
 
 
+        //chips
 
+        chipClub.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                if (chipClub.isChecked()){
+                    fc = true;
+                }
+                else if (!chipClub.isChecked()) {
+                    fc = false;
+                }
+                limitoption();
+            }
+        });
+
+        chipMakan.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                if (chipMakan.isChecked()){
+                    makan = true;
+                }
+                else if (!chipMakan.isChecked()) {
+                    makan = false;
+                }
+                limitoption();
+            }
+        });
+
+        chipMunch.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                if (chipMunch.isChecked()){
+                    munch = true;
+                }
+                else if (!chipMunch.isChecked()) {
+                    munch = false;
+                }
+                limitoption();
+            }
+        });
         chipHalal.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -161,6 +210,18 @@ public class GeneralViewPage extends AppCompatActivity implements SelectListener
                 limitoption();
             }
         });
+        chipSoup.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                if (chipSoup.isChecked()){
+                    soup = true;
+                }
+                else if (!chipRice.isChecked()) {
+                    soup = false;
+                }
+                limitoption();
+            }
+        });
         chipDessert.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -200,14 +261,7 @@ public class GeneralViewPage extends AppCompatActivity implements SelectListener
             }
         });
 
-
-        gAdapter = new GeneralView_Adapter(GeneralViewPage.this, foodList, this);
-        LinearLayoutManager layoutManager = new LinearLayoutManager(this);
-        recyclerView.setLayoutManager(layoutManager);
-        recyclerView.setItemAnimator(new DefaultItemAnimator());
-        recyclerView.setAdapter(gAdapter);
-
-        FloatingActionButton fab = findViewById(R.id.filterbutton);
+        /*FloatingActionButton fab = findViewById(R.id.filterbutton);
         fab.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -215,9 +269,18 @@ public class GeneralViewPage extends AppCompatActivity implements SelectListener
                 Intent toFilter = new Intent(GeneralViewPage.this, GeneralView_Filter.class);
                 toFilter.putExtra("filteredList", originalList);
                 startActivity(toFilter);//,101);
+
             }
 
-        });
+        });*/
+        //foodList = filteredListFromGVF;
+        gAdapter = new GeneralView_Adapter(GeneralViewPage.this, foodList, this);
+        LinearLayoutManager layoutManager = new LinearLayoutManager(this);
+        recyclerView.setLayoutManager(layoutManager);
+        recyclerView.setItemAnimator(new DefaultItemAnimator());
+        recyclerView.setAdapter(gAdapter);
+
+
 
     }
 
@@ -238,6 +301,15 @@ public class GeneralViewPage extends AppCompatActivity implements SelectListener
         List<Food> itemsToRemove = new ArrayList<>();
 
         for (Food food : filteredList) {
+            if (fc && food.getLocation()!="Food CLub") {
+                itemsToRemove.add(food);
+            }
+            if (munch && food.getLocation()!="Munch") {
+                itemsToRemove.add(food);
+            }
+            if (makan && food.getLocation()!="Makan Place") {
+                itemsToRemove.add(food);
+            }
             if (halal && !food.getHalal()) {
                 itemsToRemove.add(food);
             }
@@ -254,6 +326,10 @@ public class GeneralViewPage extends AppCompatActivity implements SelectListener
                 itemsToRemove.add(food);
             }
             if (rice && !food.getRice()) {
+                itemsToRemove.add(food);
+
+            }
+            if (soup && !food.getSoup()) {
                 itemsToRemove.add(food);
             }
             if (dessert && !food.getDessert()) {
@@ -315,7 +391,7 @@ public class GeneralViewPage extends AppCompatActivity implements SelectListener
     }
 
 
-    @Override
+    /*@Override
     protected void onActivityResult(int requestCode,int resultCode, @Nullable Intent data){
         super.onActivityResult(requestCode,resultCode,data);
         String selectedDataString = data.getStringExtra("data");
@@ -354,7 +430,7 @@ public class GeneralViewPage extends AppCompatActivity implements SelectListener
             gAdapter.setFilteredList(filteredList);
         }
 
-    }
+    }*/
 
     public ArrayList<Food> CreateObject(ArrayList<Food> foodList){
         //creating all the food items

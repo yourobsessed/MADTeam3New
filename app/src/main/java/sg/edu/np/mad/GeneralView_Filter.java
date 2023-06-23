@@ -34,6 +34,10 @@ public class GeneralView_Filter extends AppCompatActivity {
     ArrayList<Food> filteredFoodList= new ArrayList<>();
     ArrayList<Food> foodList= new ArrayList<>();
 
+    private Boolean makan = false;
+    private Boolean club = false;
+    private Boolean munch = false;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -60,7 +64,7 @@ public class GeneralView_Filter extends AppCompatActivity {
                 });
             }
         }
-        chipClub.setOnClickListener(new View.OnClickListener() {
+        /*chipClub.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 if (chipClub.isChecked()){
@@ -74,9 +78,9 @@ public class GeneralView_Filter extends AppCompatActivity {
                     }
                 }
             }
-        });
+        });*/
 
-        chipMakan.setOnClickListener(new View.OnClickListener() {
+        /*chipMakan.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 if (chipMakan.isChecked()){
@@ -90,9 +94,45 @@ public class GeneralView_Filter extends AppCompatActivity {
                     }
                 }
             }
+        });*/
+        chipMakan.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                if (chipMakan.isChecked()){
+                    makan = true;
+                }
+                else if (!chipMakan.isChecked()) {
+                    makan = false;
+                }
+                limitoption();
+            }
+        });
+        chipClub.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                if (chipClub.isChecked()){
+                    club = true;
+                }
+                else if (!chipClub.isChecked()) {
+                    club = false;
+                }
+                limitoption();
+            }
+        });
+        chipMunch.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                if (chipMunch.isChecked()){
+                    munch = true;
+                }
+                else if (!chipMunch.isChecked()) {
+                    munch = false;
+                }
+                limitoption();
+            }
         });
 
-        chipMunch.setOnClickListener(new View.OnClickListener() {
+        /*chipMunch.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 if (chipMunch.isChecked()){
@@ -106,14 +146,14 @@ public class GeneralView_Filter extends AppCompatActivity {
                     }
                 }
             }
-        });
+        });*/
 
         Button ButtonApply = findViewById(R.id.buttonApply);
         ButtonApply.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 Intent toGeneralView = new Intent(GeneralView_Filter.this, GeneralViewPage.class);
-                toGeneralView.putExtra("filteredList", filteredFoodList);
+                toGeneralView.putExtra("filteredList", filteredList);
                 startActivity(toGeneralView);
 
             }
@@ -268,6 +308,32 @@ public class GeneralView_Filter extends AppCompatActivity {
             }
         });
     }*/
+
+    private void limitoption() {
+        List<Food> filteredList = new ArrayList<>();
+        for (Food food : foodList) {
+            filteredList.add(food);
+        }
+        //Toast.makeText(this, "" + filteredList.get(0).getHalal(), Toast.LENGTH_SHORT).show();
+
+        List<Food> itemsToRemove = new ArrayList<>();
+
+        for (Food food : filteredList) {
+            if (makan && food.getLocation()!="Makan Place") {
+                itemsToRemove.add(food);
+            }
+            if (munch && food.getLocation()!="Munch") {
+                itemsToRemove.add(food);
+            }
+            if (club && food.getLocation()!="Food Club") {
+                itemsToRemove.add(food);
+            }
+
+        }
+
+        filteredList.removeAll(itemsToRemove);
+
+    }
     public ArrayList<Food> CreateObject(ArrayList<Food> foodList){
         //creating all the food items
         //Munch

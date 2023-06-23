@@ -1,5 +1,7 @@
 package sg.edu.np.mad;
 
+import android.util.Log;
+
 public class Food extends Store{
     private String foodName;
     private String location;
@@ -174,6 +176,8 @@ public class Food extends Store{
         return !noodle && !rice && !dessert;
     }
     public String toString() {
-        return String.format("%s,%s","%s",this.foodName,this.location, this.description);
+        String convertedMsg = this.foodName +"," + this.location +","+ this.description;
+        return convertedMsg;
+        //return String.format("%s","%s","%s",this.foodName,this.location, this.description);
     }
 }
