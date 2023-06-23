@@ -42,9 +42,9 @@ public class GeneralViewPage extends AppCompatActivity implements SelectListener
     ArrayList<String> selectedChipData = new ArrayList<>();
     ArrayList<Food> foodList = new ArrayList<>();
     GeneralView_Adapter gAdapter;
-    ArrayList<Food> filteredListFromGVF;
-    ArrayList<Food> secondFilterList;
-    ArrayList<Food> originalList;
+    ArrayList<Food> filteredListFromGVF = new ArrayList<>();
+    ArrayList<Food> secondFilterList = new ArrayList<>();
+    ArrayList<Food> originalList = new ArrayList<>();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
