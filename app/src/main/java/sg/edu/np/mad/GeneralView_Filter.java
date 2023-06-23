@@ -194,6 +194,7 @@ public class GeneralView_Filter extends AppCompatActivity {
         }
 
         Toast.makeText(this, text, Toast.LENGTH_SHORT).show();
+
     }
 
     /*@Override
