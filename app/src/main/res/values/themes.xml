@@ -26,4 +26,8 @@
         <item name="android:statusBarColor">@android:color/transparent</item>
     </style>
 
+    <style name="ChipUncheckedText" parent="TextAppearance.MaterialComponents.Chip" >
+        <item name="android:textColor">@values/colorWhite</item>
+    </style>
+
 </resources>

@@ -53,6 +53,7 @@
 
         </androidx.recyclerview.widget.RecyclerView>
 
+
         <HorizontalScrollView
             android:id="@+id/horizontalScrollView"
             android:layout_width="391dp"
@@ -68,7 +69,18 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 app:singleLine="true"
-                app:singleSelection="true">
+                app:singleSelection="false">
+
+                <com.google.android.material.chip.Chip
+                    android:id="@+id/chipAllLocations"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Show All Locations"
+                    app:chipIcon="@drawable/locationchipsmarker"
+                    app:chipIconVisible="true"
+                    android:textAppearance="@style/ChipUncheckedText"
+                    android:checkable="false"
+                    style="@style/Widget.MaterialComponents.Chip.Filter"/>
 
                 <com.google.android.material.chip.Chip
                     android:id="@+id/chipClub"
@@ -77,6 +89,7 @@
                     android:text="Food Club"
                     app:chipIcon="@drawable/locationchipsmarker"
                     app:chipIconVisible="true"
+                    android:textAppearance="@style/ChipUncheckedText"
                     android:checkable="false"
                     style="@style/Widget.MaterialComponents.Chip.Filter"/>
 
@@ -87,6 +100,7 @@
                     android:text="Makan Place"
                     app:chipIcon="@drawable/locationchipsmarker"
                     app:chipIconVisible="true"
+                    android:textAppearance="@style/ChipUncheckedText"
                     android:checkable="false"
                     style="@style/Widget.MaterialComponents.Chip.Filter"/>
 
@@ -97,6 +111,7 @@
                     android:text="Munch"
                     app:chipIcon="@drawable/locationchipsmarker"
                     app:chipIconVisible="true"
+                    android:textAppearance="@style/ChipUncheckedText"
                     android:checkable="false"
                     style="@style/Widget.MaterialComponents.Chip.Filter"/>
 
@@ -160,5 +175,6 @@
             </com.google.android.material.chip.ChipGroup>
 
         </HorizontalScrollView>
+
 
     </androidx.constraintlayout.widget.ConstraintLayout>

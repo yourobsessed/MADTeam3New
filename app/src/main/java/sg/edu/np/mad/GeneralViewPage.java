@@ -37,16 +37,16 @@ public class GeneralViewPage extends AppCompatActivity implements SelectListener
     private SearchView searchView;
     private RecyclerView recyclerView;
 
-    private Chip chipClub,chipMakan,chipMunch,chipHalal,chipVegeterian,chipHealthy,chipAffordable,chipNoodles,chipRice,chipSoup,chipDessert;
-    private ChipGroup chipGroup;
+    private Chip chipAllLocations,chipClub,chipMakan,chipMunch,chipHalal,chipVegeterian,chipHealthy,chipAffordable,chipNoodles,chipRice,chipSoup,chipDessert;
 
-    ArrayList<String> selectedChipData = new ArrayList<>();
+    //ArrayList<String> selectedChipData = new ArrayList<>();
     ArrayList<Food> foodList = new ArrayList<>();
     GeneralView_Adapter gAdapter;
-    ArrayList<Food> filteredListFromGVF = new ArrayList<>();
-    ArrayList<Food> secondFilterList = new ArrayList<>();
-    ArrayList<Food> originalList = new ArrayList<>();
+    //ArrayList<Food> filteredListFromGVF = new ArrayList<>();
+    //ArrayList<Food> secondFilterList = new ArrayList<>();
+    //ArrayList<Food> originalList = new ArrayList<>();
 
+    private Boolean alllocations = false;
     private Boolean makan = false;
     private Boolean fc = false;
     private Boolean munch = false;
@@ -71,6 +71,7 @@ public class GeneralViewPage extends AppCompatActivity implements SelectListener
         searchView.clearFocus();
 
         //chips
+        chipAllLocations=findViewById(R.id.chipAllLocations);
         chipClub=findViewById(R.id.chipClub);
         chipMakan=findViewById(R.id.chipMakan);
         chipMunch=findViewById(R.id.chipMunch);
@@ -99,17 +100,31 @@ public class GeneralViewPage extends AppCompatActivity implements SelectListener
 
         //chips
 
+        chipAllLocations.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                if (!alllocations){
+                    alllocations = true;
+                    fc = false;
+                    munch = false;
+                    makan = false;
+
+                }
+
+                limitoption();
+            }
+        });
+
         chipClub.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 if (!fc){
                     fc = true;
+                    munch = false;
+                    makan = false;
 
                 }
-                else if (fc) {
-                    fc = false;
 
-                }
                 limitoption();
             }
         });
@@ -119,12 +134,11 @@ public class GeneralViewPage extends AppCompatActivity implements SelectListener
             public void onClick(View v) {
                 if (!makan){
                     makan = true;
+                    munch = false;
+                    fc = false;
 
                 }
-                else if (makan) {
-                     makan = false;
 
-                }
                 limitoption();
             }
 
@@ -135,12 +149,11 @@ public class GeneralViewPage extends AppCompatActivity implements SelectListener
             public void onClick(View v) {
                 if (!munch){
                     munch = true;
+                    fc = false;
+                    makan = false;
 
                 }
-                else if (munch) {
-                    munch = false;
 
-                }
                 limitoption();
             }
         });
@@ -294,6 +307,11 @@ public class GeneralViewPage extends AppCompatActivity implements SelectListener
         //Toast.makeText(this, "" + filteredList.get(0).getHalal(), Toast.LENGTH_SHORT).show();
 
         List<Food> itemsToRemove = new ArrayList<>();
+
+
+        if (alllocations) {
+            itemsToRemove = itemsToRemove;
+        }
 
         for (Food food : filteredList) {
             if (fc && food.getLocation()!="Food CLub") {
