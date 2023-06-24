@@ -272,6 +272,7 @@ public class GeneralViewPage extends AppCompatActivity implements SelectListener
 
         });*/
         //foodList = filteredListFromGVF;
+        //passing data
         gAdapter = new GeneralView_Adapter(GeneralViewPage.this, foodList, this);
         LinearLayoutManager layoutManager = new LinearLayoutManager(this);
         recyclerView.setLayoutManager(layoutManager);
@@ -390,6 +391,24 @@ public class GeneralViewPage extends AppCompatActivity implements SelectListener
     @Override
     protected void onResume(){
         super.onResume();
+
+    }
+
+    @Override
+    protected void onPause(){
+        super.onPause();
+
+    }
+
+    @Override
+    protected void onStop(){
+        super.onStop();
+
+    }
+
+    @Override
+    protected void onDestroy(){
+        super.onDestroy();
 
     }
 
