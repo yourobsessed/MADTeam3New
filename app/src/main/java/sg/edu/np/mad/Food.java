@@ -2,24 +2,29 @@ package sg.edu.np.mad;
 
 import android.util.Log;
 
-public class Food extends Store{
-    private String foodName;
-    private String location;
-    private double price;
-    private int calories;
-    private int foodImage1;
+public class Food {
+    private String foodName; //
+    private String description; //
+    private String location; //
+    private double price; //
+    private int calories; //
+    private int foodImage1; //
 
-    private int foodImage2;
-    private int foodImage3;
+    private int foodImage2; //
+    private int foodImage3; //
 
-    private int locationImage;
-    private String description;
+    private int locationImage; //
+
+
+    //considering one food item as per order
     private Boolean noodle;
     private Boolean soup;
     private Boolean rice;
+    private Boolean dessert;
+
     private Boolean halal;
     private Boolean vegetarian;
-    private Boolean dessert;
+
 
 
     public Food() {
@@ -138,22 +143,21 @@ public class Food extends Store{
         this.locationImage = locationImage;
     }
 
-    @Override
     public Boolean getHalal() {
         return halal;
     }
 
-    @Override
+
     public void setHalal(Boolean halal) {
         this.halal = halal;
     }
 
-    @Override
+
     public Boolean getVegetarian() {
         return vegetarian;
     }
 
-    @Override
+
     public void setVegetarian(Boolean vegetarian) {
         this.vegetarian = vegetarian;
     }
