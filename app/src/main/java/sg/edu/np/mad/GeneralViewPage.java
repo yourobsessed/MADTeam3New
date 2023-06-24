@@ -47,6 +47,8 @@ public class GeneralViewPage extends AppCompatActivity implements SelectListener
     ArrayList<Food> secondFilterList = new ArrayList<>();
     ArrayList<Food> originalList = new ArrayList<>();
 
+    private String searchText = "";
+
     private Boolean makan = false;
     private Boolean fc = false;
     private Boolean munch = false;
@@ -110,7 +112,7 @@ public class GeneralViewPage extends AppCompatActivity implements SelectListener
                     fc = false;
 
                 }
-                limitoption();
+                filterList();
             }
         });
 
@@ -125,7 +127,7 @@ public class GeneralViewPage extends AppCompatActivity implements SelectListener
                      makan = false;
 
                 }
-                limitoption();
+                filterList();
             }
 
         });
@@ -141,7 +143,7 @@ public class GeneralViewPage extends AppCompatActivity implements SelectListener
                     munch = false;
 
                 }
-                limitoption();
+                filterList();
             }
         });
         chipHalal.setOnClickListener(new View.OnClickListener() {
@@ -153,7 +155,7 @@ public class GeneralViewPage extends AppCompatActivity implements SelectListener
                 else if (!chipHalal.isChecked()) {
                     halal = false;
                 }
-                limitoption();
+                filterList();
             }
         });
         chipVegeterian.setOnClickListener(new View.OnClickListener() {
@@ -165,7 +167,7 @@ public class GeneralViewPage extends AppCompatActivity implements SelectListener
                 else if (!chipVegeterian.isChecked()) {
                     vegetarian = false;
                 }
-                limitoption();
+                filterList();
             }
         });
         chipHealthy.setOnClickListener(new View.OnClickListener() {
@@ -177,7 +179,7 @@ public class GeneralViewPage extends AppCompatActivity implements SelectListener
                 else if (!chipHealthy.isChecked()) {
                     healthy = false;
                 }
-                limitoption();
+                filterList();
             }
         });
         chipAffordable.setOnClickListener(new View.OnClickListener() {
@@ -189,7 +191,7 @@ public class GeneralViewPage extends AppCompatActivity implements SelectListener
                 else if (!chipAffordable.isChecked()) {
                     affordable = false;
                 }
-                limitoption();
+                filterList();
             }
         });
         chipNoodles.setOnClickListener(new View.OnClickListener() {
@@ -201,7 +203,7 @@ public class GeneralViewPage extends AppCompatActivity implements SelectListener
                 else if (!chipNoodles.isChecked()) {
                     noodles = false;
                 }
-                limitoption();
+                filterList();
             }
         });
         chipRice.setOnClickListener(new View.OnClickListener() {
@@ -213,7 +215,7 @@ public class GeneralViewPage extends AppCompatActivity implements SelectListener
                 else if (!chipRice.isChecked()) {
                     rice = false;
                 }
-                limitoption();
+                filterList();
             }
         });
         chipSoup.setOnClickListener(new View.OnClickListener() {
@@ -225,7 +227,7 @@ public class GeneralViewPage extends AppCompatActivity implements SelectListener
                 else if (!chipRice.isChecked()) {
                     soup = false;
                 }
-                limitoption();
+                filterList();
             }
         });
         chipDessert.setOnClickListener(new View.OnClickListener() {
@@ -237,7 +239,7 @@ public class GeneralViewPage extends AppCompatActivity implements SelectListener
                 else if (!chipDessert.isChecked()) {
                     dessert = false;
                 }
-                limitoption();
+                filterList();
             }
         });
 
@@ -251,7 +253,8 @@ public class GeneralViewPage extends AppCompatActivity implements SelectListener
 
             @Override
             public boolean onQueryTextChange(String newText) {
-                filterList(newText);
+                searchText = newText;
+                filterList();
                 return true;
             }
         });
@@ -286,11 +289,14 @@ public class GeneralViewPage extends AppCompatActivity implements SelectListener
         startActivity(toCataloguePage);
     }
 
-    private void limitoption() {
-        List<Food> filteredList = new ArrayList<>();
-        for (Food food : foodList) {
-            filteredList.add(food);
-        }
+    private void limitoption(ArrayList<Food> filteredList) {
+        //if(filteredList == null) {
+        //    filteredList = new ArrayList<>();
+        //    for (Food food : foodList) {
+        //        filteredList.add(food);
+        //    }
+        //}
+
         //Toast.makeText(this, "" + filteredList.get(0).getHalal(), Toast.LENGTH_SHORT).show();
 
         List<Food> itemsToRemove = new ArrayList<>();
@@ -342,10 +348,10 @@ public class GeneralViewPage extends AppCompatActivity implements SelectListener
     }
 
 
-    private void filterList(String text) {
-        List<Food> filteredList = new ArrayList<>();
+    private void filterList() {
+        ArrayList<Food> filteredList = new ArrayList<Food>();
         for (Food food : foodList) {
-            if (food.getFoodName().toLowerCase().contains(text.toLowerCase())) {
+            if (food.getFoodName().toLowerCase().contains(searchText.toLowerCase())) {
                 filteredList.add(food);
 
             }
@@ -354,7 +360,8 @@ public class GeneralViewPage extends AppCompatActivity implements SelectListener
             Toast.makeText(this,"No data found",Toast.LENGTH_SHORT).show();
         }
         else {
-            gAdapter.setFilteredList(filteredList);
+            //gAdapter.setFilteredList(filteredList);
+            limitoption(filteredList);
         }
 
     }
