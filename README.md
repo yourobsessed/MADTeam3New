@@ -13,7 +13,7 @@ The Food Catalogue feature presents a user-friendly interface showcasing all the
 
 **Food Court Crowdedness**
 
-Users can view the real-time crowdedness level of each food court. Inside a food court, users have the option to provide information on how crowded it is, rating it on a scale of 1 to 10. This data is then shared with other users who are looking for less crowded places to dine. If no data is available, the app will display the crowdedness as "unknown."
+Users can view the real-time crowdedness level of each food court. Inside a food court, users have the option to provide information on how crowded it is, rating the status of the foodcourts. This data is then shared with other users who are looking for less crowded places to dine. If no data is available, the app will display the crowdedness as "unknown."
 
 (Done by Colin)
 
@@ -69,3 +69,6 @@ The information page shows the information about all the foodcourts available at
 The food generator page generates random food on click. For students who have trouble to decide on what to eat everyday, they can use this feature to plan on what to have that day!
 
 (To be done by Jovin)
+
+
+**How to use the app!**
