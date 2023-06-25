@@ -1,7 +1,7 @@
 # MADTeam3New
-FOOD @ NP 
+NP Eats
 
-Food@NP is your ultimate dining companion at Ngee Ann Polytechnic. Discover a variety of food courts and stalls, check real-time crowdedness, navigate using an interactive map, and log in for a personalized experience. Easily browse food options, rate and review dishes, create a wishlist, and receive lunchtime suggestions. Enhance your dining adventures with Food@NP and make the most of your culinary journey at Nanyang Polytechnic.
+NP Eats is your ultimate dining companion at Ngee Ann Polytechnic. Discover a variety of food courts and stalls, check real-time crowdedness, navigate using an interactive map, and log in for a personalized experience. Easily browse food options, rate and review dishes, create a wishlist, and receive lunchtime suggestions. Enhance your dining adventures with NP Eats and make the most of your culinary journey at Ngee Ann Polytechnic.
 
 Stage 1:
 
