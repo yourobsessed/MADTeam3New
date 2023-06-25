@@ -77,9 +77,9 @@ Stage 2:
  
 Rating of food - Colin 
 
-The food that the user ate can be critiqued by the user. 
+The dish that the user ate can be critiqued by the user. 
 
-A range from 1 to 5 stars, along with a short review on why they inputted that number of stars. 
+A range from 1 to 5 stars, along with a short review on why they inputted that number of stars along with a photo of the food.
 
 Other users would be able to see the ratings of foods and take that into consideration. 
 
