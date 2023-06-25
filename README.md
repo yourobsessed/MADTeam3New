@@ -59,11 +59,13 @@ Experience the ultimate dining companion with Food@NP! Discover a wide range of 
 (To be done by leroy)
 
 **Information Page**
+
 The information page shows the information about all the foodcourts available at Ngee Ann Polytechnic. It would include general details like opening and closing timings and most importantly, how to get there video! This would ensure that students would know how to get to the foodcourt, especially for the freshies!
 
 (To be done by Rae)
 
 **Food Generator Page**
+
 The food generator page generates random food on click. For students who have trouble to decide on what to eat everyday, they can use this feature to plan on what to have that day!
 
 (To be done by Jovin)
