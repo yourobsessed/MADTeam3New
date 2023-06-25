@@ -71,4 +71,3 @@ The food generator page generates random food on click. For students who have tr
 (To be done by Jovin)
 
 
-**How to use the app!**
