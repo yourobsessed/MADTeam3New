@@ -78,9 +78,8 @@
                     android:text="Show All Locations"
                     app:chipIcon="@drawable/locationchipsmarker"
                     app:chipIconVisible="true"
-                    android:textAppearance="@style/ChipUncheckedText"
                     android:checkable="false"
-                    style="@style/Widget.MaterialComponents.Chip.Filter"/>
+                    style="@style/Widget.MaterialComponents.Chip.Choice"/>
 
                 <com.google.android.material.chip.Chip
                     android:id="@+id/chipClub"
@@ -89,9 +88,8 @@
                     android:text="Food Club"
                     app:chipIcon="@drawable/locationchipsmarker"
                     app:chipIconVisible="true"
-                    android:textAppearance="@style/ChipUncheckedText"
                     android:checkable="false"
-                    style="@style/Widget.MaterialComponents.Chip.Filter"/>
+                    style="@style/Widget.MaterialComponents.Chip.Choice"/>
 
                 <com.google.android.material.chip.Chip
                     android:id="@+id/chipMakan"
@@ -100,9 +98,8 @@
                     android:text="Makan Place"
                     app:chipIcon="@drawable/locationchipsmarker"
                     app:chipIconVisible="true"
-                    android:textAppearance="@style/ChipUncheckedText"
                     android:checkable="false"
-                    style="@style/Widget.MaterialComponents.Chip.Filter"/>
+                    style="@style/Widget.MaterialComponents.Chip.Choice"/>
 
                 <com.google.android.material.chip.Chip
                     android:id="@+id/chipMunch"
@@ -111,9 +108,8 @@
                     android:text="Munch"
                     app:chipIcon="@drawable/locationchipsmarker"
                     app:chipIconVisible="true"
-                    android:textAppearance="@style/ChipUncheckedText"
                     android:checkable="false"
-                    style="@style/Widget.MaterialComponents.Chip.Filter"/>
+                    style="@style/Widget.MaterialComponents.Chip.Choice"/>
 
                 <com.google.android.material.chip.Chip
                     android:id="@+id/chipHalal"
