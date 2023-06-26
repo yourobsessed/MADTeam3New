@@ -3,6 +3,12 @@ NP Eats
 
 NP Eats is your ultimate dining companion at Ngee Ann Polytechnic. Discover a variety of food courts and stalls, check real-time crowdedness, navigate using an interactive map, and log in for a personalized experience. Easily browse food options, rate and review dishes, create a wishlist, and receive lunchtime suggestions. Enhance your dining adventures with NP Eats and make the most of your culinary journey at Ngee Ann Polytechnic.
 
+**Team members**
+1. Jovin Wong See Xuan [S10243666]
+2. Colin Chang
+3. Rae Yang
+4. Leroy Peh
+   
 Stage 1:
 
 **Food Catalogue**
