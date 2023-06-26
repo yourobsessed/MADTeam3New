@@ -1,115 +1,100 @@
 # MADTeam3New
-FOOD @ NP 
+NP Eats
 
- 
-Resolving the issue of overcrowding in food places at Ngee Ann Polytechnic is crucial for several reasons. Firstly, overcrowding poses significant challenges to the overall dining experience. Long queues and limited seating lead to increased waiting times and discomfort for students, staff, and visitors. By addressing overcrowding, we can enhance the convenience and enjoyment of mealtimes, creating a more pleasant environment for everyone. 
+NP Eats is your ultimate dining companion at Ngee Ann Polytechnic. Discover a variety of food courts and stalls, check real-time crowdedness, navigate using an interactive map, and log in for a personalized experience. Easily browse food options, rate and review dishes, create a wishlist, and receive lunchtime suggestions. Enhance your dining adventures with NP Eats and make the most of your culinary journey at Ngee Ann Polytechnic.
 
-Secondly, overcrowding can have negative implications for health and safety. Limited space can result in congested areas, making it difficult to maintain proper hygiene and social distancing, especially in times when public health concerns are heightened. Resolving overcrowding will promote a healthier and safer dining atmosphere, reducing the risk of potential health issues. 
+**Team members**
+1. Jovin Wong See Xuan [S10243666]
+2. Colin Chang
+3. Rae Yang
+4. Leroy Peh
+   
+Stage 1:
 
-Furthermore, efficient crowd management in food places encourages a more inclusive campus experience. With ample space and reduced congestion, individuals with varying mobility or accessibility needs can navigate the dining areas comfortably, ensuring that everyone has equal opportunities to enjoy their meals without facing unnecessary barriers. 
+**Food Catalogue**
 
-Addressing overcrowding also promotes a more productive environment. When students and staff have access to less crowded and more conducive dining spaces, they can enjoy their meals in a relaxed atmosphere. This can contribute to improved overall well-being, increased social interactions, and even enhanced productivity throughout the day. 
+The Food Catalogue feature presents a user-friendly interface showcasing all the NP Food courts using a RecyclerView. Users can easily choose their preferred food court, and the app will display the food stalls available in that particular court.
 
-Ultimately, resolving the overcrowding issue in food places at Ngee Ann Polytechnic demonstrates a commitment to the welfare and satisfaction of the campus community. By prioritizing the creation of comfortable and efficient dining spaces, we can foster a more inclusive, healthier, and enjoyable environment that supports the overall well-being and academic pursuits of students and staff alike. 
+(Done by Jovin)
 
- 
+**Food Court Crowdedness**
 
-Stage 1: 
+Users can view the real-time crowdedness level of each food court. Inside a food court, users have the option to provide information on how crowded it is, rating the status of the foodcourts. This data is then shared with other users who are looking for less crowded places to dine. If no data is available, the app will display the crowdedness as "unknown."
 
-Food Catalogue - Jovin 
-
-Uses a Recyclerview showing all the NP Food courts 
-
-User will choose a food court of their choice, then the food stalls of the chosen food court appear 
-
-Users will then choose a stall, then the foods provided by the stall will appear, showing the picture, name, price and calories of each food 
-
- 
-
-Food court crowdedness - Colin 
-
-Users will be able to view how crowded each food court is 
-
-When inside a food court users can provide information on how crowded the food court is, on a scale of 1 – 10. 
-
-The data provided will be shown to other users finding a less crowded food court to dine in 
-
-If there is not data on crowdedness provided by other users, the app will display as unknown 
-
- 
-NP Food courts map - Colin 
-
-A map of NP as well as each food court location can be seen
-
-Users will also be able to view their current location and facing direction
-
-This would guide them to get to the food court of their choice
- 
-
-Login Page - Rae 
-
-Allow users to login into their account 
-
-If newcomer: 
-
-A simple login, username, name, and student id will be needed to register for an account.  
-
-In this process, a user row will be created/added to the user table 
-
-Logging into the app 
-
-Username and password 
-
- 
-
-Limit options – Leroy 
-
-Food will be categorised into the categories  
-
-When user presses certain category, food options will be listed down in recyclerView 
-
- 
-
- 
-
-Stage 2: 
-
- 
-Rating of food - Colin 
-
-The food that the user ate can be critiqued by the user. 
-
-A range from 1 to 5 stars, along with a short review on why they inputted that number of stars. 
-
-Other users would be able to see the ratings of foods and take that into consideration. 
+(Done by Colin)
 
 
- 
+**NP Food Courts Map**
 
-Wishlist with a notification – Jovin 
+The NP Food Courts Map provides a visual representation of NP, displaying the locations of each food court. Users can also view their current location and facing direction, making it easier to navigate and reach their desired food court.
 
-Food that the users would like to try in the future may be added to the list by pressing a button 
+(Done by Colin)
 
-When it’s around the lunch hour, a food suggestion notification with a random food generated can prompt user to have that for lunch 
+**Login Page**
 
-Notification would include information about which food court to get that certain order, and it’s name 
+The Login Page allows users to access their accounts. Newcomers can register by providing basic information such as a username, name, and student ID. Upon registration, a user profile will be created, enabling a personalized app experience. Logging into the app requires a username and password.
 
-Main page may have an imageview that changes everyday to remind the users to try the food soon 
+(Done by Rae)
 
- 
+**Limit Options**
 
-All-time favourite page - Rae
+Food options are categorized into different categories for easy navigation. Users can select a category to view the listed food options in a RecyclerView.
 
-Shows a collection of all the favourite food (top 10) at the main page 
+(Done by Leroy)
 
-All-time favourites would be in a recycler view format to view all the information about the food. When clicked into the food, information will be shown 
+Stage 2:
 
-User can choose whether to add the food to the wishlist 
+**Rating of Food**
 
- 
+Users can rate the dishes they have tried, providing a range from 1 to 5 stars and a short review explaining their rating. The ratings and reviews are visible to other users, helping them make informed decisions about their food choices. Users can also include a photo of the food along with their review.
 
-Feedback to school - Leroy 
+(To be done by Colin)
 
-Have a page for students to submit their feedback related to food, canteen to the school  
+**Wishlist with Notifications**
 
-In charge person of the canteen will be able to receive a consolidated feedback every month as an email 
+Users can add their desired foods to a wishlist for future reference. Around lunchtime, the app sends a food suggestion notification with a randomly generated food item, prompting users to consider it for their meal. The notification includes information about the food court where the dish can be found and its name. The main page may feature an image view that changes daily, reminding users to try new foods soon.
+
+(To be done by Jovin)
+
+**All-Time Favorite Page**
+
+The All-Time Favorite page showcases a collection of the top 10 favorite foods. Users can browse through the displayed information about each food item in a RecyclerView format. Clicking on a food item provides detailed information, and users can choose to add it to their wishlist for future reference.
+
+Experience the ultimate dining companion with Food@NP! Discover a wide range of food options, navigate with ease, rate and review dishes, and create your personalized wishlist. Download the app now to enhance your dining experience at Ngee Ann Polytechnic.
+
+(To be done by leroy)
+
+**Information Page**
+
+The information page shows the information about all the foodcourts available at Ngee Ann Polytechnic. It would include general details like opening and closing timings and most importantly, how to get there video! This would ensure that students would know how to get to the foodcourt, especially for the freshies!
+
+(To be done by Rae)
+
+**Food Generator Page**
+
+The food generator page generates random food on click. For students who have trouble to decide on what to eat everyday, they can use this feature to plan on what to have that day!
+
+(To be done by Jovin)
+
+**How NP Eats work**
+
+![image](https://github.com/yourobsessed/MADTeam3New/assets/130966829/5d9572c0-209f-401e-b313-a08a1d6388cf)
+
+This is the home screen, click on any of the boxes to check out the crowdedness of the foodcourts and the location of the three foodcourts
+
+![image](https://github.com/yourobsessed/MADTeam3New/assets/130966829/c989faa3-772c-46ec-a844-c69185fc35cd)
+
+Make use to turn on the location, and allow the use of location permission in the app to use this feature!
+
+![image](https://github.com/yourobsessed/MADTeam3New/assets/130966829/148e5f1a-ed30-41c4-8651-b758727bd638)
+
+Use the above siide panel to get to other activities of the app! Either swipe right from the left side of the screen or press the side panel button on left hand corner of the home screen
+
+![image](https://github.com/yourobsessed/MADTeam3New/assets/130966829/b2e0a372-911c-4553-b66a-ae5df54c2d2d)
+
+Use the filters and search bar to find the food that you feel like having. Filter them according to their locations, food categories and many more!
+
+![image](https://github.com/yourobsessed/MADTeam3New/assets/130966829/e3207e8b-fc90-485b-aab0-a577b97161d8)
+
+
+

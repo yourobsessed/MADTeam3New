@@ -32,6 +32,8 @@ public class GeneralView_Adapter extends RecyclerView.Adapter<GeneralView_Viewho
     }
     @Override
     public GeneralView_Viewholder onCreateViewHolder(ViewGroup parent, int viewType) {
+
+        //inflating the generalView holder with the relevant details
         View item = LayoutInflater.from(parent.getContext()).inflate(R.layout.general_view_viewholder, parent, false);
         return new GeneralView_Viewholder(item);
     }
@@ -42,10 +44,15 @@ public class GeneralView_Adapter extends RecyclerView.Adapter<GeneralView_Viewho
         holder.foodName.setText(f.getFoodName());
         holder.foodDescription.setText(f.getDescription());
         holder.foodImage.setImageResource(f.getFoodImage2());
+
+        //creating onclick intent of the cardView to the catalogue page
         holder.cardView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                //changing to another catalogue page
                 Intent toCatalogue = new Intent(v.getContext(), CataloguePage.class);
+
+                //passing important information into the intent with putExtra
                 toCatalogue.putExtra("FoodName", data.get(holder.getAdapterPosition()).getFoodName());
                 toCatalogue.putExtra("FoodPrice", data.get(holder.getAdapterPosition()).getPrice());
                 toCatalogue.putExtra("FoodCalories", data.get(holder.getAdapterPosition()).getCalories());

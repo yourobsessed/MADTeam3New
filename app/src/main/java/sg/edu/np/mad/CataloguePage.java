@@ -35,12 +35,12 @@ public class CataloguePage extends AppCompatActivity implements Serializable {
         foodPrice = findViewById(R.id.CATfoodPrice);
         foodCalories = findViewById(R.id.CATfoodCalories);
         foodImage = findViewById(R.id.image1);
-        foodImage2= findViewById(R.id.image2);
-        foodImage3= findViewById(R.id.image3);
+        foodImage2 = findViewById(R.id.image2);
+        foodImage3 = findViewById(R.id.image3);
         locationimg = findViewById(R.id.map);
         storeLocation = findViewById(R.id.storeLocation);
 
-
+        //getting information from the intent and setting them into the textView and imageView
         foodName.setText(getIntent().getExtras().getString("FoodName"));
         foodPrice.setText("$ " + String.valueOf(getIntent().getExtras().getDouble("FoodPrice",0.00)));
         foodCalories.setText(String.valueOf(getIntent().getExtras().getInt("FoodCalories")));
