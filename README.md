@@ -5,9 +5,9 @@ NP Eats is your ultimate dining companion at Ngee Ann Polytechnic. Discover a va
 
 **Team members**
 1. Jovin Wong See Xuan [S10243666]
-2. Colin Chang
-3. Rae Yang
-4. Leroy Peh
+2. Colin Chang He Ping [S10242330]
+3. Rae Yang Xin Lei [S10243305]
+4. Leroy Peh Jia Jing [S10243705]
    
 Stage 1:
 
