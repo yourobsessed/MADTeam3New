@@ -70,4 +70,25 @@ The food generator page generates random food on click. For students who have tr
 
 (To be done by Jovin)
 
+**How NP Eats work**
+
+![image](https://github.com/yourobsessed/MADTeam3New/assets/130966829/5d9572c0-209f-401e-b313-a08a1d6388cf)
+
+This is the home screen, click on any of the boxes to check out the crowdedness of the foodcourts and the location of the three foodcourts
+
+![image](https://github.com/yourobsessed/MADTeam3New/assets/130966829/c989faa3-772c-46ec-a844-c69185fc35cd)
+
+Make use to turn on the location, and allow the use of location permission in the app to use this feature!
+
+![image](https://github.com/yourobsessed/MADTeam3New/assets/130966829/148e5f1a-ed30-41c4-8651-b758727bd638)
+
+Use the above siide panel to get to other activities of the app! Either swipe right from the left side of the screen or press the side panel button on left hand corner of the home screen
+
+![image](https://github.com/yourobsessed/MADTeam3New/assets/130966829/b2e0a372-911c-4553-b66a-ae5df54c2d2d)
+
+Use the filters and search bar to find the food that you feel like having. Filter them according to their locations, food categories and many more!
+
+![image](https://github.com/yourobsessed/MADTeam3New/assets/130966829/e3207e8b-fc90-485b-aab0-a577b97161d8)
+
+
 
