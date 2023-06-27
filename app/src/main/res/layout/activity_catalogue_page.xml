@@ -7,6 +7,7 @@
     android:background="@color/white"
     tools:context=".CataloguePage">
 
+
     <HorizontalScrollView
         android:id="@+id/horizontalScrollView2"
         android:layout_width="406dp"
@@ -136,7 +137,7 @@
         android:layout_width="255dp"
         android:layout_height="35dp"
         android:layout_marginStart="12dp"
-        android:layout_marginTop="32dp"
+        android:layout_marginTop="28dp"
         android:layout_marginEnd="31dp"
         android:fontFamily="sans-serif"
         android:gravity="center_vertical"
@@ -180,7 +181,7 @@
         android:layout_width="255dp"
         android:layout_height="35dp"
         android:layout_marginStart="12dp"
-        android:layout_marginTop="20dp"
+        android:layout_marginTop="22dp"
         android:layout_marginEnd="34dp"
         android:fontFamily="sans-serif"
         android:gravity="center_vertical"
@@ -216,9 +217,9 @@
         android:textStyle="bold"
         app:layout_constraintBottom_toTopOf="@+id/horizontalScrollView2"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.0" />
+        app:layout_constraintVertical_bias="1.0" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -59,7 +59,7 @@ public class GeneralViewPage extends AppCompatActivity implements SelectListener
 
     private Boolean soup = false;
     private Boolean dessert = false;
-    private Boolean drinks = false;
+    //private Boolean drinks = false;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -122,6 +122,7 @@ public class GeneralViewPage extends AppCompatActivity implements SelectListener
                     fc = true;
                     munch = false;
                     makan = false;
+                    alllocations = false;
 
                 }
 
@@ -136,6 +137,7 @@ public class GeneralViewPage extends AppCompatActivity implements SelectListener
                     makan = true;
                     munch = false;
                     fc = false;
+                    alllocations = false;
 
                 }
 
@@ -151,6 +153,7 @@ public class GeneralViewPage extends AppCompatActivity implements SelectListener
                     munch = true;
                     fc = false;
                     makan = false;
+                    alllocations = false;
 
                 }
 
@@ -348,9 +351,9 @@ public class GeneralViewPage extends AppCompatActivity implements SelectListener
             if (dessert && !food.getDessert()) {
                 itemsToRemove.add(food);
             }
-            if (drinks && !food.isDrinks()) {
+            /*if (drinks && !food.isDrinks()) {
                 itemsToRemove.add(food);
-            }
+            }*/
         }
 
         filteredList.removeAll(itemsToRemove);
