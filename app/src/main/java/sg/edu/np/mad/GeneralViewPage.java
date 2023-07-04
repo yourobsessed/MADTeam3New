@@ -272,18 +272,18 @@ public class GeneralViewPage extends AppCompatActivity implements SelectListener
             }
         });
 
-        /*FloatingActionButton fab = findViewById(R.id.filterbutton);
+        FloatingActionButton fab = findViewById(R.id.filterbutton);
         fab.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
 
                 Intent toFilter = new Intent(GeneralViewPage.this, GeneralView_Filter.class);
-                toFilter.putExtra("filteredList", originalList);
+                //toFilter.putExtra("filteredList", originalList);
                 startActivity(toFilter);//,101);
 
             }
 
-        });*/
+        });
         //foodList = filteredListFromGVF;
         gAdapter = new GeneralView_Adapter(GeneralViewPage.this, foodList, this);
         LinearLayoutManager layoutManager = new LinearLayoutManager(this);

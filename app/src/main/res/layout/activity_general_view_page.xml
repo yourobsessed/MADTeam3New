@@ -172,5 +172,18 @@
 
         </HorizontalScrollView>
 
+    <com.google.android.material.floatingactionbutton.FloatingActionButton
+        android:id="@+id/filterbutton"
+        android:layout_width="58dp"
+        android:layout_height="53dp"
+        android:layout_gravity="bottom|end"
+        android:layout_margin="16dp"
+        android:layout_marginTop="12dp"
+        android:layout_marginEnd="12dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:backgroundTint="@color/material_dynamic_primary50"
+        app:layout_constraintTop_toBottomOf="@+id/horizontalScrollView"
+        app:srcCompat="@drawable/filter" />
+
 
     </androidx.constraintlayout.widget.ConstraintLayout>
