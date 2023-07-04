@@ -272,6 +272,7 @@ public class GeneralViewPage extends AppCompatActivity implements SelectListener
             }
         });
 
+
         FloatingActionButton fab = findViewById(R.id.filterbutton);
         fab.setOnClickListener(new View.OnClickListener() {
             @Override
