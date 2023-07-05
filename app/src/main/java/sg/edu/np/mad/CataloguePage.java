@@ -41,6 +41,18 @@ public class CataloguePage extends AppCompatActivity implements Serializable {
         locationimg = findViewById(R.id.map);
         storeLocation = findViewById(R.id.storeLocation);
 
+        ImageView BackButton = findViewById(R.id.imageView8);
+        BackButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+
+                Intent toGVP = new Intent(CataloguePage.this, GeneralViewPage.class);
+                //toFilter.putExtra("filteredList", originalList);
+                startActivity(toGVP);//,101);
+
+            }
+        });
+
 
         //getting information from the intent and setting them into the textView and imageView
         foodName.setText(getIntent().getExtras().getString("FoodName"));
