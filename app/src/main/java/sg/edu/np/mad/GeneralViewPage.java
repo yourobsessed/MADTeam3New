@@ -92,8 +92,12 @@ public class GeneralViewPage extends AppCompatActivity implements SelectListener
         ImageView BackButton = findViewById(R.id.imageView7);
         BackButton.setOnClickListener(new View.OnClickListener() {
             @Override
-            public void onClick(View v) {
-                finish();
+            public void onClick(View view) {
+
+                Intent toHome = new Intent(GeneralViewPage.this, HomePage.class);
+                //toFilter.putExtra("filteredList", originalList);
+                startActivity(toHome);//,101);
+
             }
         });
 
