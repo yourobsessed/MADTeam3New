@@ -22,6 +22,7 @@ import android.os.Bundle;
 import android.util.Log;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.Button;
 import android.widget.CompoundButton;
 import android.widget.ImageView;
 import android.widget.Toast;
@@ -95,8 +96,7 @@ public class GeneralViewPage extends AppCompatActivity implements SelectListener
             public void onClick(View view) {
 
                 Intent toHome = new Intent(GeneralViewPage.this, HomePage.class);
-                //toFilter.putExtra("filteredList", originalList);
-                startActivity(toHome);//,101);
+                startActivity(toHome);
 
             }
         });
@@ -277,8 +277,8 @@ public class GeneralViewPage extends AppCompatActivity implements SelectListener
         });
 
 
-        FloatingActionButton fab = findViewById(R.id.filterbutton);
-        fab.setOnClickListener(new View.OnClickListener() {
+        Button filter = findViewById(R.id.filterbutton);
+        filter.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
 

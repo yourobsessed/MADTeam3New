@@ -47,8 +47,7 @@ public class CataloguePage extends AppCompatActivity implements Serializable {
             public void onClick(View view) {
 
                 Intent toGVP = new Intent(CataloguePage.this, GeneralViewPage.class);
-                //toFilter.putExtra("filteredList", originalList);
-                startActivity(toGVP);//,101);
+                startActivity(toGVP);
 
             }
         });

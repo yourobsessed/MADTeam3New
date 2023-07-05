@@ -57,5 +57,7 @@
         android:layout_marginTop="10dp"
         android:gravity="center_horizontal"
         android:shape="rectangle"
-        android:text="Apply" />
+        android:background="@drawable/outlinebutton"
+        android:text="Apply"
+        android:textColor="#2196F3"/>
 </LinearLayout>
