@@ -42,7 +42,7 @@ public class GeneralViewPage extends AppCompatActivity implements SelectListener
     //ArrayList<String> selectedChipData = new ArrayList<>();
     ArrayList<Food> foodList = new ArrayList<>();
     GeneralView_Adapter gAdapter;
-    //ArrayList<Food> filteredListFromGVF = new ArrayList<>();
+    ArrayList<Food> filteredListFromGVF = new ArrayList<>();
     //ArrayList<Food> secondFilterList = new ArrayList<>();
     //ArrayList<Food> originalList = new ArrayList<>();
 
@@ -87,7 +87,7 @@ public class GeneralViewPage extends AppCompatActivity implements SelectListener
 
         foodList = CreateObject(foodList);
 
-        //filteredListFromGVF = (ArrayList<Food>) getIntent().getSerializableExtra("filteredList");
+        filteredListFromGVF = (ArrayList<Food>) getIntent().getSerializableExtra("filteredList");
 
         ImageView BackButton = findViewById(R.id.imageView7);
         BackButton.setOnClickListener(new View.OnClickListener() {

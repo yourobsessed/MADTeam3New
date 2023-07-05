@@ -1,189 +1,199 @@
 <?xml version="1.0" encoding="utf-8"?>
 
-    <androidx.constraintlayout.widget.ConstraintLayout
-        xmlns:android="http://schemas.android.com/apk/res/android"
-        xmlns:app="http://schemas.android.com/apk/res-auto"
-        xmlns:tools="http://schemas.android.com/tools"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        app:layout_constraintCircleRadius="20dp"
-        tools:context=".GeneralViewPage">
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    app:layout_constraintCircleRadius="20dp"
+    tools:context=".GeneralViewPage">
 
 
     <ImageView
         android:id="@+id/imageView7"
         android:layout_width="29dp"
         android:layout_height="29dp"
-        android:layout_marginStart="20dp"
-        android:layout_marginTop="32dp"
+        android:layout_marginStart="5dp"
+        android:layout_marginTop="30dp"
+        app:layout_constraintEnd_toStartOf="@+id/searchView"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:srcCompat="@drawable/img" />
 
-        <androidx.appcompat.widget.SearchView
+    <androidx.appcompat.widget.SearchView
         android:id="@+id/searchView"
-        android:layout_width="358dp"
-        android:layout_height="59dp"
-        android:layout_marginStart="30dp"
+        android:layout_width="352dp"
+        android:layout_height="57dp"
         android:layout_marginTop="16dp"
         app:iconifiedByDefault="false"
-        app:layout_constraintBottom_toTopOf="@+id/horizontalScrollView"
         app:layout_constraintCircleRadius="500dp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.49"
-        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/imageView7"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.52"
         app:queryHint="Search here!">
 
     </androidx.appcompat.widget.SearchView>
 
-        <androidx.recyclerview.widget.RecyclerView
-            android:id="@+id/recyclerView"
-            android:layout_width="394dp"
-            android:layout_height= "693dp"
-            android:layout_margin="10dp"
-            android:layout_marginStart="3dp"
-            android:layout_marginEnd="3dp"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/horizontalScrollView"
-            app:layout_constraintVertical_bias="0.304">
 
-        </androidx.recyclerview.widget.RecyclerView>
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/recyclerView"
+        android:layout_width="379dp"
+        android:layout_height="531dp"
+        android:layout_marginStart="10dp"
+        android:layout_marginEnd="10dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/horizontalScrollView">
 
+    </androidx.recyclerview.widget.RecyclerView>
 
-        <HorizontalScrollView
-            android:id="@+id/horizontalScrollView"
-            android:layout_width="391dp"
-            android:layout_height="54dp"
-            android:layout_marginTop="5dp"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/searchView"
-            android:scrollbars="none">
+    <HorizontalScrollView
+        android:id="@+id/horizontalScrollViewLocation"
+        android:layout_width="391dp"
+        android:layout_height="54dp"
+        android:layout_marginStart="10dp"
+        android:layout_marginTop="8dp"
+        android:scrollbars="none"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/searchView">
 
-            <com.google.android.material.chip.ChipGroup
-                android:id="@+id/generalviewchipgroup"
+        <com.google.android.material.chip.ChipGroup
+            android:id="@+id/generalviewchipgrouplocation"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:singleLine="true"
+            app:singleSelection="false">
+
+            <com.google.android.material.chip.Chip
+                android:id="@+id/chipAllLocations"
+                style="@style/Widget.MaterialComponents.Chip.Choice"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                app:singleLine="true"
-                app:singleSelection="false">
+                android:checkable="false"
+                android:text="Show All Locations"
+                app:chipIcon="@drawable/locationchipsmarker"
+                app:chipIconVisible="true" />
 
-                <com.google.android.material.chip.Chip
-                    android:id="@+id/chipAllLocations"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="Show All Locations"
-                    app:chipIcon="@drawable/locationchipsmarker"
-                    app:chipIconVisible="true"
-                    android:checkable="false"
-                    style="@style/Widget.MaterialComponents.Chip.Choice"/>
+            <com.google.android.material.chip.Chip
+                android:id="@+id/chipClub"
+                style="@style/Widget.MaterialComponents.Chip.Choice"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:checkable="false"
+                android:text="Food Club"
+                app:chipIcon="@drawable/locationchipsmarker"
+                app:chipIconVisible="true" />
 
-                <com.google.android.material.chip.Chip
-                    android:id="@+id/chipClub"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="Food Club"
-                    app:chipIcon="@drawable/locationchipsmarker"
-                    app:chipIconVisible="true"
-                    android:checkable="false"
-                    style="@style/Widget.MaterialComponents.Chip.Choice"/>
+            <com.google.android.material.chip.Chip
+                android:id="@+id/chipMakan"
+                style="@style/Widget.MaterialComponents.Chip.Choice"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:checkable="false"
+                android:text="Makan Place"
+                app:chipIcon="@drawable/locationchipsmarker"
+                app:chipIconVisible="true" />
 
-                <com.google.android.material.chip.Chip
-                    android:id="@+id/chipMakan"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="Makan Place"
-                    app:chipIcon="@drawable/locationchipsmarker"
-                    app:chipIconVisible="true"
-                    android:checkable="false"
-                    style="@style/Widget.MaterialComponents.Chip.Choice"/>
+            <com.google.android.material.chip.Chip
+                android:id="@+id/chipMunch"
+                style="@style/Widget.MaterialComponents.Chip.Choice"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:checkable="false"
+                android:text="Munch"
+                app:chipIcon="@drawable/locationchipsmarker"
+                app:chipIconVisible="true" />
+        </com.google.android.material.chip.ChipGroup>
 
-                <com.google.android.material.chip.Chip
-                    android:id="@+id/chipMunch"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="Munch"
-                    app:chipIcon="@drawable/locationchipsmarker"
-                    app:chipIconVisible="true"
-                    android:checkable="false"
-                    style="@style/Widget.MaterialComponents.Chip.Choice"/>
+    </HorizontalScrollView>
 
-                <com.google.android.material.chip.Chip
-                    android:id="@+id/chipHalal"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="Halal"
-                    style="@style/Widget.MaterialComponents.Chip.Filter"/>
+    <HorizontalScrollView
+        android:id="@+id/horizontalScrollView"
+        android:layout_width="391dp"
+        android:layout_height="54dp"
+        android:layout_marginStart="10dp"
+        android:scrollbars="none"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/horizontalScrollViewLocation">
 
-                <com.google.android.material.chip.Chip
-                    android:id="@+id/chipVegeterian"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="Vegeterian"
-                    style="@style/Widget.MaterialComponents.Chip.Filter"/>
+        <com.google.android.material.chip.ChipGroup
+            android:id="@+id/generalviewchipgroup"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:singleLine="true"
+            app:singleSelection="false">
 
-                <com.google.android.material.chip.Chip
-                    android:id="@+id/chipHealthy"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="Healthy (Less than 500kcal)"
-                    style="@style/Widget.MaterialComponents.Chip.Filter"/>
+            <com.google.android.material.chip.Chip
+                android:id="@+id/chipHalal"
+                style="@style/Widget.MaterialComponents.Chip.Filter"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Halal" />
 
-                <com.google.android.material.chip.Chip
-                    android:id="@+id/chipAffordable"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="Affordable (Less than $5)"
-                    style="@style/Widget.MaterialComponents.Chip.Filter"/>
+            <com.google.android.material.chip.Chip
+                android:id="@+id/chipVegeterian"
+                style="@style/Widget.MaterialComponents.Chip.Filter"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Vegeterian" />
 
-                <com.google.android.material.chip.Chip
-                    android:id="@+id/chipNoodles"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="Noodles"
-                    style="@style/Widget.MaterialComponents.Chip.Filter"/>
+            <com.google.android.material.chip.Chip
+                android:id="@+id/chipHealthy"
+                style="@style/Widget.MaterialComponents.Chip.Filter"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Healthy (Less than 500kcal)" />
 
-                <com.google.android.material.chip.Chip
-                    android:id="@+id/chipRice"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="Rice"
-                    style="@style/Widget.MaterialComponents.Chip.Filter"/>
+            <com.google.android.material.chip.Chip
+                android:id="@+id/chipAffordable"
+                style="@style/Widget.MaterialComponents.Chip.Filter"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Affordable (Less than $5)" />
 
-                <com.google.android.material.chip.Chip
-                    android:id="@+id/chipSoup"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="Soup"
-                    style="@style/Widget.MaterialComponents.Chip.Filter"/>
+            <com.google.android.material.chip.Chip
+                android:id="@+id/chipNoodles"
+                style="@style/Widget.MaterialComponents.Chip.Filter"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Noodles" />
 
-                <com.google.android.material.chip.Chip
-                    android:id="@+id/chipDessert"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="Dessert"
-                    style="@style/Widget.MaterialComponents.Chip.Filter"/>
+            <com.google.android.material.chip.Chip
+                android:id="@+id/chipRice"
+                style="@style/Widget.MaterialComponents.Chip.Filter"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Rice" />
+
+            <com.google.android.material.chip.Chip
+                android:id="@+id/chipSoup"
+                style="@style/Widget.MaterialComponents.Chip.Filter"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Soup" />
+
+            <com.google.android.material.chip.Chip
+                android:id="@+id/chipDessert"
+                style="@style/Widget.MaterialComponents.Chip.Filter"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Dessert" />
 
 
-            </com.google.android.material.chip.ChipGroup>
+        </com.google.android.material.chip.ChipGroup>
 
-        </HorizontalScrollView>
+    </HorizontalScrollView>
 
     <com.google.android.material.floatingactionbutton.FloatingActionButton
         android:id="@+id/filterbutton"
         android:layout_width="58dp"
         android:layout_height="53dp"
         android:layout_gravity="bottom|end"
-        android:layout_margin="16dp"
-        android:layout_marginTop="12dp"
-        android:layout_marginEnd="12dp"
-        app:layout_constraintEnd_toEndOf="parent"
+        android:layout_marginEnd="20dp"
+        android:layout_marginBottom="16dp"
         app:backgroundTint="@color/material_dynamic_primary50"
-        app:layout_constraintTop_toBottomOf="@+id/horizontalScrollView"
+        app:layout_constraintBottom_toBottomOf="@+id/recyclerView"
+        app:layout_constraintEnd_toEndOf="@+id/recyclerView"
         app:srcCompat="@drawable/filter" />
 
 
-    </androidx.constraintlayout.widget.ConstraintLayout>
+</androidx.constraintlayout.widget.ConstraintLayout>
