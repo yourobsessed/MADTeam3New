@@ -15,7 +15,7 @@ import android.widget.TextView;
 import java.io.Serializable;
 
 public class CataloguePage extends AppCompatActivity implements Serializable {
-    TextView foodName;
+      TextView foodName;
     ImageView foodImage;
     ImageView foodImage2;
     ImageView foodImage3;
