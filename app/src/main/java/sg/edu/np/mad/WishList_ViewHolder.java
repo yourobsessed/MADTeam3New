@@ -1,17 +1,28 @@
 package sg.edu.np.mad;
 
+import android.view.View;
 import android.widget.ImageView;
 import android.widget.TextView;
 
 import androidx.cardview.widget.CardView;
+import androidx.recyclerview.widget.RecyclerView;
 
-public class WishList_ViewHolder {
+public class WishList_ViewHolder extends RecyclerView.ViewHolder{
     TextView Name;
-    TextView desc;
+    TextView Desc;
     ImageView Image;
     TextView Location;
     CardView cardView;
 
+    public WishList_ViewHolder(View itemView){
+        super(itemView);
+        Name = itemView.findViewById(R.id.WLNameVH);
+        Desc = itemView.findViewById(R.id.WLDescriptionVH);
+        Location = itemView.findViewById(R.id.WLButton);
+        Image = itemView.findViewById(R.id.WLImageVH);
+        cardView = itemView.findViewById(R.id.WLcardview);
+
+    }
 
 
 }
