@@ -85,7 +85,7 @@ public class GeneralView_Adapter extends RecyclerView.Adapter<GeneralView_Viewho
     public void changeIconColor(View view) {
         // Change the color of the icon
         int newColor = Color.RED; // Set the desired color here
-        holder.wishlistButton.setColorFilter(newColor);
+        //holder.wishlistButton.setColorFilter(newColor);
     }
 
 
