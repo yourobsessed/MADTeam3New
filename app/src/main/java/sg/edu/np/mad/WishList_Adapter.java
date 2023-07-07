@@ -12,11 +12,14 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class WishList_Adapter extends RecyclerView.Adapter<WishList_ViewHolder> {
-    ArrayList<Food> data;
+    private List<Food> data;
     private Context context;
+    private SelectListenerFood listenerFood;
 
-    public WishList_Adapter(ArrayList<Food> input){
-        data = input;
+    public WishList_Adapter(Context context, List<Food> input, SelectListenerFood ListenerFood){
+        this.context = context;
+        this.data = input;
+        this.listenerFood = ListenerFood;
 
     }
 
@@ -49,6 +52,7 @@ public class WishList_Adapter extends RecyclerView.Adapter<WishList_ViewHolder> 
 
             }
         });
+
     }
 
     public int getItemCount() {

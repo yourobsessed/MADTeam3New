@@ -2,6 +2,8 @@ package sg.edu.np.mad;
 
 import android.content.Context;
 import android.content.Intent;
+import android.graphics.Color;
+import android.graphics.drawable.Icon;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -16,6 +18,7 @@ public class GeneralView_Adapter extends RecyclerView.Adapter<GeneralView_Viewho
     private Context context;
     private List<Food> data;
     private SelectListenerFood listenerFood;
+    private IconClickListener listenerWL;
     public GeneralView_Adapter(Context context, List<Food> input, SelectListenerFood ListenerFood){
         this.context = context;
         this.data = input;
@@ -65,11 +68,24 @@ public class GeneralView_Adapter extends RecyclerView.Adapter<GeneralView_Viewho
 
             }
         });
+
+        holder.wishlistButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+            }
+        });
     }
 
     public int getItemCount(){
         //System.out.println(data.size());
         return data.size();
+    }
+
+    public void changeIconColor(View view) {
+        // Change the color of the icon
+        int newColor = Color.RED; // Set the desired color here
+        holder.wishlistButton.setColorFilter(newColor);
     }
 
 

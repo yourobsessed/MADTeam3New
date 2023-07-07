@@ -27,7 +27,7 @@ public class WishlistPage extends AppCompatActivity implements SelectListenerFoo
         setContentView(R.layout.activity_wishlist_page);
 
         RecyclerView WLrecyclerView = findViewById(R.id.wishlist_RV);
-        WishList_Adapter mAdapter = new WishList_Adapter(foodlist);
+        WishList_Adapter mAdapter = new WishList_Adapter(this, foodlist, this);
         LinearLayoutManager mLayoutManger = new LinearLayoutManager(this);
         WLrecyclerView.setLayoutManager(mLayoutManger);
         WLrecyclerView.setItemAnimator(new DefaultItemAnimator());

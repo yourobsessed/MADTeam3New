@@ -12,6 +12,7 @@ public class GeneralView_Viewholder extends RecyclerView.ViewHolder {
     TextView foodDescription;
     ImageView foodImage;
     TextView foodCourtLocation;
+    ImageView wishlistButton;
     CardView cardView;
 
     public GeneralView_Viewholder (View itemView){
@@ -21,6 +22,7 @@ public class GeneralView_Viewholder extends RecyclerView.ViewHolder {
         foodImage = itemView.findViewById(R.id.WLImageVH);
         cardView = itemView.findViewById(R.id.Foodcardview);
         foodCourtLocation = itemView.findViewById(R.id.storeLocation);
+        wishlistButton = itemView.findViewById(R.id.WLButton);
 
     }
 }

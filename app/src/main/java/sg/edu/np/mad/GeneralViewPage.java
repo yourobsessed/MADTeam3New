@@ -32,7 +32,7 @@ import java.util.List;
 
 
 
-public class GeneralViewPage extends AppCompatActivity implements SelectListenerFood{
+public class GeneralViewPage extends AppCompatActivity implements SelectListenerFood, IconClickListener{
 
     private SearchView searchView;
     private RecyclerView recyclerView;
@@ -40,6 +40,8 @@ public class GeneralViewPage extends AppCompatActivity implements SelectListener
     private Chip chipAllLocations,chipClub,chipMakan,chipMunch,chipHalal,chipVegeterian,chipHealthy,chipAffordable,chipNoodles,chipRice,chipSoup,chipDessert;
 
     //ArrayList<String> selectedChipData = new ArrayList<>();
+
+    ArrayList<Food> wishlist_List = new ArrayList<>();
     ArrayList<Food> foodList = new ArrayList<>();
     GeneralView_Adapter gAdapter;
     ArrayList<Food> filteredListFromGVF = new ArrayList<>();
@@ -289,22 +291,27 @@ public class GeneralViewPage extends AppCompatActivity implements SelectListener
             }
 
         });
+
+
         //foodList = filteredListFromGVF;
         gAdapter = new GeneralView_Adapter(GeneralViewPage.this, foodList, this);
         LinearLayoutManager layoutManager = new LinearLayoutManager(this);
         recyclerView.setLayoutManager(layoutManager);
         recyclerView.setItemAnimator(new DefaultItemAnimator());
         recyclerView.setAdapter(gAdapter);
-
-
-
     }
+
 
 
     @Override
     public void onItemClicked(Food food) {
         Intent toCataloguePage = new Intent(GeneralViewPage.this, CataloguePage.class);
         startActivity(toCataloguePage);
+    }
+
+    @Override
+    public void onIconClick(int position){
+        wishlist_List.add(foodList.get(position));
     }
 
     private void limitoption() {
