@@ -15,11 +15,11 @@ import android.widget.TextView;
 import java.io.Serializable;
 
 public class CataloguePage extends AppCompatActivity implements Serializable {
-      TextView foodName;
+    TextView foodName;
+    TextView foodName2;
     ImageView foodImage;
     ImageView foodImage2;
     ImageView foodImage3;
-    ImageView locationimg;
     TextView foodPrice;
     TextView foodCalories;
     TextView storeLocation;
@@ -33,12 +33,12 @@ public class CataloguePage extends AppCompatActivity implements Serializable {
         setContentView(R.layout.activity_catalogue_page);
 
         foodName = findViewById(R.id.CATfoodName);
+        foodName2 = findViewById(R.id.CATfoodName3);
         foodPrice = findViewById(R.id.CATfoodPrice);
         foodCalories = findViewById(R.id.CATfoodCalories);
         foodImage = findViewById(R.id.image1);
         foodImage2 = findViewById(R.id.image2);
         foodImage3 = findViewById(R.id.image3);
-        locationimg = findViewById(R.id.map);
         storeLocation = findViewById(R.id.storeLocation);
 
         ImageView BackButton = findViewById(R.id.imageView8);
@@ -56,6 +56,7 @@ public class CataloguePage extends AppCompatActivity implements Serializable {
 
         //getting information from the intent and setting them into the textView and imageView
         foodName.setText(getIntent().getExtras().getString("FoodName"));
+        foodName2.setText(getIntent().getExtras().getString("FoodName"));
         foodPrice.setText("$ " + String.valueOf(getIntent().getExtras().getDouble("FoodPrice",0.00)));
         foodCalories.setText(String.valueOf(getIntent().getExtras().getInt("FoodCalories")));
         storeLocation.setText(getIntent().getExtras().getString("storeLocation"));
@@ -67,8 +68,6 @@ public class CataloguePage extends AppCompatActivity implements Serializable {
         foodImage2.setImageResource(foodImg2);
         foodImage3.setImageResource(foodImg2);
 
-        int locationImg = getIntent().getIntExtra("LocationImg", 0);
-        locationimg.setImageResource(locationImg);
 
         //object = (Food)getIntent().getExtras().getSerializable("object");
     }

@@ -34,7 +34,7 @@ public class MapPage extends AppCompatActivity implements OnMapReadyCallback {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        Mapbox.getInstance(this, "sk.eyJ1IjoiY29saW5jaGFuZzEiLCJhIjoiY2xqMmJtM2lvMTI5NjNncDk1ZmowcTNpOSJ9.KEOtKofPYsAoJ6_G4OZkbg");
+        Mapbox.getInstance(this, "sk.eyJ1IjoiY29saW5jaGFuZzEiLCJhIjoiY2xqdjhjcW13MGRuZzNlcXowbmN1OThxMiJ9.GPzPIDG4pmvhQvs9K5O1Uw");
         setContentView(R.layout.activity_map_page);
 
         mapView = findViewById(R.id.mapView);
