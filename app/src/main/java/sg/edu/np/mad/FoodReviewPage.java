@@ -15,6 +15,7 @@ import android.provider.MediaStore;
 import android.view.View;
 import android.widget.EditText;
 import android.widget.ImageView;
+import android.widget.RatingBar;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -60,7 +61,7 @@ public class FoodReviewPage extends AppCompatActivity {
             }
         });
 
-
+        RatingBar ratingbar = findViewById(R.id.ratingBar2);
 
         FirebaseDatabase database = FirebaseDatabase.getInstance();
         DatabaseReference DatabaseRef = database.getReference();
@@ -69,67 +70,13 @@ public class FoodReviewPage extends AppCompatActivity {
         sendbutton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                DatabaseRef.child("Reviews").push().setValue(new FoodReview(getIntent().getExtras().getString("foodname"), stars, DescriptionEdit.getText().toString(), username));
+                DatabaseRef.child("Reviews").push().setValue(new FoodReview(getIntent().getExtras().getString("foodname"), Math.round(ratingbar.getRating()*20), DescriptionEdit.getText().toString(), username));
                 finish();
             }
         });
 
 
-        ImageView star1 = findViewById(R.id.star1);
-        ImageView star2 = findViewById(R.id.star2);
-        ImageView star3 = findViewById(R.id.star3);
-        ImageView star4 = findViewById(R.id.star4);
-        ImageView star5 = findViewById(R.id.star5);
-        star1.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                stars = 20;
-                star2.setImageDrawable(getResources().getDrawable(R.drawable.baseline_star_24_grey));
-                star3.setImageDrawable(getResources().getDrawable(R.drawable.baseline_star_24_grey));
-                star4.setImageDrawable(getResources().getDrawable(R.drawable.baseline_star_24_grey));
-                star5.setImageDrawable(getResources().getDrawable(R.drawable.baseline_star_24_grey));
-            }
-        });
-        star2.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                stars = 40;
-                star2.setImageDrawable(getResources().getDrawable(R.drawable.baseline_star_24));
-                star3.setImageDrawable(getResources().getDrawable(R.drawable.baseline_star_24_grey));
-                star4.setImageDrawable(getResources().getDrawable(R.drawable.baseline_star_24_grey));
-                star5.setImageDrawable(getResources().getDrawable(R.drawable.baseline_star_24_grey));
-            }
-        });
-        star3.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                stars = 60;
-                star2.setImageDrawable(getResources().getDrawable(R.drawable.baseline_star_24));
-                star3.setImageDrawable(getResources().getDrawable(R.drawable.baseline_star_24));
-                star4.setImageDrawable(getResources().getDrawable(R.drawable.baseline_star_24_grey));
-                star5.setImageDrawable(getResources().getDrawable(R.drawable.baseline_star_24_grey));
-            }
-        });
-        star4.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                stars = 80;
-                star2.setImageDrawable(getResources().getDrawable(R.drawable.baseline_star_24));
-                star3.setImageDrawable(getResources().getDrawable(R.drawable.baseline_star_24));
-                star4.setImageDrawable(getResources().getDrawable(R.drawable.baseline_star_24));
-                star5.setImageDrawable(getResources().getDrawable(R.drawable.baseline_star_24_grey));
-            }
-        });
-        star5.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                stars = 100;
-                star2.setImageDrawable(getResources().getDrawable(R.drawable.baseline_star_24));
-                star3.setImageDrawable(getResources().getDrawable(R.drawable.baseline_star_24));
-                star4.setImageDrawable(getResources().getDrawable(R.drawable.baseline_star_24));
-                star5.setImageDrawable(getResources().getDrawable(R.drawable.baseline_star_24));
-            }
-        });
+
 
     }
 

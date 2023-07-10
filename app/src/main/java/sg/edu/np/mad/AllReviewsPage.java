@@ -20,6 +20,7 @@ import java.text.DecimalFormat;
 
 public class AllReviewsPage extends AppCompatActivity {
 
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -69,7 +70,7 @@ public class AllReviewsPage extends AppCompatActivity {
                     TextView text = findViewById(R.id.txt);
                     text.setText("" + new DecimalFormat("#.0").format(avgstars/20));
                     RatingBar stars = findViewById(R.id.ratingBar);
-                    stars.setRating(Math.round(avgstars/20));
+                    stars.setRating(avgstars/20);
                     TextView numofrev = findViewById(R.id.txt2);
                     numofrev.setText("Based on " + numofreviews + " reviews");
                 }
@@ -83,5 +84,12 @@ public class AllReviewsPage extends AppCompatActivity {
         };
 
         reviewsRef.addListenerForSingleValueEvent(reviewsListener);
+    }
+
+    @Override
+    protected void onResume() {
+        super.onResume();
+
+
     }
 }
