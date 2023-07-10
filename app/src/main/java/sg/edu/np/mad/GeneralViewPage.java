@@ -96,9 +96,7 @@ public class GeneralViewPage extends AppCompatActivity implements SelectListener
             @Override
             public void onClick(View view) {
 
-                Intent toHome = new Intent(GeneralViewPage.this, HomePage.class);
-                //toFilter.putExtra("filteredList", originalList);
-                startActivity(toHome);//,101);
+                finish();
 
             }
         });

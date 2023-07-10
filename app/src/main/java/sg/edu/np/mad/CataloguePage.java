@@ -8,6 +8,7 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.os.Parcelable;
 import android.view.View;
+import android.widget.Button;
 import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.TextView;
@@ -40,15 +41,23 @@ public class CataloguePage extends AppCompatActivity implements Serializable {
         foodImage2 = findViewById(R.id.image2);
         foodImage3 = findViewById(R.id.image3);
         storeLocation = findViewById(R.id.storeLocation);
+        Button FoodReview = findViewById(R.id.OpenFoodReview);
 
         ImageView BackButton = findViewById(R.id.imageView8);
         BackButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
 
-                Intent toGVP = new Intent(CataloguePage.this, GeneralViewPage.class);
-                //toFilter.putExtra("filteredList", originalList);
-                startActivity(toGVP);//,101);
+                finish();
+
+            }
+        });
+        FoodReview.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+
+                Intent toFR = new Intent(CataloguePage.this, FoodReviewPage.class);
+                startActivity(toFR);
 
             }
         });
