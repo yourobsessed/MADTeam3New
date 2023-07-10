@@ -7,6 +7,7 @@ import android.graphics.drawable.Icon;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageView;
 
 import androidx.recyclerview.widget.RecyclerView;
 
@@ -19,6 +20,11 @@ public class GeneralView_Adapter extends RecyclerView.Adapter<GeneralView_Viewho
     private List<Food> data;
     private SelectListenerFood listenerFood;
     private IconClickListener listenerWL;
+    public void setIconClickListener(IconClickListener listener) {
+        this.listenerWL= listener;
+    }
+    private List<Food> wishlist_List;
+
     public GeneralView_Adapter(Context context, List<Food> input, SelectListenerFood ListenerFood){
         this.context = context;
         this.data = input;
@@ -72,7 +78,9 @@ public class GeneralView_Adapter extends RecyclerView.Adapter<GeneralView_Viewho
         holder.wishlistButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-
+                //onClick wishlist button, adds the food object to the wishlist page
+                wishlist_List.add(data.get(position));
+                //changeIconColor(wishlist_List.indexOf(data.get(position)), "Red");
             }
         });
     }
@@ -84,7 +92,9 @@ public class GeneralView_Adapter extends RecyclerView.Adapter<GeneralView_Viewho
 
     public void changeIconColor(View view) {
         // Change the color of the icon
-        int newColor = Color.RED; // Set the desired color here
+
+        //Food f = wishlist_List.get(f);
+        int newColor = Color.parseColor("#FF0000"); // Set the desired color here
         //holder.wishlistButton.setColorFilter(newColor);
 
     }

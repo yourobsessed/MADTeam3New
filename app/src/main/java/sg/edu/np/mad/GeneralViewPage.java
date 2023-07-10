@@ -18,6 +18,7 @@ import com.google.android.material.navigation.NavigationView;
 
 
 import android.content.Intent;
+import android.graphics.Color;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.MenuItem;
@@ -310,6 +311,8 @@ public class GeneralViewPage extends AppCompatActivity implements SelectListener
     @Override
     public void onIconClick(int position){
         wishlist_List.add(foodList.get(position));
+        int newColour = Color.RED;
+        //gAdapter.changeIconColor(position, newColour);
     }
 
     private void limitoption() {
