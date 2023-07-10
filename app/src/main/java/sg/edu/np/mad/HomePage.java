@@ -9,7 +9,9 @@ import androidx.core.app.NavUtils;
 import androidx.core.view.GravityCompat;
 import androidx.drawerlayout.widget.DrawerLayout;
 
+import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.MenuItem;
@@ -52,6 +54,11 @@ public class HomePage extends AppCompatActivity implements NavigationView.OnNavi
 
         TextView UsernameText = findViewById(R.id.UsernameText);
         UsernameText.setText("Hello " + Username + ",");
+
+        SharedPreferences sharedPreferences = getSharedPreferences("MyPrefs", Context.MODE_PRIVATE);
+        SharedPreferences.Editor editor = sharedPreferences.edit();
+        editor.putString("username", Username);
+        editor.apply();
 
         FirebaseDatabase database = FirebaseDatabase.getInstance();
         DatabaseReference DatabaseRef = database.getReference();

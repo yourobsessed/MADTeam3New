@@ -9,14 +9,12 @@ public class FoodReview implements Serializable {
     public int Rating;
     public String Description;
     public String User;
-    public Uri Image;
 
-    public FoodReview(String foodName, int rating, String description, String user, Uri image) {
+    public FoodReview(String foodName, int rating, String description, String user) {
         FoodName = foodName;
         Rating = rating;
         Description = description;
         User = user;
-        Image = image;
     }
 
 

@@ -6,6 +6,96 @@
     android:layout_height="match_parent"
     tools:context=".FoodReviewPage">
 
+    <EditText
+        android:id="@+id/DescriptionEdit"
+        android:layout_width="314dp"
+        android:layout_height="199dp"
+        android:layout_marginStart="57dp"
+        android:layout_marginEnd="57dp"
+        android:layout_marginBottom="72dp"
+        android:background="@drawable/rectangle2"
+        android:ems="10"
+        android:gravity="top|start"
+        android:hint="Type review here ..."
+        android:inputType="textMultiLine"
+        android:paddingStart="25dp"
+        android:paddingTop="20dp"
+        android:singleLine="false"
+        android:textAlignment="gravity"
+        android:textColor="#A1A1A1"
+        android:textColorHint="#A1A1A1"
+        android:textSize="14sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.529"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <View
+        android:id="@+id/view5"
+        android:layout_width="290dp"
+        android:layout_height="260dp"
+        android:layout_marginBottom="312dp"
+        android:background="@drawable/rectangle3"
+        android:elevation="5px"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.495"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/foodname"
+        app:layout_constraintVertical_bias="0.232" />
+
+    <TextView
+        android:id="@+id/CATfoodName2"
+        android:layout_width="184dp"
+        android:layout_height="33dp"
+        android:layout_marginTop="28dp"
+        android:layout_marginEnd="112dp"
+        android:fontFamily="@font/alata"
+        android:gravity="center_vertical"
+        android:text="Food Review"
+        android:textAlignment="center"
+        android:textSize="18sp"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/sendbutton"
+        android:layout_width="179dp"
+        android:layout_height="37dp"
+        android:layout_marginStart="163dp"
+        android:layout_marginEnd="164dp"
+        android:layout_marginBottom="16dp"
+        android:background="@drawable/outlinebutton"
+        android:fontFamily="@font/alata"
+        android:gravity="center_vertical"
+        android:text="Send Review"
+        android:textAlignment="center"
+        android:textColor="#2196F3"
+        android:textSize="13sp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.494"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <TextView
+        android:id="@+id/foodname"
+        android:layout_width="255dp"
+        android:layout_height="35dp"
+        android:layout_marginStart="5dp"
+        android:layout_marginTop="68dp"
+        android:layout_marginEnd="5dp"
+        android:fontFamily="@font/alata"
+        android:gravity="center_vertical"
+        android:text="Food"
+        android:textAlignment="center"
+        android:textSize="18sp"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
     <ImageView
         android:id="@+id/imageView9"
         android:layout_width="29dp"
@@ -15,4 +105,76 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:srcCompat="@drawable/img" />
+
+    <ImageView
+        android:id="@+id/openCameraButton"
+        android:layout_width="88dp"
+        android:layout_height="74dp"
+        android:elevation="5px"
+        app:layout_constraintBottom_toBottomOf="@+id/view5"
+        app:layout_constraintEnd_toEndOf="@+id/view5"
+        app:layout_constraintStart_toStartOf="@+id/view5"
+        app:layout_constraintTop_toTopOf="@+id/view5"
+        app:srcCompat="@drawable/baseline_photo_camera_24" />
+
+    <ImageView
+        android:id="@+id/star1"
+        android:layout_width="46dp"
+        android:layout_height="42dp"
+        android:layout_marginStart="59dp"
+        android:layout_marginTop="25dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/view5"
+        app:srcCompat="@drawable/baseline_star_24" />
+
+    <ImageView
+        android:id="@+id/star2"
+        android:layout_width="46dp"
+        android:layout_height="42dp"
+        android:layout_marginStart="17dp"
+        android:layout_marginTop="25dp"
+        app:layout_constraintStart_toEndOf="@+id/star1"
+        app:layout_constraintTop_toBottomOf="@+id/view5"
+        app:srcCompat="@drawable/baseline_star_24" />
+
+    <ImageView
+        android:id="@+id/star3"
+        android:layout_width="46dp"
+        android:layout_height="42dp"
+        android:layout_marginStart="17dp"
+        android:layout_marginTop="25dp"
+        app:layout_constraintStart_toEndOf="@+id/star2"
+        app:layout_constraintTop_toBottomOf="@+id/view5"
+        app:srcCompat="@drawable/baseline_star_24" />
+
+    <ImageView
+        android:id="@+id/star4"
+        android:layout_width="46dp"
+        android:layout_height="42dp"
+        android:layout_marginStart="17dp"
+        android:layout_marginTop="25dp"
+        app:layout_constraintStart_toEndOf="@+id/star3"
+        app:layout_constraintTop_toBottomOf="@+id/view5"
+        app:srcCompat="@drawable/baseline_star_24" />
+
+    <ImageView
+        android:id="@+id/star5"
+        android:layout_width="46dp"
+        android:layout_height="42dp"
+        android:layout_marginStart="17dp"
+        android:layout_marginTop="25dp"
+        app:layout_constraintStart_toEndOf="@+id/star4"
+        app:layout_constraintTop_toBottomOf="@+id/view5"
+        app:srcCompat="@drawable/baseline_star_24" />
+
+    <ImageView
+        android:id="@+id/imageView17"
+        android:layout_width="227dp"
+        android:layout_height="213dp"
+        android:elevation="1px"
+        app:layout_constraintBottom_toBottomOf="@+id/view5"
+        app:layout_constraintEnd_toEndOf="@+id/view5"
+        app:layout_constraintStart_toStartOf="@+id/view5"
+        app:layout_constraintTop_toTopOf="@+id/view5"
+        app:srcCompat="@drawable/chickenwings" />
 </androidx.constraintlayout.widget.ConstraintLayout>
