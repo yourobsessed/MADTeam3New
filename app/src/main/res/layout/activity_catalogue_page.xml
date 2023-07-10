@@ -13,9 +13,9 @@
         android:layout_width="333dp"
         android:layout_height="38dp"
         android:layout_marginStart="40dp"
-        android:layout_marginTop="10dp"
+        android:layout_marginTop="37dp"
         android:layout_marginEnd="39dp"
-        android:layout_marginBottom="10dp"
+        android:layout_marginBottom="30dp"
         android:background="@drawable/outlinebutton"
         android:elevation="6px"
         android:text="See all reviews"
@@ -29,8 +29,8 @@
 
     <View
         android:id="@+id/view4"
-        android:layout_width="367dp"
-        android:layout_height="385dp"
+        android:layout_width="369dp"
+        android:layout_height="339dp"
         android:layout_marginStart="1dp"
         android:layout_marginTop="5dp"
         android:layout_marginEnd="1dp"
@@ -40,7 +40,8 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/horizontalScrollView2" />
+        app:layout_constraintTop_toBottomOf="@+id/horizontalScrollView2"
+        app:layout_constraintVertical_bias="0.229" />
 
     <ImageView
         android:id="@+id/imageView8"
@@ -141,7 +142,7 @@
         android:layout_width="93dp"
         android:layout_height="28dp"
         android:layout_marginStart="36dp"
-        android:layout_marginTop="51dp"
+        android:layout_marginTop="41dp"
         android:elevation="6px"
         android:fontFamily="@font/alata"
         android:text="@string/FoodCalories"
@@ -156,7 +157,7 @@
         android:layout_width="93dp"
         android:layout_height="28dp"
         android:layout_marginStart="36dp"
-        android:layout_marginTop="47dp"
+        android:layout_marginTop="37dp"
         android:elevation="6px"
         android:fontFamily="@font/alata"
         android:text="@string/FoodLocation"
@@ -171,7 +172,7 @@
         android:layout_width="93dp"
         android:layout_height="28dp"
         android:layout_marginStart="36dp"
-        android:layout_marginTop="44dp"
+        android:layout_marginTop="34dp"
         android:elevation="6px"
         android:fontFamily="@font/alata"
         android:text="Rating:"
@@ -186,7 +187,7 @@
         android:layout_width="93dp"
         android:layout_height="28dp"
         android:layout_marginStart="36dp"
-        android:layout_marginTop="47dp"
+        android:layout_marginTop="37dp"
         android:elevation="6px"
         android:fontFamily="@font/alata"
         android:text="@string/FoodPrice"
@@ -227,7 +228,7 @@
         android:id="@+id/CATfoodPrice"
         android:layout_width="255dp"
         android:layout_height="35dp"
-        android:layout_marginTop="40dp"
+        android:layout_marginTop="30dp"
         android:layout_marginEnd="40dp"
         android:elevation="6px"
         android:fontFamily="sans-serif"
@@ -240,7 +241,7 @@
         android:id="@+id/CATfoodCalories"
         android:layout_width="255dp"
         android:layout_height="35dp"
-        android:layout_marginTop="44dp"
+        android:layout_marginTop="34dp"
         android:layout_marginEnd="19dp"
         android:elevation="6px"
         android:fontFamily="sans-serif"
@@ -253,7 +254,7 @@
         android:id="@+id/storeLocation"
         android:layout_width="255dp"
         android:layout_height="35dp"
-        android:layout_marginTop="40dp"
+        android:layout_marginTop="30dp"
         android:layout_marginEnd="15dp"
         android:elevation="6px"
         android:fontFamily="sans-serif"
@@ -261,5 +262,18 @@
         android:textSize="16sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/CATfoodCalories" />
+
+    <TextView
+        android:id="@+id/textView24"
+        android:layout_width="246dp"
+        android:layout_height="38dp"
+        android:layout_marginTop="34dp"
+        android:layout_marginEnd="40dp"
+        android:elevation="6px"
+        android:fontFamily="sans-serif"
+        android:text=""
+        android:textSize="16sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/storeLocation" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
