@@ -21,6 +21,11 @@ import android.widget.Toast;
 
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.storage.FirebaseStorage;
+import com.google.firebase.storage.StorageReference;
+import com.google.firebase.storage.UploadTask;
+
+import java.io.ByteArrayOutputStream;
 
 public class FoodReviewPage extends AppCompatActivity {
 
@@ -30,6 +35,7 @@ public class FoodReviewPage extends AppCompatActivity {
     private int stars = 100;
     private String desc = "";
     private Bitmap image;
+    private byte[] imagebyte;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -61,6 +67,8 @@ public class FoodReviewPage extends AppCompatActivity {
             }
         });
 
+
+
         RatingBar ratingbar = findViewById(R.id.ratingBar2);
 
         FirebaseDatabase database = FirebaseDatabase.getInstance();
@@ -70,8 +78,25 @@ public class FoodReviewPage extends AppCompatActivity {
         sendbutton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                DatabaseRef.child("Reviews").push().setValue(new FoodReview(getIntent().getExtras().getString("foodname"), Math.round(ratingbar.getRating()*20), DescriptionEdit.getText().toString(), username));
-                finish();
+                if(imagebyte != null){
+                    StorageReference storageRef = FirebaseStorage.getInstance().getReference();
+                    StorageReference imageRef = storageRef.child("Image.jpg");
+                    UploadTask uploadTask = imageRef.putBytes(imagebyte);
+                    uploadTask.addOnSuccessListener(taskSnapshot -> {
+
+                        imageRef.getDownloadUrl().addOnSuccessListener(downloadUri -> {
+                            String imageUrl = downloadUri.toString();
+                            DatabaseRef.child("Reviews").push().setValue(new FoodReview(getIntent().getExtras().getString("foodname"), Math.round(ratingbar.getRating()*20), DescriptionEdit.getText().toString(), username, imageUrl));
+                            finish();
+                        });
+                    });
+
+                }
+                else{
+                    DatabaseRef.child("Reviews").push().setValue(new FoodReview(getIntent().getExtras().getString("foodname"), Math.round(ratingbar.getRating()*20), DescriptionEdit.getText().toString(), username, ""));
+                    finish();
+                }
+
             }
         });
 
@@ -106,6 +131,10 @@ public class FoodReviewPage extends AppCompatActivity {
             imageView.setImageBitmap(image);
             imageView.setElevation(5);
 
+            ByteArrayOutputStream stream = new ByteArrayOutputStream();
+            image.compress(Bitmap.CompressFormat.PNG, 100, stream);
+            imagebyte = stream.toByteArray();
+            //image.recycle();
         }
     }
 }
