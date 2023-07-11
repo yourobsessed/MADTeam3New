@@ -7,7 +7,7 @@ import android.widget.TextView;
 import androidx.cardview.widget.CardView;
 import androidx.recyclerview.widget.RecyclerView;
 
-public class GeneralView_Viewholder extends RecyclerView.ViewHolder {
+public class GeneralView_Viewholder extends RecyclerView.ViewHolder{
     TextView foodName;
     TextView foodDescription;
     ImageView foodImage;
@@ -15,7 +15,7 @@ public class GeneralView_Viewholder extends RecyclerView.ViewHolder {
     ImageView wishlistButton;
     CardView cardView;
 
-    public GeneralView_Viewholder (View itemView){
+    public GeneralView_Viewholder (View itemView) {
         super(itemView);
         foodName = itemView.findViewById(R.id.WLNameVH);
         foodDescription = itemView.findViewById(R.id.WLDescriptionVH);
@@ -24,5 +24,8 @@ public class GeneralView_Viewholder extends RecyclerView.ViewHolder {
         foodCourtLocation = itemView.findViewById(R.id.storeLocation);
         wishlistButton = itemView.findViewById(R.id.WLButton);
 
+
     }
+
+
 }

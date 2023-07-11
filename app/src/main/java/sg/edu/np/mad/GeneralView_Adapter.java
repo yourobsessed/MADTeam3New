@@ -1,5 +1,9 @@
 package sg.edu.np.mad;
 
+import static android.icu.text.DisplayContext.LENGTH_SHORT;
+
+import static com.mapbox.mapboxsdk.Mapbox.getApplicationContext;
+
 import android.content.Context;
 import android.content.Intent;
 import android.graphics.Color;
@@ -8,6 +12,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
+import android.widget.Toast;
 
 import androidx.recyclerview.widget.RecyclerView;
 
@@ -20,16 +25,18 @@ public class GeneralView_Adapter extends RecyclerView.Adapter<GeneralView_Viewho
     private List<Food> data;
     private SelectListenerFood listenerFood;
     private IconClickListener listenerWL;
-    public void setIconClickListener(IconClickListener listener) {
-        this.listenerWL= listener;
-    }
     private List<Food> wishlist_List;
 
-    public GeneralView_Adapter(Context context, List<Food> input, SelectListenerFood ListenerFood){
+    public GeneralView_Adapter(Context context, List<Food> input, SelectListenerFood ListenerFood, IconClickListener listener){
         this.context = context;
         this.data = input;
         this.listenerFood = ListenerFood;
+        this.listenerWL = listener;
     }
+    public void setIconClickListener(IconClickListener listener) {
+        this.listenerWL = listener;
+    }
+
 
     public void setFilteredList(List<Food> filteredList) {
         // below line is to add our filtered
@@ -80,7 +87,10 @@ public class GeneralView_Adapter extends RecyclerView.Adapter<GeneralView_Viewho
             public void onClick(View v) {
                 //onClick wishlist button, adds the food object to the wishlist page
                 wishlist_List.add(data.get(position));
-                //changeIconColor(wishlist_List.indexOf(data.get(position)), "Red");
+
+                Toast.makeText(getApplicationContext(),"Food added to the wishlist!", Toast.LENGTH_SHORT).show();
+
+                System.out.println(wishlist_List);
             }
         });
     }
@@ -90,6 +100,7 @@ public class GeneralView_Adapter extends RecyclerView.Adapter<GeneralView_Viewho
         return data.size();
     }
 
+    //for it to change colour
     public void changeIconColor(View view) {
         // Change the color of the icon
 
