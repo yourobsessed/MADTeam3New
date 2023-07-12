@@ -128,4 +128,39 @@ public class CataloguePage extends AppCompatActivity implements Serializable {
             }
         });*/
     }
+    @Override
+    protected void onResume() {
+        super.onResume();
+        DatabaseReference reviewsRef = FirebaseDatabase.getInstance().getReference("Reviews");
+        ValueEventListener reviewsListener = new ValueEventListener() {
+            @Override
+            public void onDataChange(DataSnapshot dataSnapshot) {
+                int numofreviews = 0;
+                int totalstars = 0;
+                float avgstars = 0;
+                for (DataSnapshot reviewSnapshot : dataSnapshot.getChildren()) {
+                    FoodReview foodReview = reviewSnapshot.getValue(FoodReview.class);
+                    if (foodReview != null && foodReview.FoodName.equals(foodName.getText().toString())) {
+                        numofreviews++;
+                        totalstars += foodReview.Rating;
+                    }
+                }
+                if(numofreviews != 0){
+                    avgstars = totalstars/numofreviews;
+                    TextView text = findViewById(R.id.textView24);
+                    text.setText("" + new DecimalFormat("#.0").format(avgstars/20)+ " Stars");
+                    if(avgstars == 0){
+                        text.setText("0.0 Stars");
+                    }
+                }
+
+            }
+
+            @Override
+            public void onCancelled(DatabaseError databaseError) {
+                // Handle any errors
+            }
+        };
+        reviewsRef.addListenerForSingleValueEvent(reviewsListener);
+    }
 }

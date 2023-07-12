@@ -1,6 +1,8 @@
 package sg.edu.np.mad;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -17,16 +19,20 @@ import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 
 import java.text.DecimalFormat;
+import java.util.ArrayList;
+import java.util.List;
 
 public class AllReviewsPage extends AppCompatActivity {
 
+    TextView text;
+    ArrayList<FoodReview> itemList = new ArrayList<>();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_all_reviews_page);
 
-        TextView text = findViewById(R.id.txt1);
+        text = findViewById(R.id.txt1);
         text.setText(getIntent().getExtras().getString("foodname"));
 
         ImageView backButton = findViewById(R.id.imageView11);
@@ -51,6 +57,14 @@ public class AllReviewsPage extends AppCompatActivity {
 
 
 
+
+
+    }
+
+    @Override
+    protected void onResume() {
+        super.onResume();
+        itemList.clear();
         DatabaseReference reviewsRef = FirebaseDatabase.getInstance().getReference("Reviews");
         ValueEventListener reviewsListener = new ValueEventListener() {
             @Override
@@ -63,6 +77,7 @@ public class AllReviewsPage extends AppCompatActivity {
                     if (foodReview != null && foodReview.FoodName.equals(text.getText().toString())) {
                         numofreviews++;
                         totalstars += foodReview.Rating;
+                        itemList.add(foodReview);
                     }
                 }
                 if(numofreviews != 0){
@@ -73,7 +88,19 @@ public class AllReviewsPage extends AppCompatActivity {
                     stars.setRating(avgstars/20);
                     TextView numofrev = findViewById(R.id.txt2);
                     numofrev.setText("Based on " + numofreviews + " reviews");
+                    if(avgstars == 0){
+                        text.setText("0.0");
+                    }
+
                 }
+                RecyclerView recyclerView;
+                FoodReviewAdapter itemAdapter;
+
+                recyclerView = findViewById(R.id.recyclerview);
+                recyclerView.setLayoutManager(new LinearLayoutManager(AllReviewsPage.this));
+
+                itemAdapter = new FoodReviewAdapter(itemList, AllReviewsPage.this);
+                recyclerView.setAdapter(itemAdapter);
 
             }
 
@@ -84,12 +111,6 @@ public class AllReviewsPage extends AppCompatActivity {
         };
 
         reviewsRef.addListenerForSingleValueEvent(reviewsListener);
-    }
-
-    @Override
-    protected void onResume() {
-        super.onResume();
-
 
     }
 }
