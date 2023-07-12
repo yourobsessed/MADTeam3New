@@ -2,12 +2,13 @@ package sg.edu.np.mad;
 
 import static android.icu.text.DisplayContext.LENGTH_SHORT;
 
-import static com.mapbox.mapboxsdk.Mapbox.getApplicationContext;
+//import static com.mapbox.mapboxsdk.Mapbox.getApplicationContext;
 
 import android.content.Context;
 import android.content.Intent;
 import android.graphics.Color;
 import android.graphics.drawable.Icon;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -15,6 +16,8 @@ import android.widget.ImageView;
 import android.widget.Toast;
 
 import androidx.recyclerview.widget.RecyclerView;
+
+import com.mapbox.mapboxsdk.Mapbox;
 
 import java.io.Serializable;
 import java.util.ArrayList;
@@ -25,17 +28,17 @@ public class GeneralView_Adapter extends RecyclerView.Adapter<GeneralView_Viewho
     private List<Food> data;
     private SelectListenerFood listenerFood;
     private IconClickListener listenerWL;
-    private List<Food> wishlist_List;
-
+    ArrayList<Food> wishlist_List = new ArrayList<>();
+    String tag;
     public GeneralView_Adapter(Context context, List<Food> input, SelectListenerFood ListenerFood, IconClickListener listener){
         this.context = context;
         this.data = input;
         this.listenerFood = ListenerFood;
         this.listenerWL = listener;
     }
-    public void setIconClickListener(IconClickListener listener) {
+    /*public void setIconClickListener(IconClickListener listener) {
         this.listenerWL = listener;
-    }
+    }*/
 
 
     public void setFilteredList(List<Food> filteredList) {
@@ -82,33 +85,32 @@ public class GeneralView_Adapter extends RecyclerView.Adapter<GeneralView_Viewho
             }
         });
 
-        holder.wishlistButton.setOnClickListener(new View.OnClickListener() {
+        holder.wishlisticon.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 //onClick wishlist button, adds the food object to the wishlist page
-                wishlist_List.add(data.get(position));
 
-                Toast.makeText(getApplicationContext(),"Food added to the wishlist!", Toast.LENGTH_SHORT).show();
-
-                System.out.println(wishlist_List);
+                if (!wishlist_List.contains(f)) {
+                    wishlist_List.add(f);
+                    Toast.makeText(v.getContext(),"Food added to the wishlist!", Toast.LENGTH_SHORT).show();
+                }
             }
         });
     }
 
     public int getItemCount(){
-        //System.out.println(data.size());
         return data.size();
     }
 
     //for it to change colour
-    public void changeIconColor(View view) {
+    /*public void changeIconColor(View view) {
         // Change the color of the icon
 
         //Food f = wishlist_List.get(f);
         int newColor = Color.parseColor("#FF0000"); // Set the desired color here
         //holder.wishlistButton.setColorFilter(newColor);
 
-    }
+    }*/
 
 
 }

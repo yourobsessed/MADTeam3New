@@ -1,5 +1,7 @@
 package sg.edu.np.mad;
 
+import static com.mapbox.mapboxsdk.Mapbox.getApplicationContext;
+
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.ActionBarDrawerToggle;
@@ -15,6 +17,7 @@ import com.google.android.material.chip.Chip;
 import com.google.android.material.chip.ChipGroup;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import com.google.android.material.navigation.NavigationView;
+import com.mapbox.mapboxsdk.Mapbox;
 
 
 import android.content.Intent;
@@ -309,9 +312,10 @@ public class GeneralViewPage extends AppCompatActivity implements SelectListener
     }
 
     @Override
-    public void onIconClick(int position){
-        wishlist_List.add(foodList.get(position));
-        int newColour = Color.RED;
+    public void onIconClick(Food foodimage){
+        //Toast.makeText(getApplicationContext(),"Food added to the wishlist!", Toast.LENGTH_SHORT).show();
+
+        //int newColour = Color.RED;
         //gAdapter.changeIconColor(position, newColour);
     }
 
