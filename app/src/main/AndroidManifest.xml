@@ -5,7 +5,8 @@
     <uses-feature
         android:name="android.hardware.camera"
         android:required="false" />
-
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+    <uses-permission android:name="android.permission.READ_PHONE_STATE" />
     <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
     <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
     <uses-permission android:name="android.permission.CAMERA" />
@@ -48,7 +49,7 @@
 
         <meta-data
             android:name="com.mapbox.token"
-            android:value="sk.eyJ1IjoiY29saW5jaGFuZzEiLCJhIjoiY2xqdjhjcW13MGRuZzNlcXowbmN1OThxMiJ9.GPzPIDG4pmvhQvs9K5O1Uw" />
+            android:value="sk.eyJ1IjoiY29saW5jaGFuZzEiLCJhIjoiY2xqMmJtM2lvMTI5NjNncDk1ZmowcTNpOSJ9.KEOtKofPYsAoJ6_G4OZkbg" />
 
         <activity
             android:name=".MapPage"
