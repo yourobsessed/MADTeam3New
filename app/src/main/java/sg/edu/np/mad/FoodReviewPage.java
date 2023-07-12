@@ -80,7 +80,7 @@ public class FoodReviewPage extends AppCompatActivity {
             public void onClick(View view) {
                 if(imagebyte != null){
                     StorageReference storageRef = FirebaseStorage.getInstance().getReference();
-                    StorageReference imageRef = storageRef.child("Image.jpg");
+                    StorageReference imageRef = storageRef.child(String.valueOf(System.currentTimeMillis()));
                     UploadTask uploadTask = imageRef.putBytes(imagebyte);
                     uploadTask.addOnSuccessListener(taskSnapshot -> {
 
