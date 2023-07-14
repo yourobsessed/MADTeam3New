@@ -16,6 +16,7 @@ import android.widget.ImageView;
 import android.widget.Toast;
 
 import androidx.recyclerview.widget.RecyclerView;
+import androidx.swiperefreshlayout.widget.SwipeRefreshLayout;
 
 import com.mapbox.mapboxsdk.Mapbox;
 
@@ -28,7 +29,8 @@ public class GeneralView_Adapter extends RecyclerView.Adapter<GeneralView_Viewho
     private List<Food> data;
     private SelectListenerFood listenerFood;
     private IconClickListener listenerWL;
-    ArrayList<Food> wishlist_List = new ArrayList<>();
+    //SwipeRefreshLayout swipeRefreshLayout;
+
     String tag;
     public GeneralView_Adapter(Context context, List<Food> input, SelectListenerFood ListenerFood, IconClickListener listener){
         this.context = context;
@@ -90,12 +92,14 @@ public class GeneralView_Adapter extends RecyclerView.Adapter<GeneralView_Viewho
             public void onClick(View v) {
                 //onClick wishlist button, adds the food object to the wishlist page
 
-                if (!wishlist_List.contains(f)) {
-                    wishlist_List.add(f);
+                if (!DataHolder.wishlist_List.contains(f)) {
+                    DataHolder.wishlist_List.add(f);
                     Toast.makeText(v.getContext(),"Food added to the wishlist!", Toast.LENGTH_SHORT).show();
                 }
             }
         });
+
+
     }
 
     public int getItemCount(){

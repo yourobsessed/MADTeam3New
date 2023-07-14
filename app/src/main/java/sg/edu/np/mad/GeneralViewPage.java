@@ -313,6 +313,7 @@ public class GeneralViewPage extends AppCompatActivity implements SelectListener
 
     @Override
     public void onIconClick(Food foodimage){
+
         //Toast.makeText(getApplicationContext(),"Food added to the wishlist!", Toast.LENGTH_SHORT).show();
 
         //int newColour = Color.RED;

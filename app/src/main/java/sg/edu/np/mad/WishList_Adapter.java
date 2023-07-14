@@ -5,6 +5,7 @@ import android.content.Intent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Toast;
 
 import androidx.recyclerview.widget.RecyclerView;
 
@@ -15,6 +16,7 @@ public class WishList_Adapter extends RecyclerView.Adapter<WishList_ViewHolder> 
     private List<Food> data;
     private Context context;
     private SelectListenerFood listenerFood;
+
 
     public WishList_Adapter(Context context, List<Food> input, SelectListenerFood ListenerFood){
         this.context = context;
@@ -50,6 +52,20 @@ public class WishList_Adapter extends RecyclerView.Adapter<WishList_ViewHolder> 
                 //toCatalogue.putExtra("object", (Serializable)f);
                 context.startActivity(toCatalogue);
 
+            }
+        });
+
+        holder.wishlistButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                //System.out.println("HELLLLLLLLLLLLOOOOOOOOO");
+                if (DataHolder.wishlist_List.contains(f)) {
+                    //System.out.println("HELLLLLLLLLLLLOOOOOOOOO");
+                    DataHolder.wishlist_List.remove(f);
+                    Toast.makeText(v.getContext(),"Food removed from the wishlist!", Toast.LENGTH_SHORT).show();
+
+
+                }
             }
         });
 
