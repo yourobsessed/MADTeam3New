@@ -13,6 +13,8 @@ import androidx.swiperefreshlayout.widget.SwipeRefreshLayout;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.os.Handler;
+import android.os.Looper;
 import android.view.MenuItem;
 import android.widget.Toast;
 
@@ -25,18 +27,29 @@ public class WishlistPage extends AppCompatActivity implements SelectListenerFoo
     ArrayList<Food> receivedList = DataHolder.wishlist_List;
     SwipeRefreshLayout swipeRefreshLayout;
 
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_wishlist_page);
 
-        swipeRefreshLayout.findViewById(R.id.swiperefresh);
+        /*swipeRefreshLayout.findViewById(R.id.swiperefresh);
         swipeRefreshLayout.setOnRefreshListener(new SwipeRefreshLayout.OnRefreshListener() {
             @Override
             public void onRefresh() {
-                Toast.makeText(WishlistPage.this,"Food removed from the wishlist!", Toast.LENGTH_SHORT).show();
+                //Toast.makeText(WishlistPage.this,"Food removed from the wishlist!", Toast.LENGTH_SHORT).show();
+                RecyclerView WLrecyclerView = findViewById(R.id.wishlist_RV);
+                WishList_Adapter mAdapter = new WishList_Adapter(WishlistPage.this, receivedList, this);
+                LinearLayoutManager mLayoutManger = new LinearLayoutManager(WishlistPage.this);
+                WLrecyclerView.setLayoutManager(mLayoutManger);
+                WLrecyclerView.setItemAnimator(new DefaultItemAnimator());
+                WLrecyclerView.setAdapter(mAdapter);
+                System.out.println("HELLLLLLLLLOOOOOO!!!");
+                swipeRefreshLayout.setRefreshing(false);
             }
-        });
+
+        });*/
+
 
 
         RecyclerView WLrecyclerView = findViewById(R.id.wishlist_RV);
