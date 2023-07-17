@@ -163,11 +163,15 @@ public class HomePage extends AppCompatActivity implements NavigationView.OnNavi
             startActivity(toProfilePage);
 
         } else if (menuItem.getItemId() == R.id.nav_aboutusbutton) {
-            Intent toAboutUs = new Intent(HomePage.this, Infomation.class);
+            Intent toAboutUs = new Intent(HomePage.this, AboutUs.class);
             startActivity(toAboutUs);
 
         } else if (menuItem.getItemId() == R.id.nav_feedbackbutton) {
             Intent toFeedbackPage = new Intent(HomePage.this, Feedback.class);
+            startActivity(toFeedbackPage);
+
+        } else if (menuItem.getItemId() == R.id.nav_aboutusbutton) {
+            Intent toFeedbackPage = new Intent(HomePage.this, AboutUs.class);
             startActivity(toFeedbackPage);
         }
         drawer.closeDrawer(GravityCompat.START);

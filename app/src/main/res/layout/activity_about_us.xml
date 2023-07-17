@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".AboutUs">
+
+    <ImageView
+        android:id="@+id/back"
+        android:layout_width="29dp"
+        android:layout_height="29dp"
+        android:layout_marginStart="28dp"
+        android:layout_marginTop="28dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/img" />
+
+    <androidx.cardview.widget.CardView
+        android:layout_width="374dp"
+        android:layout_height="168dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="20dp"
+        android:layout_marginEnd="16dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/imageView8"
+        app:cardCornerRadius="20dp">
+
+        <TextView
+            android:id="@+id/Introduction"
+            android:layout_width="wrap_content"
+            android:layout_height="109dp"
+            android:layout_marginStart="37dp"
+            android:layout_marginTop="32dp"
+            android:layout_marginEnd="38dp"
+            android:fontFamily="@font/alata"
+            android:foregroundGravity="clip_horizontal"
+            android:text="@string/intro"
+            android:textAlignment="center"
+            android:textSize="16sp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/imageView8" />
+
+
+    </androidx.cardview.widget.CardView>
+
+    <TextView
+            android:id="@+id/aboutUS_Text"
+            android:layout_width="252dp"
+            android:layout_height="44dp"
+            android:layout_marginStart="80dp"
+            android:layout_marginTop="28dp"
+            android:layout_marginEnd="80dp"
+            android:fontFamily="@font/alata"
+            android:gravity="center"
+            android:text="About Us!"
+            android:textSize="18sp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+>
+    <ImageView
+        android:id="@+id/imageView8"
+        android:layout_width="273dp"
+        android:layout_height="253dp"
+        android:layout_marginStart="69dp"
+        android:layout_marginTop="27dp"
+        android:layout_marginEnd="69dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/aboutUS_Text"
+        app:srcCompat="@drawable/group_image" />
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>
