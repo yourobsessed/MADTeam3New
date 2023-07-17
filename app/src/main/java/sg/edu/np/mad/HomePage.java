@@ -124,10 +124,6 @@ public class HomePage extends AppCompatActivity implements NavigationView.OnNavi
             Intent toWishlistpage = new Intent(HomePage.this, WishlistPage.class);
             startActivity(toWishlistpage);
 
-        } else if (menuItem.getItemId() == R.id.nav_reviewButton) {
-            Intent toReviewPage = new Intent(HomePage.this, ReviewPage.class);
-            startActivity(toReviewPage);
-
         } else if (menuItem.getItemId() == R.id.nav_directionButton) {
             Intent todirectionPage = new Intent(HomePage.this, MapPage.class);
             startActivity(todirectionPage);

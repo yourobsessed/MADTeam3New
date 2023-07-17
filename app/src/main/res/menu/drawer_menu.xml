@@ -15,9 +15,6 @@
         <item android:id="@+id/nav_WishlistButton"
             android:icon="@drawable/ic_wishlist"
             android:title="Wishlist"/>
-        <item android:id="@+id/nav_reviewButton"
-            android:icon="@drawable/ic_review"
-            android:title="Review"/>
         <item android:id="@+id/nav_directionButton"
             android:icon="@drawable/ic_direction"
             android:title="How to get there?"/>
