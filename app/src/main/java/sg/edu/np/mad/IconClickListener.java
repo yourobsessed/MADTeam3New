@@ -1,6 +1,6 @@
 package sg.edu.np.mad;
 
 public interface IconClickListener {
-    void onIconClick(int position);
+    void onIconClick(Food Image);
 
 }

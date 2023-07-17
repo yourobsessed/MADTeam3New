@@ -2,13 +2,15 @@ package sg.edu.np.mad;
 
 import android.content.Context;
 import android.content.Intent;
+import android.graphics.Color;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Toast;
 
 import androidx.recyclerview.widget.RecyclerView;
+import androidx.swiperefreshlayout.widget.SwipeRefreshLayout;
 
-import java.util.ArrayList;
 import java.util.List;
 
 public class WishList_Adapter extends RecyclerView.Adapter<WishList_ViewHolder> {
@@ -16,10 +18,11 @@ public class WishList_Adapter extends RecyclerView.Adapter<WishList_ViewHolder> 
     private Context context;
     private SelectListenerFood listenerFood;
 
-    public WishList_Adapter(Context context, List<Food> input, SelectListenerFood ListenerFood){
+
+    public WishList_Adapter(Context context, List<Food> input){//, SelectListenerFood ListenerFood){
         this.context = context;
         this.data = input;
-        this.listenerFood = ListenerFood;
+        //this.listenerFood = ListenerFood;
 
     }
 
@@ -53,10 +56,34 @@ public class WishList_Adapter extends RecyclerView.Adapter<WishList_ViewHolder> 
             }
         });
 
+        holder.wishlistButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                //System.out.println("HELLLLLLLLLLLLOOOOOOOOO");
+                if (DataHolder.wishlist_List.contains(f)) {
+                    //System.out.println("HELLLLLLLLLLLLOOOOOOOOO");
+                    DataHolder.wishlist_List.remove(f);
+                    Toast.makeText(v.getContext(),"Food removed from the wishlist!", Toast.LENGTH_SHORT).show();
+                }
+
+                changeIconColor(v, holder);
+            }
+        });
+
+    }
+
+    private View getContext() {
+        return null;
     }
 
     public int getItemCount() {
         return data.size();
     }
+    public void changeIconColor(View view, WishList_ViewHolder holder) {
+        // Change the color of the icon
 
+        //Food f = wishlist_List.get(f);
+        int newColor = Color.parseColor("#000000"); // Set the desired color here
+        holder.wishlistButton.setColorFilter(newColor);
+    }
 }

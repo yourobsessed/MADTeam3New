@@ -1,5 +1,7 @@
 package sg.edu.np.mad;
 
+import static com.mapbox.mapboxsdk.Mapbox.getApplicationContext;
+
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.ActionBarDrawerToggle;
@@ -15,9 +17,11 @@ import com.google.android.material.chip.Chip;
 import com.google.android.material.chip.ChipGroup;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import com.google.android.material.navigation.NavigationView;
+import com.mapbox.mapboxsdk.Mapbox;
 
 
 import android.content.Intent;
+import android.graphics.Color;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.MenuItem;
@@ -292,7 +296,7 @@ public class GeneralViewPage extends AppCompatActivity implements SelectListener
 
 
         //foodList = filteredListFromGVF;
-        gAdapter = new GeneralView_Adapter(GeneralViewPage.this, foodList, this);
+        gAdapter = new GeneralView_Adapter(GeneralViewPage.this, foodList, this, this);
         LinearLayoutManager layoutManager = new LinearLayoutManager(this);
         recyclerView.setLayoutManager(layoutManager);
         recyclerView.setItemAnimator(new DefaultItemAnimator());
@@ -308,8 +312,12 @@ public class GeneralViewPage extends AppCompatActivity implements SelectListener
     }
 
     @Override
-    public void onIconClick(int position){
-        wishlist_List.add(foodList.get(position));
+    public void onIconClick(Food foodimage){
+
+        //Toast.makeText(getApplicationContext(),"Food added to the wishlist!", Toast.LENGTH_SHORT).show();
+
+        //int newColour = Color.RED;
+        //gAdapter.changeIconColor(position, newColour);
     }
 
     private void limitoption() {

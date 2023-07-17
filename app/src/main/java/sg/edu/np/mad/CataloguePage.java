@@ -8,7 +8,6 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ImageView;
-import android.widget.RatingBar;
 import android.widget.TextView;
 
 import com.google.firebase.database.DataSnapshot;
@@ -48,7 +47,7 @@ public class CataloguePage extends AppCompatActivity implements Serializable {
         storeLocation = findViewById(R.id.storeLocation);
         Button FoodReview = findViewById(R.id.OpenAllFoodReviews);
 
-        ImageView BackButton = findViewById(R.id.imageView8);
+        ImageView BackButton = findViewById(R.id.backButton);
         BackButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -119,15 +118,9 @@ public class CataloguePage extends AppCompatActivity implements Serializable {
     @Override
     protected void onStart(){
         super.onStart();
-        /*locationimg.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent tomap = new Intent(CataloguePage.this, map.class);
-                tomap.putExtra("object", object.getLocationImage());
-                startActivity(tomap);
-            }
-        });*/
+
     }
+
     @Override
     protected void onResume() {
         super.onResume();
