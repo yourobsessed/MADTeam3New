@@ -5,7 +5,9 @@
     <uses-feature
         android:name="android.hardware.camera"
         android:required="false" />
+
     <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+    <uses-permission android:name="android.permission.POST_NOTIFICATIONS" />
     <uses-permission android:name="android.permission.READ_PHONE_STATE" />
     <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
     <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
@@ -22,6 +24,9 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.MAD_Assignemnt"
         tools:targetApi="31">
+        <activity
+            android:name=".NotificationPage"
+            android:exported="false" />
         <activity
             android:name=".AllReviewsPage"
             android:exported="false" />
@@ -41,9 +46,6 @@
             android:name=".Profile"
             android:exported="false" />
         <activity
-            android:name=".ReviewPage"
-            android:exported="false" />
-        <activity
             android:name=".NotificationViewPage"
             android:exported="false" />
 
@@ -60,8 +62,7 @@
         <activity
             android:name=".map"
             android:exported="false" />
-        <activity
-            android:name=".GeneralView_Filter" />
+        <activity android:name=".GeneralView_Filter" />
         <activity
             android:name=".StoreView_ViewHolder"
             android:exported="false" />
