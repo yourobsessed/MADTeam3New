@@ -45,7 +45,7 @@ public class CataloguePage extends AppCompatActivity implements Serializable {
         foodImage = findViewById(R.id.image1);
         foodImage2 = findViewById(R.id.image2);
         foodImage3 = findViewById(R.id.image3);
-        locationimg = findViewById(R.id.map);
+        //locationimg = findViewById(R.id.map);
         storeLocation = findViewById(R.id.storeLocation);
 
         ImageView BackButton = findViewById(R.id.backButton);
