@@ -94,6 +94,8 @@ public class MainPage extends AppCompatActivity {
             }
         });
 
+
+
         /*ImageView CatalogueButton = findViewById(R.id.CatalogueButton);
         CatalogueButton.setOnClickListener(new View.OnClickListener() {
             @Override

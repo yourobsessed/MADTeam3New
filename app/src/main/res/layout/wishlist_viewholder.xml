@@ -6,9 +6,9 @@
     android:layout_height="wrap_content">
 
     <androidx.cardview.widget.CardView
-        android:id="@+id/Foodcardview"
-        android:layout_width="390dp"
-        android:layout_height="245dp"
+        android:id="@+id/WLcardview"
+        android:layout_width="400dp"
+        android:layout_height="253dp"
         android:layout_marginTop="8dp"
         android:elevation="10dp"
         app:cardCornerRadius="20dp"
@@ -18,8 +18,8 @@
         app:layout_constraintTop_toTopOf="parent">
 
         <androidx.constraintlayout.widget.ConstraintLayout
-            android:layout_width="match_parent"
-            android:layout_height="243dp">
+            android:layout_width="384dp"
+            android:layout_height="match_parent">
 
 
             <ImageView
@@ -59,10 +59,13 @@
 
             <ImageView
                 android:id="@+id/WLButton"
-                android:layout_width="35dp"
-                android:layout_height="37dp"
+                android:layout_width="48dp"
+                android:layout_height="48dp"
                 android:layout_marginTop="10dp"
                 android:layout_marginEnd="10dp"
+                android:clickable="true"
+                android:onClick="changeIconColor"
+                app:tint="@color/red"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/WLDescriptionVH"
                 app:srcCompat="@drawable/wishlist" />

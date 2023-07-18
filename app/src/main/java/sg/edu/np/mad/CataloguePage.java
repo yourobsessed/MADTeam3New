@@ -12,7 +12,14 @@ import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.ValueEventListener;
+
 import java.io.Serializable;
+import java.text.DecimalFormat;
 
 public class CataloguePage extends AppCompatActivity implements Serializable {
     TextView foodName;
@@ -41,7 +48,7 @@ public class CataloguePage extends AppCompatActivity implements Serializable {
         locationimg = findViewById(R.id.map);
         storeLocation = findViewById(R.id.storeLocation);
 
-        ImageView BackButton = findViewById(R.id.imageView8);
+        ImageView BackButton = findViewById(R.id.backButton);
         BackButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -70,18 +77,76 @@ public class CataloguePage extends AppCompatActivity implements Serializable {
         locationimg.setImageResource(locationImg);
 
         //object = (Food)getIntent().getExtras().getSerializable("object");
+
+        DatabaseReference reviewsRef = FirebaseDatabase.getInstance().getReference("Reviews");
+        ValueEventListener reviewsListener = new ValueEventListener() {
+            @Override
+            public void onDataChange(DataSnapshot dataSnapshot) {
+                int numofreviews = 0;
+                int totalstars = 0;
+                float avgstars = 0;
+                for (DataSnapshot reviewSnapshot : dataSnapshot.getChildren()) {
+                    FoodReview foodReview = reviewSnapshot.getValue(FoodReview.class);
+                    if (foodReview != null && foodReview.FoodName.equals(foodName.getText().toString())) {
+                        numofreviews++;
+                        totalstars += foodReview.Rating;
+                    }
+                }
+                if(numofreviews != 0){
+                    avgstars = totalstars/numofreviews;
+                    TextView text = findViewById(R.id.textView24);
+                    text.setText("" + new DecimalFormat("#.0").format(avgstars/20)+ " Stars");
+                }
+
+            }
+
+            @Override
+            public void onCancelled(DatabaseError databaseError) {
+                // Handle any errors
+            }
+        };
+        reviewsRef.addListenerForSingleValueEvent(reviewsListener);
     }
 
     @Override
     protected void onStart(){
         super.onStart();
-        /*locationimg.setOnClickListener(new View.OnClickListener() {
+
+    }
+
+    @Override
+    protected void onResume() {
+        super.onResume();
+        DatabaseReference reviewsRef = FirebaseDatabase.getInstance().getReference("Reviews");
+        ValueEventListener reviewsListener = new ValueEventListener() {
             @Override
-            public void onClick(View v) {
-                Intent tomap = new Intent(CataloguePage.this, map.class);
-                tomap.putExtra("object", object.getLocationImage());
-                startActivity(tomap);
+            public void onDataChange(DataSnapshot dataSnapshot) {
+                int numofreviews = 0;
+                int totalstars = 0;
+                float avgstars = 0;
+                for (DataSnapshot reviewSnapshot : dataSnapshot.getChildren()) {
+                    FoodReview foodReview = reviewSnapshot.getValue(FoodReview.class);
+                    if (foodReview != null && foodReview.FoodName.equals(foodName.getText().toString())) {
+                        numofreviews++;
+                        totalstars += foodReview.Rating;
+                    }
+                }
+                if(numofreviews != 0){
+                    avgstars = totalstars/numofreviews;
+                    TextView text = findViewById(R.id.textView24);
+                    text.setText("" + new DecimalFormat("#.0").format(avgstars/20)+ " Stars");
+                    if(avgstars == 0){
+                        text.setText("0.0 Stars");
+                    }
+                }
+
             }
-        });*/
+
+            @Override
+            public void onCancelled(DatabaseError databaseError) {
+                // Handle any errors
+            }
+        };
+        reviewsRef.addListenerForSingleValueEvent(reviewsListener);
     }
 }

@@ -69,8 +69,9 @@
 
         <TextView
             android:id="@+id/UsernameText"
-            android:layout_width="228dp"
-            android:layout_height="41dp"
+            android:layout_width="365dp"
+            android:layout_height="37dp"
+            android:layout_marginStart="13dp"
             android:layout_marginTop="70dp"
             android:layout_marginEnd="1dp"
             android:fontFamily="@font/alata"
@@ -183,6 +184,18 @@
             app:layout_constraintStart_toStartOf="@+id/crowdbutton"
             app:layout_constraintTop_toTopOf="@+id/crowdbutton"
             app:srcCompat="@drawable/forkicon" />
+
+        <Button
+            android:id="@+id/button"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="153dp"
+            android:layout_marginTop="74dp"
+            android:layout_marginEnd="167dp"
+            android:text="Button"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/crowdbutton" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 

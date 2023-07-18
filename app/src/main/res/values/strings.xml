@@ -54,6 +54,7 @@
     <string name="menu_slideshow">Slideshow</string>
     <string name="mapView">Get there using this NP map!</string>
     <string name="title_activity_drawer">Drawer</string>
+    <string name="intro">We are a group of Data Science Students who are currently studying at Ngee Ann Polytechnic. We created NP Eats as part of our assignment! </string>
 
 
 </resources>

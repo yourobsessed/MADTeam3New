@@ -1,5 +1,7 @@
 package sg.edu.np.mad;
 
+import static com.mapbox.mapboxsdk.Mapbox.getApplicationContext;
+
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.ActionBarDrawerToggle;
@@ -15,14 +17,15 @@ import com.google.android.material.chip.Chip;
 import com.google.android.material.chip.ChipGroup;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import com.google.android.material.navigation.NavigationView;
+import com.mapbox.mapboxsdk.Mapbox;
 
 
 import android.content.Intent;
+import android.graphics.Color;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.MenuItem;
 import android.view.View;
-import android.widget.Button;
 import android.widget.CompoundButton;
 import android.widget.ImageView;
 import android.widget.Toast;
@@ -33,7 +36,7 @@ import java.util.List;
 
 
 
-public class GeneralViewPage extends AppCompatActivity implements SelectListenerFood{
+public class GeneralViewPage extends AppCompatActivity implements SelectListenerFood, IconClickListener{
 
     private SearchView searchView;
     private RecyclerView recyclerView;
@@ -41,6 +44,8 @@ public class GeneralViewPage extends AppCompatActivity implements SelectListener
     private Chip chipAllLocations,chipClub,chipMakan,chipMunch,chipHalal,chipVegeterian,chipHealthy,chipAffordable,chipNoodles,chipRice,chipSoup,chipDessert;
 
     //ArrayList<String> selectedChipData = new ArrayList<>();
+
+    ArrayList<Food> wishlist_List = new ArrayList<>();
     ArrayList<Food> foodList = new ArrayList<>();
     GeneralView_Adapter gAdapter;
     ArrayList<Food> filteredListFromGVF = new ArrayList<>();
@@ -95,8 +100,7 @@ public class GeneralViewPage extends AppCompatActivity implements SelectListener
             @Override
             public void onClick(View view) {
 
-                Intent toHome = new Intent(GeneralViewPage.this, HomePage.class);
-                startActivity(toHome);
+                finish();
 
             }
         });
@@ -277,9 +281,8 @@ public class GeneralViewPage extends AppCompatActivity implements SelectListener
         });
 
 
-
-        Button filter = findViewById(R.id.filterbutton);
-        filter.setOnClickListener(new View.OnClickListener() {
+        FloatingActionButton fab = findViewById(R.id.filterbutton);
+        fab.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
 
@@ -290,22 +293,31 @@ public class GeneralViewPage extends AppCompatActivity implements SelectListener
             }
 
         });
+
+
         //foodList = filteredListFromGVF;
-        gAdapter = new GeneralView_Adapter(GeneralViewPage.this, foodList, this);
+        gAdapter = new GeneralView_Adapter(GeneralViewPage.this, foodList, this, this);
         LinearLayoutManager layoutManager = new LinearLayoutManager(this);
         recyclerView.setLayoutManager(layoutManager);
         recyclerView.setItemAnimator(new DefaultItemAnimator());
         recyclerView.setAdapter(gAdapter);
-
-
-
     }
+
 
 
     @Override
     public void onItemClicked(Food food) {
         Intent toCataloguePage = new Intent(GeneralViewPage.this, CataloguePage.class);
         startActivity(toCataloguePage);
+    }
+
+    @Override
+    public void onIconClick(Food foodimage){
+
+        //Toast.makeText(getApplicationContext(),"Food added to the wishlist!", Toast.LENGTH_SHORT).show();
+
+        //int newColour = Color.RED;
+        //gAdapter.changeIconColor(position, newColour);
     }
 
     private void limitoption() {
