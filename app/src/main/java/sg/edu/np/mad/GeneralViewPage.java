@@ -43,10 +43,10 @@ public class GeneralViewPage extends AppCompatActivity implements SelectListener
     private RecyclerView recyclerView;
 
     private Chip chipAllLocations,chipClub,chipMakan,chipMunch,chipHalal,chipVegeterian,chipHealthy,chipAffordable,chipNoodles,chipRice,chipSoup,chipDessert;
-
+    ArrayList<Food> foodList = new ArrayList<>();
     //ArrayList<String> selectedChipData = new ArrayList<>();
 
-    ArrayList<Food> foodList = DataHolder.food_List;
+
     GeneralView_Adapter gAdapter;
     ArrayList<Food> filteredListFromGVF = new ArrayList<>();
     //ArrayList<Food> secondFilterList = new ArrayList<>();
@@ -91,8 +91,10 @@ public class GeneralViewPage extends AppCompatActivity implements SelectListener
         chipSoup=findViewById(R.id.chipSoup);
         chipDessert=findViewById(R.id.chipDessert);
 
+        //ArrayList<Food> foodList = new ArrayList<>();
         foodList = CreateObject(foodList);
-
+        DataHolder.food_List = foodList;
+        System.out.println(DataHolder.food_List.size());
         filteredListFromGVF = (ArrayList<Food>) getIntent().getSerializableExtra("filteredList");
 
         ImageView BackButton = findViewById(R.id.imageView7);

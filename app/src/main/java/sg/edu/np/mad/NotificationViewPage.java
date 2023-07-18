@@ -27,6 +27,7 @@ import android.util.Log;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
+import android.widget.ImageView;
 
 import com.google.android.material.navigation.NavigationView;
 
@@ -43,6 +44,17 @@ public class NotificationViewPage extends AppCompatActivity{
         setContentView(R.layout.activity_notification_page);
         Notification n1 = new Notification("Time For Lunch!!", "Try this dish that you have always wanted! ");
         notification_list.add(n1);
+
+        ImageView BackButton = findViewById(R.id.backButton2);
+        BackButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+
+                finish();
+
+            }
+        });
+        
         RecyclerView recyclerView = findViewById(R.id.Notification_recyclerView);
         Notification_Adapter mAdapter = new Notification_Adapter(notification_list);
         LinearLayoutManager mLayoutManager = new LinearLayoutManager(this);
