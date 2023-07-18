@@ -14,8 +14,8 @@ public class StoreView_ViewHolder extends RecyclerView.ViewHolder {
 
     public StoreView_ViewHolder(View itemView){
         super(itemView);
-        foodName = itemView.findViewById(R.id.FoodNameVH);
-        foodImage = itemView.findViewById(R.id.FoodImageVH);
-        foodDescription = itemView.findViewById(R.id.FoodDescriptionVH);
+        foodName = itemView.findViewById(R.id.WLNameVH);
+        foodImage = itemView.findViewById(R.id.WLImageVH);
+        foodDescription = itemView.findViewById(R.id.WLDescriptionVH);
     }
 }
