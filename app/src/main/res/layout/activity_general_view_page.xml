@@ -9,6 +9,7 @@
     tools:context=".GeneralViewPage">
 
 
+
     <ImageView
         android:id="@+id/imageView7"
         android:layout_width="29dp"
@@ -36,11 +37,10 @@
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/recyclerView"
-        android:layout_width="377dp"
-        android:layout_height="638dp"
+        android:layout_width="379dp"
+        android:layout_height="531dp"
         android:layout_marginStart="10dp"
         android:layout_marginEnd="10dp"
-        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/horizontalScrollView">
@@ -184,16 +184,16 @@
 
     </HorizontalScrollView>
 
-    <com.google.android.material.floatingactionbutton.FloatingActionButton
+    <Button
         android:id="@+id/filterbutton"
-        android:layout_width="58dp"
-        android:layout_height="53dp"
+        android:layout_width="48dp"
+        android:layout_height="43dp"
         android:layout_gravity="bottom|end"
-        android:layout_marginEnd="20dp"
-        android:layout_marginBottom="16dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginBottom="4dp"
+        android:background="@drawable/outlinebuttonfilter"
         app:layout_constraintBottom_toBottomOf="@+id/recyclerView"
-        app:layout_constraintEnd_toEndOf="@+id/recyclerView"
-        app:srcCompat="@drawable/filter" />
+        app:layout_constraintEnd_toEndOf="@+id/recyclerView" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

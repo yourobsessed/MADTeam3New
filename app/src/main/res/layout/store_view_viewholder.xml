@@ -7,7 +7,7 @@
 
 
     <ImageView
-        android:id="@+id/WLImageVH"
+        android:id="@+id/FoodImageVH"
         android:layout_width="83dp"
         android:layout_height="90dp"
         android:layout_marginStart="16dp"
@@ -18,21 +18,21 @@
         tools:srcCompat="@tools:sample/avatars" />
 
     <TextView
-        android:id="@+id/WLNameVH"
+        android:id="@+id/FoodNameVH"
         android:layout_width="94dp"
         android:layout_height="30dp"
         android:layout_marginStart="9dp"
         android:layout_marginTop="16dp"
-        app:layout_constraintStart_toEndOf="@+id/WLImageVH"
+        app:layout_constraintStart_toEndOf="@+id/FoodImageVH"
         app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
-        android:id="@+id/WLDescriptionVH"
+        android:id="@+id/FoodDescriptionVH"
         android:layout_width="184dp"
         android:layout_height="50dp"
         android:layout_marginStart="9dp"
         android:layout_marginTop="3dp"
-        app:layout_constraintStart_toEndOf="@+id/WLImageVH"
-        app:layout_constraintTop_toBottomOf="@+id/WLNameVH" />
+        app:layout_constraintStart_toEndOf="@+id/FoodImageVH"
+        app:layout_constraintTop_toBottomOf="@+id/FoodNameVH" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
