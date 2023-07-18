@@ -295,7 +295,6 @@ public class GeneralViewPage extends AppCompatActivity implements SelectListener
         });
 
 
-
         //foodList = filteredListFromGVF;
         gAdapter = new GeneralView_Adapter(GeneralViewPage.this, foodList, this, this);
         LinearLayoutManager layoutManager = new LinearLayoutManager(this);
