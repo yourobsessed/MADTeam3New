@@ -27,6 +27,7 @@ import android.provider.ContactsContract;
 import android.util.Log;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.Button;
 import android.widget.CompoundButton;
 import android.widget.ImageView;
 import android.widget.Toast;
@@ -93,8 +94,8 @@ public class GeneralViewPage extends AppCompatActivity implements SelectListener
 
         //ArrayList<Food> foodList = new ArrayList<>();
         foodList = CreateObject(foodList);
-        DataHolder.food_List = foodList;
-        System.out.println(DataHolder.food_List.size());
+        //DataHolder.food_List = foodList;
+        //System.out.println(DataHolder.food_List.size());
         filteredListFromGVF = (ArrayList<Food>) getIntent().getSerializableExtra("filteredList");
 
         ImageView BackButton = findViewById(R.id.imageView7);
@@ -283,7 +284,7 @@ public class GeneralViewPage extends AppCompatActivity implements SelectListener
         });
 
 
-        FloatingActionButton fab = findViewById(R.id.filterbutton);
+        Button fab = findViewById(R.id.filterbutton);
         fab.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
