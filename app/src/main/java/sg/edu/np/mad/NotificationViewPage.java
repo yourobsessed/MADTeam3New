@@ -9,6 +9,9 @@ import androidx.core.app.NotificationCompat;
 import androidx.core.content.ContextCompat;
 import androidx.core.view.GravityCompat;
 import androidx.drawerlayout.widget.DrawerLayout;
+import androidx.recyclerview.widget.DefaultItemAnimator;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
 
 import android.Manifest;
 import android.app.NotificationChannel;
@@ -27,61 +30,26 @@ import android.widget.Button;
 
 import com.google.android.material.navigation.NavigationView;
 
+import java.util.ArrayList;
+
 public class NotificationViewPage extends AppCompatActivity{
+
+    ArrayList<Notification> notification_list = new ArrayList<>();
 
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_notification_view_page);
+        setContentView(R.layout.activity_notification_page);
+        Notification n1 = new Notification("Time For Lunch!!", "Try this dish that you have always wanted! ");
+        notification_list.add(n1);
+        RecyclerView recyclerView = findViewById(R.id.Notification_recyclerView);
+        Notification_Adapter mAdapter = new Notification_Adapter(notification_list);
+        LinearLayoutManager mLayoutManager = new LinearLayoutManager(this);
 
-        Button button = findViewById(R.id.button);
-        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.TIRAMISU){
-            if (ContextCompat.checkSelfPermission(NotificationViewPage.this, Manifest.permission.POST_NOTIFICATIONS)!= PackageManager.PERMISSION_GRANTED){
-                ActivityCompat.requestPermissions(NotificationViewPage.this, new String[]{
-                        Manifest.permission.POST_NOTIFICATIONS
-                }, 101);
-            }
-        }
-        button.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                makeNotification();
-            }
-        });
+        recyclerView.setLayoutManager(mLayoutManager);
+        recyclerView.setItemAnimator(new DefaultItemAnimator());
+        recyclerView.setAdapter(mAdapter);
 
-
-    }
-
-    public void makeNotification(){
-        String channelID = "CHANNEL_ID_NOTIFICATION";
-        NotificationCompat.Builder builder = new NotificationCompat.Builder(getApplicationContext(),channelID);
-
-        builder.setSmallIcon(R.drawable.notification);
-        builder.setContentTitle("Time for Lunch!");
-        builder.setContentText("Try out this dish!");
-        builder.setAutoCancel(true).setPriority(NotificationCompat.PRIORITY_DEFAULT);
-
-        Intent intent = new Intent(getApplicationContext(), NotificationPage.class);
-        intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
-        intent.putExtra("data", "Some value to be passed here");
-
-        PendingIntent pendingIntent = PendingIntent.getActivity(getApplicationContext(), 0, intent, PendingIntent.FLAG_MUTABLE);
-        builder.setContentIntent(pendingIntent);
-        NotificationManager notificationManager = (NotificationManager) getSystemService(Context.NOTIFICATION_SERVICE);
-
-        if (android.os.Build.VERSION.SDK_INT >= android.os.Build.VERSION_CODES.O){
-            NotificationChannel notificationChannel = notificationManager.getNotificationChannel(channelID);
-            if (notificationChannel == null){
-                int importance = NotificationManager.IMPORTANCE_HIGH;
-                notificationChannel = new NotificationChannel(channelID, "Some Description", importance);
-
-                notificationChannel.setLightColor(Color.GREEN);
-                notificationChannel.enableVibration(true);
-                notificationManager.createNotificationChannel(notificationChannel);
-            }
-        }
-
-        notificationManager.notify(0, builder.build());
     }
 }

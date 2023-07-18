@@ -81,7 +81,6 @@ public class GeneralView_Adapter extends RecyclerView.Adapter<GeneralView_Viewho
                 toCatalogue.putExtra("FoodImg2", f.getFoodImage2());
                 toCatalogue.putExtra("LocationImg", f.getLocationImage());
                 toCatalogue.putExtra("storeLocation", f.getLocation());
-                //toCatalogue.putExtra("object", (Serializable)f);
                 context.startActivity(toCatalogue);
 
             }

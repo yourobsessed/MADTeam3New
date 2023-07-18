@@ -6,7 +6,6 @@ import androidx.appcompat.app.ActionBarDrawerToggle;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
 import androidx.core.app.ActivityCompat;
-import androidx.core.app.NavUtils;
 import androidx.core.app.NotificationCompat;
 import androidx.core.content.ContextCompat;
 import androidx.core.view.GravityCompat;
@@ -23,13 +22,11 @@ import android.content.pm.PackageManager;
 import android.graphics.Color;
 import android.os.Build;
 import android.os.Bundle;
+import android.provider.ContactsContract;
 import android.util.Log;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
-import android.widget.FrameLayout;
-import android.widget.ImageView;
-import android.widget.ProgressBar;
 import android.widget.TextView;
 
 import com.google.android.material.navigation.NavigationView;
@@ -39,15 +36,15 @@ import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 
-import org.w3c.dom.Text;
-
+import java.io.Serializable;
 import java.time.Duration;
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Random;
 
-public class HomePage extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener {
+public class HomePage extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener{
     DrawerLayout drawer;
     NavigationView navigationView;
     String title;
@@ -166,8 +163,8 @@ public class HomePage extends AppCompatActivity implements NavigationView.OnNavi
             Intent toAboutUs = new Intent(HomePage.this, AboutUs.class);
             startActivity(toAboutUs);
 
-        } else if (menuItem.getItemId() == R.id.nav_feedbackbutton) {
-            Intent toFeedbackPage = new Intent(HomePage.this, Feedback.class);
+        } else if (menuItem.getItemId() == R.id.nav_infobutton) {
+            Intent toFeedbackPage = new Intent(HomePage.this, InfomationPage.class);
             startActivity(toFeedbackPage);
 
         } else if (menuItem.getItemId() == R.id.nav_aboutusbutton) {
@@ -307,11 +304,20 @@ public class HomePage extends AppCompatActivity implements NavigationView.OnNavi
         builder.setContentText("Try out this dish!");
         builder.setAutoCancel(true).setPriority(NotificationCompat.PRIORITY_DEFAULT);
 
-        Intent intent = new Intent(getApplicationContext(), NotificationPage.class);
-        intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
-        intent.putExtra("data", "Some value to be passed here");
+        Intent notificationToCat = new Intent(getApplicationContext(), CataloguePage.class);
+        notificationToCat.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
 
-        PendingIntent pendingIntent = PendingIntent.getActivity(getApplicationContext(), 0, intent, PendingIntent.FLAG_MUTABLE);
+        Food selectedFood = randomPicker(); //calling for method
+        notificationToCat.putExtra("FoodName", selectedFood.getFoodName());
+        notificationToCat.putExtra("FoodPrice", selectedFood.getPrice());
+        notificationToCat.putExtra("FoodCalories", selectedFood.getCalories());
+        notificationToCat.putExtra("FoodImg", selectedFood.getFoodImage1());
+        notificationToCat.putExtra("FoodImg2", selectedFood.getFoodImage2());
+        notificationToCat.putExtra("LocationImg", selectedFood.getLocationImage());
+        notificationToCat.putExtra("storeLocation", selectedFood.getLocation());
+
+
+        PendingIntent pendingIntent = PendingIntent.getActivity(getApplicationContext(), 0, notificationToCat, PendingIntent.FLAG_MUTABLE);
         builder.setContentIntent(pendingIntent);
         NotificationManager notificationManager = (NotificationManager) getSystemService(Context.NOTIFICATION_SERVICE);
 
@@ -328,6 +334,20 @@ public class HomePage extends AppCompatActivity implements NavigationView.OnNavi
         }
 
         notificationManager.notify(0, builder.build());
+    }
+
+    public Food randomPicker(){
+        Random randomPicker = new Random();
+        Food randomFood;
+        if (DataHolder.wishlist_List != null){
+            int position = randomPicker.nextInt(DataHolder.wishlist_List.size());
+            randomFood = DataHolder.wishlist_List.get(position);
+            return randomFood;
+        }
+        System.out.println(DataHolder.food_List.size());
+        int position = randomPicker.nextInt(DataHolder.food_List.size());
+        randomFood = DataHolder.food_List.get(position);
+        return randomFood;
     }
 }
 

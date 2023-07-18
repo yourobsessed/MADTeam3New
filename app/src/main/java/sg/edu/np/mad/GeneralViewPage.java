@@ -23,6 +23,7 @@ import com.mapbox.mapboxsdk.Mapbox;
 import android.content.Intent;
 import android.graphics.Color;
 import android.os.Bundle;
+import android.provider.ContactsContract;
 import android.util.Log;
 import android.view.MenuItem;
 import android.view.View;
@@ -45,8 +46,7 @@ public class GeneralViewPage extends AppCompatActivity implements SelectListener
 
     //ArrayList<String> selectedChipData = new ArrayList<>();
 
-    ArrayList<Food> wishlist_List = new ArrayList<>();
-    ArrayList<Food> foodList = new ArrayList<>();
+    ArrayList<Food> foodList = DataHolder.food_List;
     GeneralView_Adapter gAdapter;
     ArrayList<Food> filteredListFromGVF = new ArrayList<>();
     //ArrayList<Food> secondFilterList = new ArrayList<>();
@@ -314,10 +314,6 @@ public class GeneralViewPage extends AppCompatActivity implements SelectListener
     @Override
     public void onIconClick(Food foodimage){
 
-        //Toast.makeText(getApplicationContext(),"Food added to the wishlist!", Toast.LENGTH_SHORT).show();
-
-        //int newColour = Color.RED;
-        //gAdapter.changeIconColor(position, newColour);
     }
 
     private void limitoption() {
