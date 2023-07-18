@@ -277,6 +277,7 @@ public class GeneralViewPage extends AppCompatActivity implements SelectListener
         });
 
 
+
         Button filter = findViewById(R.id.filterbutton);
         filter.setOnClickListener(new View.OnClickListener() {
             @Override
