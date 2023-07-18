@@ -95,7 +95,7 @@ public class GeneralView_Adapter extends RecyclerView.Adapter<GeneralView_Viewho
                     DataHolder.wishlist_List.add(f);
                     Toast.makeText(v.getContext(),"Food added to the wishlist!", Toast.LENGTH_SHORT).show();
                 }
-                changeIconColor(v, holder);
+                changeIconColor(v, holder); //changing the colour from black to red
             }
         });
 
@@ -110,7 +110,7 @@ public class GeneralView_Adapter extends RecyclerView.Adapter<GeneralView_Viewho
     public void changeIconColor(View view, GeneralView_Viewholder holder) {
         // Change the color of the icon
 
-        //Food f = wishlist_List.get(f);
+        //changing the heart button onclick
         int newColor = Color.parseColor("#FF0000"); // Set the desired color here
         holder.wishlisticon.setColorFilter(newColor);
     }

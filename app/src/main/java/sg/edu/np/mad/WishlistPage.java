@@ -36,7 +36,7 @@ public class WishlistPage extends AppCompatActivity implements SelectListenerFoo
                 WLrecyclerView.setLayoutManager(mLayoutManger);
                 WLrecyclerView.setItemAnimator(new DefaultItemAnimator());
                 WLrecyclerView.setAdapter(mAdapter);
-                Log.i("HELLLLLLLLLOOOOOO!!!", "HE:LLLLLLL");
+                Log.i("HELLLLLLLLLOOOOOO!!!", "HELLLLLLL");
                 swipeRefreshLayout.setRefreshing(false);
             }
 

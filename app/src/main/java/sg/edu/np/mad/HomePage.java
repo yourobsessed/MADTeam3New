@@ -315,7 +315,7 @@ public class HomePage extends AppCompatActivity implements NavigationView.OnNavi
         notificationToCat.putExtra("FoodImg2", selectedFood.getFoodImage2());
         notificationToCat.putExtra("LocationImg", selectedFood.getLocationImage());
         notificationToCat.putExtra("storeLocation", selectedFood.getLocation());
-
+        System.out.println("HELLLLOO");
 
         PendingIntent pendingIntent = PendingIntent.getActivity(getApplicationContext(), 0, notificationToCat, PendingIntent.FLAG_MUTABLE);
         builder.setContentIntent(pendingIntent);
@@ -344,10 +344,14 @@ public class HomePage extends AppCompatActivity implements NavigationView.OnNavi
             randomFood = DataHolder.wishlist_List.get(position);
             return randomFood;
         }
-        System.out.println(DataHolder.food_List.size());
-        int position = randomPicker.nextInt(DataHolder.food_List.size());
-        randomFood = DataHolder.food_List.get(position);
-        return randomFood;
+        else{
+            System.out.println(DataHolder.food_List.size());
+            int position = randomPicker.nextInt(DataHolder.food_List.size());
+            randomFood = DataHolder.food_List.get(position);
+            return randomFood;
+        }
+
+
     }
 }
 
