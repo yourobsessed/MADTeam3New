@@ -284,7 +284,7 @@ public class GeneralViewPage extends AppCompatActivity implements SelectListener
         });
 
 
-        Button fab = findViewById(R.id.filterbutton);
+        /*Button fab = findViewById(R.id.filterbutton);
         fab.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -295,7 +295,7 @@ public class GeneralViewPage extends AppCompatActivity implements SelectListener
 
             }
 
-        });
+        });*/
 
 
         //foodList = filteredListFromGVF;
