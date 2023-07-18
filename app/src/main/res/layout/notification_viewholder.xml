@@ -33,7 +33,7 @@
                 app:srcCompat="@drawable/baseline_lunch_dining_24" />
 
             <TextView
-                android:id="@+id/textView20"
+                android:id="@+id/Notification_Title"
                 android:layout_width="228dp"
                 android:layout_height="43dp"
                 android:layout_marginStart="8dp"
@@ -45,20 +45,7 @@
                 app:layout_constraintTop_toTopOf="parent" />
 
             <TextView
-                android:id="@+id/textView21"
-                android:layout_width="68dp"
-                android:layout_height="22dp"
-                android:layout_marginStart="44dp"
-                android:layout_marginTop="36dp"
-                android:layout_marginEnd="16dp"
-                android:text="Time"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintHorizontal_bias="1.0"
-                app:layout_constraintStart_toEndOf="@+id/textView20"
-                app:layout_constraintTop_toTopOf="parent" />
-
-            <TextView
-                android:id="@+id/textView22"
+                android:id="@+id/Notification_content"
                 android:layout_width="320dp"
                 android:layout_height="79dp"
                 android:layout_marginStart="63dp"
@@ -68,7 +55,7 @@
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintHorizontal_bias="0.0"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/textView20" />
+                app:layout_constraintTop_toBottomOf="@+id/Notification_Title" />
 
         </androidx.constraintlayout.widget.ConstraintLayout>
     </androidx.cardview.widget.CardView>
