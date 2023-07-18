@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<layer-list xmlns:android="http://schemas.android.com/apk/res/android">
+
+<!-- Add the button outline as the bottom layer -->
+<item>
+    <shape android:shape="rectangle">
+        <solid android:color="@android:color/white" />
+        <stroke
+            android:width="2dp"
+            android:color="#0091D4" />
+        <corners android:radius="100dp" />
+    </shape>
+</item>
+
+<!-- Add the button icon as the top layer -->
+<item
+    android:id="@+id/icon"
+    android:drawable="@drawable/filter"
+    android:gravity="center" /> <!-- Set the desired height of the icon -->
+</layer-list>
