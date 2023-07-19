@@ -78,7 +78,7 @@ public class GeneralViewPage extends AppCompatActivity implements SelectListener
         searchView.clearFocus();
 
         //chips
-        chipAllLocations=findViewById(R.id.chipAllLocations);
+        //chipAllLocations=findViewById(R.id.chipAllLocations);
         chipClub=findViewById(R.id.chipClub);
         chipMakan=findViewById(R.id.chipMakan);
         chipMunch=findViewById(R.id.chipMunch);
