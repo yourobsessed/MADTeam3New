@@ -35,7 +35,7 @@ import java.util.ArrayList;
 
 public class NotificationViewPage extends AppCompatActivity{
 
-    ArrayList<Notification> notification_list = new ArrayList<>();
+    ArrayList<Notification> notification_list = DataHolder.notification_List;
 
 
     @Override

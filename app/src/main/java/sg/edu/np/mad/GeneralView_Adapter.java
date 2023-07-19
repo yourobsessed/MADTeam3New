@@ -24,6 +24,7 @@ import com.mapbox.mapboxsdk.Mapbox;
 import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.concurrent.atomic.DoubleAdder;
 
 public class GeneralView_Adapter extends RecyclerView.Adapter<GeneralView_Viewholder> { //implements Serializable
     private Context context;
@@ -58,10 +59,16 @@ public class GeneralView_Adapter extends RecyclerView.Adapter<GeneralView_Viewho
 
     @Override
     public GeneralView_Viewholder onCreateViewHolder(ViewGroup parent, int viewType) {
-
-        //inflating the generalView holder with the relevant details
         View item = LayoutInflater.from(parent.getContext()).inflate(R.layout.general_view_viewholder, parent, false);
         return new GeneralView_Viewholder(item);
+        /*if (DataHolder.viewHoldering == null) {
+            //inflating the generalView holder with the relevant details
+            View item = LayoutInflater.from(parent.getContext()).inflate(R.layout.general_view_viewholder, parent, false);
+            return new GeneralView_Viewholder(item);
+        } else {
+            return DataHolder.viewHoldering;
+        }*/
+
     }
 
     @Override
@@ -95,13 +102,14 @@ public class GeneralView_Adapter extends RecyclerView.Adapter<GeneralView_Viewho
             @Override
             public void onClick(View v) {
                 //onClick wishlist button, adds the food object to the wishlist page
-
-                if (!DataHolder.wishlist_List.contains(f)) {
+                if(!DataHolder.wishlist_List.contains(f)) {
                     DataHolder.wishlist_List.add(f);
                     Toast.makeText(v.getContext(), "Food added to the wishlist!", Toast.LENGTH_SHORT).show();
                     f.setAddedWishlist(true);
+                    //holder.wishlisticon.setColorFilter(newColor);
                     changeIconColor(v, holder);
                 }
+
             }
         });
     }
@@ -114,6 +122,7 @@ public class GeneralView_Adapter extends RecyclerView.Adapter<GeneralView_Viewho
         // Change the color of the icon
         int newColor = Color.parseColor("#FF0000"); // Set the desired color here
         holder.wishlisticon.setColorFilter(newColor);
+        //DataHolder.viewHoldering = holder;
     }
 }
 
