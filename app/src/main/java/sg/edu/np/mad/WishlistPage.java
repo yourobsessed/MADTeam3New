@@ -53,17 +53,23 @@ public class WishlistPage extends AppCompatActivity implements SelectListenerFoo
         });
 
 
-
-        /*RecyclerView WLrecyclerView = findViewById(R.id.wishlist_RV);
-        WishList_Adapter mAdapter = new WishList_Adapter(this, receivedList, this);
-        LinearLayoutManager mLayoutManger = new LinearLayoutManager(this);
-        WLrecyclerView.setLayoutManager(mLayoutManger);
-        WLrecyclerView.setItemAnimator(new DefaultItemAnimator());
-        WLrecyclerView.setAdapter(mAdapter);*/
-
+    }
+    @Override
+    protected void onStart(){
+        super.onStart();
 
     }
 
+    @Override
+    protected void onResume(){
+        super.onResume();
+        RecyclerView WLrecyclerView = findViewById(R.id.wishlist_RV);
+        WishList_Adapter mAdapter = new WishList_Adapter(this, receivedList);
+        LinearLayoutManager mLayoutManger = new LinearLayoutManager(this);
+        WLrecyclerView.setLayoutManager(mLayoutManger);
+        WLrecyclerView.setItemAnimator(new DefaultItemAnimator());
+        WLrecyclerView.setAdapter(mAdapter);
+    }
     @Override
     public void onItemClicked(Food food) {
         Intent toCataloguePage = new Intent(WishlistPage.this, CataloguePage.class);

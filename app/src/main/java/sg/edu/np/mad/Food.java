@@ -14,7 +14,7 @@ public class Food {
     private int foodImage3; //
 
     private int locationImage; //
-
+    private Boolean addedWishlist;
 
     //considering one food item as per order
     private Boolean noodle;
@@ -179,6 +179,15 @@ public class Food {
     public Boolean isDrinks(){
         return !noodle && !rice && !dessert;
     }
+
+    public Boolean getAddedWishlist() {
+        return addedWishlist;
+    }
+
+    public void setAddedWishlist(Boolean addedWishlist) {
+        this.addedWishlist = addedWishlist;
+    }
+
     public String toString() {
         String convertedMsg = this.foodName +"," + this.location +","+ this.description;
         return convertedMsg;

@@ -81,8 +81,6 @@ public class WishList_Adapter extends RecyclerView.Adapter<WishList_ViewHolder> 
     }
     public void changeIconColor(View view, WishList_ViewHolder holder) {
         // Change the color of the icon
-
-        //Food f = wishlist_List.get(f);
         int newColor = Color.parseColor("#000000"); // Set the desired color here
         holder.wishlistButton.setColorFilter(newColor);
     }

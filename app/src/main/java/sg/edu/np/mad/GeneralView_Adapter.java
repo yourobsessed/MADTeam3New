@@ -6,6 +6,7 @@ import static android.icu.text.DisplayContext.LENGTH_SHORT;
 
 import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.graphics.Color;
 import android.graphics.drawable.Icon;
 import android.util.Log;
@@ -29,10 +30,13 @@ public class GeneralView_Adapter extends RecyclerView.Adapter<GeneralView_Viewho
     private List<Food> data;
     private SelectListenerFood listenerFood;
     private IconClickListener listenerWL;
-    //SwipeRefreshLayout swipeRefreshLayout;
+
+    private int imageViewColor;
+
 
     String tag;
-    public GeneralView_Adapter(Context context, List<Food> input, SelectListenerFood ListenerFood, IconClickListener listener){
+
+    public GeneralView_Adapter(Context context, List<Food> input, SelectListenerFood ListenerFood, IconClickListener listener) {
         this.context = context;
         this.data = input;
         this.listenerFood = ListenerFood;
@@ -51,6 +55,7 @@ public class GeneralView_Adapter extends RecyclerView.Adapter<GeneralView_Viewho
         // as change in recycler view data.
         notifyDataSetChanged();
     }
+
     @Override
     public GeneralView_Viewholder onCreateViewHolder(ViewGroup parent, int viewType) {
 
@@ -60,7 +65,7 @@ public class GeneralView_Adapter extends RecyclerView.Adapter<GeneralView_Viewho
     }
 
     @Override
-    public void onBindViewHolder(GeneralView_Viewholder holder, int position){
+    public void onBindViewHolder(GeneralView_Viewholder holder, int position) {
         Food f = data.get(position);
         holder.foodName.setText(f.getFoodName());
         holder.foodDescription.setText(f.getDescription());
@@ -93,27 +98,23 @@ public class GeneralView_Adapter extends RecyclerView.Adapter<GeneralView_Viewho
 
                 if (!DataHolder.wishlist_List.contains(f)) {
                     DataHolder.wishlist_List.add(f);
-                    Toast.makeText(v.getContext(),"Food added to the wishlist!", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(v.getContext(), "Food added to the wishlist!", Toast.LENGTH_SHORT).show();
+                    f.setAddedWishlist(true);
+                    changeIconColor(v, holder);
                 }
-                changeIconColor(v, holder); //changing the colour from black to red
             }
         });
-
-
     }
 
-    public int getItemCount(){
+    public int getItemCount() {
         return data.size();
     }
 
-    //for it to change colour
     public void changeIconColor(View view, GeneralView_Viewholder holder) {
         // Change the color of the icon
-
-        //changing the heart button onclick
         int newColor = Color.parseColor("#FF0000"); // Set the desired color here
         holder.wishlisticon.setColorFilter(newColor);
     }
-
-
 }
+
+

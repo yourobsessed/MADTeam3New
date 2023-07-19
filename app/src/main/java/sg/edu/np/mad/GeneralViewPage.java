@@ -20,7 +20,9 @@ import com.google.android.material.navigation.NavigationView;
 import com.mapbox.mapboxsdk.Mapbox;
 
 
+import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.graphics.Color;
 import android.os.Bundle;
 import android.provider.ContactsContract;
@@ -66,6 +68,9 @@ public class GeneralViewPage extends AppCompatActivity implements SelectListener
 
     private Boolean soup = false;
     private Boolean dessert = false;
+
+//    private int imageViewColour;
+//    int originalColour = Color.BLACK;
     //private Boolean drinks = false;
 
     @Override
@@ -93,8 +98,9 @@ public class GeneralViewPage extends AppCompatActivity implements SelectListener
         chipDessert=findViewById(R.id.chipDessert);
 
         //ArrayList<Food> foodList = new ArrayList<>();
-        foodList = CreateObject(foodList);
-        //DataHolder.food_List = foodList;
+        DataHolder.food_List = CreateObject(foodList);
+
+        //foodList = DataHolder.food_List;
         //System.out.println(DataHolder.food_List.size());
         filteredListFromGVF = (ArrayList<Food>) getIntent().getSerializableExtra("filteredList");
 
@@ -284,29 +290,35 @@ public class GeneralViewPage extends AppCompatActivity implements SelectListener
         });
 
 
-        /*Button fab = findViewById(R.id.filterbutton);
-        fab.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-
-                Intent toFilter = new Intent(GeneralViewPage.this, GeneralView_Filter.class);
-                //toFilter.putExtra("filteredList", originalList);
-                startActivity(toFilter);//,101);
-
-            }
-
-        });*/
-
 
         //foodList = filteredListFromGVF;
-        gAdapter = new GeneralView_Adapter(GeneralViewPage.this, foodList, this, this);
+        gAdapter = new GeneralView_Adapter(GeneralViewPage.this, DataHolder.food_List, this, this);
         LinearLayoutManager layoutManager = new LinearLayoutManager(this);
         recyclerView.setLayoutManager(layoutManager);
         recyclerView.setItemAnimator(new DefaultItemAnimator());
         recyclerView.setAdapter(gAdapter);
     }
+    @Override
+    protected void onStart(){
+        super.onStart();
 
+    }
 
+    @Override
+    protected void onResume(){
+        super.onResume();
+
+        for (Food f : DataHolder.food_List) {
+            if (!DataHolder.wishlist_List.contains(f)){
+                f.setAddedWishlist(false);
+            }
+        }
+        gAdapter = new GeneralView_Adapter(GeneralViewPage.this, DataHolder.food_List, this, this);
+        LinearLayoutManager layoutManager = new LinearLayoutManager(this);
+        recyclerView.setLayoutManager(layoutManager);
+        recyclerView.setItemAnimator(new DefaultItemAnimator());
+        recyclerView.setAdapter(gAdapter);
+    }
 
     @Override
     public void onItemClicked(Food food) {
@@ -397,10 +409,6 @@ public class GeneralViewPage extends AppCompatActivity implements SelectListener
 
     }
 
-    @Override
-    protected void onStart(){
-        super.onStart();
-    }
 
     /*searchView.setOnQueryTextListener(new SearchView.OnQueryTextListener(){
         @Override
@@ -417,12 +425,6 @@ public class GeneralViewPage extends AppCompatActivity implements SelectListener
                             }
                             return false;*/
 
-
-    @Override
-    protected void onResume(){
-        super.onResume();
-
-    }
 
 
     /*@Override
@@ -1029,6 +1031,8 @@ public class GeneralViewPage extends AppCompatActivity implements SelectListener
         foodList.add(MPGoPizza5);
 
         return foodList;
+
+
     }
 
 }
