@@ -83,7 +83,7 @@ public class GeneralViewPage extends AppCompatActivity implements SelectListener
         searchView.clearFocus();
 
         //chips
-        chipAllLocations=findViewById(R.id.chipAllLocations);
+        //chipAllLocations=findViewById(R.id.chipAllLocations);
         chipClub=findViewById(R.id.chipClub);
         chipMakan=findViewById(R.id.chipMakan);
         chipMunch=findViewById(R.id.chipMunch);
@@ -117,7 +117,7 @@ public class GeneralViewPage extends AppCompatActivity implements SelectListener
 
         //chips
 
-        chipAllLocations.setOnClickListener(new View.OnClickListener() {
+        /*chipAllLocations.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 if (!alllocations){
@@ -128,9 +128,10 @@ public class GeneralViewPage extends AppCompatActivity implements SelectListener
 
                 }
 
+
                 limitoption();
             }
-        });
+        });*/
 
         chipClub.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -141,6 +142,14 @@ public class GeneralViewPage extends AppCompatActivity implements SelectListener
                     makan = false;
                     alllocations = false;
 
+                }
+
+                //if fc is true
+                else {
+                    alllocations = true;
+                    fc = false;
+                    munch = false;
+                    makan = false;
                 }
 
                 limitoption();
@@ -158,6 +167,14 @@ public class GeneralViewPage extends AppCompatActivity implements SelectListener
 
                 }
 
+                //if makan is true
+                else {
+                    alllocations = true;
+                    fc = false;
+                    munch = false;
+                    makan = false;
+                }
+
                 limitoption();
             }
 
@@ -172,6 +189,13 @@ public class GeneralViewPage extends AppCompatActivity implements SelectListener
                     makan = false;
                     alllocations = false;
 
+                }
+                //if munch is true
+                else {
+                    alllocations = true;
+                    fc = false;
+                    munch = false;
+                    makan = false;
                 }
 
                 limitoption();
