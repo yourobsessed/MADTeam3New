@@ -12,6 +12,7 @@ import androidx.core.view.GravityCompat;
 import androidx.drawerlayout.widget.DrawerLayout;
 
 import android.Manifest;
+import android.app.AlarmManager;
 import android.app.NotificationChannel;
 import android.app.NotificationManager;
 import android.app.PendingIntent;
@@ -41,6 +42,7 @@ import java.time.Duration;
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
+import java.util.Calendar;
 import java.util.List;
 import java.util.Random;
 
@@ -118,7 +120,7 @@ public class HomePage extends AppCompatActivity implements NavigationView.OnNavi
         button.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                makeNotification();
+                makeNotification(HomePage.this);
             }
         });
 
@@ -295,7 +297,7 @@ public class HomePage extends AppCompatActivity implements NavigationView.OnNavi
         return (int) sum / list.size();
     }
 
-    public void makeNotification(){
+    public void makeNotification(Context context){
         String channelID = "CHANNEL_ID_NOTIFICATION";
         NotificationCompat.Builder builder = new NotificationCompat.Builder(getApplicationContext(),channelID);
 
@@ -318,6 +320,18 @@ public class HomePage extends AppCompatActivity implements NavigationView.OnNavi
         System.out.println("HELLLLOO");
 
         PendingIntent pendingIntent = PendingIntent.getActivity(getApplicationContext(), 0, notificationToCat, PendingIntent.FLAG_MUTABLE);
+
+        //setting the specific time to make the notification
+        AlarmManager alarmManager = (AlarmManager) context.getSystemService(Context.ALARM_SERVICE);
+        alarmManager.cancel(pendingIntent);
+        Calendar calendar = Calendar.getInstance();
+        calendar.setTimeInMillis(System.currentTimeMillis());
+        calendar.set(Calendar.HOUR_OF_DAY, 12);
+        calendar.set(Calendar.MINUTE, 00);
+        calendar.set(Calendar.SECOND, 00);
+        alarmManager.set(AlarmManager.RTC_WAKEUP, calendar.getTimeInMillis(), pendingIntent);
+
+
         builder.setContentIntent(pendingIntent);
         NotificationManager notificationManager = (NotificationManager) getSystemService(Context.NOTIFICATION_SERVICE);
 

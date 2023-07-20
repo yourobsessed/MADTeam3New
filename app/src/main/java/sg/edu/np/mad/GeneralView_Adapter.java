@@ -115,70 +115,73 @@ public class GeneralView_Adapter extends RecyclerView.Adapter<GeneralView_Viewho
                 //onClick wishlist button, adds the food object to the wishlist page
                 Log.i("wishlist f", String.valueOf(f));
 
-//                FirebaseDatabase database = FirebaseDatabase.getInstance();
-//                DatabaseReference accountsRef = database.getReference("Accounts").child("-hello");
-//                accountsRef.addListenerForSingleValueEvent(new ValueEventListener() {
-//                    @Override
-//                    public void onDataChange(@NonNull DataSnapshot snapshot) {
-//                        Account acc = snapshot.getValue(Account.class);
-//                        if (!acc.wishlist.contains(f.getFoodIndex())){
-//                            acc.wishlist.add(f.getFoodIndex());
-//                            Toast.makeText(v.getContext(), "Food added to the wishlist!", Toast.LENGTH_SHORT).show();
-//                            f.setAddedWishlist(true);
-//
-//                        }
-//                        else{
-//                            acc.wishlist.remove(f.getFoodIndex());
-//                            Toast.makeText(v.getContext(), "Food removed from the wishlist!", Toast.LENGTH_SHORT).show();
-//                            f.setAddedWishlist(false);
-//                        }
-//                        changeIconColor(v, f, holder);
-//                        //get the wishlist. check if inside. --> update the colour --> update wishlist --> Toast --> update Database.
-//                    }
-//
-//                    @Override
-//                    public void onCancelled(@NonNull DatabaseError error) {
-//
-//                    }
-//                });
+               FirebaseDatabase database = FirebaseDatabase.getInstance();
+               DatabaseReference accountsRef = database.getReference("Accounts").child("-hello");
+               accountsRef.addListenerForSingleValueEvent(new ValueEventListener() {
+                   @Override
+                   public void onDataChange(@NonNull DataSnapshot snapshot) {
+                       Account acc = snapshot.getValue(Account.class);
+                       if (!acc.wishlist.contains(f.getFoodIndex())) {
+                           acc.wishlist.add(f.getFoodIndex());
+                           Toast.makeText(v.getContext(), "Food added to the wishlist!", Toast.LENGTH_SHORT).show();
+                           f.setAddedWishlist(true);
 
-                if (!DataHolder.wishlist_List.contains(f)) {
-                    DataHolder.wishlist_List.add(f);
-                    Toast.makeText(v.getContext(), "Food added to the wishlist!", Toast.LENGTH_SHORT).show();
-                    f.setAddedWishlist(true);
+                       } else {
+                           acc.wishlist.remove(f.getFoodIndex());
+                           Toast.makeText(v.getContext(), "Food removed from the wishlist!", Toast.LENGTH_SHORT).show();
+                           f.setAddedWishlist(false);
+                       }
+                       changeIconColor(v, f, holder);
+                       //get the wishlist. check if inside. --> update the colour --> update wishlist --> Toast --> update Database.
+                   }
 
-                    //need to make it change the colour
-                    //changeIconColor(v, f, holder); //changing the colour from black to red since it is being added to the wishlist
-                } else {
-                    DataHolder.wishlist_List.remove(f);
-                    Toast.makeText(v.getContext(), "Food removed from the wishlist!", Toast.LENGTH_SHORT).show();
-                    f.setAddedWishlist(false);
-                    //changeIconColor(v, f, holder); //changing the colour from red to black since it is being removed from the wishlist
-                }
-                changeIconColor(v, f, holder);
+                   @Override
+                   public void onCancelled(@NonNull DatabaseError error) {
+
+                   }
+               });
+
+
+//                if (!DataHolder.wishlist_List.contains(f)) {
+//                    DataHolder.wishlist_List.add(f);
+//                    Toast.makeText(v.getContext(), "Food added to the wishlist!", Toast.LENGTH_SHORT).show();
+//                    f.setAddedWishlist(true);
+//
+//                    //need to make it change the colour
+//                    //changeIconColor(v, f, holder); //changing the colour from black to red since it is being added to the wishlist
+//                } else {
+//                    DataHolder.wishlist_List.remove(f);
+//                    Toast.makeText(v.getContext(), "Food removed from the wishlist!", Toast.LENGTH_SHORT).show();
+//                    f.setAddedWishlist(false);
+//                    //changeIconColor(v, f, holder); //changing the colour from red to black since it is being removed from the wishlist
+//                }
+//                changeIconColor(v, f, holder);
             }
-        });
-    }
 
-    public int getItemCount() {
+
+
+        });
+
+    };
+
+    public int getItemCount(){
         Log.i("DATA SIZE", String.valueOf(data.size()));
         return data.size();
-    }
+        }
 
     public void changeIconColor(View view, Food f, GeneralView_Viewholder holder) {
         // Change the color of the icon
-        if (f.getAddedWishlist() == true){
+        if (f.getAddedWishlist() == true) {
             int newColor = Color.parseColor("#FF0000"); // Set the desired color here
             holder.wishlisticon.setColorFilter(newColor);
 
-        }
-        else if(f.getAddedWishlist() == false){
+        } else if (f.getAddedWishlist() == false) {
             int newColor = Color.parseColor("#000000");
             holder.wishlisticon.setColorFilter(newColor);
         }
         //DataHolder.viewHoldering = holder;
     }
 
-}
 
+}
 
