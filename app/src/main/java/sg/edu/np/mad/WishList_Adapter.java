@@ -19,19 +19,19 @@ public class WishList_Adapter extends RecyclerView.Adapter<WishList_ViewHolder> 
     private SelectListenerFood listenerFood;
 
 
-    public WishList_Adapter(Context context, List<Food> input){//, SelectListenerFood ListenerFood){
+    public WishList_Adapter(Context context, List<Food> input) {//, SelectListenerFood ListenerFood){
         this.context = context;
         this.data = input;
         //this.listenerFood = ListenerFood;
 
     }
 
-    public WishList_ViewHolder onCreateViewHolder(ViewGroup parent, int viewType){
+    public WishList_ViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
         View item = LayoutInflater.from(parent.getContext()).inflate(R.layout.wishlist_viewholder, parent, false);
         return new WishList_ViewHolder(item);
     }
 
-    public void onBindViewHolder(WishList_ViewHolder holder, int position){
+    public void onBindViewHolder(WishList_ViewHolder holder, int position) {
         Food f = data.get(position);
         holder.Name.setText(f.getFoodName());
         holder.Desc.setText(f.getDescription());
@@ -59,14 +59,29 @@ public class WishList_Adapter extends RecyclerView.Adapter<WishList_ViewHolder> 
         holder.wishlistButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                //System.out.println("HELLLLLLLLLLLLOOOOOOOOO");
-                if (DataHolder.wishlist_List.contains(f)) {
-                    //System.out.println("HELLLLLLLLLLLLOOOOOOOOO");
+                if (f.getAddedWishlist() == false) {
+                    DataHolder.wishlist_List.add(f);
+                    Toast.makeText(v.getContext(), "Food added to the wishlist!", Toast.LENGTH_SHORT).show();
+                    f.setAddedWishlist(true);
+
+                    //need to make it change the colour
+                    changeIconColor(v, f, holder); //changing the colour from black to red since it is being added to the wishlist
+                } else {
                     DataHolder.wishlist_List.remove(f);
-                    Toast.makeText(v.getContext(),"Food removed from the wishlist!", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(v.getContext(), "Food removed from the wishlist!", Toast.LENGTH_SHORT).show();
+                    f.setAddedWishlist(false);
+                    changeIconColor(v, f, holder); //changing the colour from red to black since it is being removed from the wishlist
                 }
 
-                changeIconColor(v, holder);
+
+//                if (DataHolder.wishlist_List.contains(f)) {
+//                    //System.out.println("HELLLLLLLLLLLLOOOOOOOOO");
+//                    DataHolder.wishlist_List.remove(f);
+//                    Toast.makeText(v.getContext(), "Food removed from the wishlist!", Toast.LENGTH_SHORT).show();
+//                    f.setAddedWishlist(false);
+//                }
+//
+//                changeIconColor(v, f, holder);
             }
         });
 
@@ -79,9 +94,18 @@ public class WishList_Adapter extends RecyclerView.Adapter<WishList_ViewHolder> 
     public int getItemCount() {
         return data.size();
     }
-    public void changeIconColor(View view, WishList_ViewHolder holder) {
+
+    public void changeIconColor(View view, Food f, WishList_ViewHolder holder) {
         // Change the color of the icon
-        int newColor = Color.parseColor("#000000"); // Set the desired color here
-        holder.wishlistButton.setColorFilter(newColor);
+        if (f.getAddedWishlist() == true) {
+            int newColor = Color.parseColor("#FF0000"); // Set the desired color here
+            holder.wishlistButton.setColorFilter(newColor);
+        } else if (f.getAddedWishlist() == false) {
+            int newColor = Color.parseColor("#000000");
+            holder.wishlistButton.setColorFilter(newColor);
+        }
+        //DataHolder.viewHoldering = holder;
+
     }
+
 }

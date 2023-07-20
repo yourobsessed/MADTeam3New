@@ -8,16 +8,16 @@ public class DataHolder {
     public static ArrayList<Food> wishlist_List = new ArrayList<Food>() {
         @Override
         public boolean contains(Object c) {
-            if (c == null) {
-                return false;
-            }
-            Food d = (Food) c;
-            for (int i = 0; i < size(); i++) {
-                if (d.getFoodIndex() == this.get(i).getFoodIndex()) {
-                    return true;
-                }
-            }
+        if (c == null) {
             return false;
+        }
+        Food d = (Food) c;
+        for (int i = 0; i < size(); i++) {
+            if (d.getFoodIndex() == this.get(i).getFoodIndex()) {
+                return true;
+            }
+        }
+        return false;
         }
     };
 

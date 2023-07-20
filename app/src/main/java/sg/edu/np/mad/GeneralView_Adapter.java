@@ -74,6 +74,7 @@ public class GeneralView_Adapter extends RecyclerView.Adapter<GeneralView_Viewho
     @Override
     public void onBindViewHolder(GeneralView_Viewholder holder, int position) {
         Food f = data.get(position);
+        Log.i("holder number", String.valueOf(holder));
         holder.foodName.setText(f.getFoodName());
         holder.foodDescription.setText(f.getDescription());
         holder.foodImage.setImageResource(f.getFoodImage2());
@@ -102,28 +103,44 @@ public class GeneralView_Adapter extends RecyclerView.Adapter<GeneralView_Viewho
             @Override
             public void onClick(View v) {
                 //onClick wishlist button, adds the food object to the wishlist page
-                if(!DataHolder.wishlist_List.contains(f)) {
+                if (!DataHolder.wishlist_List.contains(f)){
                     DataHolder.wishlist_List.add(f);
                     Toast.makeText(v.getContext(), "Food added to the wishlist!", Toast.LENGTH_SHORT).show();
                     f.setAddedWishlist(true);
-                    //holder.wishlisticon.setColorFilter(newColor);
-                    changeIconColor(v, holder);
-                }
 
+                    //need to make it change the colour
+                    //changeIconColor(v, f, holder); //changing the colour from black to red since it is being added to the wishlist
+                }
+                else{
+                    DataHolder.wishlist_List.remove(f);
+                    Toast.makeText(v.getContext(), "Food removed from the wishlist!", Toast.LENGTH_SHORT).show();
+                    f.setAddedWishlist(false);
+                    //changeIconColor(v, f, holder); //changing the colour from red to black since it is being removed from the wishlist
+                }
+                changeIconColor(v, f, holder);
             }
         });
+
     }
 
     public int getItemCount() {
         return data.size();
     }
 
-    public void changeIconColor(View view, GeneralView_Viewholder holder) {
+    public void changeIconColor(View view, Food f, GeneralView_Viewholder holder) {
         // Change the color of the icon
-        int newColor = Color.parseColor("#FF0000"); // Set the desired color here
-        holder.wishlisticon.setColorFilter(newColor);
+        if (f.getAddedWishlist() == true){
+            int newColor = Color.parseColor("#FF0000"); // Set the desired color here
+            holder.wishlisticon.setColorFilter(newColor);
+
+        }
+        else if(f.getAddedWishlist() == false){
+            int newColor = Color.parseColor("#000000");
+            holder.wishlisticon.setColorFilter(newColor);
+        }
         //DataHolder.viewHoldering = holder;
     }
+
 }
 
 
