@@ -8,6 +8,7 @@ import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.graphics.Color;
+import android.graphics.PorterDuff;
 import android.graphics.drawable.Icon;
 import android.util.Log;
 import android.view.LayoutInflater;
@@ -16,9 +17,16 @@ import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.Toast;
 
+import androidx.annotation.NonNull;
+import androidx.core.content.ContextCompat;
 import androidx.recyclerview.widget.RecyclerView;
 import androidx.swiperefreshlayout.widget.SwipeRefreshLayout;
 
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.ValueEventListener;
 import com.mapbox.mapboxsdk.Mapbox;
 
 import java.io.Serializable;
@@ -33,7 +41,7 @@ public class GeneralView_Adapter extends RecyclerView.Adapter<GeneralView_Viewho
     private IconClickListener listenerWL;
 
     private int imageViewColor;
-
+    private FirebaseDatabase database;
 
     String tag;
 
@@ -74,7 +82,9 @@ public class GeneralView_Adapter extends RecyclerView.Adapter<GeneralView_Viewho
     @Override
     public void onBindViewHolder(GeneralView_Viewholder holder, int position) {
         Food f = data.get(position);
+        Log.i("data", String.valueOf(f));
         Log.i("holder number", String.valueOf(holder));
+        Log.i("status check", String.valueOf(f.getAddedWishlist()));
         holder.foodName.setText(f.getFoodName());
         holder.foodDescription.setText(f.getDescription());
         holder.foodImage.setImageResource(f.getFoodImage2());
@@ -103,15 +113,43 @@ public class GeneralView_Adapter extends RecyclerView.Adapter<GeneralView_Viewho
             @Override
             public void onClick(View v) {
                 //onClick wishlist button, adds the food object to the wishlist page
-                if (!DataHolder.wishlist_List.contains(f)){
+                Log.i("wishlist f", String.valueOf(f));
+
+//                FirebaseDatabase database = FirebaseDatabase.getInstance();
+//                DatabaseReference accountsRef = database.getReference("Accounts").child("-hello");
+//                accountsRef.addListenerForSingleValueEvent(new ValueEventListener() {
+//                    @Override
+//                    public void onDataChange(@NonNull DataSnapshot snapshot) {
+//                        Account acc = snapshot.getValue(Account.class);
+//                        if (!acc.wishlist.contains(f.getFoodIndex())){
+//                            acc.wishlist.add(f.getFoodIndex());
+//                            Toast.makeText(v.getContext(), "Food added to the wishlist!", Toast.LENGTH_SHORT).show();
+//                            f.setAddedWishlist(true);
+//
+//                        }
+//                        else{
+//                            acc.wishlist.remove(f.getFoodIndex());
+//                            Toast.makeText(v.getContext(), "Food removed from the wishlist!", Toast.LENGTH_SHORT).show();
+//                            f.setAddedWishlist(false);
+//                        }
+//                        changeIconColor(v, f, holder);
+//                        //get the wishlist. check if inside. --> update the colour --> update wishlist --> Toast --> update Database.
+//                    }
+//
+//                    @Override
+//                    public void onCancelled(@NonNull DatabaseError error) {
+//
+//                    }
+//                });
+
+                if (!DataHolder.wishlist_List.contains(f)) {
                     DataHolder.wishlist_List.add(f);
                     Toast.makeText(v.getContext(), "Food added to the wishlist!", Toast.LENGTH_SHORT).show();
                     f.setAddedWishlist(true);
 
                     //need to make it change the colour
                     //changeIconColor(v, f, holder); //changing the colour from black to red since it is being added to the wishlist
-                }
-                else{
+                } else {
                     DataHolder.wishlist_List.remove(f);
                     Toast.makeText(v.getContext(), "Food removed from the wishlist!", Toast.LENGTH_SHORT).show();
                     f.setAddedWishlist(false);
@@ -120,10 +158,10 @@ public class GeneralView_Adapter extends RecyclerView.Adapter<GeneralView_Viewho
                 changeIconColor(v, f, holder);
             }
         });
-
     }
 
     public int getItemCount() {
+        Log.i("DATA SIZE", String.valueOf(data.size()));
         return data.size();
     }
 

@@ -22,6 +22,7 @@ import org.w3c.dom.Text;
 import java.time.Duration;
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
+import java.util.ArrayList;
 
 public class RegisterPage extends AppCompatActivity {
 
@@ -72,7 +73,7 @@ public class RegisterPage extends AppCompatActivity {
                             }
                             if (!exists) {
                                 ExistsText.setVisibility(View.INVISIBLE);
-                                DatabaseRef.child("Accounts").push().setValue(new Account(UsernameText.getText().toString(), PasswordText.getText().toString()));
+                                DatabaseRef.child("Accounts").push().setValue(new Account(UsernameText.getText().toString(), PasswordText.getText().toString(),new ArrayList<>()));
                                 Toast.makeText(getApplicationContext(), "Account Created", Toast.LENGTH_SHORT).show();
                                 Intent OpenMain = new Intent(RegisterPage.this, HomePage.class);
                                 OpenMain.putExtra("Username", UsernameText.getText().toString());

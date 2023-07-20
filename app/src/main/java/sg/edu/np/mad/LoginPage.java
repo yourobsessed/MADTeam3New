@@ -54,6 +54,7 @@ public class LoginPage extends AppCompatActivity {
                             String dbPassword = null;
                             for (DataSnapshot reviewSnapshot : snapshot.getChildren()) {
                                 Account account = reviewSnapshot.getValue(Account.class);
+                                System.out.println(account);
                                 if (account.Username.equals(UsernameText.getText().toString())) {
                                     exists = true;
                                     dbPassword = account.Password;

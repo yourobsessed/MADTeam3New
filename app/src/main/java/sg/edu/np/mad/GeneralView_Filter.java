@@ -32,7 +32,7 @@ public class GeneralView_Filter extends AppCompatActivity {
     private ArrayList<String> selectedChipData = new ArrayList<>();
 
     ArrayList<Food> filteredFoodList= new ArrayList<>();
-    ArrayList<Food> foodList= new ArrayList<>();
+    ArrayList<Food> foodList= DataHolder.food_List;
 
     private Boolean makan = false;
     private Boolean club = false;
@@ -64,7 +64,7 @@ public class GeneralView_Filter extends AppCompatActivity {
                 });
             }
         }
-        /*chipClub.setOnClickListener(new View.OnClickListener() {
+        chipClub.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 if (chipClub.isChecked()){
@@ -78,9 +78,9 @@ public class GeneralView_Filter extends AppCompatActivity {
                     }
                 }
             }
-        });*/
+        });
 
-        /*chipMakan.setOnClickListener(new View.OnClickListener() {
+        chipMakan.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 if (chipMakan.isChecked()){
@@ -94,7 +94,7 @@ public class GeneralView_Filter extends AppCompatActivity {
                     }
                 }
             }
-        });*/
+        });
         chipMakan.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -537,21 +537,21 @@ public class GeneralView_Filter extends AppCompatActivity {
 
 
 
-        Food saladbar1 = new Food(82,"Low Calorie Salad Bowl", "Food CLub", R.drawable.foodclubmap, 3.5, 350, "Greens + 3 Normal Sides",R.drawable.saladbowl, false,false,false, false, true, false);
-        Food saladbar2 = new Food(83,"Signature Salad Bowl", "Food CLub", R.drawable.foodclubmap, 4.2, 400, "Greens + 2 Normal Sides + 1 Premium Side",R.drawable.saladbowl, false,false,false, false, true, false);
-        Food saladbar3 = new Food(84,"Fill-me-up Salad Bowl", "Food CLub", R.drawable.foodclubmap, 4.5, 476, "Greens + 1 Normal Side + 2 Premium Sides",R.drawable.saladbowl, false,false,false, false, true, false);
-        Food saladbar4 = new Food(85,"Party Salad Bowl", "Food CLub", R.drawable.foodclubmap, 8, 700, "Greens + 5 Normal Sides + 3 Premium Sides",R.drawable.saladbowl, false,false,false, false, true, false);
+        Food saladbar1 = new Food(83,"Low Calorie Salad Bowl", "Food CLub", R.drawable.foodclubmap, 3.5, 350, "Greens + 3 Normal Sides",R.drawable.saladbowl, false,false,false, false, true, false);
+        Food saladbar2 = new Food(84,"Signature Salad Bowl", "Food CLub", R.drawable.foodclubmap, 4.2, 400, "Greens + 2 Normal Sides + 1 Premium Side",R.drawable.saladbowl, false,false,false, false, true, false);
+        Food saladbar3 = new Food(85,"Fill-me-up Salad Bowl", "Food CLub", R.drawable.foodclubmap, 4.5, 476, "Greens + 1 Normal Side + 2 Premium Sides",R.drawable.saladbowl, false,false,false, false, true, false);
+        Food saladbar4 = new Food(86,"Party Salad Bowl", "Food CLub", R.drawable.foodclubmap, 8, 700, "Greens + 5 Normal Sides + 3 Premium Sides",R.drawable.saladbowl, false,false,false, false, true, false);
 
         saladbar1.setFoodImage1(R.drawable.munchsalad);
         saladbar2.setFoodImage1(R.drawable.munchsalad);
         saladbar3.setFoodImage1(R.drawable.munchsalad);
         saladbar4.setFoodImage1(R.drawable.munchsalad);
 
-        Food kkFriedRice1 = new Food(86,"Egg Fried Rice", "Food Club", R.drawable.foodclubmap,2.5, 250, "Signature fried rice flavour!", R.drawable.friedrice, false,false,true, true, false, false);
-        Food kkFriedRice2 = new Food(87,"Sambal Fried Rice", "Food Club", R.drawable.foodclubmap,3, 313, "Signature sambal fried rice that is sweet and spicy!", R.drawable.friedrice, false,false,true, true, false, false);
-        Food kkFriedRice3 = new Food(88,"Tom Yum Fried Rice", "Food Club", R.drawable.foodclubmap,3, 320, "Signature tom yum fried rice that is spicy and sour!", R.drawable.friedrice, false,false,true, true, false, false);
-        Food kkFriedRice4 = new Food(89,"Meat: Chicken Cutlet", "Food Club", R.drawable.foodclubmap,1.5, 123, "Additional ingredients to make the fried rice extra flavourful", R.drawable.chickencutlet, false,false,false, true, false, false);
-        Food kkFriedRice5 = new Food(90,"Add-Ons: Cabbage", "Food Club", R.drawable.foodclubmap,0.8, 50, "Additional ingredients to make the meal healthier!", R.drawable.cabbage, false,false,false, true, false, false);
+        Food kkFriedRice1 = new Food(87,"Egg Fried Rice", "Food Club", R.drawable.foodclubmap,2.5, 250, "Signature fried rice flavour!", R.drawable.friedrice, false,false,true, true, false, false);
+        Food kkFriedRice2 = new Food(88,"Sambal Fried Rice", "Food Club", R.drawable.foodclubmap,3, 313, "Signature sambal fried rice that is sweet and spicy!", R.drawable.friedrice, false,false,true, true, false, false);
+        Food kkFriedRice3 = new Food(89,"Tom Yum Fried Rice", "Food Club", R.drawable.foodclubmap,3, 320, "Signature tom yum fried rice that is spicy and sour!", R.drawable.friedrice, false,false,true, true, false, false);
+        Food kkFriedRice4 = new Food(90,"Meat: Chicken Cutlet", "Food Club", R.drawable.foodclubmap,1.5, 123, "Additional ingredients to make the fried rice extra flavourful", R.drawable.chickencutlet, false,false,false, true, false, false);
+        Food kkFriedRice5 = new Food(91,"Add-Ons: Cabbage", "Food Club", R.drawable.foodclubmap,0.8, 50, "Additional ingredients to make the meal healthier!", R.drawable.cabbage, false,false,false, true, false, false);
 
         kkFriedRice1.setFoodImage1(R.drawable.fckingkong);
         kkFriedRice2.setFoodImage1(R.drawable.fckingkong);
@@ -559,11 +559,11 @@ public class GeneralView_Filter extends AppCompatActivity {
         kkFriedRice4.setFoodImage1(R.drawable.fckingkong);
         kkFriedRice5.setFoodImage1(R.drawable.fckingkong);
 
-        Food Indonesian1 = new Food(91,"Ayam Penyet Set", "Food CLub", R.drawable.foodclubmap, 4.50, 650, "Signature! With a gigantic piece of drumstick, drenched in curry!", R.drawable.ayampenyet, false, false, true, true, false, false);
-        Food Indonesian2 = new Food(92,"Udang Penyet Set", "Food CLub", R.drawable.foodclubmap, 4.50, 502, "Signature! With prawn pieces, drenched in curry!", R.drawable.ayampenyet, false, false, true, true, false, false);
-        Food Indonesian3 = new Food(93,"Ikan Dory Set", "Food CLub", R.drawable.foodclubmap, 4.40, 657, "Huge portion of fish, drenched in curry!", R.drawable.ayampenyet, false, false, true, true, false, false);
-        Food Indonesian4 = new Food(94,"Otah Penyet Set", "Food CLub", R.drawable.foodclubmap, 4.50, 650, "Favourite fried otah, drenched in curry!", R.drawable.ayampenyet, false, false, true, true, false, false);
-        Food Indonesian5 = new Food(95,"Mee Siam Set", "Food CLub", R.drawable.foodclubmap, 4.50, 571, "Bee hoon with a unique sweet and sour gravy", R.drawable.meesiam, true, true, false, true, false, false);
+        Food Indonesian1 = new Food(92,"Ayam Penyet Set", "Food CLub", R.drawable.foodclubmap, 4.50, 650, "Signature! With a gigantic piece of drumstick, drenched in curry!", R.drawable.ayampenyet, false, false, true, true, false, false);
+        Food Indonesian2 = new Food(93,"Udang Penyet Set", "Food CLub", R.drawable.foodclubmap, 4.50, 502, "Signature! With prawn pieces, drenched in curry!", R.drawable.ayampenyet, false, false, true, true, false, false);
+        Food Indonesian3 = new Food(94,"Ikan Dory Set", "Food CLub", R.drawable.foodclubmap, 4.40, 657, "Huge portion of fish, drenched in curry!", R.drawable.ayampenyet, false, false, true, true, false, false);
+        Food Indonesian4 = new Food(95,"Otah Penyet Set", "Food CLub", R.drawable.foodclubmap, 4.50, 650, "Favourite fried otah, drenched in curry!", R.drawable.ayampenyet, false, false, true, true, false, false);
+        Food Indonesian5 = new Food(96,"Mee Siam Set", "Food CLub", R.drawable.foodclubmap, 4.50, 571, "Bee hoon with a unique sweet and sour gravy", R.drawable.meesiam, true, true, false, true, false, false);
 
         Indonesian1.setFoodImage1(R.drawable.fcindonesian);
         Indonesian2.setFoodImage1(R.drawable.fcindonesian);
@@ -572,11 +572,11 @@ public class GeneralView_Filter extends AppCompatActivity {
         Indonesian5.setFoodImage1(R.drawable.fcindonesian);
 
 
-        Food creamyDuck1 = new Food(96,"Waffles", "Food Club", R.drawable.foodclubmap, 1.8, 200, "Multiple variations of the waffle filling to choose from!", R.drawable.waffles, false, false, false, true, false, true);
-        Food creamyDuck2 = new Food(97,"Corn butter salt", "Food Club", R.drawable.foodclubmap, 1.9, 173, "Steamed corn mixed with butter and salt, buttery and savoury", R.drawable.corn, false, false, false, true, false, true);
-        Food creamyDuck3 = new Food(98,"Corn butter choc", "Food Club", R.drawable.foodclubmap, 1.9, 173, "Steamed corn mixed with butter and chocolate, sweet and savoury", R.drawable.corn, false, false, false, true, false, true);
-        Food creamyDuck4 = new Food(99,"Takoyaki", "Food Club", R.drawable.foodclubmap, 2.8, 350, "Multiple variations of the Takoyaki fillings to choose from! Either choose prawn, ham, octopus or crabstick!", R.drawable.corn, false, false, false, true, false, true);
-        Food creamyDuck5 = new Food(100,"Ice Cream", "Food Club", R.drawable.foodclubmap, 1.8, 230, "Comes in different sizes, choose either 6oz or 12oz single scoop", R.drawable.icecream, false, false, false, true, false, true);
+        Food creamyDuck1 = new Food(97,"Waffles", "Food Club", R.drawable.foodclubmap, 1.8, 200, "Multiple variations of the waffle filling to choose from!", R.drawable.waffles, false, false, false, true, false, true);
+        Food creamyDuck2 = new Food(98,"Corn butter salt", "Food Club", R.drawable.foodclubmap, 1.9, 173, "Steamed corn mixed with butter and salt, buttery and savoury", R.drawable.corn, false, false, false, true, false, true);
+        Food creamyDuck3 = new Food(99,"Corn butter choc", "Food Club", R.drawable.foodclubmap, 1.9, 173, "Steamed corn mixed with butter and chocolate, sweet and savoury", R.drawable.corn, false, false, false, true, false, true);
+        Food creamyDuck4 = new Food(100,"Takoyaki", "Food Club", R.drawable.foodclubmap, 2.8, 350, "Multiple variations of the Takoyaki fillings to choose from! Either choose prawn, ham, octopus or crabstick!", R.drawable.corn, false, false, false, true, false, true);
+        Food creamyDuck5 = new Food(101,"Ice Cream", "Food Club", R.drawable.foodclubmap, 1.8, 230, "Comes in different sizes, choose either 6oz or 12oz single scoop", R.drawable.icecream, false, false, false, true, false, true);
 
         creamyDuck1.setFoodImage1(R.drawable.fcwaffle);
         creamyDuck2.setFoodImage1(R.drawable.fcwaffle);
@@ -585,10 +585,10 @@ public class GeneralView_Filter extends AppCompatActivity {
         creamyDuck5.setFoodImage1(R.drawable.fcwaffle);
 
 
-        Food coffeeClub1 = new Food(101,"Breakfast Set A", "Food Club", R.drawable.foodclubmap, 2, 450, "Comes with 2 toasted bread + 2 half boiled eggs and 1 hot beverage", R.drawable.breakfastset, false, false, false, true, false, false);
-        Food coffeeClub2 = new Food(102,"Breakfast Set B", "Food Club", R.drawable.foodclubmap, 2.20, 435, "Comes with 1 Apollo bread + 2 half boiled eggs and 1 hot beverage", R.drawable.breakfastset, false, false, false , true, false, false);
-        Food coffeeClub3 = new Food(103,"Breakfast Set C", "Food Club", R.drawable.foodclubmap, 2.40, 440, "Comes with 1 thick bread + 2 half boiled eggs and 1 hot beverage", R.drawable.breakfastset, false, false, false, true, false, false);
-        Food coffeeClub4 = new Food(104,"Breakfast Set D", "Food Club", R.drawable.foodclubmap, 2.40, 463, "Comes with 4 cream crackers + 2 half boiled eggs and 1 hot beverage", R.drawable.breakfastset, false, false, false, true, false, false);
+        Food coffeeClub1 = new Food(102,"Breakfast Set A", "Food Club", R.drawable.foodclubmap, 2, 450, "Comes with 2 toasted bread + 2 half boiled eggs and 1 hot beverage", R.drawable.breakfastset, false, false, false, true, false, false);
+        Food coffeeClub2 = new Food(103,"Breakfast Set B", "Food Club", R.drawable.foodclubmap, 2.20, 435, "Comes with 1 Apollo bread + 2 half boiled eggs and 1 hot beverage", R.drawable.breakfastset, false, false, false , true, false, false);
+        Food coffeeClub3 = new Food(104,"Breakfast Set C", "Food Club", R.drawable.foodclubmap, 2.40, 440, "Comes with 1 thick bread + 2 half boiled eggs and 1 hot beverage", R.drawable.breakfastset, false, false, false, true, false, false);
+        Food coffeeClub4 = new Food(105,"Breakfast Set D", "Food Club", R.drawable.foodclubmap, 2.40, 463, "Comes with 4 cream crackers + 2 half boiled eggs and 1 hot beverage", R.drawable.breakfastset, false, false, false, true, false, false);
 
         coffeeClub1.setFoodImage1(R.drawable.fcdrinks);
         coffeeClub2.setFoodImage1(R.drawable.fcdrinks);
@@ -596,11 +596,11 @@ public class GeneralView_Filter extends AppCompatActivity {
         coffeeClub4.setFoodImage1(R.drawable.fcdrinks);
 
         //MAKAN PLACE
-        Food MPKoreanFusion1 = new Food(105,"Hotplate Saba Fish", "Makan Place", R.drawable.makanplacemap, 5.30, 530, "Grilled saba fish that comes in a set with korean rice and a bowl of soup!", R.drawable.sabafish, false, true, true, true, false, false);
-        Food MPKoreanFusion2 = new Food(106,"Hotplate Chicken Fish", "Makan Place", R.drawable.makanplacemap, 5.00, 546, "Korean spicy marinated chicken that comes in a set with korean rice and a bowl of soup!", R.drawable.koreanbbq, false, true, true, true, false, false);
-        Food MPKoreanFusion3 = new Food(107,"Beef Ramen", "Makan Place", R.drawable.makanplacemap, 5.30, 530, "Korean ramen with marinated and tender beef!", R.drawable.koreanramen, true, true, false, true, false, false);
-        Food MPKoreanFusion4 = new Food(108,"Bibimbap (Chicken)", "Makan Place", R.drawable.makanplacemap, 4.40, 450, "Korean rice with various vegetables and a spoonful of gochujang sauce!", R.drawable.bibimbap, false, true, true, true, false, false);
-        Food MPKoreanFusion5 = new Food(109,"Hotplate Chicken + Saba Fish", "Makan Place", R.drawable.makanplacemap, 6.30, 530, "Grilled saba fish and spicy marinated chicken that comes in a set with korean rice and a bowl of soup!", R.drawable.chickenfishset, false, true, true, true, false, false);
+        Food MPKoreanFusion1 = new Food(106,"Hotplate Saba Fish", "Makan Place", R.drawable.makanplacemap, 5.30, 530, "Grilled saba fish that comes in a set with korean rice and a bowl of soup!", R.drawable.sabafish, false, true, true, true, false, false);
+        Food MPKoreanFusion2 = new Food(107,"Hotplate Chicken Fish", "Makan Place", R.drawable.makanplacemap, 5.00, 546, "Korean spicy marinated chicken that comes in a set with korean rice and a bowl of soup!", R.drawable.koreanbbq, false, true, true, true, false, false);
+        Food MPKoreanFusion3 = new Food(108,"Beef Ramen", "Makan Place", R.drawable.makanplacemap, 5.30, 530, "Korean ramen with marinated and tender beef!", R.drawable.koreanramen, true, true, false, true, false, false);
+        Food MPKoreanFusion4 = new Food(109,"Bibimbap (Chicken)", "Makan Place", R.drawable.makanplacemap, 4.40, 450, "Korean rice with various vegetables and a spoonful of gochujang sauce!", R.drawable.bibimbap, false, true, true, true, false, false);
+        Food MPKoreanFusion5 = new Food(110,"Hotplate Chicken + Saba Fish", "Makan Place", R.drawable.makanplacemap, 6.30, 530, "Grilled saba fish and spicy marinated chicken that comes in a set with korean rice and a bowl of soup!", R.drawable.chickenfishset, false, true, true, true, false, false);
 
         MPKoreanFusion1.setFoodImage1(R.drawable.makankorean);
         MPKoreanFusion2.setFoodImage1(R.drawable.makankorean);
@@ -609,11 +609,11 @@ public class GeneralView_Filter extends AppCompatActivity {
         MPKoreanFusion5.setFoodImage1(R.drawable.makankorean);
 
 
-        Food MPWestern1 = new Food(110,"Chicken Chop", "Makan Place", R.drawable.makanplacemap, 5, 430, "Grilled chicken with BBQ sauce and it comes with 2 sides!", R.drawable.store, false, false, false, true, false, false);
-        Food MPWestern2 = new Food(111,"Fish Rice Set", "Makan Place", R.drawable.makanplacemap, 5.80, 460, "Big piece of fried fish and it comes with rice and 1 side!", R.drawable.store, false, false, true, true, false, false);
-        Food MPWestern3 = new Food(112,"Fish with Aglio Olio", "Makan Place", R.drawable.makanplacemap, 5.50, 560, "Big piece of fried fish and it comes with aglio olio on the side!", R.drawable.store, true, false, false, true, false, false);
-        Food MPWestern4 = new Food(113,"Fried chicken with tomato spaghetti", "Makan Place", R.drawable.makanplacemap, 5.5, 580, "Fried chicken with BBQ sauce and it comes with tomato spaghetti on the side!", R.drawable.store, true, false, false, true, false, false);
-        Food MPWestern5 = new Food(114,"Chicken Chop rice set", "Makan Place", R.drawable.makanplacemap, 5, 430, "Grilled chicken with BBQ sauce and it comes with rice and 1 side!", R.drawable.store, false, false, true, true, false, false);
+        Food MPWestern1 = new Food(111,"Chicken Chop", "Makan Place", R.drawable.makanplacemap, 5, 430, "Grilled chicken with BBQ sauce and it comes with 2 sides!", R.drawable.store, false, false, false, true, false, false);
+        Food MPWestern2 = new Food(112,"Fish Rice Set", "Makan Place", R.drawable.makanplacemap, 5.80, 460, "Big piece of fried fish and it comes with rice and 1 side!", R.drawable.store, false, false, true, true, false, false);
+        Food MPWestern3 = new Food(113,"Fish with Aglio Olio", "Makan Place", R.drawable.makanplacemap, 5.50, 560, "Big piece of fried fish and it comes with aglio olio on the side!", R.drawable.store, true, false, false, true, false, false);
+        Food MPWestern4 = new Food(114,"Fried chicken with tomato spaghetti", "Makan Place", R.drawable.makanplacemap, 5.5, 580, "Fried chicken with BBQ sauce and it comes with tomato spaghetti on the side!", R.drawable.store, true, false, false, true, false, false);
+        Food MPWestern5 = new Food(115,"Chicken Chop rice set", "Makan Place", R.drawable.makanplacemap, 5, 430, "Grilled chicken with BBQ sauce and it comes with rice and 1 side!", R.drawable.store, false, false, true, true, false, false);
 
         MPWestern1.setFoodImage1(R.drawable.makanwestern);
         MPWestern2.setFoodImage1(R.drawable.makanwestern);
@@ -621,11 +621,11 @@ public class GeneralView_Filter extends AppCompatActivity {
         MPWestern4.setFoodImage1(R.drawable.makanwestern);
         MPWestern5.setFoodImage1(R.drawable.makanwestern);
 
-        Food MPHotto1 = new Food(115,"Beef Roll Hotto Rice", "Makan Place", R.drawable.makanplacemap, 5.9, 500, "Beef slices and rice on a hot plate, sizzlingly delicious", R.drawable.hotto, false, false, true, true, false, false);
-        Food MPHotto2 = new Food(116,"Salmon Hotto Rice", "Makan Place", R.drawable.makanplacemap, 6.9, 500, "Salmon and rice on a hot plate, sizzlingly delicious", R.drawable.hotto, false, false, true, true, false, false);
-        Food MPHotto3 = new Food(117,"Chicken Hotto Rice", "Makan Place", R.drawable.makanplacemap, 4.9, 500, "Chicken cubes and rice on a hot plate, sizzlingly delicious", R.drawable.hotto, false, false, true, true, false, false);
-        Food MPHotto4 = new Food(118,"Black pepper chicken burger", "Makan Place", R.drawable.makanplacemap, 3.9, 370, "Chicken patty with black pepper sauce in a burger", R.drawable.burger, false, false, false, true, false, false);
-        Food MPHotto5 = new Food(119,"Creamy Shroom Pasta", "Makan Place", R.drawable.makanplacemap, 4.9, 510, "Creamy mushroom pasta", R.drawable.creampasta, true, false, false, true, false, false);
+        Food MPHotto1 = new Food(116,"Beef Roll Hotto Rice", "Makan Place", R.drawable.makanplacemap, 5.9, 500, "Beef slices and rice on a hot plate, sizzlingly delicious", R.drawable.hotto, false, false, true, true, false, false);
+        Food MPHotto2 = new Food(117,"Salmon Hotto Rice", "Makan Place", R.drawable.makanplacemap, 6.9, 500, "Salmon and rice on a hot plate, sizzlingly delicious", R.drawable.hotto, false, false, true, true, false, false);
+        Food MPHotto3 = new Food(118,"Chicken Hotto Rice", "Makan Place", R.drawable.makanplacemap, 4.9, 500, "Chicken cubes and rice on a hot plate, sizzlingly delicious", R.drawable.hotto, false, false, true, true, false, false);
+        Food MPHotto4 = new Food(119,"Black pepper chicken burger", "Makan Place", R.drawable.makanplacemap, 3.9, 370, "Chicken patty with black pepper sauce in a burger", R.drawable.burger, false, false, false, true, false, false);
+        Food MPHotto5 = new Food(120,"Creamy Shroom Pasta", "Makan Place", R.drawable.makanplacemap, 4.9, 510, "Creamy mushroom pasta", R.drawable.creampasta, true, false, false, true, false, false);
 
         MPHotto1.setFoodImage1(R.drawable.makanhottoneko);
         MPHotto2.setFoodImage1(R.drawable.makanhottoneko);
@@ -633,11 +633,11 @@ public class GeneralView_Filter extends AppCompatActivity {
         MPHotto4.setFoodImage1(R.drawable.makanhottoneko);
         MPHotto5.setFoodImage1(R.drawable.makanhottoneko);
 
-        Food MPJap1 = new Food(120,"Hotplate Chicken Fuyong", "Makan Place", R.drawable.makanplacemap, 4, 500, "Fried chicken with egg, drizzled with the special sweet sauce", R.drawable.chickenfuyong, false, true, true, false, false, false);
-        Food MPJap2 = new Food(121,"Chicken and pork bento", "Makan Place", R.drawable.makanplacemap, 4.50, 560, "Fried chicken and pork in a bento with rice", R.drawable.chickenporkbento, false, true, true, false, false, false);
-        Food MPJap3 = new Food(122,"Salmon Don", "Makan Place", R.drawable.makanplacemap, 4.50, 500, "Geilled salmon with store's special sauce on top of a bowl of rice", R.drawable.salmondon, false, true, true, false, false, false);
-        Food MPJap4 = new Food(123,"Ebi fry Katsu Curry Rice", "Makan Place", R.drawable.makanplacemap, 4.50, 560, "Fried ebi with japanese curry rice", R.drawable.ebikatsucurry, false, true, true, false, false, false);
-        Food MPJap5 = new Food(124,"Pork Shabu shabu curry udon", "Makan Place", R.drawable.makanplacemap, 4, 500, "Thin slices of pork shabu shabu with japanese udon curry", R.drawable.curryudon, true, true, false, false, false, false);
+        Food MPJap1 = new Food(121,"Hotplate Chicken Fuyong", "Makan Place", R.drawable.makanplacemap, 4, 500, "Fried chicken with egg, drizzled with the special sweet sauce", R.drawable.chickenfuyong, false, true, true, false, false, false);
+        Food MPJap2 = new Food(122,"Chicken and pork bento", "Makan Place", R.drawable.makanplacemap, 4.50, 560, "Fried chicken and pork in a bento with rice", R.drawable.chickenporkbento, false, true, true, false, false, false);
+        Food MPJap3 = new Food(123,"Salmon Don", "Makan Place", R.drawable.makanplacemap, 4.50, 500, "Geilled salmon with store's special sauce on top of a bowl of rice", R.drawable.salmondon, false, true, true, false, false, false);
+        Food MPJap4 = new Food(124,"Ebi fry Katsu Curry Rice", "Makan Place", R.drawable.makanplacemap, 4.50, 560, "Fried ebi with japanese curry rice", R.drawable.ebikatsucurry, false, true, true, false, false, false);
+        Food MPJap5 = new Food(125,"Pork Shabu shabu curry udon", "Makan Place", R.drawable.makanplacemap, 4, 500, "Thin slices of pork shabu shabu with japanese udon curry", R.drawable.curryudon, true, true, false, false, false, false);
 
         MPJap1.setFoodImage1(R.drawable.makanjap);
         MPJap2.setFoodImage1(R.drawable.makanjap);
@@ -646,11 +646,11 @@ public class GeneralView_Filter extends AppCompatActivity {
         MPJap5.setFoodImage1(R.drawable.makanjap);
 
 
-        Food MPGoPizza1 = new Food(125,"American Cheese Pizza", "Makan Place", R.drawable.makanplacemap, 6.0, 560, "Pizza topped with multiple variations of cheese", R.drawable.americancheese, false, false, false, false, false, false);
-        Food MPGoPizza2 = new Food(126,"K-Bulgogi Pizza", "Makan Place", R.drawable.makanplacemap, 10.0, 600, "Pizza topped with of cheese and korean marinated beef", R.drawable.kbulgogi, false, false, false, false, false, false);
-        Food MPGoPizza3 = new Food(127,"Original Wings", "Makan Place", R.drawable.makanplacemap, 6.80, 560, "Three pieces of original flavoured wings for 6.80! Crispy on the outside, tender & juicy on the insider!", R.drawable.originalwings, false, false, false, false, false, false);
-        Food MPGoPizza4 = new Food(128,"Cheese Stick", "Makan Place", R.drawable.makanplacemap, 4.80, 516, "Cheesy cheese stick that is savoury and suitable for all ages!", R.drawable.cheesesticks, false, false, false, false, false, false);
-        Food MPGoPizza5 = new Food(129,"Shaker Fries", "Makan Place", R.drawable.makanplacemap, 2.80, 430, "Choose either sea salt of seaweed flavour for your shaker fries", R.drawable.shakerfries, false, false, false, false, false, false);
+        Food MPGoPizza1 = new Food(126,"American Cheese Pizza", "Makan Place", R.drawable.makanplacemap, 6.0, 560, "Pizza topped with multiple variations of cheese", R.drawable.americancheese, false, false, false, false, false, false);
+        Food MPGoPizza2 = new Food(127,"K-Bulgogi Pizza", "Makan Place", R.drawable.makanplacemap, 10.0, 600, "Pizza topped with of cheese and korean marinated beef", R.drawable.kbulgogi, false, false, false, false, false, false);
+        Food MPGoPizza3 = new Food(128,"Original Wings", "Makan Place", R.drawable.makanplacemap, 6.80, 560, "Three pieces of original flavoured wings for 6.80! Crispy on the outside, tender & juicy on the insider!", R.drawable.originalwings, false, false, false, false, false, false);
+        Food MPGoPizza4 = new Food(129,"Cheese Stick", "Makan Place", R.drawable.makanplacemap, 4.80, 516, "Cheesy cheese stick that is savoury and suitable for all ages!", R.drawable.cheesesticks, false, false, false, false, false, false);
+        Food MPGoPizza5 = new Food(130,"Shaker Fries", "Makan Place", R.drawable.makanplacemap, 2.80, 430, "Choose either sea salt of seaweed flavour for your shaker fries", R.drawable.shakerfries, false, false, false, false, false, false);
 
         MPGoPizza1.setFoodImage1(R.drawable.makanpizza);
         MPGoPizza2.setFoodImage1(R.drawable.makanpizza);
@@ -660,11 +660,11 @@ public class GeneralView_Filter extends AppCompatActivity {
 
 
         //left ban mian, yong tau foo, mala, drinks + add them into the list
-        Food MPBanMian1 = new Food(130,"Ban Mian", "Makan Place", R.drawable.makanplacemap, 2.80, 350, "Healthy bowl of noodles with egg and minced meat!", R.drawable.banmian, true, true, false, false, false, false);
-        Food MPBanMian2 = new Food(131,"Hot & Spicy Ban Mian / You Mian", "Makan Place", R.drawable.makanplacemap, 3.80, 450, "A bowl of spicy noodles with egg and minced meat! Do specify the type of noodles you want!", R.drawable.banmian, true, true, false, false, false, false);
-        Food MPBanMian3 = new Food(132,"Fried Fish soup", "Makan Place", R.drawable.makanplacemap, 3.50, 400, "A bowl of warm and savoury fish soup, with the fried fishes dipped in the bowl of soup.", R.drawable.fishsoup, false, true, false, false, false, false);
-        Food MPBanMian4 = new Food(133,"Signatue La Mian", "Makan Place", R.drawable.makanplacemap, 3.50, 400, "Healthy bowl of noodles with egg and minced meat!", R.drawable.banmian, true, true, false, false, false, false);
-        Food MPBanMian5 = new Food(134,"Tom Yum Ramen", "Makan Place", R.drawable.makanplacemap, 3.60, 476, "Hot bowl of noodles that is spicy and sour! ", R.drawable.tomyumlamian, true, true,false, false, false, false);
+        Food MPBanMian1 = new Food(131,"Ban Mian", "Makan Place", R.drawable.makanplacemap, 2.80, 350, "Healthy bowl of noodles with egg and minced meat!", R.drawable.banmian, true, true, false, false, false, false);
+        Food MPBanMian2 = new Food(132,"Hot & Spicy Ban Mian / You Mian", "Makan Place", R.drawable.makanplacemap, 3.80, 450, "A bowl of spicy noodles with egg and minced meat! Do specify the type of noodles you want!", R.drawable.banmian, true, true, false, false, false, false);
+        Food MPBanMian3 = new Food(133,"Fried Fish soup", "Makan Place", R.drawable.makanplacemap, 3.50, 400, "A bowl of warm and savoury fish soup, with the fried fishes dipped in the bowl of soup.", R.drawable.fishsoup, false, true, false, false, false, false);
+        Food MPBanMian4 = new Food(134,"Signatue La Mian", "Makan Place", R.drawable.makanplacemap, 3.50, 400, "Healthy bowl of noodles with egg and minced meat!", R.drawable.banmian, true, true, false, false, false, false);
+        Food MPBanMian5 = new Food(135,"Tom Yum Ramen", "Makan Place", R.drawable.makanplacemap, 3.60, 476, "Hot bowl of noodles that is spicy and sour! ", R.drawable.tomyumlamian, true, true,false, false, false, false);
 
         MPBanMian1.setFoodImage1(R.drawable.makanbanmian);
         MPBanMian2.setFoodImage1(R.drawable.makanbanmian);
@@ -672,14 +672,14 @@ public class GeneralView_Filter extends AppCompatActivity {
         MPBanMian4.setFoodImage1(R.drawable.makanbanmian);
         MPBanMian5.setFoodImage1(R.drawable.makanbanmian);
 
-        Food MPmala = new Food(135,"Mala Xiang Guo", "Makan Place", R.drawable.makanplacemap, 7, 600, "Pick and choose your favourite ingredients in your bowl of mala(dry/soup)! Price ranges!", R.drawable.mala, true, false, true, false, false, false);
+        Food MPmala = new Food(136,"Mala Xiang Guo", "Makan Place", R.drawable.makanplacemap, 7, 600, "Pick and choose your favourite ingredients in your bowl of mala(dry/soup)! Price ranges!", R.drawable.mala, true, false, true, false, false, false);
         MPmala.setFoodImage1(R.drawable.makanmala);
 
-        Food MPWokQueen1 = new Food(136,"Tomyum Fried Rice", "Makan Place", R.drawable.makanplacemap, 4.50, 363, "Tomyum Flavoured fried rice, make sure to choose chicken or prawn!", R.drawable.friedrice, false, false, true, true, false, false);
-        Food MPWokQueen2 = new Food(137,"Sambal Fried Rice", "Makan Place", R.drawable.makanplacemap, 4.50, 363, "Sambal Flavoured fried rice, make sure to choose chicken or prawn!", R.drawable.friedrice, false, false, true, true, false, false);
-        Food MPWokQueen3 = new Food(138,"Egg Fried Rice", "Makan Place", R.drawable.makanplacemap, 4.50, 363, "Flavourful Fried rice, make sure to choose chicken or prawn!", R.drawable.friedrice, false, false, true, true, false, false);
-        Food MPWokQueen4 = new Food(139,"Seafood Tomyum soup with rice and egg", "Makan Place", R.drawable.makanplacemap, 5.00, 560, "A bowl of tomyum soup with a lot of ingredients!", R.drawable.tomyumsoup, false, true, true, true, false, false);
-        Food MPWokQueen5 = new Food(140,"Green curry chicken with rice and egg", "Makan Place", R.drawable.makanplacemap, 5.00, 363, "A bowl of green curry with rice and a piece of egg on the side!", R.drawable.greencurry, false, true, true, true, false, false);
+        Food MPWokQueen1 = new Food(137,"Tomyum Fried Rice", "Makan Place", R.drawable.makanplacemap, 4.50, 363, "Tomyum Flavoured fried rice, make sure to choose chicken or prawn!", R.drawable.friedrice, false, false, true, true, false, false);
+        Food MPWokQueen2 = new Food(138,"Sambal Fried Rice", "Makan Place", R.drawable.makanplacemap, 4.50, 363, "Sambal Flavoured fried rice, make sure to choose chicken or prawn!", R.drawable.friedrice, false, false, true, true, false, false);
+        Food MPWokQueen3 = new Food(139,"Egg Fried Rice", "Makan Place", R.drawable.makanplacemap, 4.50, 363, "Flavourful Fried rice, make sure to choose chicken or prawn!", R.drawable.friedrice, false, false, true, true, false, false);
+        Food MPWokQueen4 = new Food(140,"Seafood Tomyum soup with rice and egg", "Makan Place", R.drawable.makanplacemap, 5.00, 560, "A bowl of tomyum soup with a lot of ingredients!", R.drawable.tomyumsoup, false, true, true, true, false, false);
+        Food MPWokQueen5 = new Food(141,"Green curry chicken with rice and egg", "Makan Place", R.drawable.makanplacemap, 5.00, 363, "A bowl of green curry with rice and a piece of egg on the side!", R.drawable.greencurry, false, true, true, true, false, false);
 
         MPWokQueen1.setFoodImage1(R.drawable.makanasian);
         MPWokQueen2.setFoodImage1(R.drawable.makanasian);
@@ -687,25 +687,25 @@ public class GeneralView_Filter extends AppCompatActivity {
         MPWokQueen4.setFoodImage1(R.drawable.makanasian);
         MPWokQueen5.setFoodImage1(R.drawable.makanasian);
 
-        Food YongTauFoo1 = new Food (141,"Yong Tau Foo (Laksa)", "Makan Place", R.drawable.makanplacemap, 4.50, 654, "A customisable bowl of noodles with various ingredients and noodles with laksa soup base!", R.drawable.laskaytf, true, true, false, false, false, false);
-        Food YongTauFoo2 = new Food (142,"Yong Tau Foo (Tomyum)", "Makan Place", R.drawable.makanplacemap, 4.50, 654, "A customisable bowl of noodles with various ingredients and noodles, with tomyum soup base!", R.drawable.tomyumytf, true, true, false, false, false, false);
-        Food YongTauFoo3 = new Food (143,"Yong Tau Foo (Dry/Soup)", "Makan Place", R.drawable.makanplacemap, 3, 654, "A customisable bowl of noodles with various ingredients and noodles with normal/no soup base!", R.drawable.ytf1, true, true, false, false, false, false);
+        Food YongTauFoo1 = new Food (142,"Yong Tau Foo (Laksa)", "Makan Place", R.drawable.makanplacemap, 4.50, 654, "A customisable bowl of noodles with various ingredients and noodles with laksa soup base!", R.drawable.laskaytf, true, true, false, false, false, false);
+        Food YongTauFoo2 = new Food (143,"Yong Tau Foo (Tomyum)", "Makan Place", R.drawable.makanplacemap, 4.50, 654, "A customisable bowl of noodles with various ingredients and noodles, with tomyum soup base!", R.drawable.tomyumytf, true, true, false, false, false, false);
+        Food YongTauFoo3 = new Food (144,"Yong Tau Foo (Dry/Soup)", "Makan Place", R.drawable.makanplacemap, 3, 654, "A customisable bowl of noodles with various ingredients and noodles with normal/no soup base!", R.drawable.ytf1, true, true, false, false, false, false);
 
         YongTauFoo1.setFoodImage1(R.drawable.makanytf);
         YongTauFoo2.setFoodImage1(R.drawable.makanytf);
         YongTauFoo3.setFoodImage1(R.drawable.makanytf);
 
-        Food MPSalad1 = new Food(144,"Garden Salad", "Makan Place", R.drawable.makanplacemap, 4.50, 345, "A bowl salad with vegetable. Do make a choice if you want to add on salad dressing!", R.drawable.saladbowl, false, false, false, false, true, false);
-        Food MPSalad2 = new Food(145,"Chicken Salad", "Makan Place", R.drawable.makanplacemap, 5.50, 413, "A bowl salad with vegetable and chicken breast. Do make a choice if you want to add on salad dressing!", R.drawable.saladbowl, false, false, false, false, true, false);
-        Food MPSalad3 = new Food(146,"Wraps", "Makan Place", R.drawable.makanplacemap, 5.50, 456, "Healthy ingredients all wrap together!", R.drawable.wrap, false, false, false, false, true, false);
+        Food MPSalad1 = new Food(145,"Garden Salad", "Makan Place", R.drawable.makanplacemap, 4.50, 345, "A bowl salad with vegetable. Do make a choice if you want to add on salad dressing!", R.drawable.saladbowl, false, false, false, false, true, false);
+        Food MPSalad2 = new Food(146,"Chicken Salad", "Makan Place", R.drawable.makanplacemap, 5.50, 413, "A bowl salad with vegetable and chicken breast. Do make a choice if you want to add on salad dressing!", R.drawable.saladbowl, false, false, false, false, true, false);
+        Food MPSalad3 = new Food(147,"Wraps", "Makan Place", R.drawable.makanplacemap, 5.50, 456, "Healthy ingredients all wrap together!", R.drawable.wrap, false, false, false, false, true, false);
 
         MPSalad1.setFoodImage1(R.drawable.makansalad);
         MPSalad2.setFoodImage1(R.drawable.makansalad);
         MPSalad3.setFoodImage1(R.drawable.makansalad);
 
-        Food Mbingsu1 = new Food(147,"Matcha Bingsu", "Makan Place", R.drawable.makanplacemap, 5.90, 346, "A refreshing bowl of matcha flavoured shaved ice", R.drawable.matchabingsu, false, false, false, true, false, true);
-        Food Mbingsu2 = new Food(148,"Mango Bingsu", "Makan Place", R.drawable.makanplacemap, 5.90, 346, "A refreshing bowl of mango flavoured shaved ice", R.drawable.mangobingsu, false, false, false, true, false, true);
-        Food Obingsu3 = new Food(149,"Orea Bingsu", "Makan Place", R.drawable.makanplacemap, 5.90, 346, "A refreshing bowl of orea flavoured shaved ice", R.drawable.store, false, false, false, true, false, true);
+        Food Mbingsu1 = new Food(148,"Matcha Bingsu", "Makan Place", R.drawable.makanplacemap, 5.90, 346, "A refreshing bowl of matcha flavoured shaved ice", R.drawable.matchabingsu, false, false, false, true, false, true);
+        Food Mbingsu2 = new Food(149,"Mango Bingsu", "Makan Place", R.drawable.makanplacemap, 5.90, 346, "A refreshing bowl of mango flavoured shaved ice", R.drawable.mangobingsu, false, false, false, true, false, true);
+        Food Obingsu3 = new Food(150,"Orea Bingsu", "Makan Place", R.drawable.makanplacemap, 5.90, 346, "A refreshing bowl of orea flavoured shaved ice", R.drawable.store, false, false, false, true, false, true);
 
         Mbingsu1.setFoodImage1(R.drawable.makanhottoneko);
         Mbingsu2.setFoodImage1(R.drawable.makanhottoneko);
