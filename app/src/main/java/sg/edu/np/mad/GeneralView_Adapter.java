@@ -129,7 +129,10 @@ public class GeneralView_Adapter extends RecyclerView.Adapter<GeneralView_Viewho
                                     f.setAddedWishlist(true); //added to the wishlist
                                     Toast.makeText(v.getContext(), "Food added to the wishlist!", Toast.LENGTH_SHORT).show();
                                     Log.i("wishlist", String.valueOf(acc.wishlist));
-                                    UpdateDB(f, acc);
+                                    //UpdateDB(f, acc);
+                                    String userName = "-N_rSmXdN9k_Mr0gWvRF";
+                                    DatabaseReference userWishList = accountsRef.child(userName).child("wishlist");
+                                    userWishList.setValue(acc.wishlist);
                                 }
 //                                else{
 //                                    acc.wishlist.remove(f.getFoodIndex());
@@ -176,22 +179,30 @@ public class GeneralView_Adapter extends RecyclerView.Adapter<GeneralView_Viewho
 
     public void UpdateDB(Food f, Account acc) {
         Log.i("UPDATING", "UPDATE DB");
-        String userName = acc.Username;
+        String userName = "-N_rSmXdN9k_Mr0gWvRF"; //got error
         DatabaseReference userWishList = accountsRef.child(userName).child("wishlist");
         userWishList.addListenerForSingleValueEvent(new ValueEventListener() {
-
             @Override
             public void onDataChange(@NonNull DataSnapshot snapshot) {
-                Log.i("UPDATING", "UPDATE DB");
+                Log.i("UPDATING", String.valueOf(userWishList));
                 if (snapshot.exists()){
-                    ArrayList<Integer> wishlist = (ArrayList<Integer>) snapshot.getValue();
-                    Log.i("UPDATING", "UPDATE DB");
-                    if (wishlist == null){
-                        wishlist = new ArrayList<>();
+                    ArrayList<Integer> wishlist = (ArrayList<Integer>) snapshot.getValue(); //getting the data
+                    Integer testobj = snapshot.getValue(Integer.class);
+                    wishlist.add(testobj);
 
+                    Log.i("UPDATING DB", String.valueOf(testobj));
+
+                    if (wishlist == null){
+                        Log.i("wishlist is null", "i");
+                        wishlist = new ArrayList<>();
                     }
-                    userWishList.setValue(wishlist);
+                    for (int i : wishlist){
+                        Log.i("wishlist check", String.valueOf(i));
+                    }
+
+                    userWishList.setValue(wishlist); //setValue means adding
                 }
+
             }
 
             @Override
