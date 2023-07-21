@@ -1,171 +1,202 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+
+<androidx.drawerlayout.widget.DrawerLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/drawer_layout"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".HomePage">
+    android:fitsSystemWindows="true"
+    android:visibility="visible"
+    tools:context=".HomePage"
+    tools:openDrawer="start">
 
-    <TextView
-        android:id="@+id/heading"
-        android:layout_width="234dp"
-        android:layout_height="48dp"
-        android:layout_marginStart="88dp"
-        android:layout_marginTop="32dp"
-        android:layout_marginEnd="89dp"
-        android:text="Opening Hours "
-        android:textSize="34sp"
-        android:textStyle="bold"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
 
-    <TextView
-        android:id="@+id/fc"
-        android:layout_width="97dp"
-        android:layout_height="26dp"
-        android:layout_marginStart="51dp"
-        android:layout_marginTop="76dp"
-        android:layout_marginEnd="69dp"
-        android:text="Food Club "
-        android:textSize="20sp"
-        app:layout_constraintEnd_toStartOf="@+id/imageView"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/heading" />
+        <androidx.appcompat.widget.Toolbar
+            android:id="@+id/toolbar"
+            android:layout_width="match_parent"
+            android:layout_height="?attr/actionBarSize"
+            android:elevation="4dp"
+            android:theme="@style/ThemeOverlay.AppCompat.Dark.ActionBar"
+            android:visibility="visible"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:popupTheme="@style/Theme.AppCompat.Light" />
 
-    <TextView
-        android:id="@+id/fc_open2"
+        <FrameLayout
+            android:id="@+id/fragment_container"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+        </FrameLayout>
+    </LinearLayout>
+
+    <com.google.android.material.navigation.NavigationView
+        android:id="@+id/nav_view"
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="51dp"
-        android:layout_marginTop="4dp"
-        android:text="Hours: 7.30am - 8.30pm"
-        app:layout_constraintEnd_toStartOf="@+id/imageView"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/fc" />
+        android:layout_height="match_parent"
+        android:layout_gravity="start"
+        android:visibility="visible"
+        app:headerLayout="@layout/drawer_header"
+        app:menu="@menu/drawer_menu">
 
-    <TextView
-        android:id="@+id/fc_loc2"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="51dp"
-        android:layout_marginBottom="92dp"
-        android:text="Where: Under Blk 22"
-        app:layout_constraintBottom_toTopOf="@+id/munch"
-        app:layout_constraintEnd_toStartOf="@+id/imageView"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/fc_open2" />
+    </com.google.android.material.navigation.NavigationView>
 
-    <TextView
-        android:id="@+id/munch"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="51dp"
-        android:layout_marginEnd="91dp"
-        android:layout_marginBottom="12dp"
-        android:text="Munch"
-        android:textSize="20sp"
-        app:layout_constraintBottom_toTopOf="@+id/munch_hours"
-        app:layout_constraintEnd_toStartOf="@+id/imageView3"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="parent" />
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
 
-    <TextView
-        android:id="@+id/textView7"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="51dp"
-        android:layout_marginEnd="40dp"
-        android:layout_marginBottom="44dp"
-        android:text="Where: Under Blk 73"
-        app:layout_constraintBottom_toTopOf="@+id/mp"
-        app:layout_constraintEnd_toStartOf="@+id/imageView3"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/munch_hours"
-        app:layout_constraintVertical_bias="0.0" />
+        <TextView
+            android:id="@+id/textView14"
+            android:layout_width="71dp"
+            android:layout_height="51dp"
+            android:layout_marginStart="24dp"
+            android:layout_marginTop="14dp"
+            android:layout_marginEnd="250dp"
+            android:fontFamily="@font/alata"
+            android:text="NP Eats"
+            android:textColor="#000000"
+            android:textSize="20sp"
+            android:textStyle="bold"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
 
-    <TextView
-        android:id="@+id/munch_hours"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="51dp"
-        android:text="Hours: 7.15am - 6.30pm"
-        app:layout_constraintEnd_toStartOf="@+id/imageView3"
-        app:layout_constraintHorizontal_bias="0.117"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/munch" />
+        <TextView
+            android:id="@+id/UsernameText"
+            android:layout_width="365dp"
+            android:layout_height="37dp"
+            android:layout_marginStart="13dp"
+            android:layout_marginTop="70dp"
+            android:layout_marginEnd="1dp"
+            android:fontFamily="@font/alata"
+            android:text="Hello Username, "
+            android:textSize="25sp"
+            android:textStyle="bold"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.087"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
 
-    <TextView
-        android:id="@+id/mp"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="51dp"
-        android:text="Makan Place"
-        android:textSize="20sp"
-        app:layout_constraintBottom_toTopOf="@+id/mp_hours"
-        app:layout_constraintEnd_toStartOf="@+id/imageView2"
-        app:layout_constraintHorizontal_bias="0.017"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/munch_hours"
-        app:layout_constraintVertical_bias="1.0" />
+        <ImageView
+            android:id="@+id/imageView6"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="10dp"
+            android:layout_marginEnd="360dp"
+            android:layout_marginBottom="10dp"
+            app:layout_constraintBottom_toTopOf="@+id/UsernameText"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:srcCompat="@drawable/sidepanel" />
 
-    <TextView
-        android:id="@+id/mp_hours"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="51dp"
-        android:text="Hours: 9am - 6pm"
-        app:layout_constraintEnd_toStartOf="@+id/imageView2"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/mp" />
+        <TextView
+            android:id="@+id/crowdbutton"
+            android:layout_width="205dp"
+            android:layout_height="140dp"
+            android:layout_marginStart="12dp"
+            android:layout_marginTop="64dp"
+            android:background="@drawable/rectangle2"
+            android:backgroundTint="#A600BCD4"
+            android:fontFamily="@font/alata"
+            android:gravity="center"
+            android:paddingLeft="10sp"
+            android:text="Click to view crowdedness of each food court"
+            android:textAlignment="textStart"
+            android:textStyle="bold"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/textView16" />
 
-    <TextView
-        android:id="@+id/mp_loc"
-        android:layout_width="126dp"
-        android:layout_height="16dp"
-        android:layout_marginStart="51dp"
-        android:layout_marginBottom="252dp"
-        android:text="Where: Under Blk 51"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toStartOf="@+id/imageView2"
-        app:layout_constraintHorizontal_bias="0.063"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/mp_hours" />
 
-    <ImageView
-        android:id="@+id/imageView"
-        android:layout_width="163dp"
-        android:layout_height="118dp"
-        android:layout_marginTop="58dp"
-        android:layout_marginEnd="32dp"
-        android:layout_marginBottom="27dp"
-        app:layout_constraintBottom_toTopOf="@+id/imageView3"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/heading"
-        app:srcCompat="@drawable/fc" />
 
-    <ImageView
-        android:id="@+id/imageView2"
-        android:layout_width="161dp"
-        android:layout_height="102dp"
-        android:layout_marginTop="21dp"
-        android:layout_marginEnd="29dp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/imageView3"
-        app:srcCompat="@drawable/makan_place" />
+        <TextView
+            android:id="@+id/MapButton"
+            android:layout_width="140dp"
+            android:layout_height="140dp"
+            android:layout_marginTop="64dp"
+            android:layout_marginEnd="5dp"
+            android:background="@drawable/rectangle"
+            android:fontFamily="@font/alata"
+            android:gravity="center"
+            android:text="Food Courts Map"
+            android:textAlignment="center"
+            android:textColor="#000000"
+            android:textStyle="bold"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.51"
+            app:layout_constraintStart_toEndOf="@+id/crowdbutton"
+            app:layout_constraintTop_toBottomOf="@+id/textView16" />
+        <ImageView
+            android:id="@+id/imageView5"
+            android:layout_width="42dp"
+            android:layout_height="40dp"
+            android:layout_marginEnd="90dp"
+            android:layout_marginBottom="120dp"
+            app:layout_constraintBottom_toBottomOf="@+id/MapButton"
+            app:layout_constraintEnd_toEndOf="@+id/MapButton"
+            app:layout_constraintStart_toStartOf="@+id/MapButton"
+            app:layout_constraintTop_toTopOf="@+id/MapButton"
+            app:layout_constraintVertical_bias="0.7"
+            app:srcCompat="@drawable/mapicon" />
 
-    <ImageView
-        android:id="@+id/imageView3"
-        android:layout_width="166dp"
-        android:layout_height="110dp"
-        android:layout_marginEnd="32dp"
-        android:layout_marginBottom="20dp"
-        app:layout_constraintBottom_toTopOf="@+id/imageView2"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:srcCompat="@drawable/munch" />
-</androidx.constraintlayout.widget.ConstraintLayout>
+        <TextView
+            android:id="@+id/textView18"
+            android:layout_width="82dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="148dp"
+            android:fontFamily="@font/alata"
+            android:text="Food Courts"
+            android:textSize="15sp"
+            android:textStyle="bold"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.048"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/textView16"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="110dp"
+            android:fontFamily="@font/alata"
+            android:text="What Would You Like To Do Today?"
+            android:textSize="15sp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.091"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+
+        <ImageView
+            android:id="@+id/imageView4"
+            android:layout_width="42dp"
+            android:layout_height="40dp"
+            android:layout_marginEnd="160dp"
+            android:layout_marginBottom="120dp"
+            app:layout_constraintBottom_toBottomOf="@+id/crowdbutton"
+            app:layout_constraintEnd_toEndOf="@+id/crowdbutton"
+            app:layout_constraintStart_toStartOf="@+id/crowdbutton"
+            app:layout_constraintTop_toTopOf="@+id/crowdbutton"
+            app:srcCompat="@drawable/forkicon" />
+
+        <Button
+            android:id="@+id/button"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="153dp"
+            android:layout_marginTop="74dp"
+            android:layout_marginEnd="167dp"
+            android:text="Button"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/crowdbutton" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</androidx.drawerlayout.widget.DrawerLayout>

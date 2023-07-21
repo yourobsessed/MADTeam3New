@@ -1,0 +1,116 @@
+package sg.edu.np.mad;
+
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
+
+import android.content.Intent;
+import android.os.Bundle;
+import android.util.Log;
+import android.view.View;
+import android.widget.ImageView;
+import android.widget.RatingBar;
+import android.widget.TextView;
+
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.ValueEventListener;
+
+import java.text.DecimalFormat;
+import java.util.ArrayList;
+import java.util.List;
+
+public class AllReviewsPage extends AppCompatActivity {
+
+    TextView text;
+    ArrayList<FoodReview> itemList = new ArrayList<>();
+
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_all_reviews_page);
+
+        text = findViewById(R.id.txt1);
+        text.setText(getIntent().getExtras().getString("foodname"));
+
+        ImageView backButton = findViewById(R.id.imageView11);
+        backButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                finish();
+            }
+        });
+
+        TextView writereviewbutton = findViewById(R.id.writereviewbutton);
+        writereviewbutton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+
+                Intent toAFR = new Intent(AllReviewsPage.this, FoodReviewPage.class);
+                toAFR.putExtra("foodname",getIntent().getExtras().getString("foodname"));
+                startActivity(toAFR);
+
+            }
+        });
+
+
+
+
+
+    }
+
+    @Override
+    protected void onResume() {
+        super.onResume();
+        itemList.clear();
+        DatabaseReference reviewsRef = FirebaseDatabase.getInstance().getReference("Reviews");
+        ValueEventListener reviewsListener = new ValueEventListener() {
+            @Override
+            public void onDataChange(DataSnapshot dataSnapshot) {
+                int numofreviews = 0;
+                int totalstars = 0;
+                float avgstars = 0;
+                for (DataSnapshot reviewSnapshot : dataSnapshot.getChildren()) {
+                    FoodReview foodReview = reviewSnapshot.getValue(FoodReview.class);
+                    if (foodReview != null && foodReview.FoodName.equals(text.getText().toString())) {
+                        numofreviews++;
+                        totalstars += foodReview.Rating;
+                        itemList.add(foodReview);
+                    }
+                }
+                if(numofreviews != 0){
+                    avgstars = totalstars/numofreviews;
+                    TextView text = findViewById(R.id.txt);
+                    text.setText("" + new DecimalFormat("#.0").format(avgstars/20));
+                    RatingBar stars = findViewById(R.id.ratingBar);
+                    stars.setRating(avgstars/20);
+                    TextView numofrev = findViewById(R.id.txt2);
+                    numofrev.setText("Based on " + numofreviews + " reviews");
+                    if(avgstars == 0){
+                        text.setText("0.0");
+                    }
+
+                }
+                RecyclerView recyclerView;
+                FoodReviewAdapter itemAdapter;
+
+                recyclerView = findViewById(R.id.recyclerview);
+                recyclerView.setLayoutManager(new LinearLayoutManager(AllReviewsPage.this));
+
+                itemAdapter = new FoodReviewAdapter(itemList, AllReviewsPage.this);
+                recyclerView.setAdapter(itemAdapter);
+
+            }
+
+            @Override
+            public void onCancelled(DatabaseError databaseError) {
+                // Handle any errors
+            }
+        };
+
+        reviewsRef.addListenerForSingleValueEvent(reviewsListener);
+
+    }
+}

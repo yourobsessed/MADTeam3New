@@ -1,123 +1,100 @@
 # MADTeam3New
-FOOD @ NP 
+NP Eats
 
- 
-Resolving the issue of overcrowding in food places at Ngee Ann Polytechnic is crucial for several reasons. Firstly, overcrowding poses significant challenges to the overall dining experience. Long queues and limited seating lead to increased waiting times and discomfort for students, staff, and visitors. By addressing overcrowding, we can enhance the convenience and enjoyment of mealtimes, creating a more pleasant environment for everyone. 
+NP Eats is your ultimate dining companion at Ngee Ann Polytechnic. Discover a variety of food courts and stalls, check real-time crowdedness, navigate using an interactive map, and log in for a personalized experience. Easily browse food options, rate and review dishes, create a wishlist, and receive lunchtime suggestions. Enhance your dining adventures with NP Eats and make the most of your culinary journey at Ngee Ann Polytechnic.
 
-Secondly, overcrowding can have negative implications for health and safety. Limited space can result in congested areas, making it difficult to maintain proper hygiene and social distancing, especially in times when public health concerns are heightened. Resolving overcrowding will promote a healthier and safer dining atmosphere, reducing the risk of potential health issues. 
+**Team members**
+1. Jovin Wong See Xuan [S10243666]
+2. Colin Chang He Ping [S10242330]
+3. Rae Yang Xin Lei [S10243305]
+4. Leroy Peh Jia Jing [S10243705]
+   
+Stage 1:
 
-Furthermore, efficient crowd management in food places encourages a more inclusive campus experience. With ample space and reduced congestion, individuals with varying mobility or accessibility needs can navigate the dining areas comfortably, ensuring that everyone has equal opportunities to enjoy their meals without facing unnecessary barriers. 
+**Food Catalogue**
 
-Addressing overcrowding also promotes a more productive environment. When students and staff have access to less crowded and more conducive dining spaces, they can enjoy their meals in a relaxed atmosphere. This can contribute to improved overall well-being, increased social interactions, and even enhanced productivity throughout the day. 
+The Food Catalogue feature presents a user-friendly interface showcasing all the NP Food courts using a RecyclerView. Users can easily choose their preferred food court, and the app will display the food stalls available in that particular court.
 
-Ultimately, resolving the overcrowding issue in food places at Ngee Ann Polytechnic demonstrates a commitment to the welfare and satisfaction of the campus community. By prioritizing the creation of comfortable and efficient dining spaces, we can foster a more inclusive, healthier, and enjoyable environment that supports the overall well-being and academic pursuits of students and staff alike. 
+(Done by Jovin)
 
- 
+**Food Court Crowdedness**
 
-Stage 1: 
+Users can view the real-time crowdedness level of each food court. Inside a food court, users have the option to provide information on how crowded it is, rating the status of the foodcourts. This data is then shared with other users who are looking for less crowded places to dine. If no data is available, the app will display the crowdedness as "unknown."
 
-Food Catalogue - Jovin 
+(Done by Colin)
 
-Uses a Recyclerview showing all the NP Food courts 
 
-User will choose a food court of their choice, then the food stalls of the chosen food court appear 
+**NP Food Courts Map**
 
-Users will then choose a stall, then the foods provided by the stall will appear, showing the picture, name, price and calories of each food 
+The NP Food Courts Map provides a visual representation of NP, displaying the locations of each food court. Users can also view their current location and facing direction, making it easier to navigate and reach their desired food court.
 
- 
+(Done by Colin)
 
-Food court crowdedness - Colin 
+**Login Page**
 
-Users will be able to view how crowded each food court is 
+The Login Page allows users to access their accounts. Newcomers can register by providing basic information such as a username, name, and student ID. Upon registration, a user profile will be created, enabling a personalized app experience. Logging into the app requires a username and password.
 
-When inside a food court users can provide information on how crowded the food court is, on a scale of 1 – 10. 
+(Done by Rae)
 
-App notifies users when it detects user’s GPS location is in the food court, to ask for crowd information 
+**Limit Options**
 
-The data provided will be shown to other users finding a less crowded food court to dine in 
+Food options are categorized into different categories for easy navigation. Users can select a category to view the listed food options in a RecyclerView.
 
-If there is not data on crowdedness provided by other users, the app will display as unknown 
+(Done by Leroy)
 
- 
+Stage 2:
 
- 
+**Rating of Food**
 
-Login Page - Rae 
+Users can rate the dishes they have tried, providing a range from 1 to 5 stars and a short review explaining their rating. The ratings and reviews are visible to other users, helping them make informed decisions about their food choices. Users can also include a photo of the food along with their review.
 
-Allow users to login into their account 
+(To be done by Colin)
 
-If newcomer: 
+**Wishlist with Notifications**
 
-A simple login, username, name, and student id will be needed to register for an account.  
+Users can add their desired foods to a wishlist for future reference. Around lunchtime, the app sends a food suggestion notification with a randomly generated food item, prompting users to consider it for their meal. The notification includes information about the food court where the dish can be found and its name. The main page may feature an image view that changes daily, reminding users to try new foods soon.
 
-In this process, a user row will be created/added to the user table 
+(To be done by Jovin)
 
- 
+**All-Time Favorite Page**
 
-Logging into the app 
+The All-Time Favorite page showcases a collection of the top 10 favorite foods. Users can browse through the displayed information about each food item in a RecyclerView format. Clicking on a food item provides detailed information, and users can choose to add it to their wishlist for future reference.
 
-Username and password 
+Experience the ultimate dining companion with Food@NP! Discover a wide range of food options, navigate with ease, rate and review dishes, and create your personalized wishlist. Download the app now to enhance your dining experience at Ngee Ann Polytechnic.
 
- 
+(To be done by leroy)
 
-Limit options – Leroy 
+**Information Page**
 
-Input calories for all the food options 
+The information page shows the information about all the foodcourts available at Ngee Ann Polytechnic. It would include general details like opening and closing timings and most importantly, how to get there video! This would ensure that students would know how to get to the foodcourt, especially for the freshies!
 
-Food will be categorised into the categories  
+(To be done by Rae)
 
-When user presses certain category, food options will be listed down in recyclerView 
+**Food Generator Page**
 
- 
+The food generator page generates random food on click. For students who have trouble to decide on what to eat everyday, they can use this feature to plan on what to have that day!
 
- 
+(To be done by Jovin)
 
-Stage 2: 
+**How NP Eats work**
 
- 
+![image](https://github.com/yourobsessed/MADTeam3New/assets/130966829/5d9572c0-209f-401e-b313-a08a1d6388cf)
 
-Rating of food - Colin 
+This is the home screen, click on any of the boxes to check out the crowdedness of the foodcourts and the location of the three foodcourts
 
-The food that the user ate can be critiqued by the user. 
+![image](https://github.com/yourobsessed/MADTeam3New/assets/130966829/c989faa3-772c-46ec-a844-c69185fc35cd)
 
-A range from 1 to 5 stars, along with a short review on why they inputted that number of stars. 
+Make use to turn on the location, and allow the use of location permission in the app to use this feature!
 
-Other users would be able to see the ratings of foods and take that into consideration. 
+![image](https://github.com/yourobsessed/MADTeam3New/assets/130966829/148e5f1a-ed30-41c4-8651-b758727bd638)
 
- 
+Use the above siide panel to get to other activities of the app! Either swipe right from the left side of the screen or press the side panel button on left hand corner of the home screen
 
-How to get there and introduction of the food courts (information page)  
+![image](https://github.com/yourobsessed/MADTeam3New/assets/130966829/b2e0a372-911c-4553-b66a-ae5df54c2d2d)
 
-Helpful for the new users/freshies who just joined NP 
+Use the filters and search bar to find the food that you feel like having. Filter them according to their locations, food categories and many more!
 
-Will have a short introduction about the app and also a how to get there video?? 
+![image](https://github.com/yourobsessed/MADTeam3New/assets/130966829/e3207e8b-fc90-485b-aab0-a577b97161d8)
 
- 
 
-Wishlist with a notification – Jovin 
 
-Food that the users would like to try in the future may be added to the list by pressing a button 
-
-When it’s around the lunch hour, a food suggestion notification with a random food generated can prompt user to have that for lunch 
-
-Notification would include information about which food court to get that certain order, and it’s name 
-
-Main page may have an imageview that changes everyday to remind the users to try the food soon 
-
- 
-
-All-time favourite page - Rae
-
-Shows a collection of all the favourite food (top 10) at the main page 
-
-All-time favourites would be in a recycler view format to view all the information about the food. When clicked into the food, information will be shown 
-
-User can choose whether to add the food to the wishlist 
-
- 
-
-Feedback to school - Leroy 
-
-Have a page for students to submit their feedback related to food, canteen to the school  
-
-In charge person of the canteen will be able to receive a consolidated feedback every month as an email 

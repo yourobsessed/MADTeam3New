@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context=".GeneralView_Filter">
+
+
+    <TextView
+        android:id="@+id/textView"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center_vertical"
+        android:text="   Location"
+        android:textAlignment="gravity"
+        android:textAppearance="@style/TextAppearance.AppCompat.Medium"
+        android:textSize="16sp" />
+
+
+    <com.google.android.material.chip.ChipGroup
+        android:id="@+id/chipGroupLocation"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal"
+        app:singleLine="true"
+        app:singleSelection="false">
+
+        <com.google.android.material.chip.Chip
+            android:id="@+id/chipMakan"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Makan Place"
+            style="@style/Widget.MaterialComponents.Chip.Filter"/>
+
+        <com.google.android.material.chip.Chip
+            android:id="@+id/chipClub"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Food Club"
+            style="@style/Widget.MaterialComponents.Chip.Filter"/>
+
+        <com.google.android.material.chip.Chip
+            android:id="@+id/chipMunch"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Munch"
+            style="@style/Widget.MaterialComponents.Chip.Filter"/>
+    </com.google.android.material.chip.ChipGroup>
+
+    <Button
+        android:id="@+id/buttonApply"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:gravity="center_horizontal"
+        android:shape="rectangle"
+        android:text="Apply" />
+</LinearLayout>

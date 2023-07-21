@@ -1,0 +1,158 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <TextView
+        android:id="@+id/textView15"
+        android:layout_width="185dp"
+        android:layout_height="34dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="14dp"
+        android:text="Opening Hours "
+        android:textAlignment="center"
+        android:textSize="20sp"
+        android:textStyle="bold"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView7" />
+
+    <TextView
+        android:id="@+id/textView7"
+        android:layout_width="411dp"
+        android:layout_height="60dp"
+        android:background="#A600BCD4"
+        android:gravity="center_vertical"
+        android:text="     Information Page"
+        android:textSize="24sp"
+        android:textStyle="bold" />
+
+
+    <TextView
+        android:id="@+id/fc"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="43dp"
+        android:layout_marginTop="33dp"
+        android:text="Food Club"
+        android:textStyle="bold"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView15" />
+
+    <TextView
+        android:id="@+id/fc_hours"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="43dp"
+        android:layout_marginTop="12dp"
+        android:text="Hours: 7.30pm - 8.30pm"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/fc" />
+
+
+    <TextView
+        android:id="@+id/fc_where"
+        android:layout_width="131dp"
+        android:layout_height="21dp"
+        android:layout_marginStart="43dp"
+        android:layout_marginTop="11dp"
+        android:text="Where: Under Blk 22"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/fc_hours" />
+
+    <TextView
+        android:id="@+id/mp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="43dp"
+        android:layout_marginTop="81dp"
+        android:text="Makan Place"
+        android:textStyle="bold"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/fc_where" />
+
+    <TextView
+        android:id="@+id/mp_hours"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="43dp"
+        android:layout_marginTop="11dp"
+        android:text="Hours: 9am - 6pm"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/mp" />
+
+    <TextView
+        android:id="@+id/mp_where"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="43dp"
+        android:layout_marginTop="16dp"
+        android:text="Where: Under Blk 51"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/mp_hours" />
+
+    <TextView
+        android:id="@+id/munch"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="43dp"
+        android:layout_marginTop="69dp"
+        android:text="Munch"
+        android:textStyle="bold"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/mp_where" />
+
+    <TextView
+        android:id="@+id/munch_hours"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="43dp"
+        android:layout_marginTop="10dp"
+        android:text="Hours: 7.15pm - 6.30pm"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/munch" />
+
+    <TextView
+        android:id="@+id/munch_where"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="43dp"
+        android:layout_marginTop="15dp"
+        android:text="Where: Under Blk 73"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/munch_hours" />
+
+    <ImageView
+        android:id="@+id/imageView12"
+        android:layout_width="184dp"
+        android:layout_height="134dp"
+        android:layout_marginStart="12dp"
+        android:layout_marginTop="72dp"
+        app:layout_constraintStart_toEndOf="@+id/fc_hours"
+        app:layout_constraintTop_toBottomOf="@+id/textView7"
+        app:srcCompat="@drawable/fc" />
+
+    <ImageView
+        android:id="@+id/imageView14"
+        android:layout_width="179dp"
+        android:layout_height="126dp"
+        android:layout_marginStart="12dp"
+        android:layout_marginTop="32dp"
+        app:layout_constraintStart_toEndOf="@+id/munch_hours"
+        app:layout_constraintTop_toBottomOf="@+id/imageView15"
+        app:srcCompat="@drawable/munch" />
+
+    <ImageView
+        android:id="@+id/imageView15"
+        android:layout_width="178dp"
+        android:layout_height="127dp"
+        android:layout_marginStart="36dp"
+        android:layout_marginTop="24dp"
+        app:layout_constraintStart_toEndOf="@+id/mp_where"
+        app:layout_constraintTop_toBottomOf="@+id/imageView12"
+        app:srcCompat="@drawable/makan_place" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

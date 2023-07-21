@@ -6,73 +6,237 @@
     android:layout_height="match_parent"
     tools:context=".MainPage">
 
-    <ImageView
-        android:id="@+id/NotificationButton"
-        android:layout_width="52dp"
-        android:layout_height="49dp"
-        android:layout_marginEnd="32dp"
-        android:layout_marginBottom="16dp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toStartOf="@+id/ProfileButton"
-        app:srcCompat="@android:drawable/ic_dialog_email" />
-
-    <ImageView
-        android:id="@+id/CatalogueButton"
-        android:layout_width="52dp"
-        android:layout_height="49dp"
-        android:layout_marginStart="29dp"
-        android:layout_marginEnd="28dp"
-        android:layout_marginBottom="16dp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toStartOf="@+id/NotificationButton"
-        app:layout_constraintStart_toEndOf="@+id/WishlistButton"
-        app:srcCompat="@android:drawable/ic_dialog_dialer" />
-
-    <ImageView
-        android:id="@+id/WishlistButton"
-        android:layout_width="52dp"
-        android:layout_height="49dp"
-        android:layout_marginStart="30dp"
-        android:layout_marginBottom="16dp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintStart_toEndOf="@+id/HomeButton"
-        app:srcCompat="@android:drawable/ic_menu_save" />
-
-    <ImageView
-        android:id="@+id/ProfileButton"
-        android:layout_width="52dp"
-        android:layout_height="49dp"
-        android:layout_marginEnd="16dp"
-        android:layout_marginBottom="16dp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:srcCompat="@android:drawable/ic_menu_info_details" />
-
-    <ImageView
-        android:id="@+id/HomeButton"
-        android:layout_width="52dp"
-        android:layout_height="49dp"
-        android:layout_marginStart="16dp"
-        android:layout_marginBottom="16dp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:srcCompat="@android:drawable/arrow_up_float" />
-
-    <ImageView
-        android:id="@+id/SidePanelButton"
-        android:layout_width="52dp"
-        android:layout_height="45dp"
-        android:layout_marginStart="16dp"
+    <TextView
+        android:id="@+id/textView2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="28dp"
         android:layout_marginTop="16dp"
+        android:elevation="6px"
+        android:text="Food Club"
+        android:textSize="16sp"
+        app:layout_constraintStart_toStartOf="@+id/view"
+        app:layout_constraintTop_toTopOf="@+id/view" />
+
+    <TextView
+        android:id="@+id/FCText"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="28dp"
+        android:elevation="6px"
+        android:text="Crowd"
+        android:textSize="12sp"
+        app:layout_constraintStart_toStartOf="@+id/view"
+        app:layout_constraintTop_toBottomOf="@+id/textView2" />
+
+    <TextView
+        android:id="@+id/textView10"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="28dp"
+        android:layout_marginTop="17dp"
+        android:elevation="6px"
+        android:text="Makan Place"
+        android:textSize="16sp"
+        app:layout_constraintStart_toStartOf="@+id/view2"
+        app:layout_constraintTop_toTopOf="@+id/view2" />
+
+    <TextView
+        android:id="@+id/MPText"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="28dp"
+        android:layout_marginTop="0dp"
+        android:elevation="6px"
+        android:text="Crowd"
+        android:textSize="12sp"
+        app:layout_constraintStart_toStartOf="@+id/view2"
+        app:layout_constraintTop_toBottomOf="@+id/textView10" />
+
+    <ProgressBar
+        android:id="@+id/MPBar"
+        style="?android:attr/progressBarStyleHorizontal"
+        android:layout_width="205dp"
+        android:layout_height="17dp"
+        android:layout_marginStart="20dp"
+        android:layout_marginTop="28dp"
+        android:elevation="6px"
+        android:progress="20"
+        app:layout_constraintStart_toEndOf="@+id/textView10"
+        app:layout_constraintTop_toTopOf="@+id/view2" />
+
+    <TextView
+        android:id="@+id/MText"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="28dp"
+        android:elevation="6px"
+        android:text="Crowd"
+        android:textSize="12sp"
+        app:layout_constraintStart_toStartOf="@+id/view3"
+        app:layout_constraintTop_toBottomOf="@+id/textView11" />
+
+    <TextView
+        android:id="@+id/textView11"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="28dp"
+        android:layout_marginTop="16dp"
+        android:elevation="6px"
+        android:text="Munch"
+        android:textSize="16sp"
+        app:layout_constraintStart_toStartOf="@+id/view3"
+        app:layout_constraintTop_toTopOf="@+id/view3" />
+
+    <ProgressBar
+        android:id="@+id/MBar"
+        style="?android:attr/progressBarStyleHorizontal"
+        android:layout_width="205dp"
+        android:layout_height="17dp"
+        android:layout_marginStart="60dp"
+        android:layout_marginTop="20dp"
+        android:elevation="6px"
+        android:progress="95"
+        app:layout_constraintStart_toEndOf="@+id/textView11"
+        app:layout_constraintTop_toTopOf="@+id/view3" />
+
+    <TextView
+        android:id="@+id/textView12"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="20dp"
+        android:layout_marginTop="28dp"
+        android:layout_marginEnd="154dp"
+        android:fontFamily="@font/alata"
+        android:text="Food Court Crowdedness"
+        android:textSize="18sp"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.409"
+        app:layout_constraintStart_toEndOf="@+id/Back"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <ImageView
+        android:id="@+id/Back"
+        android:layout_width="29dp"
+        android:layout_height="29dp"
+        android:layout_marginStart="28dp"
+        android:layout_marginTop="28dp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:srcCompat="@android:drawable/ic_menu_sort_by_size" />
+        app:srcCompat="@drawable/img" />
 
-    <ImageView
-        android:id="@+id/imageView7"
-        android:layout_width="231dp"
-        android:layout_height="51dp"
-        app:srcCompat="@android:drawable/sym_def_app_icon"
-        tools:layout_editor_absoluteX="98dp"
-        tools:layout_editor_absoluteY="10dp" />
+    <ProgressBar
+        android:id="@+id/FCBar"
+        style="?android:attr/progressBarStyleHorizontal"
+        android:layout_width="205dp"
+        android:layout_height="17dp"
+        android:layout_marginTop="28dp"
+        android:layout_marginEnd="28dp"
+        android:elevation="6px"
+        android:progress="50"
+        app:layout_constraintEnd_toEndOf="@+id/view"
+        app:layout_constraintTop_toTopOf="@+id/view" />
+
+    <Button
+        android:id="@+id/SendCrowdButton"
+        android:layout_width="89dp"
+        android:layout_height="45dp"
+        android:layout_marginTop="113dp"
+        android:layout_marginEnd="33dp"
+        android:background="@drawable/outlinebutton"
+        android:text="Send"
+        android:textAlignment="center"
+        android:textColor="#2196F3"
+        android:textSize="16sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/RefreshButton" />
+
+    <Spinner
+        android:id="@+id/FCSpinner"
+        android:layout_width="221dp"
+        android:layout_height="48dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="21dp"
+        android:entries="@array/FoodCourts"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView17" />
+
+    <Spinner
+        android:id="@+id/CrowdSpinner"
+        android:layout_width="221dp"
+        android:layout_height="48dp"
+        android:layout_marginStart="16dp"
+        android:entries="@array/Crowdedness"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/FCSpinner" />
+
+    <TextView
+        android:id="@+id/textView17"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="48dp"
+        android:fontFamily="@font/alata"
+        android:text="How crowded is it for you right now?"
+        android:textSize="14sp"
+        android:textStyle="bold"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/RefreshButton" />
+
+    <Button
+        android:id="@+id/RefreshButton"
+        android:layout_width="346dp"
+        android:layout_height="41dp"
+        android:layout_marginStart="49dp"
+        android:layout_marginTop="24dp"
+        android:layout_marginEnd="49dp"
+        android:background="@drawable/outlinebutton"
+        android:text="Refresh"
+        android:textAlignment="center"
+        android:textColor="#2196F3"
+        android:textSize="16sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/view3" />
+
+    <View
+        android:id="@+id/view"
+        android:layout_width="374dp"
+        android:layout_height="69dp"
+        android:layout_marginStart="33dp"
+        android:layout_marginTop="35dp"
+        android:layout_marginEnd="33dp"
+        android:background="@drawable/rectangle3"
+        android:elevation="5px"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/Back" />
+
+    <View
+        android:id="@+id/view2"
+        android:layout_width="374dp"
+        android:layout_height="69dp"
+        android:layout_marginStart="33dp"
+        android:layout_marginTop="20dp"
+        android:layout_marginEnd="33dp"
+        android:background="@drawable/rectangle3"
+        android:elevation="5px"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/view" />
+
+    <View
+        android:id="@+id/view3"
+        android:layout_width="374dp"
+        android:layout_height="69dp"
+        android:layout_marginStart="33dp"
+        android:layout_marginTop="16dp"
+        android:layout_marginEnd="33dp"
+        android:background="@drawable/rectangle3"
+        android:elevation="5px"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/view2" />
+
 </androidx.constraintlayout.widget.ConstraintLayout>

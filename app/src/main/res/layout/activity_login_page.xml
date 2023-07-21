@@ -1,0 +1,162 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".LoginPage">
+
+    <TextView
+        android:id="@+id/existsText"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="51dp"
+        android:layout_marginTop="10dp"
+        android:layout_marginEnd="186dp"
+        android:text="This username doesn't exist"
+        android:textColor="@color/design_default_color_error"
+        android:visibility="visible"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView9" />
+
+    <EditText
+        android:id="@+id/UsernameEdit"
+        android:layout_width="337dp"
+        android:layout_height="54dp"
+        android:layout_marginStart="37dp"
+        android:layout_marginEnd="37dp"
+        android:background="@drawable/rectangle2"
+        android:ems="10"
+        android:hint="Username"
+        android:inputType="text"
+        android:paddingStart="16dp"
+        android:textAlignment="textStart"
+        android:textColor="#A1A1A1"
+        android:textColorHint="#A1A1A1"
+        android:textSize="14sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/existsText" />
+
+    <TextView
+        android:id="@+id/incorrectText"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="51dp"
+        android:layout_marginEnd="224dp"
+        android:text="Password is incorrect"
+        android:textColor="@color/design_default_color_error"
+        android:visibility="visible"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/PasswordEdit" />
+
+    <TextView
+        android:id="@+id/emptyText"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="51dp"
+        android:layout_marginTop="6dp"
+        android:layout_marginEnd="110dp"
+        android:text="Username and Password can't be empty"
+        android:textColor="@color/design_default_color_error"
+        android:visibility="visible"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/incorrectText" />
+
+    <EditText
+        android:id="@+id/PasswordEdit"
+        android:layout_width="337dp"
+        android:layout_height="54dp"
+        android:layout_marginStart="38dp"
+        android:layout_marginTop="7dp"
+        android:layout_marginEnd="36dp"
+        android:background="@drawable/rectangle2"
+        android:ems="10"
+        android:hint="Password"
+        android:inputType="text"
+        android:paddingStart="16dp"
+        android:textColor="#A1A1A1"
+        android:textColorHint="#A1A1A1"
+        android:textSize="14sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/UsernameEdit" />
+
+    <Button
+        android:id="@+id/SignInButton"
+        android:layout_width="314dp"
+        android:layout_height="50dp"
+        android:layout_marginStart="51dp"
+        android:layout_marginTop="29dp"
+        android:layout_marginEnd="46dp"
+        android:background="@drawable/outlinebutton"
+        android:stateListAnimator="@null"
+        android:text="Sign In"
+        android:textColor="#0091D4"
+        android:translationZ="8dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/emptyText" />
+
+    <TextView
+        android:id="@+id/RegisterButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="127dp"
+        android:layout_marginEnd="126dp"
+        android:layout_marginBottom="40dp"
+        android:text="Not a User? Register now"
+        android:textColor="#0091D4"
+        android:translationZ="8dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <TextView
+        android:id="@+id/textView8"
+        android:layout_width="56dp"
+        android:layout_height="40dp"
+        android:layout_marginStart="178dp"
+        android:layout_marginEnd="178dp"
+        android:layout_marginBottom="3dp"
+        android:text="or"
+        android:textAlignment="center"
+        android:textColor="#B3B3B3"
+        android:translationZ="8dp"
+        app:layout_constraintBottom_toTopOf="@+id/RegisterButton"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <TextView
+        android:id="@+id/textView9"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="168dp"
+        android:layout_marginTop="27dp"
+        android:layout_marginEnd="168dp"
+        android:fontFamily="sans-serif-medium"
+        android:text="Login"
+        android:textColor="#5A5A5A"
+        android:textSize="30sp"
+        android:translationZ="8dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/imageView3" />
+
+    <ImageView
+        android:id="@+id/imageView3"
+        android:layout_width="332dp"
+        android:layout_height="244dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="16dp"
+        android:layout_marginEnd="17dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/logo" />
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>
