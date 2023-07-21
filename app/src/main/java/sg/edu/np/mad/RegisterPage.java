@@ -64,7 +64,7 @@ public class RegisterPage extends AppCompatActivity {
                     DatabaseRef.child("Accounts").addListenerForSingleValueEvent(new ValueEventListener() {
                         @Override
                         public void onDataChange(@NonNull DataSnapshot snapshot) {
-                            boolean exists = false;
+                            Boolean exists = false;
                             for (DataSnapshot reviewSnapshot : snapshot.getChildren()) {
                                 Account account = reviewSnapshot.getValue(Account.class);
                                 if (account.Username.equals(UsernameText.getText().toString())) {
@@ -72,12 +72,15 @@ public class RegisterPage extends AppCompatActivity {
                                 }
                             }
                             if (!exists) {
+                                ArrayList<Integer> foodWishlist = new ArrayList<>();
+                                foodWishlist.add(0);
                                 ExistsText.setVisibility(View.INVISIBLE);
-                                DatabaseRef.child("Accounts").push().setValue(new Account(UsernameText.getText().toString(), PasswordText.getText().toString(),new ArrayList<>()));
+                                DatabaseRef.child("Accounts").push().setValue(new Account(UsernameText.getText().toString(), PasswordText.getText().toString(), foodWishlist));
                                 Toast.makeText(getApplicationContext(), "Account Created", Toast.LENGTH_SHORT).show();
                                 Intent OpenMain = new Intent(RegisterPage.this, HomePage.class);
                                 OpenMain.putExtra("Username", UsernameText.getText().toString());
                                 startActivity(OpenMain);
+
                             } else if (exists) {
                                 ExistsText.setVisibility(View.VISIBLE);
                                 Toast.makeText(getApplicationContext(), "Username Exists", Toast.LENGTH_SHORT).show();

@@ -50,7 +50,7 @@ public class LoginPage extends AppCompatActivity {
                     DatabaseRef.child("Accounts").addListenerForSingleValueEvent(new ValueEventListener() {
                         @Override
                         public void onDataChange(@NonNull DataSnapshot snapshot) {
-                            boolean exists = false;
+                            Boolean exists = false;
                             String dbPassword = null;
                             for (DataSnapshot reviewSnapshot : snapshot.getChildren()) {
                                 Account account = reviewSnapshot.getValue(Account.class);
@@ -102,9 +102,10 @@ public class LoginPage extends AppCompatActivity {
 
     @Override
     protected void onStart() {
-
         super.onStart();
+
     }
+
     @Override
     protected void onResume(){
         super.onResume();

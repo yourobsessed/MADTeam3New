@@ -16,12 +16,6 @@ public class Account {
 
     }
 
-//    public Account(String Username, String Password) {
-//        this.Username = Username;
-//        this.Password = Password;
-//        this.wishlist = new ArrayList<>();
-//
-//    }
     public Account() {
     }
 
