@@ -43,7 +43,7 @@ public class GeneralViewPage extends AppCompatActivity implements SelectListener
     private SearchView searchView;
     private RecyclerView recyclerView;
 
-    private Chip chipAllLocations,chipClub,chipMakan,chipMunch,chipHalal,chipVegeterian,chipHealthy,chipAffordable,chipNoodles,chipRice,chipSoup,chipDessert;
+    private Chip chipClub,chipMakan,chipMunch,chipHalal,chipVegeterian,chipHealthy,chipAffordable,chipNoodles,chipRice,chipSoup,chipDessert;
     ArrayList<Food> foodList = new ArrayList<>();
     //ArrayList<String> selectedChipData = new ArrayList<>();
 
@@ -126,6 +126,9 @@ public class GeneralViewPage extends AppCompatActivity implements SelectListener
                 limitoption();
             }
         });*/
+        chipMakan.setChecked(false);
+        chipClub.setChecked(false);
+        chipMunch.setChecked(false);
 
         chipClub.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -136,6 +139,8 @@ public class GeneralViewPage extends AppCompatActivity implements SelectListener
                     makan = false;
                     alllocations = false;
 
+                    chipMunch.setChecked(false);
+                    chipMakan.setChecked(false);
                 }
 
                 //if fc is true
@@ -144,6 +149,7 @@ public class GeneralViewPage extends AppCompatActivity implements SelectListener
                     fc = false;
                     munch = false;
                     makan = false;
+
                 }
 
                 limitoption();
@@ -158,6 +164,9 @@ public class GeneralViewPage extends AppCompatActivity implements SelectListener
                     munch = false;
                     fc = false;
                     alllocations = false;
+
+                    chipMunch.setChecked(false);
+                    chipClub.setChecked(false);
 
                 }
 
@@ -182,6 +191,9 @@ public class GeneralViewPage extends AppCompatActivity implements SelectListener
                     fc = false;
                     makan = false;
                     alllocations = false;
+
+                    chipMakan.setChecked(false);
+                    chipClub.setChecked(false);
 
                 }
                 //if munch is true
