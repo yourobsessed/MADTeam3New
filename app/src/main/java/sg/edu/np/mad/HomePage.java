@@ -166,7 +166,7 @@ public class HomePage extends AppCompatActivity implements NavigationView.OnNavi
             startActivity(toAboutUs);
 
         } else if (menuItem.getItemId() == R.id.nav_infobutton) {
-            Intent toFeedbackPage = new Intent(HomePage.this, InfomationPage.class);
+            Intent toFeedbackPage = new Intent(HomePage.this, Infomation.class);
             startActivity(toFeedbackPage);
 
         } else if (menuItem.getItemId() == R.id.nav_aboutusbutton) {

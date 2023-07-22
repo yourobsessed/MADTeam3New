@@ -39,12 +39,13 @@
         android:layout_width="388dp"
         android:layout_height="651dp"
         android:layout_marginStart="10dp"
+        android:layout_marginTop="23dp"
         android:layout_marginEnd="10dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.571"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/horizontalScrollView"
+        app:layout_constraintTop_toTopOf="@+id/horizontalScrollView"
         app:layout_constraintVertical_bias="1.0">
 
     </androidx.recyclerview.widget.RecyclerView>
@@ -72,7 +73,7 @@
                 style="@style/Widget.MaterialComponents.Chip.Choice"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:checkable="false"
+                android:checked="true"
                 android:text="Food Club"
                 app:chipIcon="@drawable/locationchipsmarker"
                 app:chipIconVisible="true" />
@@ -82,9 +83,10 @@
                 style="@style/Widget.MaterialComponents.Chip.Choice"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:checkable="false"
+                android:checked="true"
                 android:text="Makan Place"
                 app:chipIcon="@drawable/locationchipsmarker"
+
                 app:chipIconVisible="true" />
 
             <com.google.android.material.chip.Chip
@@ -92,7 +94,7 @@
                 style="@style/Widget.MaterialComponents.Chip.Choice"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:checkable="false"
+                android:checked="true"
                 android:text="Munch"
                 app:chipIcon="@drawable/locationchipsmarker"
                 app:chipIconVisible="true" />
