@@ -369,22 +369,16 @@ public class GeneralViewPage extends AppCompatActivity implements SelectListener
     @Override
     protected void onResume(){
         super.onResume();
-        for (Food f : DataHolder.food_List){
-            Log.i("after adapter", String.valueOf(f.getAddedWishlist()));
-        }
-        RecyclerView.Adapter gAdapter = (RecyclerView.Adapter) recyclerView.getAdapter();
-        if (gAdapter != null) {
-            gAdapter.notifyDataSetChanged();
-        }
+
 //
-//        gAdapter = new GeneralView_Adapter(GeneralViewPage.this, DataHolder.food_List, this, this);
-////        for (Food f : DataHolder.food_List){
-////            Log.i("after adapter", String.valueOf(f.getAddedWishlist()));
-////        }
-//        LinearLayoutManager layoutManager = new LinearLayoutManager(this);
-//        recyclerView.setLayoutManager(layoutManager);
-//        recyclerView.setItemAnimator(new DefaultItemAnimator());
-//        recyclerView.setAdapter(gAdapter);
+        gAdapter = new GeneralView_Adapter(GeneralViewPage.this, DataHolder.food_List, this, this);
+//        for (Food f : DataHolder.food_List){
+//            Log.i("after adapter", String.valueOf(f.getAddedWishlist()));
+//        }
+        LinearLayoutManager layoutManager = new LinearLayoutManager(this);
+        recyclerView.setLayoutManager(layoutManager);
+        recyclerView.setItemAnimator(new DefaultItemAnimator());
+        recyclerView.setAdapter(gAdapter);
     }
 
 

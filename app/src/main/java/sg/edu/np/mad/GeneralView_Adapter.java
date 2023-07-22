@@ -26,6 +26,7 @@ import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.Query;
 import com.google.firebase.database.ValueEventListener;
 import com.mapbox.mapboxsdk.Mapbox;
 
@@ -43,8 +44,6 @@ public class GeneralView_Adapter extends RecyclerView.Adapter<GeneralView_Viewho
     private int imageViewColor;
     //private FirebaseDatabase database;
 
-    FirebaseDatabase database = FirebaseDatabase.getInstance();
-    DatabaseReference accountsRef = database.getReference("Accounts");
     String tag;
 
     public GeneralView_Adapter(Context context, List<Food> input, SelectListenerFood ListenerFood, IconClickListener listener) {
@@ -110,39 +109,47 @@ public class GeneralView_Adapter extends RecyclerView.Adapter<GeneralView_Viewho
 
             }
         });
-
+        FirebaseDatabase database = FirebaseDatabase.getInstance();
+        DatabaseReference accountsRef = database.getReference("Accounts");
         holder.wishlisticon.setOnClickListener(new View.OnClickListener() {
+
             @Override
             public void onClick(View v) {
-                Log.i("database", "hello");
+
                 accountsRef.addValueEventListener(new ValueEventListener() {
                     @Override
                     public void onDataChange(@NonNull DataSnapshot snapshot) {
                         for (DataSnapshot Snapshot : snapshot.getChildren()) {
                             Account acc = Snapshot.getValue(Account.class);
+                            String usernameToSearch = acc.username; // Replace this with the username you want to search
+                            Query query = accountsRef.orderByChild("username").equalTo(usernameToSearch);
+
                             Log.i("Account", String.valueOf(acc.wishlist));
                             Log.i("Account Details", String.valueOf(acc));
+                            //String userName = acc.username;
 
-                            if (acc.wishlist != null){
-                                if(!acc.wishlist.contains(f.getFoodIndex())){
+                            if (acc.wishlist != null) {
+                                if (!acc.wishlist.contains(f.getFoodIndex())) {
                                     acc.wishlist.add(f.getFoodIndex());
                                     f.setAddedWishlist(true); //added to the wishlist
                                     Toast.makeText(v.getContext(), "Food added to the wishlist!", Toast.LENGTH_SHORT).show();
                                     Log.i("wishlist", String.valueOf(acc.wishlist));
                                     //UpdateDB(f, acc);
-                                    String userName = "-N_rSmXdN9k_Mr0gWvRF";
-                                    DatabaseReference userWishList = accountsRef.child(userName).child("wishlist");
-                                    userWishList.setValue(acc.wishlist);
+                                    DatabaseReference userWishList = accountsRef.child(usernameToSearch).child("wishlist");
+                                    userWishList.push().setValue(acc.wishlist);
                                 }
 //                                else{
 //                                    acc.wishlist.remove(f.getFoodIndex());
 //                                    f.setAddedWishlist(false);
 //                                    Toast.makeText(v.getContext(), "Food removed from the wishlist!", Toast.LENGTH_SHORT).show();
-//                                    UpdateDB(f);
+//                                    DatabaseReference userWishList = accountsRef.child(userName).child("wishlist");
+//                                    userWishList.setValue(acc.wishlist);
 //                                }
-                                changeIconColor(v,f,holder);
+                                changeIconColor(v, f, holder);
                             }
                         }
+
+
                     }
 
                     @Override
@@ -151,7 +158,7 @@ public class GeneralView_Adapter extends RecyclerView.Adapter<GeneralView_Viewho
                     }
                 });
 
-                    //get the wishlist. check if inside. --> update the colour --> update wishlist --> Toast --> update Database
+                //get the wishlist. check if inside. --> update the colour --> update wishlist --> Toast --> update Database
             }
         });
 
@@ -176,47 +183,55 @@ public class GeneralView_Adapter extends RecyclerView.Adapter<GeneralView_Viewho
         }
         //DataHolder.viewHoldering = holder;
     }
+}
 
-    public void UpdateDB(Food f, Account acc) {
-        Log.i("UPDATING", "UPDATE DB");
-        String userName = "-N_rSmXdN9k_Mr0gWvRF"; //got error
-        DatabaseReference userWishList = accountsRef.child(userName).child("wishlist");
-        userWishList.addListenerForSingleValueEvent(new ValueEventListener() {
-            @Override
-            public void onDataChange(@NonNull DataSnapshot snapshot) {
-                Log.i("UPDATING", String.valueOf(userWishList));
-                if (snapshot.exists()){
-                    ArrayList<Integer> wishlist = (ArrayList<Integer>) snapshot.getValue(); //getting the data
-                    Integer testobj = snapshot.getValue(Integer.class);
-                    wishlist.add(testobj);
+//    public void UpdateDB(Food f, Account acc) {
+//        Log.i("UPDATING", "UPDATE DB");
+//        String userName = "-N_rSmXdN9k_Mr0gWvRF"; //got error
+//        DatabaseReference userWishList = accountsRef.child(userName).child("wishlist");
+//        userWishList.addListenerForSingleValueEvent(new ValueEventListener() {
+//            @Override
+//            public void onDataChange(@NonNull DataSnapshot snapshot) {
+//                Log.i("UPDATING", String.valueOf(userWishList));
+//                if (snapshot.exists()){
+//                    ArrayList<Integer> wishlist = (ArrayList<Integer>) snapshot.getValue(); //getting the data
+//                    Integer testobj = snapshot.getValue(Integer.class);
+//                    wishlist.add(testobj);
+//
+//                    Log.i("UPDATING DB", String.valueOf(testobj));
+//
+//                    if (wishlist == null){
+//                        Log.i("wishlist is null", "i");
+//                        wishlist = new ArrayList<>();
+//                    }
+//                    for (int i : wishlist){
+//                        Log.i("wishlist check", String.valueOf(i));
+//                    }
+//
+//                    userWishList.setValue(wishlist); //setValue means adding
+//                }
+//
+//            }
+//
+//            @Override
+//            public void onCancelled(@NonNull DatabaseError error) {
+//
+//            }
+//        });
 
-                    Log.i("UPDATING DB", String.valueOf(testobj));
 
-                    if (wishlist == null){
-                        Log.i("wishlist is null", "i");
-                        wishlist = new ArrayList<>();
-                    }
-                    for (int i : wishlist){
-                        Log.i("wishlist check", String.valueOf(i));
-                    }
 
-                    userWishList.setValue(wishlist); //setValue means adding
-                }
 
-            }
 
-            @Override
-            public void onCancelled(@NonNull DatabaseError error) {
 
-            }
-        });
+
 //        FirebaseDatabase database = FirebaseDatabase.getInstance();
 //        DatabaseReference updateRef = database.getReference("Accounts");
 //        //DatabaseReference updateRef = FirebaseDatabase.getInstance().getReference("Accounts");
 //        //updateRef.setValue(f.getFoodIndex());
 //        updateRef.child("Accounts").push().setValue(f.getFoodIndex());
-    }
-}
+
+
 
 //    //onClick wishlist button, adds the food object to the wishlist page
 //        //Log.i("wishlist f", String.valueOf(f));

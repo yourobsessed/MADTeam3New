@@ -50,14 +50,14 @@ public class LoginPage extends AppCompatActivity {
                     DatabaseRef.child("Accounts").addListenerForSingleValueEvent(new ValueEventListener() {
                         @Override
                         public void onDataChange(@NonNull DataSnapshot snapshot) {
-                            Boolean exists = false;
+                            boolean exists = false;
                             String dbPassword = null;
                             for (DataSnapshot reviewSnapshot : snapshot.getChildren()) {
                                 Account account = reviewSnapshot.getValue(Account.class);
                                 System.out.println(account);
-                                if (account.Username.equals(UsernameText.getText().toString())) {
+                                if (account.username.equals(UsernameText.getText().toString())) {
                                     exists = true;
-                                    dbPassword = account.Password;
+                                    dbPassword = account.password;
                                 }
                             }
                             if (exists) {

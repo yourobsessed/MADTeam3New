@@ -10,6 +10,7 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
+import java.util.*;
 
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
@@ -61,26 +62,35 @@ public class RegisterPage extends AppCompatActivity {
                 }
                 else {
                     EmptyText.setVisibility(View.INVISIBLE);
-                    DatabaseRef.child("Accounts").addListenerForSingleValueEvent(new ValueEventListener() {
+                    String username = UsernameText.getText().toString();
+                    DatabaseReference userRef = DatabaseRef.child("Accounts").child(username);
+                    userRef.addListenerForSingleValueEvent(new ValueEventListener() {
                         @Override
                         public void onDataChange(@NonNull DataSnapshot snapshot) {
-                            Boolean exists = false;
+                            boolean exists = false;
                             for (DataSnapshot reviewSnapshot : snapshot.getChildren()) {
                                 Account account = reviewSnapshot.getValue(Account.class);
-                                if (account.Username.equals(UsernameText.getText().toString())) {
+                                if (account.username.equals(UsernameText.getText().toString())) {
                                     exists = true;
                                 }
                             }
                             if (!exists) {
-                                ArrayList<Integer> foodWishlist = new ArrayList<>();
-                                foodWishlist.add(0);
                                 ExistsText.setVisibility(View.INVISIBLE);
-                                DatabaseRef.child("Accounts").push().setValue(new Account(UsernameText.getText().toString(), PasswordText.getText().toString(), foodWishlist));
+                                ArrayList<Integer> wishlist = new ArrayList<>();
+                                wishlist.add(0);
+
+                                Account newAccount = new Account();
+                                newAccount.setUsername(username);
+                                newAccount.setPassword(PasswordText.getText().toString());
+                                newAccount.setWishlist(wishlist);
+
+                                userRef.setValue(newAccount);
+
+                                //DatabaseRef.child("Accounts").push().setValue(new Account(UsernameText.getText().toString(), PasswordText.getText().toString(), wishlist));
                                 Toast.makeText(getApplicationContext(), "Account Created", Toast.LENGTH_SHORT).show();
                                 Intent OpenMain = new Intent(RegisterPage.this, HomePage.class);
                                 OpenMain.putExtra("Username", UsernameText.getText().toString());
                                 startActivity(OpenMain);
-
                             } else if (exists) {
                                 ExistsText.setVisibility(View.VISIBLE);
                                 Toast.makeText(getApplicationContext(), "Username Exists", Toast.LENGTH_SHORT).show();
