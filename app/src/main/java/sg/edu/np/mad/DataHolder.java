@@ -27,5 +27,7 @@ public class DataHolder {
 
    // public static GeneralView_Viewholder viewHoldering = null;
 
+    public static String username="";
+
 
 }

@@ -57,6 +57,7 @@ public class LoginPage extends AppCompatActivity {
                                 System.out.println(account);
                                 if (account.username.equals(UsernameText.getText().toString())) {
                                     exists = true;
+                                    DataHolder.username= account.username;
                                     dbPassword = account.password;
                                 }
                             }

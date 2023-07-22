@@ -3,13 +3,22 @@ package sg.edu.np.mad;
 import android.content.Context;
 import android.content.Intent;
 import android.graphics.Color;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Toast;
 
+import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 import androidx.swiperefreshlayout.widget.SwipeRefreshLayout;
+
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.Query;
+import com.google.firebase.database.ValueEventListener;
 
 import java.util.List;
 
@@ -55,11 +64,67 @@ public class WishList_Adapter extends RecyclerView.Adapter<WishList_ViewHolder> 
 
             }
         });
-
+        FirebaseDatabase database = FirebaseDatabase.getInstance();
+        DatabaseReference accountsRef = database.getReference("Accounts");
         holder.wishlistButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                if (f.getAddedWishlist() == false) {
+                accountsRef.addValueEventListener(new ValueEventListener() {
+                    @Override
+                    public void onDataChange(@NonNull DataSnapshot snapshot) {
+                        for (DataSnapshot Snapshot : snapshot.getChildren()) {
+                            Account acc = Snapshot.getValue(Account.class);
+                            String usernameToSearch = acc.username; // Replace this with the username you want to search
+                            //Query query = accountsRef.orderByChild("username").equalTo(usernameToSearch);
+                            DatabaseReference userWishList = accountsRef.child(usernameToSearch).child("wishlist");
+                            Log.i("Account", String.valueOf(acc.wishlist));
+                            Log.i("Account Details", String.valueOf(acc));
+                            userWishList.addValueEventListener(new ValueEventListener() {
+                                @Override
+                                public void onDataChange(@NonNull DataSnapshot snapshot) {
+                                    for (DataSnapshot WLSnapshot: snapshot.getChildren()) {
+                                        if (WLSnapshot != null) {
+                                            int foodIndex = WLSnapshot.getValue(Integer.class);
+                                            for (Food f : DataHolder.food_List){
+                                                if (f.getFoodIndex() == foodIndex) {
+                                                    DataHolder.wishlist_List.add(f);
+                                                    f.setAddedWishlist(true);
+                                                    //Toast.makeText(v.getContext(), "Food added to the wishlist!", Toast.LENGTH_SHORT).show();
+                                                }
+                                            }
+                                        }
+                                    }
+                                }
+
+                                @Override
+                                public void onCancelled(@NonNull DatabaseError error) {
+
+                                }
+                            });
+                        }
+                    }
+
+                    @Override
+                    public void onCancelled(@NonNull DatabaseError error) {
+
+                    }
+                });
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+                            if (f.getAddedWishlist() == false) {
                     DataHolder.wishlist_List.add(f);
                     Toast.makeText(v.getContext(), "Food added to the wishlist!", Toast.LENGTH_SHORT).show();
                     f.setAddedWishlist(true);

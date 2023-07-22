@@ -110,45 +110,40 @@ public class GeneralView_Adapter extends RecyclerView.Adapter<GeneralView_Viewho
             }
         });
         FirebaseDatabase database = FirebaseDatabase.getInstance();
-        DatabaseReference accountsRef = database.getReference("Accounts");
-        holder.wishlisticon.setOnClickListener(new View.OnClickListener() {
+        DatabaseReference accountsRef = database.getReference("Accounts").child(DataHolder.username);
 
+        holder.wishlisticon.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
 
-                accountsRef.addValueEventListener(new ValueEventListener() {
+                accountsRef.addListenerForSingleValueEvent(new ValueEventListener() {
                     @Override
                     public void onDataChange(@NonNull DataSnapshot snapshot) {
-                        for (DataSnapshot Snapshot : snapshot.getChildren()) {
-                            Account acc = Snapshot.getValue(Account.class);
-                            String usernameToSearch = acc.username; // Replace this with the username you want to search
-                            Query query = accountsRef.orderByChild("username").equalTo(usernameToSearch);
+                        Account acc = snapshot.getValue(Account.class);
+                        //String usernameToSearch = acc.username; // Replace this with the username you want to search
+                        //Query query = accountsRef.orderByChild("username").equalTo(usernameToSearch);
 
-                            Log.i("Account", String.valueOf(acc.wishlist));
-                            Log.i("Account Details", String.valueOf(acc));
-                            //String userName = acc.username;
+                        Log.i("Account", String.valueOf(acc.wishlist));
+                        Log.i("Account Details", String.valueOf(acc));
+                        //String userName = acc.username;
 
-                            if (acc.wishlist != null) {
-                                if (!acc.wishlist.contains(f.getFoodIndex())) {
-                                    acc.wishlist.add(f.getFoodIndex());
-                                    f.setAddedWishlist(true); //added to the wishlist
-                                    Toast.makeText(v.getContext(), "Food added to the wishlist!", Toast.LENGTH_SHORT).show();
-                                    Log.i("wishlist", String.valueOf(acc.wishlist));
-                                    //UpdateDB(f, acc);
-                                    DatabaseReference userWishList = accountsRef.child(usernameToSearch).child("wishlist");
-                                    userWishList.push().setValue(acc.wishlist);
-                                }
-//                                else{
-//                                    acc.wishlist.remove(f.getFoodIndex());
-//                                    f.setAddedWishlist(false);
-//                                    Toast.makeText(v.getContext(), "Food removed from the wishlist!", Toast.LENGTH_SHORT).show();
-//                                    DatabaseReference userWishList = accountsRef.child(userName).child("wishlist");
-//                                    userWishList.setValue(acc.wishlist);
-//                                }
-                                changeIconColor(v, f, holder);
-                            }
+                        if (!acc.wishlist.contains(f.getFoodIndex())) { //checking if the food is added in the wishlist
+                            acc.wishlist.add(f.getFoodIndex()); //adds the food to the wishlist
+                            f.setAddedWishlist(true); //changing the food status to help with the changing of colours
+                            Toast.makeText(v.getContext(), "Food added to the wishlist!", Toast.LENGTH_SHORT).show();
+                            Log.i("wishlist", String.valueOf(acc.wishlist));
+                            DatabaseReference userWishList = accountsRef.child("wishlist");
+                            userWishList.setValue(acc.wishlist); //updating the database's wishlist for specific users
                         }
 
+                        else if (acc.wishlist.contains(f.getFoodIndex())) {
+                            acc.wishlist.remove(f.getFoodIndex());
+                            f.setAddedWishlist(false);
+                            Toast.makeText(v.getContext(), "Food removed from the wishlist!", Toast.LENGTH_SHORT).show();
+                            DatabaseReference userWishList = accountsRef.child("wishlist");
+                            userWishList.setValue(acc.wishlist);
+                        }
+                        changeIconColor(v,f,holder);
 
                     }
 
@@ -174,11 +169,12 @@ public class GeneralView_Adapter extends RecyclerView.Adapter<GeneralView_Viewho
     public void changeIconColor(View view, Food f, GeneralView_Viewholder holder) {
         // Change the color of the icon
         if (f.getAddedWishlist() == true) {
-            int newColor = Color.parseColor("#FF0000"); // Set the desired color here
+            int newColor = Color.parseColor("#FF0000"); // changing the colour to red
             holder.wishlisticon.setColorFilter(newColor);
 
+
         } else if (f.getAddedWishlist() == false) {
-            int newColor = Color.parseColor("#000000");
+            int newColor = Color.parseColor("#000000"); //chaning colour to black
             holder.wishlisticon.setColorFilter(newColor);
         }
         //DataHolder.viewHoldering = holder;

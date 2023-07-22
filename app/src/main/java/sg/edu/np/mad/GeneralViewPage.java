@@ -87,25 +87,6 @@ public class GeneralViewPage extends AppCompatActivity implements SelectListener
         SharedPreferences sharedPreferences = getSharedPreferences("MyPrefs", Context.MODE_PRIVATE);
         String username = sharedPreferences.getString("wishlist", "");
 
-        FirebaseDatabase database = FirebaseDatabase.getInstance();
-        DatabaseReference accountsRef = database.getReference("Accounts");
-
-        accountsRef.addValueEventListener(new ValueEventListener() {
-            @Override
-            public void onDataChange(@NonNull DataSnapshot snapshot) {
-                List<Integer> wishlist = new ArrayList<>();
-                for (DataSnapshot foodIndexSnapshot : snapshot.child("wishlist").getChildren()) {
-                    int foodIndex = foodIndexSnapshot.getValue(Integer.class);
-                    wishlist.add(foodIndex);
-                }
-                Log.i("Wishlist: ", String.valueOf(wishlist));
-            }
-
-            @Override
-            public void onCancelled(@NonNull DatabaseError error) {
-
-            }
-        });
 
         recyclerView=findViewById(R.id.recyclerView);
         searchView=findViewById(R.id.searchView);
@@ -127,7 +108,7 @@ public class GeneralViewPage extends AppCompatActivity implements SelectListener
         chipDessert=findViewById(R.id.chipDessert);
 
         //ArrayList<Food> foodList = new ArrayList<>();
-        DataHolder.food_List = CreateObject(foodList);
+
 
         //foodList = DataHolder.food_List;
         //System.out.println(DataHolder.food_List.size());
@@ -343,23 +324,13 @@ public class GeneralViewPage extends AppCompatActivity implements SelectListener
         });
 
 
-
-        //foodList = filteredListFromGVF;
-        for (Food f : DataHolder.food_List){
-            Log.i("Title", String.valueOf(f.getAddedWishlist()));
-        }
-
-        gAdapter = new GeneralView_Adapter(GeneralViewPage.this, DataHolder.food_List, this, this);
-        for (Food f : DataHolder.food_List){
-            Log.i("after adapter", String.valueOf(f.getAddedWishlist()));
-        }
-        LinearLayoutManager layoutManager = new LinearLayoutManager(this);
-        recyclerView.setLayoutManager(layoutManager);
-        recyclerView.setItemAnimator(new DefaultItemAnimator());
-        recyclerView.setAdapter(gAdapter);
-
-
+//        gAdapter = new GeneralView_Adapter(GeneralViewPage.this, DataHolder.food_List, this, this);
+//        LinearLayoutManager layoutManager = new LinearLayoutManager(GeneralViewPage.this);
+//        recyclerView.setLayoutManager(layoutManager);
+//        recyclerView.setItemAnimator(new DefaultItemAnimator());
+//        recyclerView.setAdapter(gAdapter);
     }
+
     @Override
     protected void onStart(){
         super.onStart();
@@ -369,16 +340,19 @@ public class GeneralViewPage extends AppCompatActivity implements SelectListener
     @Override
     protected void onResume(){
         super.onResume();
-
-//
+        DataHolder.food_List = CreateObject(foodList);
         gAdapter = new GeneralView_Adapter(GeneralViewPage.this, DataHolder.food_List, this, this);
-//        for (Food f : DataHolder.food_List){
-//            Log.i("after adapter", String.valueOf(f.getAddedWishlist()));
-//        }
-        LinearLayoutManager layoutManager = new LinearLayoutManager(this);
+        LinearLayoutManager layoutManager = new LinearLayoutManager(GeneralViewPage.this);
         recyclerView.setLayoutManager(layoutManager);
         recyclerView.setItemAnimator(new DefaultItemAnimator());
         recyclerView.setAdapter(gAdapter);
+
+
+    }
+
+    @Override
+    protected void onDestroy(){
+        super.onDestroy();
     }
 
 

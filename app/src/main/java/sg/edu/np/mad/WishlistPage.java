@@ -1,5 +1,6 @@
 package sg.edu.np.mad;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.DefaultItemAnimator;
 import androidx.recyclerview.widget.LinearLayoutManager;
@@ -11,14 +12,23 @@ import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
 import android.widget.ImageView;
+import android.widget.Toast;
+
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.ValueEventListener;
 
 import java.util.ArrayList;
 
 public class WishlistPage extends AppCompatActivity implements SelectListenerFood{
-    ArrayList<Food> receivedList = DataHolder.wishlist_List;
+
     SwipeRefreshLayout swipeRefreshLayout;
 
 
+
+    ArrayList<Food> receivedList = new ArrayList<>();
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -29,6 +39,49 @@ public class WishlistPage extends AppCompatActivity implements SelectListenerFoo
         swipeRefreshLayout.setOnRefreshListener(new SwipeRefreshLayout.OnRefreshListener() {
             @Override
             public void onRefresh() {
+                FirebaseDatabase database = FirebaseDatabase.getInstance();
+                DatabaseReference accountsRef = database.getReference("Accounts");
+
+                accountsRef.addValueEventListener(new ValueEventListener() {
+                    @Override
+                    public void onDataChange(@NonNull DataSnapshot snapshot) {
+                        for (DataSnapshot Snapshot : snapshot.getChildren()) {
+                            Account acc = Snapshot.getValue(Account.class);
+                            String usernameToSearch = acc.username;
+                            DatabaseReference userWishList = accountsRef.child(usernameToSearch).child("wishlist");
+                            Log.i("Account", String.valueOf(acc.wishlist));
+                            Log.i("Account Details", String.valueOf(acc));
+                            userWishList.addValueEventListener(new ValueEventListener() {
+                                @Override
+                                public void onDataChange(@NonNull DataSnapshot snapshot) {
+                                    for (DataSnapshot WLSnapshot : snapshot.getChildren()) {
+                                        if (WLSnapshot != null) {
+                                            int foodIndex = WLSnapshot.getValue(Integer.class);
+                                            Log.i("Checking foodIndex", String.valueOf(foodIndex));
+                                            for (Food f : DataHolder.food_List) {
+                                                if (f.getFoodIndex() == foodIndex) {
+                                                    receivedList.add(f);
+                                                    f.setAddedWishlist(true);
+                                                    //Toast.makeText(WishlistPage.this, "Food added to the wishlist!", Toast.LENGTH_SHORT).show();
+                                                }
+                                            }
+                                        }
+                                    }
+                                }
+                                @Override
+                                public void onCancelled(@NonNull DatabaseError error) {
+
+                                }
+                            });
+                        }
+                    }
+
+                    @Override
+                    public void onCancelled(@NonNull DatabaseError error) {
+
+                    }
+                });
+
                 //Toast.makeText(WishlistPage.this,"Food removed from the wishlist!", Toast.LENGTH_SHORT).show();
                 RecyclerView WLrecyclerView = findViewById(R.id.wishlist_RV);
                 WishList_Adapter mAdapter = new WishList_Adapter(WishlistPage.this, receivedList);
@@ -51,6 +104,9 @@ public class WishlistPage extends AppCompatActivity implements SelectListenerFoo
 
             }
         });
+
+
+
 
 
     }
