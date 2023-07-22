@@ -341,6 +341,32 @@ public class GeneralViewPage extends AppCompatActivity implements SelectListener
     protected void onResume(){
         super.onResume();
         DataHolder.food_List = CreateObject(foodList);
+
+        //read data from data to change colour
+        FirebaseDatabase database = FirebaseDatabase.getInstance();
+        DatabaseReference accountsRef = database.getReference("Accounts").child(DataHolder.username);
+
+        accountsRef.addListenerForSingleValueEvent(new ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull DataSnapshot snapshot) {
+                Account acc = snapshot.getValue(Account.class);
+                Log.i("Account", String.valueOf(acc.wishlist));
+                Log.i("Account Details", String.valueOf(acc));
+                for (Integer i : acc.wishlist){
+                    for (Food f : DataHolder.food_List){
+                        if (f.getFoodIndex() == i){
+
+                        }
+                    }
+                }
+            }
+
+            @Override
+            public void onCancelled(@NonNull DatabaseError error) {
+
+            }
+        });
+
         gAdapter = new GeneralView_Adapter(GeneralViewPage.this, DataHolder.food_List, this, this);
         LinearLayoutManager layoutManager = new LinearLayoutManager(GeneralViewPage.this);
         recyclerView.setLayoutManager(layoutManager);

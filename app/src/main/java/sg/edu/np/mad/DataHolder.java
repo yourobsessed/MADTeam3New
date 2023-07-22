@@ -5,7 +5,7 @@ import java.util.List;
 import java.util.Optional;
 
 public class DataHolder {
-    public static ArrayList<Food> wishlist_List = new ArrayList<>();
+    public static ArrayList<Integer> wishlist_List = new ArrayList<>();
 //    public static ArrayList<Food> wishlist_List = new ArrayList<Food>() {
 //        @Override
 //        public boolean contains(Object c) {
@@ -25,7 +25,6 @@ public class DataHolder {
     public static ArrayList<Food> food_List = new ArrayList<>();
     public static ArrayList<Notification> notification_List = new ArrayList<>();
 
-   // public static GeneralView_Viewholder viewHoldering = null;
 
     public static String username="";
 

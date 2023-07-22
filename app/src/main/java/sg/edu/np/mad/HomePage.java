@@ -309,7 +309,7 @@ public class HomePage extends AppCompatActivity implements NavigationView.OnNavi
         Intent notificationToCat = new Intent(getApplicationContext(), CataloguePage.class);
         notificationToCat.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
 
-        Food selectedFood = randomPicker(); //calling for method
+        /*Food selectedFood = randomPicker(); //calling for method
         notificationToCat.putExtra("FoodName", selectedFood.getFoodName());
         notificationToCat.putExtra("FoodPrice", selectedFood.getPrice());
         notificationToCat.putExtra("FoodCalories", selectedFood.getCalories());
@@ -317,7 +317,7 @@ public class HomePage extends AppCompatActivity implements NavigationView.OnNavi
         notificationToCat.putExtra("FoodImg2", selectedFood.getFoodImage2());
         notificationToCat.putExtra("LocationImg", selectedFood.getLocationImage());
         notificationToCat.putExtra("storeLocation", selectedFood.getLocation());
-        System.out.println("HELLLLOO");
+        System.out.println("HELLLLOO");*/
 
         PendingIntent pendingIntent = PendingIntent.getActivity(getApplicationContext(), 0, notificationToCat, PendingIntent.FLAG_MUTABLE);
 
@@ -350,12 +350,12 @@ public class HomePage extends AppCompatActivity implements NavigationView.OnNavi
         notificationManager.notify(0, builder.build());
     }
 
-    public Food randomPicker(){
+    /*public Food randomPicker(){
         Random randomPicker = new Random();
         Food randomFood;
-        if (DataHolder.wishlist_List != null){
+        /*if (DataHolder.wishlist_List != null){
             int position = randomPicker.nextInt(DataHolder.wishlist_List.size());
-            randomFood = DataHolder.wishlist_List.get(position);
+            //randomFood = DataHolder.wishlist_List.get(position);
             return randomFood;
         }
         else{
@@ -366,7 +366,7 @@ public class HomePage extends AppCompatActivity implements NavigationView.OnNavi
         }
 
 
-    }
+    }*/
 }
 
 
