@@ -17,13 +17,13 @@
         tools:layout_editor_absoluteX="18dp"
         tools:layout_editor_absoluteY="128dp" />
 
-    <Button
-        android:id="@+id/button2"
-        android:layout_width="78dp"
-        android:layout_height="75dp"
-        android:text="Button"
-        android:icon="@drawable/dice"
-        tools:layout_editor_absoluteX="152dp"
-        tools:layout_editor_absoluteY="497dp" />
+    <com.google.android.material.floatingactionbutton.FloatingActionButton
+        android:id="@+id/floatingActionButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:clickable="true"
+        android:src="@drawable/dice"
+        tools:layout_editor_absoluteX="177dp"
+        tools:layout_editor_absoluteY="504dp" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
