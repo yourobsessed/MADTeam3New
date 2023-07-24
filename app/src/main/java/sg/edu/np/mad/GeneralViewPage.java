@@ -341,21 +341,22 @@ public class GeneralViewPage extends AppCompatActivity implements SelectListener
     protected void onResume(){
         super.onResume();
         DataHolder.food_List = CreateObject(foodList);
-
+        int colourToUpdate = Color.RED;
+        //int position;
         //read data from data to change colour
         FirebaseDatabase database = FirebaseDatabase.getInstance();
         DatabaseReference accountsRef = database.getReference("Accounts").child(DataHolder.username);
 
-        accountsRef.addListenerForSingleValueEvent(new ValueEventListener() {
+        accountsRef.addListenerForSingleValueEvent(new ValueEventListener() { //reading the data's wishlist
             @Override
             public void onDataChange(@NonNull DataSnapshot snapshot) {
                 Account acc = snapshot.getValue(Account.class);
                 Log.i("Account", String.valueOf(acc.wishlist));
                 Log.i("Account Details", String.valueOf(acc));
-                for (Integer i : acc.wishlist){
+                for (Integer i : acc.wishlist){  //checking if the food is inside the wishlist
                     for (Food f : DataHolder.food_List){
                         if (f.getFoodIndex() == i){
-
+                            int position = DataHolder.food_List.indexOf(f);
                         }
                     }
                 }

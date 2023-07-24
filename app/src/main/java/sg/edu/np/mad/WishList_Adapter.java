@@ -69,7 +69,7 @@ public class WishList_Adapter extends RecyclerView.Adapter<WishList_ViewHolder> 
         holder.wishlistButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) { //from the perspective of the wishlist
-                accountsRef.addValueEventListener(new ValueEventListener() {
+                accountsRef.addListenerForSingleValueEvent(new ValueEventListener() {
                     @Override
                     public void onDataChange(@NonNull DataSnapshot snapshot) {
                         Account acc = snapshot.getValue(Account.class);
@@ -77,19 +77,39 @@ public class WishList_Adapter extends RecyclerView.Adapter<WishList_ViewHolder> 
                         Log.i("Account", String.valueOf(acc.wishlist));
                         Log.i("Account Details", String.valueOf(acc));
 
-                        int foodIndex = snapshot.getValue(Integer.class);
-                        Log.i("FoodIndex", String.valueOf(foodIndex));
-                        for (Food f : DataHolder.food_List) {
-                            Log.i("food status", String.valueOf(f.getAddedWishlist()));
-                            f.setAddedWishlist(true);
-                            if (f.getFoodIndex() == foodIndex) { //if they are inside the wishlist, onclick will to be to remove food items
-                                DataHolder.wishlist_List.remove(f.getFoodIndex());
-                                f.setAddedWishlist(false);
-                                Toast.makeText(v.getContext(), "Food has been removed from the wishlist!", Toast.LENGTH_SHORT).show();
-                                DatabaseReference userWishList = accountsRef.child("wishlist");
-                                userWishList.setValue(acc.wishlist);
-                            }
+//                        int foodIndex = snapshot.getValue(Integer.class);
+//                        Log.i("FoodIndex", String.valueOf(foodIndex));
+//                        for (Food f : DataHolder.food_List) {
+//                            Log.i("food status", String.valueOf(f.getAddedWishlist()));
+//                            f.setAddedWishlist(true);
+//                            if (f.getFoodIndex() == foodIndex) { //if they are inside the wishlist, onclick will to be to remove food items
+//                                DataHolder.wishlist_List.remove(f.getFoodIndex());
+//                                f.setAddedWishlist(false);
+//                                Toast.makeText(v.getContext(), "Food has been removed from the wishlist!", Toast.LENGTH_SHORT).show();
+//                                DatabaseReference userWishList = accountsRef.child("wishlist");
+//                                userWishList.setValue(acc.wishlist);
+//                            }
+//
+//                        }
 
+                        if (acc.wishlist.contains(f.getFoodIndex())){
+                            int itemToRemove = acc.wishlist.indexOf(f.getFoodIndex());
+                            acc.wishlist.remove(itemToRemove);
+                            f.setAddedWishlist(false);
+                            Toast.makeText(v.getContext(), "Food has been removed from the wishlist!", Toast.LENGTH_SHORT).show();
+                            DatabaseReference userWishList = accountsRef.child("wishlist");
+                            userWishList.setValue(acc.wishlist);
+
+                            DataHolder.wishlist_List = acc.wishlist;
+                        }
+                        else{
+                            acc.wishlist.add(f.getFoodIndex());
+                            f.setAddedWishlist(true);
+                            Toast.makeText(v.getContext(), "Food added to the wishlist!", Toast.LENGTH_SHORT).show();
+                            DatabaseReference userWishList = accountsRef.child("wishlist");
+                            userWishList.setValue(acc.wishlist);
+
+                            DataHolder.wishlist_List = acc.wishlist;
                         }
                     }
 

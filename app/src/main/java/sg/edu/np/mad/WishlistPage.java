@@ -119,6 +119,9 @@ public class WishlistPage extends AppCompatActivity implements SelectListenerFoo
     @Override
     protected void onResume(){
         super.onResume();
+        swipeRefreshLayout = findViewById(R.id.swiperefresh);
+
+
         RecyclerView WLrecyclerView = findViewById(R.id.wishlist_RV);
         WishList_Adapter mAdapter = new WishList_Adapter(this, receivedList);
         LinearLayoutManager mLayoutManger = new LinearLayoutManager(this);
