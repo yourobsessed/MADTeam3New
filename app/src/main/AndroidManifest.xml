@@ -65,7 +65,7 @@
         <activity
             android:name=".map"
             android:exported="false" />
-        <activity android:name=".GeneralView_Filter" />
+        <activity android:name=".RandomizerPage" />
         <activity
             android:name=".StoreView_ViewHolder"
             android:exported="false" />

@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context=".RandomizerPage">
+
+    <View
+        android:id="@+id/view4"
+        android:layout_width="374dp"
+        android:layout_height="347dp"
+        android:background="@drawable/rectangle3"
+        android:elevation="6px"
+        tools:layout_editor_absoluteX="18dp"
+        tools:layout_editor_absoluteY="128dp" />
+
+    <Button
+        android:id="@+id/button2"
+        android:layout_width="78dp"
+        android:layout_height="75dp"
+        android:text="Button"
+        android:icon="@drawable/dice"
+        tools:layout_editor_absoluteX="152dp"
+        tools:layout_editor_absoluteY="497dp" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

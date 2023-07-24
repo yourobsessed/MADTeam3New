@@ -5,8 +5,6 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.text.TextUtils;
-import android.util.Log;
-import android.util.SparseBooleanArray;
 import android.view.View;
 import android.widget.Button;
 import android.widget.CompoundButton;
@@ -17,10 +15,8 @@ import com.google.android.material.chip.ChipGroup;
 
 import java.util.ArrayList;
 import java.util.List;
-import java.util.function.Predicate;
-import java.util.stream.Collectors;
 
-public class GeneralView_Filter extends AppCompatActivity {
+public class RandomizerPage extends AppCompatActivity {
 
     private Chip chipMakan,chipClub,chipMunch;
 
@@ -41,7 +37,7 @@ public class GeneralView_Filter extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_general_view_filter);
+        setContentView(R.layout.activity_randomizer);
 
         chipMakan=findViewById(R.id.chipMakan);
         chipClub=findViewById(R.id.chipClub);
@@ -152,7 +148,7 @@ public class GeneralView_Filter extends AppCompatActivity {
         ButtonApply.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent toGeneralView = new Intent(GeneralView_Filter.this, GeneralViewPage.class);
+                Intent toGeneralView = new Intent(RandomizerPage.this, GeneralViewPage.class);
                 toGeneralView.putExtra("filteredList", filteredList);
                 startActivity(toGeneralView);
 
