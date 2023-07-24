@@ -12,6 +12,7 @@ import androidx.core.view.GravityCompat;
 import androidx.drawerlayout.widget.DrawerLayout;
 
 import android.Manifest;
+import android.app.AlarmManager;
 import android.app.NotificationChannel;
 import android.app.NotificationManager;
 import android.app.PendingIntent;
@@ -41,6 +42,7 @@ import java.time.Duration;
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
+import java.util.Calendar;
 import java.util.List;
 import java.util.Random;
 
@@ -118,7 +120,7 @@ public class HomePage extends AppCompatActivity implements NavigationView.OnNavi
         button.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                makeNotification();
+                makeNotification(HomePage.this);
             }
         });
 
@@ -295,16 +297,16 @@ public class HomePage extends AppCompatActivity implements NavigationView.OnNavi
         return (int) sum / list.size();
     }
 
-    public void makeNotification(){
+    public void makeNotification(Context context){
         String channelID = "CHANNEL_ID_NOTIFICATION";
         NotificationCompat.Builder builder = new NotificationCompat.Builder(getApplicationContext(),channelID);
 
         builder.setSmallIcon(R.drawable.notification);
         builder.setContentTitle("Time for Lunch!");
-        builder.setContentText("Try out this dish!");
+        builder.setContentText("Try out this dish during your lunch break!");
         builder.setAutoCancel(true).setPriority(NotificationCompat.PRIORITY_DEFAULT);
 
-        Intent notificationToCat = new Intent(getApplicationContext(), CataloguePage.class);
+        Intent notificationToCat = new Intent(HomePage.this, CataloguePage.class);
         notificationToCat.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
 
         Food selectedFood = randomPicker(); //calling for method
@@ -316,8 +318,20 @@ public class HomePage extends AppCompatActivity implements NavigationView.OnNavi
         notificationToCat.putExtra("LocationImg", selectedFood.getLocationImage());
         notificationToCat.putExtra("storeLocation", selectedFood.getLocation());
         System.out.println("HELLLLOO");
-
+        //startActivity(notificationToCat);
         PendingIntent pendingIntent = PendingIntent.getActivity(getApplicationContext(), 0, notificationToCat, PendingIntent.FLAG_MUTABLE);
+
+        //setting the specific time to make the notification
+        AlarmManager alarmManager = (AlarmManager) context.getSystemService(Context.ALARM_SERVICE);
+        alarmManager.cancel(pendingIntent);
+        Calendar calendar = Calendar.getInstance();
+        calendar.setTimeInMillis(System.currentTimeMillis());
+        calendar.set(Calendar.HOUR_OF_DAY, 12);
+        calendar.set(Calendar.MINUTE, 00);
+        calendar.set(Calendar.SECOND, 00);
+        alarmManager.set(AlarmManager.RTC_WAKEUP, calendar.getTimeInMillis(), pendingIntent);
+
+
         builder.setContentIntent(pendingIntent);
         NotificationManager notificationManager = (NotificationManager) getSystemService(Context.NOTIFICATION_SERVICE);
 
@@ -332,25 +346,31 @@ public class HomePage extends AppCompatActivity implements NavigationView.OnNavi
                 notificationManager.createNotificationChannel(notificationChannel);
             }
         }
-
+        startActivity(notificationToCat);
         notificationManager.notify(0, builder.build());
     }
 
-    public Food randomPicker(){
+    public Food randomPicker() {
         Random randomPicker = new Random();
-        Food randomFood;
-        if (DataHolder.wishlist_List != null){
+        Food randomFood = new Food();
+        if (DataHolder.wishlist_List != null) {
             int position = randomPicker.nextInt(DataHolder.wishlist_List.size());
-            randomFood = DataHolder.wishlist_List.get(position);
-            return randomFood;
-        }
-        else{
+            for (Food f : DataHolder.food_List) {
+                if (f.getFoodIndex() == position) {
+                    randomFood = f;
+                    Log.i("selected food", String.valueOf(randomFood));
+                    //return randomFood;
+                }
+            }
+
+        } else {
             System.out.println(DataHolder.food_List.size());
             int position = randomPicker.nextInt(DataHolder.food_List.size());
             randomFood = DataHolder.food_List.get(position);
-            return randomFood;
+            //return randomFood;
         }
 
+        return randomFood;
 
     }
 }

@@ -35,14 +35,17 @@ import java.util.ArrayList;
 
 public class NotificationViewPage extends AppCompatActivity{
 
-    ArrayList<Notification> notification_list = new ArrayList<>();
+    ArrayList<Notification> notification_list = DataHolder.notification_List;
 
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_notification_page);
-        Notification n1 = new Notification("Time For Lunch!!", "Try this dish that you have always wanted! ");
+
+        Food munchSaladBowlL = new Food(1, "Large bowl Salad", "Munch",R.drawable.munchmap, 9.5, 645, "Suitable for 2 to 4 pax. Available for dine-in Only!", R.drawable.saladbowl, true, false, true, false, true, false);
+
+        Notification n1 = new Notification("Time For Lunch!!", "Try this dish that you have always wanted! ", munchSaladBowlL);
         notification_list.add(n1);
 
         ImageView BackButton = findViewById(R.id.backButton2);

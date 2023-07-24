@@ -3,6 +3,7 @@ package sg.edu.np.mad;
 import android.util.Log;
 
 public class Food {
+    private int foodIndex;
     private String foodName; //
     private String description; //
     private String location; //
@@ -14,7 +15,7 @@ public class Food {
     private int foodImage3; //
 
     private int locationImage; //
-
+    private Boolean addedWishlist = false;
 
     //considering one food item as per order
     private Boolean noodle;
@@ -30,7 +31,8 @@ public class Food {
     public Food() {
     }
 
-    public Food(String FoodName, String Location, int LocationImage, double Price, int Calories, String Description, int FoodImage, Boolean Noodle, Boolean Soup, Boolean Rice, Boolean Halal, Boolean Vegetarian, Boolean Dessert) {
+    public Food(int FoodIndex,String FoodName, String Location, int LocationImage, double Price, int Calories, String Description, int FoodImage, Boolean Noodle, Boolean Soup, Boolean Rice, Boolean Halal, Boolean Vegetarian, Boolean Dessert) {
+        this.foodIndex = FoodIndex;
         this.foodName = FoodName;
         this.location = Location;
         this.locationImage = LocationImage;
@@ -179,6 +181,23 @@ public class Food {
     public Boolean isDrinks(){
         return !noodle && !rice && !dessert;
     }
+
+    public int getFoodIndex() {
+        return foodIndex;
+    }
+
+    public void setFoodIndex(int foodIndex) {
+        this.foodIndex = foodIndex;
+    }
+
+    public Boolean getAddedWishlist() {
+        return addedWishlist;
+    }
+
+    public void setAddedWishlist(Boolean addedWishlist) {
+        this.addedWishlist = addedWishlist;
+    }
+
     public String toString() {
         String convertedMsg = this.foodName +"," + this.location +","+ this.description;
         return convertedMsg;
