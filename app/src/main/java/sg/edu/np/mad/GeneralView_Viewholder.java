@@ -23,8 +23,6 @@ public class GeneralView_Viewholder extends RecyclerView.ViewHolder{
         cardView = itemView.findViewById(R.id.Foodcardview);
         foodCourtLocation = itemView.findViewById(R.id.storeLocation);
         wishlisticon = itemView.findViewById(R.id.WLButton);
-
-
     }
 
 

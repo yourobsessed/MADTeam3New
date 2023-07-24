@@ -54,9 +54,11 @@ public class LoginPage extends AppCompatActivity {
                             String dbPassword = null;
                             for (DataSnapshot reviewSnapshot : snapshot.getChildren()) {
                                 Account account = reviewSnapshot.getValue(Account.class);
-                                if (account.Username.equals(UsernameText.getText().toString())) {
+                                System.out.println(account);
+                                if (account.username.equals(UsernameText.getText().toString())) {
                                     exists = true;
-                                    dbPassword = account.Password;
+                                    DataHolder.username= account.username;
+                                    dbPassword = account.password;
                                 }
                             }
                             if (exists) {
@@ -101,9 +103,10 @@ public class LoginPage extends AppCompatActivity {
 
     @Override
     protected void onStart() {
-
         super.onStart();
+
     }
+
     @Override
     protected void onResume(){
         super.onResume();
