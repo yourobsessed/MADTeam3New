@@ -36,7 +36,7 @@ public class WishlistPage extends AppCompatActivity implements SelectListenerFoo
         DataHolder.food_List = CreateObject(foodList);
         FirebaseDatabase database = FirebaseDatabase.getInstance();
         DatabaseReference accountsRef = database.getReference("Accounts").child(DataHolder.username);
-        accountsRef.addListenerForSingleValueEvent(new ValueEventListener() {
+        accountsRef.addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot snapshot) {
                 Account acc = snapshot.getValue(Account.class);
@@ -49,6 +49,22 @@ public class WishlistPage extends AppCompatActivity implements SelectListenerFoo
                 }
                 receivedList = WishlistFood;
                 Log.i("received", String.valueOf(receivedList));
+                RecyclerView WLrecyclerView = findViewById(R.id.wishlist_RV);
+                mAdapter = new WishList_Adapter(WishlistPage.this, receivedList);
+                LinearLayoutManager mLayoutManger = new LinearLayoutManager(WishlistPage.this);
+                WLrecyclerView.setLayoutManager(mLayoutManger);
+                WLrecyclerView.setItemAnimator(new DefaultItemAnimator());
+                WLrecyclerView.setAdapter(mAdapter);
+
+                ImageView BackButton = findViewById(R.id.backButton);
+                BackButton.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View view) {
+
+                        finish();
+
+                    }
+                });
             }
 
             @Override
@@ -56,12 +72,12 @@ public class WishlistPage extends AppCompatActivity implements SelectListenerFoo
 
             }
         });
-        RecyclerView WLrecyclerView = findViewById(R.id.wishlist_RV);
-        mAdapter = new WishList_Adapter(this, receivedList);
-        LinearLayoutManager mLayoutManger = new LinearLayoutManager(this);
-        WLrecyclerView.setLayoutManager(mLayoutManger);
-        WLrecyclerView.setItemAnimator(new DefaultItemAnimator());
-        WLrecyclerView.setAdapter(mAdapter);
+//        RecyclerView WLrecyclerView = findViewById(R.id.wishlist_RV);
+//        mAdapter = new WishList_Adapter(this, receivedList);
+//        LinearLayoutManager mLayoutManger = new LinearLayoutManager(this);
+//        WLrecyclerView.setLayoutManager(mLayoutManger);
+//        WLrecyclerView.setItemAnimator(new DefaultItemAnimator());
+//        WLrecyclerView.setAdapter(mAdapter);
 
         ImageView BackButton = findViewById(R.id.backButton);
         BackButton.setOnClickListener(new View.OnClickListener() {

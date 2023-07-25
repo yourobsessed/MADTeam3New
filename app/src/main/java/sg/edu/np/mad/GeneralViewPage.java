@@ -42,10 +42,10 @@ import android.widget.Toast;
 import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
+import java.util.concurrent.CountDownLatch;
 
 
-
-public class GeneralViewPage extends AppCompatActivity implements SelectListenerFood, IconClickListener{
+public class GeneralViewPage extends AppCompatActivity implements SelectListenerFood, IconClickListener {
 
     private SearchView searchView;
     private RecyclerView recyclerView;
@@ -123,6 +123,27 @@ public class GeneralViewPage extends AppCompatActivity implements SelectListener
 
             }
         });
+
+        FirebaseDatabase database = FirebaseDatabase.getInstance();
+        DatabaseReference accountsRef = database.getReference("Accounts").child(DataHolder.username);
+        accountsRef.addListenerForSingleValueEvent(new ValueEventListener() { //reading the data's wishlist
+            @Override
+            public void onDataChange(@NonNull DataSnapshot snapshot) {
+                Account acc = snapshot.getValue(Account.class);
+                DataHolder.wishlist_List = acc.wishlist;
+                gAdapter = new GeneralView_Adapter(GeneralViewPage.this, DataHolder.food_List, GeneralViewPage.this, GeneralViewPage.this);
+                LinearLayoutManager layoutManager = new LinearLayoutManager(GeneralViewPage.this);
+                recyclerView.setLayoutManager(layoutManager);
+                recyclerView.setItemAnimator(new DefaultItemAnimator());
+                recyclerView.setAdapter(gAdapter);
+            }
+
+            @Override
+            public void onCancelled(@NonNull DatabaseError error) {
+            }
+        });
+
+
 
 
         //chips
@@ -334,47 +355,12 @@ public class GeneralViewPage extends AppCompatActivity implements SelectListener
     @Override
     protected void onStart(){
         super.onStart();
-
     }
 
     @Override
     protected void onResume(){
         super.onResume();
         DataHolder.food_List = CreateObject(foodList);
-        int colourToUpdate = Color.RED;
-        //int position;
-        //read data from data to change colour
-        FirebaseDatabase database = FirebaseDatabase.getInstance();
-        DatabaseReference accountsRef = database.getReference("Accounts").child(DataHolder.username);
-
-        accountsRef.addListenerForSingleValueEvent(new ValueEventListener() { //reading the data's wishlist
-            @Override
-            public void onDataChange(@NonNull DataSnapshot snapshot) {
-                Account acc = snapshot.getValue(Account.class);
-                Log.i("Account", String.valueOf(acc.wishlist));
-                Log.i("Account Details", String.valueOf(acc));
-                for (Integer i : acc.wishlist){  //checking if the food is inside the wishlist
-                    for (Food f : DataHolder.food_List){
-                        if (f.getFoodIndex() == i){
-                            int position = DataHolder.food_List.indexOf(f);
-                        }
-                    }
-                }
-            }
-
-            @Override
-            public void onCancelled(@NonNull DatabaseError error) {
-
-            }
-        });
-
-        gAdapter = new GeneralView_Adapter(GeneralViewPage.this, DataHolder.food_List, this, this);
-        LinearLayoutManager layoutManager = new LinearLayoutManager(GeneralViewPage.this);
-        recyclerView.setLayoutManager(layoutManager);
-        recyclerView.setItemAnimator(new DefaultItemAnimator());
-        recyclerView.setAdapter(gAdapter);
-
-
     }
 
     @Override
