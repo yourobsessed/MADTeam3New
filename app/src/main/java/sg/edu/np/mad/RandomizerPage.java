@@ -18,17 +18,17 @@ import java.util.List;
 
 public class RandomizerPage extends AppCompatActivity {
 
-    private Chip chipMakan,chipClub,chipMunch;
+    //private Chip chipMakan,chipClub,chipMunch;
 
-    private ChipGroup chipGroupLocation;
+    //private ChipGroup chipGroupLocation;
 
 
     //private Button buttonApply;
 
-    private ArrayList<String> selectedChipData = new ArrayList<>();
+    //private ArrayList<String> selectedChipData = new ArrayList<>();
 
-    ArrayList<Food> filteredFoodList= new ArrayList<>();
-    ArrayList<Food> foodList= DataHolder.food_List;
+    //ArrayList<Food> filteredFoodList= new ArrayList<>();
+    //ArrayList<Food> foodList= DataHolder.food_List;
 
     private Boolean makan = false;
     private Boolean club = false;
@@ -39,7 +39,7 @@ public class RandomizerPage extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_randomizer);
 
-        chipMakan=findViewById(R.id.chipMakan);
+        /*chipMakan=findViewById(R.id.chipMakan);
         chipClub=findViewById(R.id.chipClub);
         chipMunch=findViewById(R.id.chipMunch);
         chipGroupLocation=findViewById(R.id.chipGroupLocation);
@@ -144,7 +144,7 @@ public class RandomizerPage extends AppCompatActivity {
             }
         });*/
 
-        Button ButtonApply = findViewById(R.id.buttonApply);
+        /*Button ButtonApply = findViewById(R.id.buttonApply);
         ButtonApply.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
