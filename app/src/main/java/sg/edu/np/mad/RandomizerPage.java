@@ -25,6 +25,7 @@ public class RandomizerPage extends AppCompatActivity {
     //private ChipGroup chipGroupLocation;
     Map<String, String> foodClubStalls = new HashMap<>();
 
+
     //private Button buttonApply;
 
     //private ArrayList<String> selectedChipData = new ArrayList<>();
@@ -210,6 +211,7 @@ public class RandomizerPage extends AppCompatActivity {
             }
         });*/
     }
+    /*
     private void registerFilterChanged() {
         ArrayList<Integer> checkedIds = new ArrayList<>();
         List<CharSequence> titles = new ArrayList<>();
@@ -234,9 +236,9 @@ public class RandomizerPage extends AppCompatActivity {
 
         Toast.makeText(this, text, Toast.LENGTH_SHORT).show();
 
-    }
+    }*/
 
-    /*@Override
+    @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_general_view_filter);
@@ -266,7 +268,7 @@ public class RandomizerPage extends AppCompatActivity {
                 // Further processing or sending the selected data
             }
         });
-    }*/
+    }
 
     //private ChipGroup chipGroupLocation;
     //private Button buttonApply;
@@ -306,7 +308,7 @@ public class RandomizerPage extends AppCompatActivity {
             }
         });
     }*/
-
+    /*
     private void limitoption() {
         List<Food> filteredList = new ArrayList<>();
         for (Food food : foodList) {
@@ -331,8 +333,10 @@ public class RandomizerPage extends AppCompatActivity {
 
         filteredList.removeAll(itemsToRemove);
 
-    }
-    public ArrayList<Food> CreateObject(ArrayList<Food> foodList){
+    }*/
+
+    Map<String, String> foodstalls = new HashMap<>();
+    public Map<String, String> CreateObject(HashMap<> foodstalls){
         //creating all the food items
         //Munch
         Food munchSaladBowlL = new Food(1, "Large bowl Salad", "Munch",R.drawable.munchmap, 9.5, 645, "Suitable for 2 to 4 pax. Available for dine-in Only!", R.drawable.saladbowl, true, false, true, false, true, false);
