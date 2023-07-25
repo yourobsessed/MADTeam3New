@@ -90,6 +90,10 @@ public class GeneralView_Adapter extends RecyclerView.Adapter<GeneralView_Viewho
         holder.foodDescription.setText(f.getDescription());
         holder.foodImage.setImageResource(f.getFoodImage2());
 
+        if(DataHolder.wishlist_List.contains(f.getFoodIndex())) {
+            holder.wishlisticon.setColorFilter(Color.RED);
+        }
+
         //creating onclick intent of the cardView to the catalogue page
         holder.cardView.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -166,6 +170,16 @@ public class GeneralView_Adapter extends RecyclerView.Adapter<GeneralView_Viewho
     public int getItemCount () {
         //Log.i("DATA SIZE", String.valueOf(data.size()));
         return data.size();
+    }
+
+    @Override
+    public long getItemId(int position) {
+        return position;
+    }
+
+    @Override
+    public int getItemViewType(int position) {
+        return position;
     }
 
     public void changeIconColor (Food f, GeneralView_Viewholder holder){
