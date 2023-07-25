@@ -19,7 +19,7 @@ The Food Catalogue feature presents a user-friendly interface showcasing all the
 
 **Food Court Crowdedness**
 
-Users can view the real-time crowdedness level of each food court. Inside a food court, users have the option to provide information on how crowded it is, rating the status of the foodcourts. This data is then shared with other users who are looking for less crowded places to dine. If no data is available, the app will display the crowdedness as "unknown."
+Users can view the real-time crowdedness level of each food court. Inside a food court, users have the option to provide information on how crowded it is, rating the status of the foodcourts. This data is then shared with other users who are looking for less crowded places to dine. If no data is available, the app will display the crowdedness as "unknown". The collected data would then be averaged to show the mean crowd level for each food court.
 
 (Done by Colin)
 
@@ -46,7 +46,7 @@ Stage 2:
 
 **Rating of Food**
 
-Users can rate the dishes they have tried, providing a range from 1 to 5 stars and a short review explaining their rating. The ratings and reviews are visible to other users, helping them make informed decisions about their food choices. Users can also include a photo of the food along with their review.
+Users can rate the dishes they have tried, providing a range from 1 to 5 stars and a short review explaining their rating. The ratings and reviews are visible to other users, helping them make informed decisions about their food choices. Users can also include a photo of the food along with their review. Other users can view every review made, along with the average rating and also sort the reviews by date, highest rated and lowest rated.
 
 (To be done by Colin)
 

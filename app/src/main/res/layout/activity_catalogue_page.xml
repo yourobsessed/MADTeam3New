@@ -47,8 +47,8 @@
         android:id="@+id/backButton"
         android:layout_width="29dp"
         android:layout_height="29dp"
-        android:layout_marginStart="10dp"
-        android:layout_marginTop="30dp"
+        android:layout_marginStart="15dp"
+        android:layout_marginTop="26dp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:srcCompat="@drawable/img" />
@@ -123,21 +123,6 @@
     </HorizontalScrollView>
 
     <TextView
-        android:id="@+id/textView"
-        android:layout_width="93dp"
-        android:layout_height="28dp"
-        android:layout_marginStart="40dp"
-        android:layout_marginTop="340dp"
-        android:elevation="6px"
-        android:fontFamily="@font/alata"
-        android:text="@string/FoodName"
-        android:textAlignment="viewStart"
-        android:textSize="18sp"
-        android:textStyle="bold"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
-
-    <TextView
         android:id="@+id/textView4"
         android:layout_width="93dp"
         android:layout_height="28dp"
@@ -201,20 +186,35 @@
         android:id="@+id/CATfoodName"
         android:layout_width="255dp"
         android:layout_height="35dp"
-        android:layout_marginTop="336dp"
-        android:layout_marginEnd="35dp"
+        android:layout_marginTop="26dp"
+        android:layout_marginEnd="36dp"
         android:elevation="6px"
         android:fontFamily="sans-serif"
         android:gravity="center_vertical"
         android:textSize="16sp"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toTopOf="@+id/view4" />
+
+    <TextView
+        android:id="@+id/textView"
+        android:layout_width="93dp"
+        android:layout_height="28dp"
+        android:layout_marginStart="36dp"
+        android:layout_marginTop="26dp"
+        android:elevation="6px"
+        android:fontFamily="@font/alata"
+        android:text="@string/FoodName"
+        android:textAlignment="viewStart"
+        android:textSize="18sp"
+        android:textStyle="bold"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/view4" />
 
     <TextView
         android:id="@+id/CATfoodName3"
         android:layout_width="255dp"
         android:layout_height="35dp"
-        android:layout_marginTop="28dp"
+        android:layout_marginTop="24dp"
         android:layout_marginEnd="76dp"
         android:fontFamily="@font/alata"
         android:gravity="center_vertical"

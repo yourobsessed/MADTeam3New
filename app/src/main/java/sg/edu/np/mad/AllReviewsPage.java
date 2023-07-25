@@ -8,9 +8,13 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
+import android.widget.AdapterView;
+import android.widget.ArrayAdapter;
 import android.widget.ImageView;
 import android.widget.RatingBar;
+import android.widget.Spinner;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
@@ -20,6 +24,8 @@ import com.google.firebase.database.ValueEventListener;
 
 import java.text.DecimalFormat;
 import java.util.ArrayList;
+import java.util.Collections;
+import java.util.Comparator;
 import java.util.List;
 
 public class AllReviewsPage extends AppCompatActivity {
@@ -58,7 +64,6 @@ public class AllReviewsPage extends AppCompatActivity {
 
 
 
-
     }
 
     @Override
@@ -69,6 +74,7 @@ public class AllReviewsPage extends AppCompatActivity {
         ValueEventListener reviewsListener = new ValueEventListener() {
             @Override
             public void onDataChange(DataSnapshot dataSnapshot) {
+                itemList.clear();
                 int numofreviews = 0;
                 int totalstars = 0;
                 float avgstars = 0;
@@ -106,11 +112,59 @@ public class AllReviewsPage extends AppCompatActivity {
 
             @Override
             public void onCancelled(DatabaseError databaseError) {
-                // Handle any errors
             }
         };
 
         reviewsRef.addListenerForSingleValueEvent(reviewsListener);
+
+        Spinner spinner = findViewById(R.id.spinner);
+        spinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+            @Override
+            public void onItemSelected(AdapterView<?> parentView, View selectedItemView, int position, long id) {
+                String selectedOption = spinner.getSelectedItem().toString();
+                if (selectedOption.equals("Sort by Date")) {
+                    reviewsRef.addListenerForSingleValueEvent(reviewsListener);
+
+                } else if (selectedOption.equals("Sort by Highest")) {
+                    Collections.sort(itemList, new Comparator<FoodReview>() {
+                        @Override
+                        public int compare(FoodReview review1, FoodReview review2) {
+                            return Integer.compare(review2.Rating, review1.Rating);
+                        }
+                    });
+                    RecyclerView recyclerView;
+                    FoodReviewAdapter itemAdapter;
+
+                    recyclerView = findViewById(R.id.recyclerview);
+                    recyclerView.setLayoutManager(new LinearLayoutManager(AllReviewsPage.this));
+
+                    itemAdapter = new FoodReviewAdapter(itemList, AllReviewsPage.this);
+                    recyclerView.setAdapter(itemAdapter);
+
+                } else if (selectedOption.equals("Sort by Lowest")) {
+                    Collections.sort(itemList, new Comparator<FoodReview>() {
+                        @Override
+                        public int compare(FoodReview review1, FoodReview review2) {
+                            return Integer.compare(review1.Rating, review2.Rating);
+                        }
+                    });
+                    RecyclerView recyclerView;
+                    FoodReviewAdapter itemAdapter;
+
+                    recyclerView = findViewById(R.id.recyclerview);
+                    recyclerView.setLayoutManager(new LinearLayoutManager(AllReviewsPage.this));
+
+                    itemAdapter = new FoodReviewAdapter(itemList, AllReviewsPage.this);
+                    recyclerView.setAdapter(itemAdapter);
+                }
+            }
+
+            @Override
+            public void onNothingSelected(AdapterView<?> parentView) {
+                // your code here
+            }
+
+        });
 
     }
 }

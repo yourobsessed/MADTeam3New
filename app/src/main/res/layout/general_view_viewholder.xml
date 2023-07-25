@@ -3,16 +3,20 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="wrap_content">
+    android:layout_height="wrap_content"
+    android:layout_marginBottom="8dp">
 
     <androidx.cardview.widget.CardView
         android:id="@+id/Foodcardview"
-        android:layout_width="390dp"
+        android:layout_width="380dp"
         android:layout_height="245dp"
+        android:layout_marginStart="9dp"
         android:layout_marginTop="8dp"
-        android:elevation="10dp"
+        android:layout_marginEnd="9dp"
+        android:layout_marginBottom="2dp"
         app:cardCornerRadius="20dp"
-        app:cardElevation="5dp"
+        android:elevation="8dp"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent">
@@ -59,13 +63,13 @@
 
             <ImageView
                 android:id="@+id/WLButton"
-                android:layout_width="35dp"
-                android:layout_height="37dp"
-                android:layout_marginTop="10dp"
-                android:layout_marginEnd="10dp"
+                android:layout_width="45dp"
+                android:layout_height="45dp"
+                android:layout_marginTop="4dp"
+                android:layout_marginEnd="16dp"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/WLDescriptionVH"
-                app:srcCompat="@drawable/wishlist" />
+                app:srcCompat="@drawable/hearticon" />
 
         </androidx.constraintlayout.widget.ConstraintLayout>
     </androidx.cardview.widget.CardView>

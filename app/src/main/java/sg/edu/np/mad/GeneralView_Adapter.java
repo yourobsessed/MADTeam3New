@@ -6,7 +6,9 @@ import static android.icu.text.DisplayContext.LENGTH_SHORT;
 
 import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.graphics.Color;
+import android.graphics.PorterDuff;
 import android.graphics.drawable.Icon;
 import android.util.Log;
 import android.view.LayoutInflater;
@@ -15,24 +17,36 @@ import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.Toast;
 
+import androidx.annotation.NonNull;
+import androidx.core.content.ContextCompat;
 import androidx.recyclerview.widget.RecyclerView;
 import androidx.swiperefreshlayout.widget.SwipeRefreshLayout;
 
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.Query;
+import com.google.firebase.database.ValueEventListener;
 import com.mapbox.mapboxsdk.Mapbox;
 
 import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.concurrent.atomic.DoubleAdder;
 
 public class GeneralView_Adapter extends RecyclerView.Adapter<GeneralView_Viewholder> { //implements Serializable
     private Context context;
     private List<Food> data;
     private SelectListenerFood listenerFood;
     private IconClickListener listenerWL;
-    //SwipeRefreshLayout swipeRefreshLayout;
+
+    private int imageViewColor;
+    //private FirebaseDatabase database;
 
     String tag;
-    public GeneralView_Adapter(Context context, List<Food> input, SelectListenerFood ListenerFood, IconClickListener listener){
+
+    public GeneralView_Adapter(Context context, List<Food> input, SelectListenerFood ListenerFood, IconClickListener listener) {
         this.context = context;
         this.data = input;
         this.listenerFood = ListenerFood;
@@ -51,17 +65,27 @@ public class GeneralView_Adapter extends RecyclerView.Adapter<GeneralView_Viewho
         // as change in recycler view data.
         notifyDataSetChanged();
     }
+
     @Override
     public GeneralView_Viewholder onCreateViewHolder(ViewGroup parent, int viewType) {
-
-        //inflating the generalView holder with the relevant details
         View item = LayoutInflater.from(parent.getContext()).inflate(R.layout.general_view_viewholder, parent, false);
         return new GeneralView_Viewholder(item);
+        /*if (DataHolder.viewHoldering == null) {
+            //inflating the generalView holder with the relevant details
+            View item = LayoutInflater.from(parent.getContext()).inflate(R.layout.general_view_viewholder, parent, false);
+            return new GeneralView_Viewholder(item);
+        } else {
+            return DataHolder.viewHoldering;
+        }*/
+
     }
 
     @Override
-    public void onBindViewHolder(GeneralView_Viewholder holder, int position){
+    public void onBindViewHolder(GeneralView_Viewholder holder, int position) {
         Food f = data.get(position);
+        //Log.i("data", String.valueOf(f));
+        //Log.i("holder number", String.valueOf(holder));
+        //Log.i("status check", String.valueOf(f.getAddedWishlist()));
         holder.foodName.setText(f.getFoodName());
         holder.foodDescription.setText(f.getDescription());
         holder.foodImage.setImageResource(f.getFoodImage2());
@@ -85,35 +109,78 @@ public class GeneralView_Adapter extends RecyclerView.Adapter<GeneralView_Viewho
 
             }
         });
+        FirebaseDatabase database = FirebaseDatabase.getInstance();
+        DatabaseReference accountsRef = database.getReference("Accounts").child(DataHolder.username);
 
         holder.wishlisticon.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                //onClick wishlist button, adds the food object to the wishlist page
+                accountsRef.addListenerForSingleValueEvent(new ValueEventListener() {
+                    @Override
+                    public void onDataChange(@NonNull DataSnapshot snapshot) {
+                        Account acc = snapshot.getValue(Account.class);
 
-                if (!DataHolder.wishlist_List.contains(f)) {
-                    DataHolder.wishlist_List.add(f);
-                    Toast.makeText(v.getContext(),"Food added to the wishlist!", Toast.LENGTH_SHORT).show();
-                }
-                changeIconColor(v, holder); //changing the colour from black to red
+                        Log.i("Account: 1", String.valueOf(acc.wishlist));
+                        Log.i("Account Details", String.valueOf(acc));
+
+                        if (!acc.wishlist.contains(f.getFoodIndex())) { //checking if the food is added in the wishlist
+                            acc.wishlist.add(f.getFoodIndex()); //adds the food to the wishlist
+                            f.setAddedWishlist(true); //changing the food status to help with the changing of colours
+                            Toast.makeText(v.getContext(), "Food added to the wishlist!", Toast.LENGTH_SHORT).show();
+
+                            Log.i("wishlist: f", String.valueOf(acc.wishlist));
+                            DatabaseReference userWishList = accountsRef.child("wishlist");
+
+                            //passinig the db data into the project data for use
+                            DataHolder.wishlist_List = acc.wishlist;
+                            Log.i("dataholder.wishlist", String.valueOf(DataHolder.wishlist_List));
+                            userWishList.setValue(acc.wishlist); //updating the database's wishlist for specific users
+                            changeIconColor(f, holder);
+                        }
+
+                        else {
+                            Log.i("acc before", String.valueOf(acc.wishlist));
+                            int itemToRemove = acc.wishlist.indexOf(f.getFoodIndex());
+                            acc.wishlist.remove(itemToRemove);
+                            Log.i("acc after", String.valueOf(acc.wishlist));
+                            f.setAddedWishlist(false);
+                            Toast.makeText(v.getContext(), "Food removed from the wishlist!", Toast.LENGTH_SHORT).show();
+
+                            DatabaseReference userWishList = accountsRef.child("wishlist");
+                            DataHolder.wishlist_List = acc.wishlist;
+                            Log.i("dataholder.wishlist", String.valueOf(DataHolder.wishlist_List));
+                            userWishList.setValue(acc.wishlist);
+                            changeIconColor(f, holder);
+                        }
+                    }
+
+                    @Override
+                    public void onCancelled(@NonNull DatabaseError error) {
+
+                    }
+                });
             }
         });
 
-
     }
-
-    public int getItemCount(){
+    public int getItemCount () {
+        //Log.i("DATA SIZE", String.valueOf(data.size()));
         return data.size();
     }
 
-    //for it to change colour
-    public void changeIconColor(View view, GeneralView_Viewholder holder) {
+    public void changeIconColor (Food f, GeneralView_Viewholder holder){
         // Change the color of the icon
 
-        //changing the heart button onclick
-        int newColor = Color.parseColor("#FF0000"); // Set the desired color here
-        holder.wishlisticon.setColorFilter(newColor);
-    }
 
+        if (f.getAddedWishlist() == true) {
+            int newColor = Color.parseColor("#FF0000"); // changing the colour to red
+            holder.wishlisticon.setColorFilter(newColor);
+
+
+        } else if (f.getAddedWishlist() == false) {
+            int newColor = Color.parseColor("#000000"); //chaning colour to black
+            holder.wishlisticon.setColorFilter(newColor);
+        }
+    }
 
 }

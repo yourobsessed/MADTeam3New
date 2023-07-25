@@ -34,6 +34,11 @@
         <item>Makan Place</item>
         <item>Munch</item>
     </string-array>
+    <string-array name="Reviews">
+        <item>Sort by Date</item>
+        <item>Sort by Highest</item>
+        <item>Sort by Lowest</item>
+    </string-array>
     <string-array name="Crowdedness">
         <item>Full</item>
         <item>Almost Full</item>

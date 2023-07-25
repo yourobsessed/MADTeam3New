@@ -13,8 +13,8 @@
         android:id="@+id/imageView7"
         android:layout_width="29dp"
         android:layout_height="29dp"
-        android:layout_marginStart="5dp"
-        android:layout_marginTop="30dp"
+        android:layout_marginStart="15dp"
+        android:layout_marginTop="26dp"
         app:layout_constraintEnd_toStartOf="@+id/searchView"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
@@ -22,8 +22,8 @@
 
     <androidx.appcompat.widget.SearchView
         android:id="@+id/searchView"
-        android:layout_width="352dp"
-        android:layout_height="57dp"
+        android:layout_width="312dp"
+        android:layout_height="47dp"
         android:layout_marginTop="16dp"
         app:iconifiedByDefault="false"
         app:layout_constraintCircleRadius="500dp"
@@ -33,28 +33,28 @@
 
     </androidx.appcompat.widget.SearchView>
 
-
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/recyclerView"
-        android:layout_width="392dp"
-        android:layout_height="577dp"
+        android:layout_width="381dp"
+        android:layout_height="605dp"
         android:layout_marginStart="10dp"
+        android:layout_marginTop="23dp"
         android:layout_marginEnd="10dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.571"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/horizontalScrollView"
+        app:layout_constraintTop_toTopOf="@+id/horizontalScrollView"
         app:layout_constraintVertical_bias="1.0">
 
     </androidx.recyclerview.widget.RecyclerView>
 
     <HorizontalScrollView
         android:id="@+id/horizontalScrollViewLocation"
-        android:layout_width="391dp"
-        android:layout_height="54dp"
-        android:layout_marginStart="10dp"
-        android:layout_marginTop="8dp"
+        android:layout_width="352dp"
+        android:layout_height="55dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="2dp"
         android:scrollbars="none"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/searchView">
@@ -72,7 +72,7 @@
                 style="@style/Widget.MaterialComponents.Chip.Choice"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:checkable="false"
+                android:checked="true"
                 android:text="Food Club"
                 app:chipIcon="@drawable/locationchipsmarker"
                 app:chipIconVisible="true" />
@@ -82,9 +82,10 @@
                 style="@style/Widget.MaterialComponents.Chip.Choice"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:checkable="false"
+                android:checked="true"
                 android:text="Makan Place"
                 app:chipIcon="@drawable/locationchipsmarker"
+
                 app:chipIconVisible="true" />
 
             <com.google.android.material.chip.Chip
@@ -92,7 +93,7 @@
                 style="@style/Widget.MaterialComponents.Chip.Choice"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:checkable="false"
+                android:checked="true"
                 android:text="Munch"
                 app:chipIcon="@drawable/locationchipsmarker"
                 app:chipIconVisible="true" />
@@ -105,7 +106,7 @@
         android:layout_width="391dp"
         android:layout_height="54dp"
         android:layout_marginStart="8dp"
-        android:layout_marginTop="-5dp"
+        android:layout_marginTop="-15dp"
         android:scrollbars="none"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/horizontalScrollViewLocation">
