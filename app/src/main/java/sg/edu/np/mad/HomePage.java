@@ -232,8 +232,8 @@ public class HomePage extends AppCompatActivity implements NavigationView.OnNavi
             startActivity(todirectionPage);
 
         } else if (menuItem.getItemId() == R.id.nav_profileButton) {
-            Intent toProfilePage = new Intent(HomePage.this, Profile.class);
-            startActivity(toProfilePage);
+            //Intent toProfilePage = new Intent(HomePage.this, Profile.class);
+            //startActivity(toProfilePage);
 
         } else if (menuItem.getItemId() == R.id.nav_aboutusbutton) {
             Intent toAboutUs = new Intent(HomePage.this, AboutUs.class);

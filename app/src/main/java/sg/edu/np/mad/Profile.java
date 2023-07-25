@@ -1,4 +1,4 @@
-/*
+
 package sg.edu.np.mad;
 
 import androidx.annotation.NonNull;
@@ -31,10 +31,10 @@ import com.bumptech.glide.Glide;
 import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.android.gms.tasks.Task;
-import com.google.firebase.auth.AuthCredential;
+/*import com.google.firebase.auth.AuthCredential;
 import com.google.firebase.auth.EmailAuthProvider;
 import com.google.firebase.auth.FirebaseAuth;
-import com.google.firebase.auth.FirebaseUser;
+import com.google.firebase.auth.FirebaseUser;*/
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
@@ -47,8 +47,8 @@ import com.google.firebase.storage.UploadTask;
 
 import java.util.HashMap;
 
-public class Profile extends AppCompatActivity{
-    private FirebaseAuth firebaseAuth;
+/*public class Profile extends AppCompatActivity{}
+    /*private FirebaseAuth firebaseAuth;
     FirebaseDatabase firebaseDatabase;
     DatabaseReference accountReference;
     StorageReference storageReference;
@@ -104,7 +104,7 @@ public class Profile extends AppCompatActivity{
         editusername.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                showUsernameDialog();
+                //showUsernameDialog();
             }
         });
     }
@@ -134,7 +134,7 @@ public class Profile extends AppCompatActivity{
         editusername.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                showUsernameDialog();
+                //showUsernameDialog();
             }
         });
     }
@@ -170,7 +170,7 @@ public class Profile extends AppCompatActivity{
 
     // Now we will check that if old password was authenticated
     // correctly then we will update the new password
-    private void updatePassword(String oldp, final String newp, @NonNull DataSnapshot snapshot) {
+    /*private void updatePassword(String oldp, final String newp, @NonNull DataSnapshot snapshot) {
         Account acc = snapshot.getValue(Account.class);
 
         Boolean query = String.valueOf(acc.password).equals(oldp);
