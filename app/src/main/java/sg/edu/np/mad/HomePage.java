@@ -62,7 +62,16 @@ public class HomePage extends AppCompatActivity implements NavigationView.OnNavi
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_home_page);
         //initNavigationDrawer();
+//        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.TIRAMISU) {
+//            if (ContextCompat.checkSelfPermission(HomePage.this, android.Manifest.permission.POST_NOTIFICATIONS) != PackageManager.PERMISSION_GRANTED) {
+//                ActivityCompat.requestPermissions(HomePage.this, new String[]{
+//                        Manifest.permission.POST_NOTIFICATIONS
+//                }, 101);
+//            }
+//        }
         createNotificationChannel();
+        scheduleDailyNotification(this);
+        //makeNotification(this);
         String Username = getIntent().getStringExtra("Username");
 
 
@@ -113,50 +122,48 @@ public class HomePage extends AppCompatActivity implements NavigationView.OnNavi
             navigationView.setNavigationItemSelectedListener(this);
         }
 
-        //CREATING NOTIFICATIONS
-        Button button = findViewById(R.id.button);
-        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.TIRAMISU){
-            if (ContextCompat.checkSelfPermission(HomePage.this, android.Manifest.permission.POST_NOTIFICATIONS)!= PackageManager.PERMISSION_GRANTED){
-                    ActivityCompat.requestPermissions(HomePage.this, new String[]{
-                        Manifest.permission.POST_NOTIFICATIONS
-                }, 101);
-            }
-        }
-        button.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                setAlarm();
-                //makeNotification(HomePage.this);
-            }
-        });
-
-        calendar = Calendar.getInstance();
-        calendar.setTimeInMillis(System.currentTimeMillis());
-        calendar.set(Calendar.HOUR_OF_DAY, 12);
-        calendar.set(Calendar.MINUTE, 00);
-        calendar.set(Calendar.SECOND, 00);
-
-        alarmManager.set(AlarmManager.RTC_WAKEUP, calendar.getTimeInMillis(), pendingIntent);
+        //CREATING NOTIFICATIONS PERMISSION POP UP
 
     }
-    private void cancelAlarm(){
-        Intent intent = new Intent(this, AlarmReceiver.class);
-        pendingIntent = PendingIntent.getBroadcast(this, 0, intent, 0);
-        if (alarmManager == null){
-            alarmManager = (AlarmManager) getSystemService(Context.ALARM_SERVICE);
-        }
-        alarmManager.cancel(pendingIntent);
-        Toast.makeText(this, "Alarm cancelled", Toast.LENGTH_SHORT).show();
+    @Override
+    public void onResume() {
+        super.onResume();
+        TextView MapButton = findViewById(R.id.MapButton);
+        TextView CrowdButton = findViewById(R.id.crowdbutton);
+        List<CrowdReview> CrowdReviewsList = new ArrayList<>();
+        getCrowd(CrowdReviewsList, CrowdButton, MapButton);
+
     }
-    private void setAlarm(){
-        alarmManager = (AlarmManager) getSystemService(Context.ALARM_SERVICE);
-        Intent intent = new Intent(this, AlarmReceiver.class);
-        PendingIntent pendingIntent = PendingIntent.getBroadcast(this, 0, intent, 0);
-        alarmManager.setInexactRepeating(AlarmManager.RTC_WAKEUP, calendar.getTimeInMillis(), AlarmManager.INTERVAL_DAY, pendingIntent);
-        Toast.makeText(this, "Alarm set successfully", Toast.LENGTH_SHORT).show();
+
+    @Override
+    public void onPause(){
+        super.onPause();
+//        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.TIRAMISU) {
+//            if (ContextCompat.checkSelfPermission(HomePage.this, android.Manifest.permission.POST_NOTIFICATIONS) != PackageManager.PERMISSION_GRANTED) {
+//                ActivityCompat.requestPermissions(HomePage.this, new String[]{
+//                        Manifest.permission.POST_NOTIFICATIONS
+//                }, 101);
+//            }
+//        }
+        createNotificationChannel();
+        scheduleDailyNotification(this);
     }
+
+    public void onDestroy(){
+        super.onDestroy();
+//        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.TIRAMISU) {
+//            if (ContextCompat.checkSelfPermission(HomePage.this, android.Manifest.permission.POST_NOTIFICATIONS) != PackageManager.PERMISSION_GRANTED) {
+//                ActivityCompat.requestPermissions(HomePage.this, new String[]{
+//                        Manifest.permission.POST_NOTIFICATIONS
+//                }, 101);
+//            }
+//        }
+        createNotificationChannel();
+        scheduleDailyNotification(this);
+    }
+
     private void createNotificationChannel() {
-        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O){
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
             CharSequence name = "LunchNotification";
             String Description = "Notification that reminds users to have lunch";
             int importance = NotificationManager.IMPORTANCE_HIGH;
@@ -166,6 +173,28 @@ public class HomePage extends AppCompatActivity implements NavigationView.OnNavi
             NotificationManager notificationManager = getSystemService(NotificationManager.class);
             notificationManager.createNotificationChannel(channel);
         }
+    }
+
+    private void scheduleDailyNotification(Context context){
+        AlarmManager alarmManager = (AlarmManager) context.getSystemService(Context.ALARM_SERVICE);
+        Intent intent = new Intent(this, AlarmReceiver.class);
+        PendingIntent pendingIntent = PendingIntent.getBroadcast(this, 0, intent, PendingIntent.FLAG_MUTABLE);
+        calendar = Calendar.getInstance();
+        calendar.setTimeInMillis(System.currentTimeMillis());
+        calendar.set(Calendar.HOUR_OF_DAY, 16);
+        calendar.set(Calendar.MINUTE, 55);
+        calendar.set(Calendar.SECOND, 00);
+
+        alarmManager.set(AlarmManager.RTC_WAKEUP, calendar.getTimeInMillis(), pendingIntent);
+        if (calendar.getTimeInMillis() <= System.currentTimeMillis()) {
+            calendar.add(Calendar.DAY_OF_MONTH, 1);
+        }
+        alarmManager.setRepeating(
+                AlarmManager.RTC_WAKEUP,
+                calendar.getTimeInMillis(),
+                AlarmManager.INTERVAL_DAY,
+                pendingIntent
+        );
     }
 
     @Override
@@ -219,17 +248,6 @@ public class HomePage extends AppCompatActivity implements NavigationView.OnNavi
         drawer.closeDrawer(GravityCompat.START);
 
         return true;
-    }
-
-
-    @Override
-    public void onResume() {
-        super.onResume();
-        TextView MapButton = findViewById(R.id.MapButton);
-        TextView CrowdButton = findViewById(R.id.crowdbutton);
-        List<CrowdReview> CrowdReviewsList = new ArrayList<>();
-        getCrowd(CrowdReviewsList, CrowdButton, MapButton);
-
     }
 
 
@@ -365,15 +383,17 @@ public class HomePage extends AppCompatActivity implements NavigationView.OnNavi
 //        PendingIntent pendingIntent = PendingIntent.getActivity(getApplicationContext(), 0, notificationToCat, PendingIntent.FLAG_MUTABLE);
 //
 //        //setting the specific time to make the notification
-//        AlarmManager alarmManager = (AlarmManager) context.getSystemService(Context.ALARM_SERVICE);
-//        alarmManager.cancel(pendingIntent);
-//        Calendar calendar = Calendar.getInstance();
-//        calendar.setTimeInMillis(System.currentTimeMillis());
-//        calendar.set(Calendar.HOUR_OF_DAY, 12);
-//        calendar.set(Calendar.MINUTE, 00);
-//        calendar.set(Calendar.SECOND, 00);
-//        alarmManager.set(AlarmManager.RTC_WAKEUP, calendar.getTimeInMillis(), pendingIntent);
+////        AlarmManager alarmManager = (AlarmManager) context.getSystemService(Context.ALARM_SERVICE);
+////        alarmManager.cancel(pendingIntent);
+////        Calendar calendar = Calendar.getInstance();
+////        calendar.setTimeInMillis(System.currentTimeMillis());
+////        calendar.set(Calendar.HOUR_OF_DAY, 12);
+////        calendar.set(Calendar.MINUTE, 00);
+////        calendar.set(Calendar.SECOND, 00);
+////        alarmManager.set(AlarmManager.RTC_WAKEUP, calendar.getTimeInMillis(), pendingIntent);
 //        //startActivity(notificationToCat);
+//
+//        scheduleDailyNotification(this);
 //
 //        builder.setContentIntent(pendingIntent);
 //        NotificationManager notificationManager = (NotificationManager) getSystemService(Context.NOTIFICATION_SERVICE);
