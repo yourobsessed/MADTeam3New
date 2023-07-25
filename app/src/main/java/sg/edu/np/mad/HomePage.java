@@ -62,7 +62,7 @@ public class HomePage extends AppCompatActivity implements NavigationView.OnNavi
 
 
         TextView UsernameText = findViewById(R.id.UsernameText);
-        UsernameText.setText("Hello " + Username + ",");
+        UsernameText.setText("Hi, " + Username + " \uD83D\uDC4B\uD83C\uDFFB");
 
         SharedPreferences sharedPreferences = getSharedPreferences("MyPrefs", Context.MODE_PRIVATE);
         SharedPreferences.Editor editor = sharedPreferences.edit();
@@ -262,19 +262,19 @@ public class HomePage extends AppCompatActivity implements NavigationView.OnNavi
         else{
             if(FCCrowd < MPCrowd){
                 if(FCCrowd < MCrowd){
-                    txt.setText("Food Club is currently the least crowded.\nClick to view crowdedness of each food court");
+                    txt.setText("Food Club is currently the least crowded.");
                     txt2.setText("Map to get to\nFood Club");
                 }
 
             }
             else if(MPCrowd < MCrowd){
                 if(MPCrowd < FCCrowd){
-                    txt.setText("Makan Place is currently the least crowded.\nClick to view crowdedness of each food court");
+                    txt.setText("Makan Place is currently the least crowded.");
                     txt2.setText("Map to get to\nMakan Place");
                 }
             }
             else{
-                txt.setText("Munch is currently the least crowded.\nClick to view crowdedness of each food court");
+                txt.setText("Munch is currently the least crowded.");
                 txt2.setText("Map to get to\nMunch");
             }
 
