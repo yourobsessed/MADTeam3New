@@ -14,14 +14,16 @@ import com.google.android.material.chip.Chip;
 import com.google.android.material.chip.ChipGroup;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 public class RandomizerPage extends AppCompatActivity {
 
     //private Chip chipMakan,chipClub,chipMunch;
 
     //private ChipGroup chipGroupLocation;
-
+    Map<String, String> foodClubStalls = new HashMap<>();
 
     //private Button buttonApply;
 
