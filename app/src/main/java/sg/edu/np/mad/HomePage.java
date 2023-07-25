@@ -96,9 +96,11 @@ public class HomePage extends AppCompatActivity implements NavigationView.OnNavi
         navigationView = findViewById(R.id.nav_view);
         Toolbar toolbar = drawer.findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
-
+        toolbar.setNavigationIcon(R.drawable.baseline_notes_24);
         navigationView.bringToFront();
         ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(this, drawer, toolbar, R.string.navigation_drawer_open, R.string.navigation_drawer_close);
+        getSupportActionBar().setTitle("");
+
         drawer.addDrawerListener(toggle);
         Log.i(title, "drawer added");
         toggle.syncState();
