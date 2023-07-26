@@ -21,6 +21,7 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+import java.util.Random;
 
 public class RandomizerPage extends AppCompatActivity {
 
@@ -31,7 +32,7 @@ public class RandomizerPage extends AppCompatActivity {
 
     private ImageView backbutton;
     private TextView changetext;
-
+    private Button generatebutton;
 
     //private Button buttonApply;
 
@@ -39,7 +40,7 @@ public class RandomizerPage extends AppCompatActivity {
 
     //ArrayList<Food> filteredFoodList= new ArrayList<>();
     //ArrayList<Food> foodList= DataHolder.food_List;
-
+    String store;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -49,6 +50,34 @@ public class RandomizerPage extends AppCompatActivity {
 
         changetext=findViewById(R.id.randomchange);
         backbutton=findViewById(R.id.backButton);
+        generatebutton=findViewById(R.id.generate);
+
+        generatebutton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                changetext.setText(store);
+            }
+        });
+
+
+        foodstalls = CreateObject(foodstalls);
+
+
+        List<String> keysAsArray = new ArrayList<String>(foodstalls.keySet());
+        Random r = new Random();
+        store = foodstalls.get(keysAsArray.get(r.nextInt(keysAsArray.size())));
+
+        backbutton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+
+                finish();
+
+            }
+        });
+
+
+
         /*chipMakan=findViewById(R.id.chipMakan);
         chipClub=findViewById(R.id.chipClub);
         chipMunch=findViewById(R.id.chipMunch);
@@ -349,3 +378,4 @@ public class RandomizerPage extends AppCompatActivity {
 
     }
 }
+
