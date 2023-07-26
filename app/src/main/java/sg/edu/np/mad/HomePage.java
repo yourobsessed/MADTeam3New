@@ -85,6 +85,8 @@ public class HomePage extends AppCompatActivity implements NavigationView.OnNavi
         editor.putString("password", Password);
         editor.apply();
 
+        DataHolder.username= Username;
+
         FirebaseDatabase database = FirebaseDatabase.getInstance();
         DatabaseReference DatabaseRef = database.getReference();
 

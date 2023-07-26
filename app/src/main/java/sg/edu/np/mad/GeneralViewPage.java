@@ -83,9 +83,6 @@ public class GeneralViewPage extends AppCompatActivity implements SelectListener
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_general_view_page);
 
-        //CREATING DATABASE
-        SharedPreferences sharedPreferences = getSharedPreferences("MyPrefs", Context.MODE_PRIVATE);
-        String username = sharedPreferences.getString("wishlist", "");
 
 
         recyclerView=findViewById(R.id.recyclerView);
