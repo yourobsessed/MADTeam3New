@@ -38,7 +38,7 @@ public class RandomizerPage extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_randomizer);
-        foodstalls = CreateObject(foodstalls);
+        DataHolder.food_List = CreateObject(foodstalls);
         /*chipMakan=findViewById(R.id.chipMakan);
         chipClub=findViewById(R.id.chipClub);
         chipMunch=findViewById(R.id.chipMunch);
@@ -306,31 +306,32 @@ public class RandomizerPage extends AppCompatActivity {
 
     public Map<String, String> CreateObject(HashMap<> foodstalls){
         //creating all the food stores
+        //key, value
 
         //Food Club
-        foodstalls.put("Food Club","Pasta");
-        foodstalls.put("Food Club","Salad Bar");
-        foodstalls.put("Food Club","King Kong Fried Rice");
-        foodstalls.put("Food Club","Canopy Coffee Club");
-        foodstalls.put("Food Club","Chicken Rice");
-        foodstalls.put("Food Club","Indonesian");
-        foodstalls.put("Food Club","Creamy Duck");
+        foodstalls.put("Pasta","Food Club");
+        foodstalls.put("Salad Bar","Food Club");
+        foodstalls.put("King Kong Fried Rice","Food Club");
+        foodstalls.put("Canopy Coffee Club","Food Club");
+        foodstalls.put("Chicken Rice","Food Club");
+        foodstalls.put("Indonesian","Food Club");
+        foodstalls.put("Creamy Duck","Food Club");
 
         //Makan Place
-        foodstalls.put("Makan Place","Korean Fusion");
-        foodstalls.put("Makan Place","Western Cuisine");
-        foodstalls.put("Makan Place","Pick & Bite");
-        foodstalls.put("Makan Place","Hotto Neko");
+        foodstalls.put("Korean Fusion""Makan Place",);
+        foodstalls.put("Western Cuisine","Makan Place",);
+        foodstalls.put("Pick & Bite","Makan Place",);
+        foodstalls.put("Hotto Neko","Makan Place",);
 
         //Munch
-        foodstalls.put("Munch","Mala Hotpot");
-        foodstalls.put("Munch","Salad Bowl");
-        foodstalls.put("Munch","Western");
-        foodstalls.put("Munch","Claypot");
-        foodstalls.put("Munch","Nasi Padang");
-        foodstalls.put("Munch","Pizza Arc");
-        foodstalls.put("Munch","Korean");
-        foodstalls.put("Munch","Tim Sum");
+        foodstalls.put("Mala Hotpot","Munch");
+        foodstalls.put("Salad Bowl","Munch");
+        foodstalls.put("Western","Munch");
+        foodstalls.put("Claypot","Munch");
+        foodstalls.put("Nasi Padang","Munch");
+        foodstalls.put("Pizza Arc","Munch");
+        foodstalls.put("Korean","Munch");
+        foodstalls.put("Tim Sum","Munch");
 
 
         return foodstalls;
