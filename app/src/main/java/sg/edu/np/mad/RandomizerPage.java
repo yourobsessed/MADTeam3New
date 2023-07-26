@@ -33,9 +33,6 @@ public class RandomizerPage extends AppCompatActivity {
     //ArrayList<Food> filteredFoodList= new ArrayList<>();
     //ArrayList<Food> foodList= DataHolder.food_List;
 
-    private Boolean makan = false;
-    private Boolean club = false;
-    private Boolean munch = false;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
