@@ -17,21 +17,31 @@
         tools:layout_editor_absoluteX="18dp"
         tools:layout_editor_absoluteY="128dp" />
 
-    <com.google.android.material.floatingactionbutton.FloatingActionButton
-        android:id="@+id/floatingActionButton"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:clickable="true"
-        android:src="@drawable/dice"
-        tools:layout_editor_absoluteX="177dp"
-        tools:layout_editor_absoluteY="504dp" />
-
     <TextView
-        android:id="@+id/textView18"
-        android:layout_width="300dp"
-        android:layout_height="122dp"
-        android:text="hi"
-        tools:layout_editor_absoluteX="55dp"
-        tools:layout_editor_absoluteY="227dp" />
+        android:id="@+id/dontchange"
+        android:layout_width="311dp"
+        android:layout_height="53dp"
+        android:elevation="6px"
+        android:fontFamily="@font/alata"
+        android:text="You should eat at..."
+        android:textAlignment="center"
+        android:textSize="32dp"
+        android:textStyle="bold"
+        tools:layout_editor_absoluteX="50dp"
+        tools:layout_editor_absoluteY="217dp" />
+
+    <Button
+        android:id="@+id/generate"
+        android:layout_width="200dp"
+        android:layout_height="55dp"
+        android:elevation="6px"
+        android:text="Generate"
+        android:textAlignment="center"
+        android:textColor="#2196F3"
+        android:textSize="13sp"
+        android:background="@drawable/outlinebutton"
+        tools:layout_editor_absoluteX="105dp"
+        tools:layout_editor_absoluteY="498dp" />
+
 
 </androidx.constraintlayout.widget.ConstraintLayout>
