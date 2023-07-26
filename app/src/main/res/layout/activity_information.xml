@@ -1,7 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
-
-
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
@@ -9,17 +8,18 @@
 
     <TextView
         android:id="@+id/text3"
-        android:layout_width="414dp"
-        android:layout_height="37dp"
-        android:layout_marginTop="19dp"
+        android:layout_width="256dp"
+        android:layout_height="31dp"
+        android:layout_marginStart="15dp"
+        android:layout_marginTop="16dp"
         android:fontFamily="@font/alata"
         android:gravity="center"
         android:text="Information Page"
         android:textSize="18dp"
         android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintHorizontal_bias="0.187"
+        app:layout_constraintStart_toEndOf="@+id/imageView16"
         app:layout_constraintTop_toTopOf="parent" />
 
     <ImageView
@@ -28,7 +28,6 @@
         android:layout_height="29dp"
         android:layout_marginStart="15dp"
         android:layout_marginTop="26dp"
-        app:layout_constraintEnd_toStartOf="@+id/searchView"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:srcCompat="@drawable/img" />
@@ -38,12 +37,13 @@
         android:layout_width="185dp"
         android:layout_height="34dp"
         android:layout_marginStart="16dp"
+        android:layout_marginTop="24dp"
         android:text="Opening Hours "
         android:textAlignment="center"
         android:textSize="20sp"
         android:textStyle="bold"
         app:layout_constraintStart_toStartOf="parent"
-        tools:layout_editor_absoluteY="74dp" />
+        app:layout_constraintTop_toBottomOf="@+id/text3" />
 
 
     <TextView
@@ -145,9 +145,10 @@
         android:layout_width="184dp"
         android:layout_height="134dp"
         android:layout_marginStart="12dp"
+        android:layout_marginTop="76dp"
         app:layout_constraintStart_toEndOf="@+id/fc_hours"
-        app:srcCompat="@drawable/fc"
-        tools:layout_editor_absoluteY="132dp" />
+        app:layout_constraintTop_toBottomOf="@+id/text3"
+        app:srcCompat="@drawable/fc" />
 
     <ImageView
         android:id="@+id/imageView14"

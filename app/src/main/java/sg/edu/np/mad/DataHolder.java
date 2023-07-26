@@ -9,7 +9,6 @@ public class DataHolder {
 
 
     public static ArrayList<Food> food_List = new ArrayList<>();
-    public static ArrayList<Notification> notification_List = new ArrayList<>();
 
 
     public static String username="";

@@ -79,6 +79,7 @@ public class RandomizerPage extends AppCompatActivity {
     }
 
 
+
     public HashMap<String, String> CreateObject(HashMap<String,String> foodstalls){
         //creating all the food stores
         //key, value

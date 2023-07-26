@@ -35,29 +35,20 @@
             android:name=".AboutUs"
             android:exported="false" />
         <activity
-            android:name=".NotificationPage"
-            android:exported="false" />
-        <activity
             android:name=".AllReviewsPage"
             android:exported="false" />
         <activity
             android:name=".FoodReviewPage"
             android:exported="false" />
         <activity
-            android:name=".InfomationPage"
-            android:exported="false" />
-        <activity
-            android:name=".Infomation"
+            android:name=".Information"
             android:exported="false" />
         <activity
             android:name=".Direction"
             android:exported="false" />
-        <activity
-            android:name=".Profile"
-            android:exported="false" />
-        <activity
-            android:name=".NotificationViewPage"
-            android:exported="false" />
+
+        <activity android:name=".RandomizerPage"
+            android:exported="false"/>
 
         <meta-data
             android:name="com.mapbox.token"
@@ -68,6 +59,9 @@
             android:exported="false" />
         <activity
             android:name=".HomePage"
+            android:exported="false"/>
+        <activity
+            android:name=".Profile"
             android:exported="false"/>
 
         <activity

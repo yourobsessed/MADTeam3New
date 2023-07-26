@@ -9,9 +9,6 @@
         <item android:id="@+id/nav_foodbank"
             android:icon="@drawable/ic_foodmenu"
             android:title="Food Menu"/>
-        <item android:id="@+id/nav_NotificationButton"
-            android:icon="@drawable/ic_notificationbutton"
-            android:title="Notifications"/>
         <item android:id="@+id/nav_WishlistButton"
             android:icon="@drawable/ic_wishlist"
             android:title="Wishlist"/>
@@ -28,7 +25,12 @@
             android:icon="@drawable/infoicon"
             android:title="Information"/>
 
+        <item android:id="@+id/nav_randomizer"
+            android:icon="@drawable/nav_option"
+            android:title="Food Randomizer"/>
+
         <item android:id="@+id/nav_aboutusbutton"
             android:title="About us"/>
+
     </group>
 </menu>

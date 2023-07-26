@@ -47,7 +47,9 @@ import com.google.firebase.storage.UploadTask;
 
 import java.util.HashMap;
 
-/*public class Profile extends AppCompatActivity{}
+public class Profile extends AppCompatActivity{
+
+}
     /*private FirebaseAuth firebaseAuth;
     FirebaseDatabase firebaseDatabase;
     DatabaseReference accountReference;
@@ -170,7 +172,7 @@ import java.util.HashMap;
 
     // Now we will check that if old password was authenticated
     // correctly then we will update the new password
-    /*private void updatePassword(String oldp, final String newp, @NonNull DataSnapshot snapshot) {
+    private void updatePassword(String oldp, final String newp, @NonNull DataSnapshot snapshot) {
         Account acc = snapshot.getValue(Account.class);
 
         Boolean query = String.valueOf(acc.password).equals(oldp);
@@ -411,5 +413,5 @@ import java.util.HashMap;
                 Toast.makeText(EditProfilePage.this, "Error", Toast.LENGTH_LONG).show();
             }
         });
-    }
-}*/
+    }*/
+
