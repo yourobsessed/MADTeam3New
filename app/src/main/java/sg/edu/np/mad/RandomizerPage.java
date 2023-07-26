@@ -23,7 +23,7 @@ public class RandomizerPage extends AppCompatActivity {
     //private Chip chipMakan,chipClub,chipMunch;
 
     //private ChipGroup chipGroupLocation;
-    Map<String, String> foodstalls = new HashMap<>();
+    HashMap<String, String> foodstalls = new HashMap<>();
 
 
 
@@ -39,7 +39,7 @@ public class RandomizerPage extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_randomizer);
-        DataHolder.food_List = CreateObject(foodstalls);
+        DataHolder.food_List = CreateObject(HashMap<String,String>);
         /*chipMakan=findViewById(R.id.chipMakan);
         chipClub=findViewById(R.id.chipClub);
         chipMunch=findViewById(R.id.chipMunch);
@@ -305,7 +305,7 @@ public class RandomizerPage extends AppCompatActivity {
     }*/
 
 
-    public Map<String, String> CreateObject(HashMap<String,String> foodstalls){
+    public HashMap<String, String> CreateObject(HashMap<String,String> foodstalls){
         //creating all the food stores
         //key, value
 
