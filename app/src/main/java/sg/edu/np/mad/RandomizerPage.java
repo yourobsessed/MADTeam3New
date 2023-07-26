@@ -23,7 +23,7 @@ public class RandomizerPage extends AppCompatActivity {
     //private Chip chipMakan,chipClub,chipMunch;
 
     //private ChipGroup chipGroupLocation;
-    Map<String, String> foodClubStalls = new HashMap<>();
+    Map<String, String> foodstalls = new HashMap<>();
 
 
     //private Button buttonApply;
@@ -41,7 +41,7 @@ public class RandomizerPage extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_randomizer);
-
+        foodstalls = CreateObject(foodstalls);
         /*chipMakan=findViewById(R.id.chipMakan);
         chipClub=findViewById(R.id.chipClub);
         chipMunch=findViewById(R.id.chipMunch);
@@ -236,38 +236,9 @@ public class RandomizerPage extends AppCompatActivity {
 
         Toast.makeText(this, text, Toast.LENGTH_SHORT).show();
 
-    }*/
+    }
 
-    @Override
-    protected void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_general_view_filter);
 
-        chipGroupLocation = findViewById(R.id.chipGroupLocation);
-        buttonApply = findViewById(R.id.buttonApply);
-        selectedChipData = new ArrayList<>();
-
-        chipGroupLocation.setOnCheckedChangeListener(new ChipGroup.OnCheckedChangeListener() {
-            @Override
-            public void onCheckedChanged(ChipGroup group, int checkedId) {
-                Chip chip = group.findViewById(checkedId);
-                if (chip != null) {
-                    if (chip.isChecked()) {
-                        selectedChipData.add(chip.getText().toString());
-                    } else {
-                        selectedChipData.remove(chip.getText().toString());
-                    }
-                }
-            }
-        });
-
-        buttonApply.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Log.d("Selected Chips", selectedChipData.toString());
-                // Further processing or sending the selected data
-            }
-        });
     }
 
     //private ChipGroup chipGroupLocation;
@@ -335,7 +306,7 @@ public class RandomizerPage extends AppCompatActivity {
 
     }*/
 
-    Map<String, String> foodstalls = new HashMap<>();
+
     public Map<String, String> CreateObject(HashMap<> foodstalls){
         //creating all the food items
         //Munch
