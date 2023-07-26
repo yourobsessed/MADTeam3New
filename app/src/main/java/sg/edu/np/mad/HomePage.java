@@ -52,7 +52,7 @@ public class HomePage extends AppCompatActivity implements NavigationView.OnNavi
     DrawerLayout drawer;
     NavigationView navigationView;
     String title;
-    Food selectedFood;
+    public Food selectedFood;
     ArrayList<Food> foodList = new ArrayList<>();
     ArrayList<Food> receivedList = new ArrayList<>();
 
@@ -354,7 +354,7 @@ public class HomePage extends AppCompatActivity implements NavigationView.OnNavi
         DatabaseReference accountsRef = database.getReference("Accounts").child(DataHolder.username);
         Random randomPicker = new Random();
         Log.i("CHECK IF RUNNING THRU", "RAN THRU");
-        accountsRef.addValueEventListener(new ValueEventListener() {
+        accountsRef.addListenerForSingleValueEvent(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot snapshot) {
                 Account acc = snapshot.getValue(Account.class);
