@@ -70,31 +70,33 @@
             <com.google.android.material.chip.Chip
                 android:id="@+id/chipClub"
                 style="@style/Widget.MaterialComponents.Chip.Choice"
-                android:layout_width="wrap_content"
+                android:layout_width="150dp"
                 android:layout_height="wrap_content"
                 android:checked="true"
                 android:text="Food Club"
+                android:textAlignment="center"
                 app:chipIcon="@drawable/locationchipsmarker"
                 app:chipIconVisible="true" />
 
             <com.google.android.material.chip.Chip
                 android:id="@+id/chipMakan"
                 style="@style/Widget.MaterialComponents.Chip.Choice"
-                android:layout_width="wrap_content"
+                android:layout_width="150dp"
                 android:layout_height="wrap_content"
                 android:checked="true"
                 android:text="Makan Place"
+                android:textAlignment="center"
                 app:chipIcon="@drawable/locationchipsmarker"
-
                 app:chipIconVisible="true" />
 
             <com.google.android.material.chip.Chip
                 android:id="@+id/chipMunch"
                 style="@style/Widget.MaterialComponents.Chip.Choice"
-                android:layout_width="wrap_content"
+                android:layout_width="150dp"
                 android:layout_height="wrap_content"
                 android:checked="true"
                 android:text="Munch"
+                android:textAlignment="center"
                 app:chipIcon="@drawable/locationchipsmarker"
                 app:chipIconVisible="true" />
         </com.google.android.material.chip.ChipGroup>
