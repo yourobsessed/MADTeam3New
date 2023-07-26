@@ -8,10 +8,14 @@ import android.text.TextUtils;
 import android.view.View;
 import android.widget.Button;
 import android.widget.CompoundButton;
+import android.widget.ImageView;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.google.android.material.chip.Chip;
 import com.google.android.material.chip.ChipGroup;
+
+import org.w3c.dom.Text;
 
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -25,7 +29,8 @@ public class RandomizerPage extends AppCompatActivity {
     //private ChipGroup chipGroupLocation;
     HashMap<String, String> foodstalls = new HashMap<>();
 
-    private
+    private ImageView backbutton;
+    private TextView changetext;
 
 
     //private Button buttonApply;
@@ -40,7 +45,10 @@ public class RandomizerPage extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_randomizer);
-        DataHolder.food_List = CreateObject(foodstalls);
+        foodstalls = CreateObject(foodstalls);
+
+        changetext=findViewById(R.id.randomchange);
+        backbutton=findViewById(R.id.backButton);
         /*chipMakan=findViewById(R.id.chipMakan);
         chipClub=findViewById(R.id.chipClub);
         chipMunch=findViewById(R.id.chipMunch);
