@@ -61,6 +61,7 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
 
+
         <TextView
             android:id="@+id/UsernameText"
             android:layout_width="375dp"
@@ -145,6 +146,7 @@
             app:layout_constraintHorizontal_bias="0.51"
             app:layout_constraintStart_toEndOf="@+id/crowdbutton"
             app:layout_constraintTop_toBottomOf="@+id/UsernameText" />
+
         <ImageView
             android:id="@+id/imageView5"
             android:layout_width="42dp"

@@ -38,7 +38,7 @@ public class CataloguePage extends AppCompatActivity implements Serializable {
         setContentView(R.layout.activity_catalogue_page);
 
         foodName = findViewById(R.id.CATfoodName);
-        foodName2 = findViewById(R.id.CATfoodName3);
+        foodName2 = findViewById(R.id.randomid);
         foodPrice = findViewById(R.id.CATfoodPrice);
         foodCalories = findViewById(R.id.CATfoodCalories);
         foodImage = findViewById(R.id.image1);

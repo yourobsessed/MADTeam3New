@@ -61,7 +61,7 @@
         android:layout_marginEnd="5dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/CATfoodName3">
+        app:layout_constraintTop_toBottomOf="@+id/randomid">
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -211,7 +211,7 @@
         app:layout_constraintTop_toTopOf="@+id/view4" />
 
     <TextView
-        android:id="@+id/CATfoodName3"
+        android:id="@+id/randomid"
         android:layout_width="255dp"
         android:layout_height="35dp"
         android:layout_marginTop="24dp"
