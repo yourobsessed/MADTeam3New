@@ -77,21 +77,6 @@ public class WishList_Adapter extends RecyclerView.Adapter<WishList_ViewHolder> 
                         Log.i("Account", String.valueOf(acc.wishlist));
                         Log.i("Account Details", String.valueOf(acc));
 
-//                        int foodIndex = snapshot.getValue(Integer.class);
-//                        Log.i("FoodIndex", String.valueOf(foodIndex));
-//                        for (Food f : DataHolder.food_List) {
-//                            Log.i("food status", String.valueOf(f.getAddedWishlist()));
-//                            f.setAddedWishlist(true);
-//                            if (f.getFoodIndex() == foodIndex) { //if they are inside the wishlist, onclick will to be to remove food items
-//                                DataHolder.wishlist_List.remove(f.getFoodIndex());
-//                                f.setAddedWishlist(false);
-//                                Toast.makeText(v.getContext(), "Food has been removed from the wishlist!", Toast.LENGTH_SHORT).show();
-//                                DatabaseReference userWishList = accountsRef.child("wishlist");
-//                                userWishList.setValue(acc.wishlist);
-//                            }
-//
-//                        }
-
                         if (acc.wishlist.contains(f.getFoodIndex())){
                             int itemToRemove = acc.wishlist.indexOf(f.getFoodIndex());
                             acc.wishlist.remove(itemToRemove);
@@ -101,6 +86,7 @@ public class WishList_Adapter extends RecyclerView.Adapter<WishList_ViewHolder> 
                             userWishList.setValue(acc.wishlist);
 
                             DataHolder.wishlist_List = acc.wishlist;
+                            changeIconColor(f, holder);
                         }
                         else{
                             acc.wishlist.add(f.getFoodIndex());
@@ -110,6 +96,7 @@ public class WishList_Adapter extends RecyclerView.Adapter<WishList_ViewHolder> 
                             userWishList.setValue(acc.wishlist);
 
                             DataHolder.wishlist_List = acc.wishlist;
+                            changeIconColor(f, holder);
                         }
                     }
 
@@ -124,15 +111,11 @@ public class WishList_Adapter extends RecyclerView.Adapter<WishList_ViewHolder> 
 
     }
 
-    private View getContext() {
-        return null;
-    }
-
     public int getItemCount() {
         return data.size();
     }
 
-    public void changeIconColor(View view, Food f, WishList_ViewHolder holder) {
+    public void changeIconColor(Food f, WishList_ViewHolder holder) {
         // Change the color of the icon
         if (f.getAddedWishlist() == true) {
             int newColor = Color.parseColor("#FF0000"); // Set the desired color here
@@ -141,7 +124,6 @@ public class WishList_Adapter extends RecyclerView.Adapter<WishList_ViewHolder> 
             int newColor = Color.parseColor("#000000");
             holder.wishlistButton.setColorFilter(newColor);
         }
-        //DataHolder.viewHoldering = holder;
 
     }
 

@@ -90,6 +90,7 @@ public class RegisterPage extends AppCompatActivity {
                                 Toast.makeText(getApplicationContext(), "Account Created", Toast.LENGTH_SHORT).show();
                                 Intent OpenMain = new Intent(RegisterPage.this, HomePage.class);
                                 OpenMain.putExtra("Username", UsernameText.getText().toString());
+                                OpenMain.putExtra("Password", PasswordText.getText().toString());
                                 startActivity(OpenMain);
                             } else if (exists) {
                                 ExistsText.setVisibility(View.VISIBLE);

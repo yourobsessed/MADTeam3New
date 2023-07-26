@@ -10,7 +10,7 @@
         android:id="@+id/existsText"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="51dp"
+        android:layout_marginStart="40dp"
         android:layout_marginTop="10dp"
         android:layout_marginEnd="186dp"
         android:text="This username doesn't exist"
@@ -43,35 +43,35 @@
         android:id="@+id/incorrectText"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="51dp"
-        android:layout_marginEnd="224dp"
+        android:layout_marginStart="11dp"
+        android:layout_marginTop="11dp"
+        android:layout_marginEnd="40dp"
         android:text="Password is incorrect"
         android:textColor="@color/design_default_color_error"
         android:visibility="visible"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/PasswordEdit" />
+        app:layout_constraintStart_toEndOf="@+id/existsText"
+        app:layout_constraintTop_toBottomOf="@+id/textView9" />
 
     <TextView
         android:id="@+id/emptyText"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="51dp"
-        android:layout_marginTop="6dp"
         android:layout_marginEnd="110dp"
         android:text="Username and Password can't be empty"
         android:textColor="@color/design_default_color_error"
         android:visibility="visible"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/incorrectText" />
+        app:layout_constraintTop_toBottomOf="@+id/PasswordEdit" />
 
     <EditText
         android:id="@+id/PasswordEdit"
         android:layout_width="337dp"
         android:layout_height="54dp"
         android:layout_marginStart="38dp"
-        android:layout_marginTop="7dp"
+        android:layout_marginTop="10dp"
         android:layout_marginEnd="36dp"
         android:background="@drawable/rectangle2"
         android:ems="10"
@@ -89,9 +89,7 @@
         android:id="@+id/SignInButton"
         android:layout_width="314dp"
         android:layout_height="50dp"
-        android:layout_marginStart="51dp"
-        android:layout_marginTop="29dp"
-        android:layout_marginEnd="46dp"
+        android:layout_marginTop="30dp"
         android:background="@drawable/outlinebutton"
         android:stateListAnimator="@null"
         android:text="Sign In"
@@ -99,7 +97,7 @@
         android:translationZ="8dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/emptyText" />
+        app:layout_constraintTop_toBottomOf="@+id/checkBox" />
 
     <TextView
         android:id="@+id/RegisterButton"
@@ -107,9 +105,10 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="127dp"
         android:layout_marginEnd="126dp"
-        android:layout_marginBottom="40dp"
+        android:layout_marginBottom="90dp"
         android:text="Not a User? Register now"
         android:textColor="#0091D4"
+        android:textSize="14sp"
         android:translationZ="8dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
@@ -117,18 +116,21 @@
 
     <TextView
         android:id="@+id/textView8"
-        android:layout_width="56dp"
-        android:layout_height="40dp"
-        android:layout_marginStart="178dp"
-        android:layout_marginEnd="178dp"
-        android:layout_marginBottom="3dp"
+        android:layout_width="43dp"
+        android:layout_height="23dp"
+        android:layout_marginStart="170dp"
+        android:layout_marginTop="15dp"
+        android:layout_marginEnd="170dp"
+        android:layout_marginBottom="10dp"
         android:text="or"
         android:textAlignment="center"
         android:textColor="#B3B3B3"
+        android:textSize="14sp"
         android:translationZ="8dp"
         app:layout_constraintBottom_toTopOf="@+id/RegisterButton"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent" />
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/SignInButton" />
 
     <TextView
         android:id="@+id/textView9"
@@ -157,6 +159,20 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:srcCompat="@drawable/logo" />
+
+    <CheckBox
+        android:id="@+id/checkBox"
+        android:layout_width="120dp"
+        android:layout_height="20dp"
+        android:layout_marginStart="1dp"
+        android:layout_marginTop="6dp"
+        android:layout_marginEnd="227dp"
+        android:text="Remember me"
+        android:textSize="12sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.708"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/emptyText" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>
