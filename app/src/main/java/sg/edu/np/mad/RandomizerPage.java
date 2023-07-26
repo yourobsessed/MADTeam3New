@@ -319,7 +319,21 @@ public class RandomizerPage extends AppCompatActivity {
         foodstalls.put("Food Club","Indonesian");
         foodstalls.put("Food Club","Creamy Duck");
 
-        //
+        //Makan Place
+        foodstalls.put("Makan Place","Korean Fusion");
+        foodstalls.put("Makan Place","Western Cuisine");
+        foodstalls.put("Makan Place","Pick & Bite");
+        foodstalls.put("Makan Place","Hotto Neko");
+
+        //Munch
+        foodstalls.put("Munch","Mala Hotpot");
+        foodstalls.put("Munch","Salad Bowl");
+        foodstalls.put("Munch","Western");
+        foodstalls.put("Munch","Claypot");
+        foodstalls.put("Munch","Nasi Padang");
+        foodstalls.put("Munch","Pizza Arc");
+        foodstalls.put("Munch","Korean");
+        foodstalls.put("Munch","Tim Sum");
 
 
         return foodstalls;
