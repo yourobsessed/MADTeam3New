@@ -5,6 +5,7 @@ import androidx.annotation.NonNull;
 import androidx.appcompat.app.ActionBarDrawerToggle;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
+import androidx.camera.camera2.internal.compat.workaround.StillCaptureFlow;
 import androidx.core.app.ActivityCompat;
 import androidx.core.app.NotificationCompat;
 import androidx.core.content.ContextCompat;
@@ -51,26 +52,19 @@ public class HomePage extends AppCompatActivity implements NavigationView.OnNavi
     DrawerLayout drawer;
     NavigationView navigationView;
     String title;
+    Food selectedFood;
     ArrayList<Food> foodList = new ArrayList<>();
     ArrayList<Food> receivedList = new ArrayList<>();
 
     private AlarmManager alarmManager;
-    private Calendar calendar;
+    //private Calendar calendar;
     private PendingIntent pendingIntent;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_home_page);
-        //initNavigationDrawer();
-//        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.TIRAMISU) {
-//            if (ContextCompat.checkSelfPermission(HomePage.this, android.Manifest.permission.POST_NOTIFICATIONS) != PackageManager.PERMISSION_GRANTED) {
-//                ActivityCompat.requestPermissions(HomePage.this, new String[]{
-//                        Manifest.permission.POST_NOTIFICATIONS
-//                }, 101);
-//            }
-//        }
-        createNotificationChannel();
-        scheduleDailyNotification(this);
+
+        Log.i("RUNNING ONCREATE", "ONCREATE");
         //makeNotification(this);
         String Username = getIntent().getStringExtra("Username");
 
@@ -126,6 +120,9 @@ public class HomePage extends AppCompatActivity implements NavigationView.OnNavi
 
         //CREATING NOTIFICATIONS PERMISSION POP UP
 
+        Food randomFood = randomPicker();
+        Log.i("randomFood", String.valueOf(randomFood));
+
     }
     @Override
     public void onResume() {
@@ -140,33 +137,17 @@ public class HomePage extends AppCompatActivity implements NavigationView.OnNavi
     @Override
     public void onPause(){
         super.onPause();
-//        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.TIRAMISU) {
-//            if (ContextCompat.checkSelfPermission(HomePage.this, android.Manifest.permission.POST_NOTIFICATIONS) != PackageManager.PERMISSION_GRANTED) {
-//                ActivityCompat.requestPermissions(HomePage.this, new String[]{
-//                        Manifest.permission.POST_NOTIFICATIONS
-//                }, 101);
-//            }
-//        }
-        createNotificationChannel();
-        scheduleDailyNotification(this);
+
     }
 
     public void onDestroy(){
         super.onDestroy();
-//        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.TIRAMISU) {
-//            if (ContextCompat.checkSelfPermission(HomePage.this, android.Manifest.permission.POST_NOTIFICATIONS) != PackageManager.PERMISSION_GRANTED) {
-//                ActivityCompat.requestPermissions(HomePage.this, new String[]{
-//                        Manifest.permission.POST_NOTIFICATIONS
-//                }, 101);
-//            }
-//        }
-        createNotificationChannel();
-        scheduleDailyNotification(this);
+
     }
 
     private void createNotificationChannel() {
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
-            CharSequence name = "LunchNotification";
+            CharSequence name = "Lunch Notification";
             String Description = "Notification that reminds users to have lunch";
             int importance = NotificationManager.IMPORTANCE_HIGH;
             NotificationChannel channel = new NotificationChannel("CHANNEL_ID_NOTIFICATION", name, importance);
@@ -178,25 +159,34 @@ public class HomePage extends AppCompatActivity implements NavigationView.OnNavi
     }
 
     private void scheduleDailyNotification(Context context){
-        AlarmManager alarmManager = (AlarmManager) context.getSystemService(Context.ALARM_SERVICE);
-        Intent intent = new Intent(this, AlarmReceiver.class);
-        PendingIntent pendingIntent = PendingIntent.getBroadcast(this, 0, intent, PendingIntent.FLAG_MUTABLE);
-        calendar = Calendar.getInstance();
+        Calendar calendar = Calendar.getInstance();
         calendar.setTimeInMillis(System.currentTimeMillis());
-        calendar.set(Calendar.HOUR_OF_DAY, 16);
-        calendar.set(Calendar.MINUTE, 55);
-        calendar.set(Calendar.SECOND, 00);
-
-        alarmManager.set(AlarmManager.RTC_WAKEUP, calendar.getTimeInMillis(), pendingIntent);
+        calendar.set(Calendar.HOUR_OF_DAY, 13);
+        calendar.set(Calendar.MINUTE, 22);
+        calendar.set(Calendar.SECOND, 05);
         if (calendar.getTimeInMillis() <= System.currentTimeMillis()) {
             calendar.add(Calendar.DAY_OF_MONTH, 1);
         }
+
+        Intent intent = new Intent(this, AlarmReceiver.class);
+        PendingIntent pendingIntent = PendingIntent.getBroadcast(this, 0, intent, PendingIntent.FLAG_IMMUTABLE);
+
+
+        AlarmManager alarmManager = (AlarmManager) context.getSystemService(Context.ALARM_SERVICE);
         alarmManager.setRepeating(
                 AlarmManager.RTC_WAKEUP,
                 calendar.getTimeInMillis(),
                 AlarmManager.INTERVAL_DAY,
                 pendingIntent
         );
+        //alarmManager.set(AlarmManager.RTC_WAKEUP, calendar.getTimeInMillis(), pendingIntent);
+
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.TIRAMISU){
+            alarmManager.setExactAndAllowWhileIdle(AlarmManager.RTC_WAKEUP, calendar.getTimeInMillis(), pendingIntent);
+        }
+        Log.i("CREATING NOTIFICATIONS", "CREATED NOTIFICATIONS");
+
+
     }
 
     @Override
@@ -345,8 +335,6 @@ public class HomePage extends AppCompatActivity implements NavigationView.OnNavi
 
     }
 
-
-
     public static int calculateAverage(List<Integer> list) {
         if (list == null || list.isEmpty()) {
             return 150;
@@ -360,78 +348,24 @@ public class HomePage extends AppCompatActivity implements NavigationView.OnNavi
         return (int) sum / list.size();
     }
 
-//    public void makeNotification(Context context){
-//        String channelID = "CHANNEL_ID_NOTIFICATION";
-//        NotificationCompat.Builder builder = new NotificationCompat.Builder(getApplicationContext(),channelID);
-//
-//        builder.setSmallIcon(R.drawable.notification);
-//        builder.setContentTitle("Time for Lunch!");
-//        builder.setContentText("Try out this dish during your lunch break!");
-//        builder.setAutoCancel(true).setPriority(NotificationCompat.PRIORITY_DEFAULT);
-//
-//        Intent notificationToCat = new Intent(HomePage.this, CataloguePage.class);
-//        notificationToCat.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
-//
-//        Food selectedFood = randomPicker(); //calling for method
-//        notificationToCat.putExtra("FoodName", selectedFood.getFoodName());
-//        notificationToCat.putExtra("FoodPrice", selectedFood.getPrice());
-//        notificationToCat.putExtra("FoodCalories", selectedFood.getCalories());
-//        notificationToCat.putExtra("FoodImg", selectedFood.getFoodImage1());
-//        notificationToCat.putExtra("FoodImg2", selectedFood.getFoodImage2());
-//        notificationToCat.putExtra("LocationImg", selectedFood.getLocationImage());
-//        notificationToCat.putExtra("storeLocation", selectedFood.getLocation());
-//        System.out.println("HELLLLOO");
-//        //startActivity(notificationToCat);
-//        PendingIntent pendingIntent = PendingIntent.getActivity(getApplicationContext(), 0, notificationToCat, PendingIntent.FLAG_MUTABLE);
-//
-//        //setting the specific time to make the notification
-////        AlarmManager alarmManager = (AlarmManager) context.getSystemService(Context.ALARM_SERVICE);
-////        alarmManager.cancel(pendingIntent);
-////        Calendar calendar = Calendar.getInstance();
-////        calendar.setTimeInMillis(System.currentTimeMillis());
-////        calendar.set(Calendar.HOUR_OF_DAY, 12);
-////        calendar.set(Calendar.MINUTE, 00);
-////        calendar.set(Calendar.SECOND, 00);
-////        alarmManager.set(AlarmManager.RTC_WAKEUP, calendar.getTimeInMillis(), pendingIntent);
-//        //startActivity(notificationToCat);
-//
-//        scheduleDailyNotification(this);
-//
-//        builder.setContentIntent(pendingIntent);
-//        NotificationManager notificationManager = (NotificationManager) getSystemService(Context.NOTIFICATION_SERVICE);
-//
-//        if (android.os.Build.VERSION.SDK_INT >= android.os.Build.VERSION_CODES.O){
-//            NotificationChannel notificationChannel = notificationManager.getNotificationChannel(channelID);
-//            if (notificationChannel == null){
-//                int importance = NotificationManager.IMPORTANCE_HIGH;
-//                notificationChannel = new NotificationChannel(channelID, "Some Description", importance);
-//
-//                notificationChannel.setLightColor(Color.GREEN);
-//                notificationChannel.enableVibration(true);
-//                notificationManager.createNotificationChannel(notificationChannel);
-//            }
-//        }
-//
-//        notificationManager.notify(0, builder.build());
-//    }
-
     public Food randomPicker() {
         DataHolder.food_List = CreateObject(foodList);
         FirebaseDatabase database = FirebaseDatabase.getInstance();
         DatabaseReference accountsRef = database.getReference("Accounts").child(DataHolder.username);
         Random randomPicker = new Random();
-        Food randomFood = new Food();
-        accountsRef.addListenerForSingleValueEvent(new ValueEventListener() {
+        Log.i("CHECK IF RUNNING THRU", "RAN THRU");
+        accountsRef.addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot snapshot) {
                 Account acc = snapshot.getValue(Account.class);
-
+                Log.i("CHECK IF RUNNING THRU", String.valueOf(acc.wishlist));
                 if (acc.wishlist.size() >= 2) {
                     int position = randomPicker.nextInt(acc.wishlist.size());
                     for (Food f : DataHolder.food_List) {
-                        if (f.getFoodIndex() == position) {
-                            Food randomFood = f;
-                            Log.i("selected food", String.valueOf(randomFood));
+                        if (f.getFoodIndex() == acc.wishlist.get(position)) {
+                            Log.i("randomly selected food", String.valueOf(f));
+                            selectedFood = f;
+                            Log.i("selected food", String.valueOf(selectedFood));
                             //return randomFood;
                         }
                     }
@@ -439,8 +373,8 @@ public class HomePage extends AppCompatActivity implements NavigationView.OnNavi
                 } else {
                     System.out.println(DataHolder.food_List.size());
                     int position = randomPicker.nextInt(DataHolder.food_List.size());
-                    Food randomFood = DataHolder.food_List.get(position);
-                    Log.i("selected food", String.valueOf(randomFood));
+                    selectedFood = DataHolder.food_List.get(position);
+                    Log.i("selected food", String.valueOf(selectedFood));
 
                 }
             }
@@ -450,24 +384,8 @@ public class HomePage extends AppCompatActivity implements NavigationView.OnNavi
 
             }
         });
-        return randomFood;
+        return selectedFood;
     }
-//        if (acc.wishlist != null) {
-//            int position = randomPicker.nextInt(acc.wishlist.size());
-//            for (Food f : DataHolder.food_List) {
-//                if (f.getFoodIndex() == position) {
-//                    randomFood = f;
-//                    Log.i("selected food", String.valueOf(randomFood));
-//                    //return randomFood;
-//                }
-//            }
-//
-//        } else {
-//            System.out.println(DataHolder.food_List.size());
-//            int position = randomPicker.nextInt(DataHolder.food_List.size());
-//            randomFood = DataHolder.food_List.get(position);
-//            //return randomFood;
-//        }
 
 
     public ArrayList<Food> CreateObject(ArrayList<Food> foodList){

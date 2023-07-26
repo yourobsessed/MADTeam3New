@@ -99,20 +99,15 @@ public class WishlistPage extends AppCompatActivity implements SelectListenerFoo
     @Override
     protected void onResume(){
         super.onResume();
-        swipeRefreshLayout = findViewById(R.id.swiperefresh);
-        swipeRefreshLayout.setOnRefreshListener(new SwipeRefreshLayout.OnRefreshListener() {
-            @Override
-            public void onRefresh() {
-                Toast.makeText(WishlistPage.this, "refreshed", Toast.LENGTH_SHORT).show();
-                RecyclerView WLrecyclerView = findViewById(R.id.wishlist_RV);
-                mAdapter = new WishList_Adapter(WishlistPage.this, receivedList);
-                LinearLayoutManager mLayoutManger = new LinearLayoutManager(WishlistPage.this);
-                WLrecyclerView.setLayoutManager(mLayoutManger);
-                WLrecyclerView.setItemAnimator(new DefaultItemAnimator());
-                WLrecyclerView.setAdapter(mAdapter);
-                swipeRefreshLayout.setRefreshing(false);
-            }
-        });
+
+
+        RecyclerView WLrecyclerView = findViewById(R.id.wishlist_RV);
+        mAdapter = new WishList_Adapter(WishlistPage.this, receivedList);
+        LinearLayoutManager mLayoutManger = new LinearLayoutManager(WishlistPage.this);
+        WLrecyclerView.setLayoutManager(mLayoutManger);
+        WLrecyclerView.setItemAnimator(new DefaultItemAnimator());
+        WLrecyclerView.setAdapter(mAdapter);
+
 
     }
 

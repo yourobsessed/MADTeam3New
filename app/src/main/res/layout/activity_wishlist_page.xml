@@ -32,7 +32,6 @@
         android:gravity="center"
         android:text="Do add food items that you wish to try!"
         android:textSize="16sp"
-        app:layout_constraintBottom_toTopOf="@+id/swiperefresh"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textView26" />
@@ -48,30 +47,20 @@
         app:srcCompat="@drawable/img" />
 
 
-    <androidx.swiperefreshlayout.widget.SwipeRefreshLayout
-        android:id="@+id/swiperefresh"
-        android:layout_width="404dp"
-        android:layout_height="758dp"
-        android:layout_marginBottom="3dp"
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/wishlist_RV"
+        android:layout_width="409dp"
+        android:layout_height="751dp"
+        android:layout_marginStart="1dp"
+        android:layout_marginTop="20dp"
+        android:layout_marginEnd="1dp"
+        android:layout_marginBottom="1dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintStart_toStartOf="parent"
-        tools:context=".WishlistPage">
+        app:layout_constraintTop_toBottomOf="@+id/textView25" />
 
-        <androidx.recyclerview.widget.RecyclerView
-            android:id="@+id/wishlist_RV"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:layout_marginStart="1dp"
-            android:layout_marginTop="1dp"
-            android:layout_marginEnd="1dp"
-            android:layout_marginBottom="1dp"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent" />
 
-    </androidx.swiperefreshlayout.widget.SwipeRefreshLayout>
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>
