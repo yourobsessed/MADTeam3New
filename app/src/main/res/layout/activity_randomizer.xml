@@ -43,5 +43,31 @@
         tools:layout_editor_absoluteX="105dp"
         tools:layout_editor_absoluteY="498dp" />
 
+    <ImageView
+        android:id="@+id/backButton"
+        android:layout_width="29dp"
+        android:layout_height="29dp"
+        android:layout_marginStart="15dp"
+        android:layout_marginTop="26dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/img" />
+
+    <TextView
+        android:id="@+id/CATfoodName3"
+        android:layout_width="255dp"
+        android:layout_height="35dp"
+        android:layout_marginTop="24dp"
+        android:layout_marginEnd="76dp"
+        android:fontFamily="@font/alata"
+        android:gravity="center_vertical"
+        android:textAlignment="center"
+        android:text="Randomizer"
+        android:textSize="18sp"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+
 
 </androidx.constraintlayout.widget.ConstraintLayout>
