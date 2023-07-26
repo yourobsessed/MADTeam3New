@@ -29,6 +29,11 @@
             android:title="Information"/>
 
         <item android:id="@+id/nav_aboutusbutton"
+            android:icon="@drawable/baseline_people_24"
             android:title="About us"/>
+
+        <item android:id="@+id/nav_logoutbutton"
+            android:icon="@drawable/baseline_door_back_24"
+            android:title="Log Out"/>
     </group>
 </menu>

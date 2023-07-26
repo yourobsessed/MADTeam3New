@@ -73,6 +73,7 @@ public class HomePage extends AppCompatActivity implements NavigationView.OnNavi
         scheduleDailyNotification(this);
         //makeNotification(this);
         String Username = getIntent().getStringExtra("Username");
+        String Password = getIntent().getStringExtra("Password");
 
 
         TextView UsernameText = findViewById(R.id.UsernameText);
@@ -81,6 +82,7 @@ public class HomePage extends AppCompatActivity implements NavigationView.OnNavi
         SharedPreferences sharedPreferences = getSharedPreferences("MyPrefs", Context.MODE_PRIVATE);
         SharedPreferences.Editor editor = sharedPreferences.edit();
         editor.putString("username", Username);
+        editor.putString("password", Password);
         editor.apply();
 
         FirebaseDatabase database = FirebaseDatabase.getInstance();
@@ -246,7 +248,17 @@ public class HomePage extends AppCompatActivity implements NavigationView.OnNavi
         } else if (menuItem.getItemId() == R.id.nav_aboutusbutton) {
             Intent toFeedbackPage = new Intent(HomePage.this, AboutUs.class);
             startActivity(toFeedbackPage);
+        } else if (menuItem.getItemId() == R.id.nav_logoutbutton) {
+
+            SharedPreferences sharedPreferences = getSharedPreferences("MyPrefs", Context.MODE_PRIVATE);
+            SharedPreferences.Editor editor = sharedPreferences.edit();
+            editor.putBoolean("RememberMe", false);
+            editor.apply();
+
+            Intent toLogin = new Intent(HomePage.this, LoginPage.class);
+            startActivity(toLogin);
         }
+
         drawer.closeDrawer(GravityCompat.START);
 
         return true;

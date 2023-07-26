@@ -54,10 +54,8 @@
         <View
             android:id="@+id/view7"
             android:layout_width="392dp"
-            android:layout_height="632dp"
-            android:layout_marginStart="1dp"
+            android:layout_height="662dp"
             android:layout_marginTop="160dp"
-            android:layout_marginEnd="1dp"
             android:background="@drawable/rectangle3"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
@@ -116,6 +114,7 @@
             android:layout_height="140dp"
             android:layout_marginStart="24dp"
             android:layout_marginTop="90dp"
+            android:layout_marginEnd="14dp"
             android:background="@drawable/rectangle2"
             android:backgroundTint="#A600BCD4"
             android:fontFamily="@font/alata"
@@ -124,6 +123,7 @@
             android:text="Click to view crowdedness of each food court"
             android:textAlignment="textStart"
             android:textStyle="bold"
+            app:layout_constraintEnd_toStartOf="@+id/MapButton"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/UsernameText" />
 
@@ -133,7 +133,7 @@
             android:layout_width="140dp"
             android:layout_height="140dp"
             android:layout_marginTop="90dp"
-            android:layout_marginEnd="5dp"
+            android:layout_marginEnd="24dp"
             android:background="@drawable/rectangle"
             android:fontFamily="@font/alata"
             android:gravity="center"
