@@ -39,7 +39,7 @@ public class LoginPage extends AppCompatActivity {
 
 
         createNotificationChannel();
-        scheduleDailyNotification(this);
+        //scheduleDailyNotification(this);
 
         FirebaseDatabase database = FirebaseDatabase.getInstance();
         DatabaseReference DatabaseRef = database.getReference();
@@ -121,7 +121,7 @@ public class LoginPage extends AppCompatActivity {
     @Override
     protected void onStart() {
         super.onStart();
-        scheduleDailyNotification(this);
+        //scheduleDailyNotification(this);
     }
 
     @Override
@@ -133,26 +133,26 @@ public class LoginPage extends AppCompatActivity {
     @Override
     protected void onPause(){
         super.onPause();
-        scheduleDailyNotification(this);
+        //scheduleDailyNotification(this);
     }
 
     @Override
     protected void onStop(){
         super.onStop();
-        scheduleDailyNotification(this);
+        //scheduleDailyNotification(this);
     }
 
     @Override
     protected void onDestroy(){
         super.onDestroy();
-        scheduleDailyNotification(this);
+        //scheduleDailyNotification(this);
     }
 
     private void createNotificationChannel() {
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
             CharSequence name = "Lunch Notification";
             String Description = "Notification that reminds users to have lunch";
-            int importance = NotificationManager.IMPORTANCE_HIGH;
+            int importance = NotificationManager.IMPORTANCE_DEFAULT;
             NotificationChannel channel = new NotificationChannel("CHANNEL_ID_NOTIFICATION", name, importance);
             channel.setDescription(Description);
 
@@ -164,24 +164,32 @@ public class LoginPage extends AppCompatActivity {
     private void scheduleDailyNotification(Context context){
         Calendar calendar = Calendar.getInstance();
         calendar.setTimeInMillis(System.currentTimeMillis());
-        calendar.set(Calendar.HOUR_OF_DAY, 13);
-        calendar.set(Calendar.MINUTE, 55);
+        calendar.set(Calendar.HOUR_OF_DAY, 12);
+        calendar.set(Calendar.MINUTE, 00);
         calendar.set(Calendar.SECOND, 05);
         if (calendar.getTimeInMillis() <= System.currentTimeMillis()) {
             calendar.add(Calendar.DAY_OF_MONTH, 1);
         }
-
-        Intent intent = new Intent(this, AlarmReceiver.class);
-        PendingIntent pendingIntent = PendingIntent.getBroadcast(this, 0, intent, PendingIntent.FLAG_IMMUTABLE);
-
-
         AlarmManager alarmManager = (AlarmManager) context.getSystemService(Context.ALARM_SERVICE);
-        alarmManager.setRepeating(
-                AlarmManager.RTC_WAKEUP,
-                calendar.getTimeInMillis(),
-                AlarmManager.INTERVAL_DAY,
-                pendingIntent
-        );
+        Intent intent = new Intent(this, AlarmReceiver.class);
+        intent.setAction("TO CATALOGUE PAGE");
+        PendingIntent pendingIntent = PendingIntent.getBroadcast(this, 101, intent, PendingIntent.FLAG_IMMUTABLE);
+
+
+        if (Build.VERSION.SDK_INT >= 23){
+            alarmManager.setRepeating(AlarmManager.RTC_WAKEUP, calendar.getTimeInMillis(), AlarmManager.INTERVAL_DAY, pendingIntent);
+        }
+        else if(Build.VERSION.SDK_INT >= Build.VERSION_CODES.M){
+            alarmManager.setExactAndAllowWhileIdle(AlarmManager.RTC_WAKEUP, calendar.getTimeInMillis(), pendingIntent);
+        }
+        else if(Build.VERSION.SDK_INT >= Build.VERSION_CODES.KITKAT){
+            alarmManager.setExact(AlarmManager.RTC_WAKEUP, calendar.getTimeInMillis(), pendingIntent);
+        }
+        else{
+            alarmManager.set(AlarmManager.RTC_WAKEUP, calendar.getTimeInMillis(), pendingIntent);
+        }
+
+
         //alarmManager.set(AlarmManager.RTC_WAKEUP, calendar.getTimeInMillis(), pendingIntent);
 
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.TIRAMISU){

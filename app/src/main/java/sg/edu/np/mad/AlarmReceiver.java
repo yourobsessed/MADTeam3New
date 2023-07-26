@@ -35,7 +35,6 @@ import java.util.ArrayList;
 import java.util.Random;
 
 public class AlarmReceiver extends BroadcastReceiver {
-    private static final int NOTIFICATION_ID = 1;
     public ArrayList<Food> foodList = new ArrayList<>();
     @Override
     public void onReceive(Context context, Intent intent) {
@@ -51,7 +50,7 @@ public class AlarmReceiver extends BroadcastReceiver {
         notificationToCat.putExtra("FoodImg", selectedFood.getFoodImage1());
         notificationToCat.putExtra("FoodImg2", selectedFood.getFoodImage2());
         notificationToCat.putExtra("storeLocation", selectedFood.getLocation());
-        PendingIntent pendingIntent = PendingIntent.getActivity(context, 0, notificationToCat, PendingIntent.FLAG_IMMUTABLE);
+        PendingIntent pendingIntent = PendingIntent.getActivity(context, 101, notificationToCat, PendingIntent.FLAG_IMMUTABLE);
 
 
         String channelID = "CHANNEL_ID_NOTIFICATION";
@@ -59,7 +58,7 @@ public class AlarmReceiver extends BroadcastReceiver {
                 .setSmallIcon(R.drawable.notification)
                 .setContentTitle("Time for Lunch!")
                 .setContentText("Try out this dish during your lunch break! Find out more!")
-                .setPriority(NotificationCompat.PRIORITY_HIGH)
+                .setPriority(NotificationCompat.PRIORITY_DEFAULT)
                 .setContentIntent(pendingIntent)
                 .setAutoCancel(true);
 
@@ -72,7 +71,7 @@ public class AlarmReceiver extends BroadcastReceiver {
                 return;
             }
         }
-        notificationManagerCompat.notify(NOTIFICATION_ID, builder.build());
+        notificationManagerCompat.notify(101, builder.build());
 
     }
 
