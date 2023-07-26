@@ -305,7 +305,7 @@ public class RandomizerPage extends AppCompatActivity {
     }*/
 
 
-    public Map<String, String> CreateObject(HashMap<> foodstalls){
+    public Map<String, String> CreateObject(HashMap<String,String> foodstalls){
         //creating all the food stores
         //key, value
 
@@ -319,10 +319,10 @@ public class RandomizerPage extends AppCompatActivity {
         foodstalls.put("Creamy Duck","Food Club");
 
         //Makan Place
-        foodstalls.put("Korean Fusion""Makan Place",);
-        foodstalls.put("Western Cuisine","Makan Place",);
-        foodstalls.put("Pick & Bite","Makan Place",);
-        foodstalls.put("Hotto Neko","Makan Place",);
+        foodstalls.put("Korean Fusion","Makan Place");
+        foodstalls.put("Western Cuisine","Makan Place");
+        foodstalls.put("Pick & Bite","Makan Place");
+        foodstalls.put("Hotto Neko","Makan Place");
 
         //Munch
         foodstalls.put("Mala Hotpot","Munch");
