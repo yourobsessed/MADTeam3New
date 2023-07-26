@@ -89,14 +89,14 @@ public class HomePage extends AppCompatActivity implements NavigationView.OnNavi
             }
         });
 
-        TextView randomButton = findViewById(R.id.randombutton);
+        /*TextView randomButton = findViewById(R.id.randombutton);
         CrowdButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 Intent openRandom = new Intent(HomePage.this, RandomizerPage.class);
                 startActivity(openRandom);
             }
-        });
+        });*/
 
 
         List<CrowdReview> CrowdReviewsList = new ArrayList<>();
