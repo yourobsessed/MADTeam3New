@@ -28,20 +28,33 @@
         android:textSize="32dp"
         android:textStyle="bold"
         tools:layout_editor_absoluteX="50dp"
-        tools:layout_editor_absoluteY="217dp" />
+        tools:layout_editor_absoluteY="249dp" />
+
+    <TextView
+        android:id="@+id/randomchange"
+        android:layout_width="313dp"
+        android:layout_height="102dp"
+        android:elevation="6px"
+        android:fontFamily="@font/alata"
+        android:text="Press Generate to start the Randomizer"
+        android:textAlignment="center"
+        android:textSize="32dp"
+        android:textStyle="bold|italic"
+        tools:layout_editor_absoluteX="50dp"
+        tools:layout_editor_absoluteY="323dp" />
 
     <Button
         android:id="@+id/generate"
         android:layout_width="200dp"
         android:layout_height="55dp"
+        android:background="@drawable/outlinebutton"
         android:elevation="6px"
         android:text="Generate"
         android:textAlignment="center"
         android:textColor="#2196F3"
         android:textSize="13sp"
-        android:background="@drawable/outlinebutton"
         tools:layout_editor_absoluteX="105dp"
-        tools:layout_editor_absoluteY="498dp" />
+        tools:layout_editor_absoluteY="530dp" />
 
     <ImageView
         android:id="@+id/backButton"
@@ -54,7 +67,7 @@
         app:srcCompat="@drawable/img" />
 
     <TextView
-        android:id="@+id/CATfoodName3"
+        android:id="@+id/randomid"
         android:layout_width="255dp"
         android:layout_height="35dp"
         android:layout_marginTop="24dp"
@@ -67,7 +80,6 @@
         android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
-
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>
