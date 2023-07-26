@@ -26,6 +26,7 @@ public class RandomizerPage extends AppCompatActivity {
     Map<String, String> foodstalls = new HashMap<>();
 
 
+
     //private Button buttonApply;
 
     //private ArrayList<String> selectedChipData = new ArrayList<>();
