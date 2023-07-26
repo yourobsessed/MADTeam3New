@@ -41,6 +41,7 @@ public class RandomizerPage extends AppCompatActivity {
     //ArrayList<Food> filteredFoodList= new ArrayList<>();
     //ArrayList<Food> foodList= DataHolder.food_List;
     String store;
+    String court;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -55,7 +56,7 @@ public class RandomizerPage extends AppCompatActivity {
         generatebutton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                changetext.setText(store);
+                changetext.setText(store + " at " + court);
             }
         });
 
@@ -65,7 +66,9 @@ public class RandomizerPage extends AppCompatActivity {
 
         List<String> keysAsArray = new ArrayList<String>(foodstalls.keySet());
         Random r = new Random();
-        store = foodstalls.get(keysAsArray.get(r.nextInt(keysAsArray.size())));
+
+        store = keysAsArray.get(r.nextInt(keysAsArray.size()));
+        court = foodstalls.get(keysAsArray.get(r.nextInt(keysAsArray.size())));
 
         backbutton.setOnClickListener(new View.OnClickListener() {
             @Override
