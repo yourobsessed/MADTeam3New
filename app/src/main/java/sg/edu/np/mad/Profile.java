@@ -22,9 +22,6 @@ import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 
-
-
-
 public class Profile extends AppCompatActivity{
     FirebaseDatabase firebaseDatabase;
     DatabaseReference databaseReference;
@@ -229,4 +226,3 @@ public class Profile extends AppCompatActivity{
         });
     }
 }
-
