@@ -131,7 +131,6 @@ public class GeneralViewPage extends AppCompatActivity implements SelectListener
 
 
 
-
         //chips
 
 
