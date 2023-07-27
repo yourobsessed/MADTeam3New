@@ -86,7 +86,7 @@ public class WishList_Adapter extends RecyclerView.Adapter<WishList_ViewHolder> 
                             userWishList.setValue(acc.wishlist);
 
                             DataHolder.wishlist_List = acc.wishlist;
-                            changeIconColor(f, holder);
+                            //changeIconColor(f, holder);
                         }
                         else{
                             acc.wishlist.add(f.getFoodIndex());
@@ -96,7 +96,7 @@ public class WishList_Adapter extends RecyclerView.Adapter<WishList_ViewHolder> 
                             userWishList.setValue(acc.wishlist);
 
                             DataHolder.wishlist_List = acc.wishlist;
-                            changeIconColor(f, holder);
+                            //changeIconColor(f, holder);
                         }
                     }
 
@@ -121,7 +121,7 @@ public class WishList_Adapter extends RecyclerView.Adapter<WishList_ViewHolder> 
             int newColor = Color.parseColor("#FF0000"); // Set the desired color here
             holder.wishlistButton.setColorFilter(newColor);
         } else if (f.getAddedWishlist() == false) {
-            int newColor = Color.parseColor("#000000");
+            int newColor = Color.parseColor("#D3D3D3");
             holder.wishlistButton.setColorFilter(newColor);
         }
 

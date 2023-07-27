@@ -8,14 +8,14 @@
 
     <androidx.cardview.widget.CardView
         android:id="@+id/Foodcardview"
-        android:layout_width="380dp"
-        android:layout_height="245dp"
+        android:layout_width="384dp"
+        android:layout_height="203dp"
         android:layout_marginStart="9dp"
         android:layout_marginTop="8dp"
         android:layout_marginEnd="9dp"
         android:layout_marginBottom="2dp"
-        app:cardCornerRadius="20dp"
         android:elevation="8dp"
+        app:cardCornerRadius="20dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -23,7 +23,7 @@
 
         <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
-            android:layout_height="243dp">
+            android:layout_height="203dp">
 
 
             <ImageView
@@ -65,8 +65,8 @@
                 android:id="@+id/WLButton"
                 android:layout_width="45dp"
                 android:layout_height="45dp"
-                android:layout_marginTop="4dp"
-                android:layout_marginEnd="16dp"
+                android:layout_marginTop="-50dp"
+                android:layout_marginEnd="10dp"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/WLDescriptionVH"
                 app:srcCompat="@drawable/hearticon" />

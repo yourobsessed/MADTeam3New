@@ -144,7 +144,6 @@ public class GeneralViewPage extends AppCompatActivity implements SelectListener
                     makan = false;
                     alllocations = false;
 
-
                     chipMakan.setChecked(false);
                     chipMunch.setChecked(false);
 
