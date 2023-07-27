@@ -90,9 +90,7 @@ public class GeneralView_Adapter extends RecyclerView.Adapter<GeneralView_Viewho
         holder.foodDescription.setText(f.getDescription());
         holder.foodImage.setImageResource(f.getFoodImage2());
 
-        if(DataHolder.wishlist_List.contains(f.getFoodIndex())) {
-            holder.wishlisticon.setColorFilter(Color.RED);
-        }
+
 
         //creating onclick intent of the cardView to the catalogue page
         holder.cardView.setOnClickListener(new View.OnClickListener() {
@@ -115,6 +113,10 @@ public class GeneralView_Adapter extends RecyclerView.Adapter<GeneralView_Viewho
         });
         FirebaseDatabase database = FirebaseDatabase.getInstance();
         DatabaseReference accountsRef = database.getReference("Accounts").child(DataHolder.username);
+
+        if(DataHolder.wishlist_List.contains(f.getFoodIndex())) {
+            holder.wishlisticon.setColorFilter(Color.RED);
+        }
 
         holder.wishlisticon.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -139,7 +141,7 @@ public class GeneralView_Adapter extends RecyclerView.Adapter<GeneralView_Viewho
                             DataHolder.wishlist_List = acc.wishlist;
                             Log.i("dataholder.wishlist", String.valueOf(DataHolder.wishlist_List));
                             userWishList.setValue(acc.wishlist); //updating the database's wishlist for specific users
-                            changeIconColor(f, holder);
+                            //changeIconColor(f, holder);
                         }
 
                         else {
@@ -154,8 +156,9 @@ public class GeneralView_Adapter extends RecyclerView.Adapter<GeneralView_Viewho
                             DataHolder.wishlist_List = acc.wishlist;
                             Log.i("dataholder.wishlist", String.valueOf(DataHolder.wishlist_List));
                             userWishList.setValue(acc.wishlist);
-                            changeIconColor(f, holder);
+                            //changeIconColor(f, holder);
                         }
+                        changeIconColor(f,holder);
                     }
 
                     @Override

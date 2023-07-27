@@ -13,7 +13,6 @@
     tools:openDrawer="start"
     android:background="#0073A8">
 
-
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
@@ -44,7 +43,7 @@
         android:layout_width="wrap_content"
         android:layout_height="match_parent"
         android:layout_gravity="start"
-        android:visibility="gone"
+        android:visibility="visible"
         app:headerLayout="@layout/drawer_header"
         app:menu="@menu/drawer_menu">
 
@@ -57,11 +56,11 @@
 
         <View
             android:id="@+id/view7"
-            android:layout_width="415dp"
-            android:layout_height="632dp"
-            android:layout_marginStart="1dp"
+            android:layout_width="386dp"
+            android:layout_height="658dp"
+            android:layout_marginStart="12dp"
             android:layout_marginTop="160dp"
-            android:layout_marginEnd="1dp"
+            android:layout_marginEnd="12dp"
             android:background="@drawable/rectangle3"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
@@ -118,7 +117,7 @@
             android:id="@+id/crowdbutton"
             android:layout_width="205dp"
             android:layout_height="140dp"
-            android:layout_marginStart="24dp"
+            android:layout_marginStart="28dp"
             android:layout_marginTop="90dp"
             android:background="@drawable/rectangle2"
             android:backgroundTint="#A600BCD4"
