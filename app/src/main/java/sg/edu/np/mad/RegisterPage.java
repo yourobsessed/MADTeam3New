@@ -3,7 +3,9 @@ package sg.edu.np.mad;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
@@ -88,6 +90,9 @@ public class RegisterPage extends AppCompatActivity {
 
                                 //DatabaseRef.child("Accounts").push().setValue(new Account(UsernameText.getText().toString(), PasswordText.getText().toString(), wishlist));
                                 Toast.makeText(getApplicationContext(), "Account Created", Toast.LENGTH_SHORT).show();
+
+                                DataHolder.username= username;
+
                                 Intent OpenMain = new Intent(RegisterPage.this, HomePage.class);
                                 OpenMain.putExtra("Username", UsernameText.getText().toString());
                                 startActivity(OpenMain);
