@@ -86,6 +86,15 @@ public class HomePage extends AppCompatActivity implements NavigationView.OnNavi
             }
         });
 
+        /*TextView randomButton = findViewById(R.id.randombutton);
+        randomButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent openRandomizer = new Intent(HomePage.this, RandomizerPage.class);
+                startActivity(openRandomizer);
+            }
+        });*/
+
         List<CrowdReview> CrowdReviewsList = new ArrayList<>();
         getCrowd(CrowdReviewsList, CrowdButton, MapButton);
 
