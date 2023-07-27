@@ -54,9 +54,10 @@ public class GeneralViewPage extends AppCompatActivity implements SelectListener
     private ArrayList<Food> foodList = new ArrayList<>();
     //ArrayList<String> selectedChipData = new ArrayList<>();
 
+    private ArrayList<Food> filteredList = new ArrayList<>();
 
     GeneralView_Adapter gAdapter;
-    ArrayList<Food> filteredListFromGVF = new ArrayList<>();
+    //ArrayList<Food> filteredListFromGVF = new ArrayList<>();
     //ArrayList<Food> secondFilterList = new ArrayList<>();
     //ArrayList<Food> originalList = new ArrayList<>();
 
@@ -127,52 +128,18 @@ public class GeneralViewPage extends AppCompatActivity implements SelectListener
             }
         });
 
-        FirebaseDatabase database = FirebaseDatabase.getInstance();
-        DatabaseReference accountsRef = database.getReference("Accounts").child(DataHolder.username);
-        accountsRef.addListenerForSingleValueEvent(new ValueEventListener() { //reading the data's wishlist
-            @Override
-            public void onDataChange(@NonNull DataSnapshot snapshot) {
-                Account acc = snapshot.getValue(Account.class);
-                DataHolder.wishlist_List = acc.wishlist;
-                gAdapter = new GeneralView_Adapter(GeneralViewPage.this, DataHolder.food_List, GeneralViewPage.this, GeneralViewPage.this);
-                LinearLayoutManager layoutManager = new LinearLayoutManager(GeneralViewPage.this);
-                recyclerView.setLayoutManager(layoutManager);
-                recyclerView.setItemAnimator(new DefaultItemAnimator());
-                recyclerView.setAdapter(gAdapter);
-            }
-
-            @Override
-            public void onCancelled(@NonNull DatabaseError error) {
-            }
-        });
 
 
 
 
         //chips
 
-        /*chipAllLocations.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                if (!alllocations){
-                    alllocations = true;
-                    fc = false;
-                    munch = false;
-                    makan = false;
-
-                }
-
-
-                limitoption();
-            }
-        });*/
 
         chipClub.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 if (!fc){
                     chipClub.setChecked(true);
-
                     fc = true;
                     munch = false;
                     makan = false;
@@ -379,6 +346,24 @@ public class GeneralViewPage extends AppCompatActivity implements SelectListener
 //        recyclerView.setLayoutManager(layoutManager);
 //        recyclerView.setItemAnimator(new DefaultItemAnimator());
 //        recyclerView.setAdapter(gAdapter);
+        FirebaseDatabase database = FirebaseDatabase.getInstance();
+        DatabaseReference accountsRef = database.getReference("Accounts").child(DataHolder.username);
+        accountsRef.addListenerForSingleValueEvent(new ValueEventListener() { //reading the data's wishlist
+            @Override
+            public void onDataChange(@NonNull DataSnapshot snapshot) {
+                Account acc = snapshot.getValue(Account.class);
+                DataHolder.wishlist_List = acc.wishlist;
+                gAdapter = new GeneralView_Adapter(GeneralViewPage.this, DataHolder.food_List, GeneralViewPage.this, GeneralViewPage.this);
+                LinearLayoutManager layoutManager = new LinearLayoutManager(GeneralViewPage.this);
+                recyclerView.setLayoutManager(layoutManager);
+                recyclerView.setItemAnimator(new DefaultItemAnimator());
+                recyclerView.setAdapter(gAdapter);
+            }
+
+            @Override
+            public void onCancelled(@NonNull DatabaseError error) {
+            }
+        });
     }
 
     @Override
@@ -412,7 +397,7 @@ public class GeneralViewPage extends AppCompatActivity implements SelectListener
 
     private void limitoption() {
         List<Food> filteredList = new ArrayList<>();
-        for (Food food : foodList) {
+        for (Food food : DataHolder.food_List) {
             filteredList.add(food);
         }
         //Toast.makeText(this, "" + filteredList.get(0).getHalal(), Toast.LENGTH_SHORT).show();
@@ -466,21 +451,20 @@ public class GeneralViewPage extends AppCompatActivity implements SelectListener
 
         filteredList.removeAll(itemsToRemove);
 
-
         gAdapter.setFilteredList(filteredList);
     }
 
 
     private void filterList(String text) {
         List<Food> filteredList = new ArrayList<>();
-        for (Food food : foodList) {
+        for (Food food : DataHolder.food_List) {
             if (food.getFoodName().toLowerCase().contains(text.toLowerCase())) {
                 filteredList.add(food);
 
             }
         }
         if (filteredList.isEmpty()) {
-            Toast.makeText(this,"No data found",Toast.LENGTH_SHORT).show();
+            Toast.makeText(this,"No data found!",Toast.LENGTH_SHORT).show();
         }
         else {
             gAdapter.setFilteredList(filteredList);

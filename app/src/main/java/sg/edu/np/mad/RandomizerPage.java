@@ -56,11 +56,9 @@ public class RandomizerPage extends AppCompatActivity {
                 vibe.vibrate(200);
                 List<String> keysAsArray = new ArrayList<String>(foodstalls.keySet());
 
-
-
                 Random r = new Random();
                 store = keysAsArray.get(r.nextInt(keysAsArray.size()));
-                court = foodstalls.get(keysAsArray.get(r.nextInt(keysAsArray.size())));
+                court = foodstalls.get(store);
 
                 changetext.setText(store + " at " + court);
 
