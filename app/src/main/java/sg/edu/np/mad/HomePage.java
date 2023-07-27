@@ -143,49 +143,6 @@ public class HomePage extends AppCompatActivity implements NavigationView.OnNavi
 
     }
 
-    private void createNotificationChannel() {
-        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
-            CharSequence name = "Lunch Notification";
-            String Description = "Notification that reminds users to have lunch";
-            int importance = NotificationManager.IMPORTANCE_HIGH;
-            NotificationChannel channel = new NotificationChannel("CHANNEL_ID_NOTIFICATION", name, importance);
-            channel.setDescription(Description);
-
-            NotificationManager notificationManager = getSystemService(NotificationManager.class);
-            notificationManager.createNotificationChannel(channel);
-        }
-    }
-
-    private void scheduleDailyNotification(Context context){
-        Calendar calendar = Calendar.getInstance();
-        calendar.setTimeInMillis(System.currentTimeMillis());
-        calendar.set(Calendar.HOUR_OF_DAY, 13);
-        calendar.set(Calendar.MINUTE, 22);
-        calendar.set(Calendar.SECOND, 05);
-        if (calendar.getTimeInMillis() <= System.currentTimeMillis()) {
-            calendar.add(Calendar.DAY_OF_MONTH, 1);
-        }
-
-        Intent intent = new Intent(this, AlarmReceiver.class);
-        PendingIntent pendingIntent = PendingIntent.getBroadcast(this, 0, intent, PendingIntent.FLAG_IMMUTABLE);
-
-
-        AlarmManager alarmManager = (AlarmManager) context.getSystemService(Context.ALARM_SERVICE);
-        alarmManager.setRepeating(
-                AlarmManager.RTC_WAKEUP,
-                calendar.getTimeInMillis(),
-                AlarmManager.INTERVAL_DAY,
-                pendingIntent
-        );
-        //alarmManager.set(AlarmManager.RTC_WAKEUP, calendar.getTimeInMillis(), pendingIntent);
-
-        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.TIRAMISU){
-            alarmManager.setExactAndAllowWhileIdle(AlarmManager.RTC_WAKEUP, calendar.getTimeInMillis(), pendingIntent);
-        }
-        Log.i("CREATING NOTIFICATIONS", "CREATED NOTIFICATIONS");
-
-
-    }
 
     @Override
     public void onBackPressed(){
@@ -356,6 +313,7 @@ public class HomePage extends AppCompatActivity implements NavigationView.OnNavi
                 Log.i("CHECK IF RUNNING THRU", String.valueOf(acc.wishlist));
                 if (acc.wishlist.size() >= 2) {
                     int position = randomPicker.nextInt(acc.wishlist.size());
+                    Log.i("randomly select pos", String.valueOf(position));
                     for (Food f : DataHolder.food_List) {
                         if (f.getFoodIndex() == acc.wishlist.get(position)) {
                             Log.i("randomly selected food", String.valueOf(f));

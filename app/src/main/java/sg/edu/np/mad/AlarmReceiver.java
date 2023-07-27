@@ -32,17 +32,24 @@ import com.google.firebase.database.ValueEventListener;
 import java.io.InputStream;
 import java.io.OutputStream;
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.Random;
 
 public class AlarmReceiver extends BroadcastReceiver {
     public ArrayList<Food> foodList = new ArrayList<>();
+
     @Override
     public void onReceive(Context context, Intent intent) {
         Intent notificationToCat = new Intent(context, CataloguePage.class);
-        notificationToCat.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
+        notificationToCat.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK | Intent.FLAG_ACTIVITY_SINGLE_TOP);
 
-        //Food selectedFood = randomPicker();
-        Food selectedFood = new Food(1, "Large bowl Salad", "Munch",R.drawable.munchmap, 9.5, 645, "Suitable for 2 to 4 pax. Available for dine-in Only!", R.drawable.saladbowl, true, false, true, false, true, false);
+        DataHolder.food_List = CreateObject(foodList);
+        Random randomPicker = new Random();
+        int position = randomPicker.nextInt(DataHolder.food_List.size());
+        Food selectedFood = DataHolder.food_List.get(position);
+        Log.i("selectedFood", String.valueOf(selectedFood));
+
+        Log.i("selected foodIndex", String.valueOf(selectedFood.getFoodIndex()));
 
         notificationToCat.putExtra("FoodName", selectedFood.getFoodName());
         notificationToCat.putExtra("FoodPrice", selectedFood.getPrice());
@@ -50,7 +57,7 @@ public class AlarmReceiver extends BroadcastReceiver {
         notificationToCat.putExtra("FoodImg", selectedFood.getFoodImage1());
         notificationToCat.putExtra("FoodImg2", selectedFood.getFoodImage2());
         notificationToCat.putExtra("storeLocation", selectedFood.getLocation());
-        PendingIntent pendingIntent = PendingIntent.getActivity(context, 101, notificationToCat, PendingIntent.FLAG_IMMUTABLE);
+        PendingIntent pendingIntent = PendingIntent.getActivity(context, 101, notificationToCat, PendingIntent.FLAG_IMMUTABLE | PendingIntent.FLAG_UPDATE_CURRENT);
 
 
         String channelID = "CHANNEL_ID_NOTIFICATION";
