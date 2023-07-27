@@ -58,7 +58,7 @@ public class RandomizerPage extends AppCompatActivity {
                 store = keysAsArray.get(r.nextInt(keysAsArray.size()));
                 court = foodstalls.get(keysAsArray.get(r.nextInt(keysAsArray.size())));
 
-                vibe.vibrate(100);
+                vibe.vibrate(200);
                 changetext.setText(store + " at " + court);
             }
         });
