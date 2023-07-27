@@ -49,8 +49,8 @@ import java.util.HashMap;
 
 public class Profile extends AppCompatActivity{
 
-}
-    /*private FirebaseAuth firebaseAuth;
+}/*
+    private FirebaseAuth firebaseAuth;
     FirebaseDatabase firebaseDatabase;
     DatabaseReference accountReference;
     StorageReference storageReference;
@@ -413,5 +413,5 @@ public class Profile extends AppCompatActivity{
                 Toast.makeText(EditProfilePage.this, "Error", Toast.LENGTH_LONG).show();
             }
         });
-    }*/
-
+    }
+*/
