@@ -58,7 +58,8 @@ public class RandomizerPage extends AppCompatActivity {
                 store = keysAsArray.get(r.nextInt(keysAsArray.size()));
                 court = foodstalls.get(keysAsArray.get(r.nextInt(keysAsArray.size())));
 
-                vibe.vibrate(100);
+
+                vibe.vibrate(200);
                 changetext.setText(store + " at " + court);
             }
         });
@@ -100,6 +101,7 @@ public class RandomizerPage extends AppCompatActivity {
         foodstalls.put("Western Cuisine","Makan Place");
         foodstalls.put("Pick & Bite","Makan Place");
         foodstalls.put("Hotto Neko","Makan Place");
+
 
         //Munch
         foodstalls.put("Mala Hotpot","Munch");

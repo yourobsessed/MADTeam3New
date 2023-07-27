@@ -130,6 +130,9 @@ public class HomePage extends AppCompatActivity implements NavigationView.OnNavi
         List<CrowdReview> CrowdReviewsList = new ArrayList<>();
         getCrowd(CrowdReviewsList, CrowdButton, MapButton);
 
+        TextView UsernameText = findViewById(R.id.UsernameText);
+        UsernameText.setText("Hi, " + DataHolder.username + " \uD83D\uDC4B\uD83C\uDFFB");
+
     }
 
     @Override
@@ -188,6 +191,16 @@ public class HomePage extends AppCompatActivity implements NavigationView.OnNavi
         } else if (menuItem.getItemId() == R.id.nav_randomizer) {
             Intent toRandomizerPage = new Intent(HomePage.this, RandomizerPage.class);
             startActivity(toRandomizerPage);
+
+        } else if (menuItem.getItemId() == R.id.nav_logoutbutton) {
+
+            SharedPreferences sharedPreferences = getSharedPreferences("MyPrefs", Context.MODE_PRIVATE);
+            SharedPreferences.Editor editor = sharedPreferences.edit();
+            editor.putBoolean("RememberMe", false);
+            editor.apply();
+
+            Intent toLogin = new Intent(HomePage.this, LoginPage.class);
+            startActivity(toLogin);
         }
         drawer.closeDrawer(GravityCompat.START);
 

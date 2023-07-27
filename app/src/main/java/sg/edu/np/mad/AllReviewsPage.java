@@ -99,6 +99,7 @@ public class AllReviewsPage extends AppCompatActivity {
                     }
 
                 }
+                Collections.reverse(itemList);
                 RecyclerView recyclerView;
                 FoodReviewAdapter itemAdapter;
 
