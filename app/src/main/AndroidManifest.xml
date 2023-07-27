@@ -65,8 +65,6 @@
             android:exported="false"/>
 
         <activity
-            android:name=".GeneralView_Filter" />
-        <activity
             android:name=".StoreView_ViewHolder"
             android:exported="false" />
         <activity

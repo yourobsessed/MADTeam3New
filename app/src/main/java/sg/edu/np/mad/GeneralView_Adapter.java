@@ -195,7 +195,7 @@ public class GeneralView_Adapter extends RecyclerView.Adapter<GeneralView_Viewho
 
 
         } else if (f.getAddedWishlist() == false) {
-            int newColor = Color.parseColor("#000000"); //chaning colour to black
+            int newColor = Color.parseColor("#D3D3D3"); //chaning colour to black
             holder.wishlisticon.setColorFilter(newColor);
         }
     }
