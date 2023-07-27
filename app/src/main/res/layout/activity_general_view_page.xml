@@ -37,15 +37,8 @@
         android:id="@+id/recyclerView"
         android:layout_width="399dp"
         android:layout_height="676dp"
-        android:layout_marginStart="10dp"
-        android:layout_marginTop="23dp"
-        android:layout_marginEnd="10dp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.571"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="@+id/horizontalScrollView"
-        app:layout_constraintVertical_bias="1.0">
+        app:layout_constraintTop_toBottomOf="@+id/horizontalScrollView"
+        tools:layout_editor_absoluteX="6dp">
 
     </androidx.recyclerview.widget.RecyclerView>
 
@@ -70,20 +63,22 @@
             <com.google.android.material.chip.Chip
                 android:id="@+id/chipClub"
                 style="@style/Widget.MaterialComponents.Chip.Choice"
-                android:layout_width="wrap_content"
+                android:layout_width="130dp"
                 android:layout_height="wrap_content"
                 android:checked="true"
                 android:text="Food Club"
+                android:textAlignment="center"
                 app:chipIcon="@drawable/locationchipsmarker"
                 app:chipIconVisible="true" />
 
             <com.google.android.material.chip.Chip
                 android:id="@+id/chipMakan"
                 style="@style/Widget.MaterialComponents.Chip.Choice"
-                android:layout_width="wrap_content"
+                android:layout_width="130dp"
                 android:layout_height="wrap_content"
                 android:checked="true"
                 android:text="Makan Place"
+                android:textAlignment="center"
                 app:chipIcon="@drawable/locationchipsmarker"
 
                 app:chipIconVisible="true" />
@@ -91,10 +86,11 @@
             <com.google.android.material.chip.Chip
                 android:id="@+id/chipMunch"
                 style="@style/Widget.MaterialComponents.Chip.Choice"
-                android:layout_width="wrap_content"
+                android:layout_width="130dp"
                 android:layout_height="wrap_content"
                 android:checked="true"
                 android:text="Munch"
+                android:textAlignment="center"
                 app:chipIcon="@drawable/locationchipsmarker"
                 app:chipIconVisible="true" />
         </com.google.android.material.chip.ChipGroup>
