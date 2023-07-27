@@ -5,6 +5,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
+import android.os.Handler;
 import android.os.Vibrator;
 import android.text.TextUtils;
 import android.view.View;
@@ -52,15 +53,19 @@ public class RandomizerPage extends AppCompatActivity {
             @Override
             public void onClick(View v) {
 
+                vibe.vibrate(200);
                 List<String> keysAsArray = new ArrayList<String>(foodstalls.keySet());
-                Random r = new Random();
 
+
+
+                Random r = new Random();
                 store = keysAsArray.get(r.nextInt(keysAsArray.size()));
                 court = foodstalls.get(keysAsArray.get(r.nextInt(keysAsArray.size())));
 
-
-                vibe.vibrate(200);
                 changetext.setText(store + " at " + court);
+
+
+
             }
         });
 
