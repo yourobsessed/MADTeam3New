@@ -107,12 +107,15 @@ public class GeneralViewPage extends AppCompatActivity implements SelectListener
         chipSoup=findViewById(R.id.chipSoup);
         chipDessert=findViewById(R.id.chipDessert);
 
+        chipClub.setChecked(false);
+        chipMakan.setChecked(false);
+        chipMunch.setChecked(false);
         //ArrayList<Food> foodList = new ArrayList<>();
 
 
         //foodList = DataHolder.food_List;
         //System.out.println(DataHolder.food_List.size());
-        filteredListFromGVF = (ArrayList<Food>) getIntent().getSerializableExtra("filteredList");
+        //filteredListFromGVF = (ArrayList<Food>) getIntent().getSerializableExtra("filteredList");
 
         ImageView BackButton = findViewById(R.id.imageView7);
         BackButton.setOnClickListener(new View.OnClickListener() {
@@ -168,10 +171,16 @@ public class GeneralViewPage extends AppCompatActivity implements SelectListener
             @Override
             public void onClick(View v) {
                 if (!fc){
+                    chipClub.setChecked(true);
+
                     fc = true;
                     munch = false;
                     makan = false;
                     alllocations = false;
+
+
+                    chipMakan.setChecked(false);
+                    chipMunch.setChecked(false);
 
                 }
 
@@ -181,6 +190,10 @@ public class GeneralViewPage extends AppCompatActivity implements SelectListener
                     fc = false;
                     munch = false;
                     makan = false;
+
+                    chipClub.setChecked(false);
+                    chipMakan.setChecked(false);
+                    chipMunch.setChecked(false);
                 }
 
                 limitoption();
@@ -191,10 +204,14 @@ public class GeneralViewPage extends AppCompatActivity implements SelectListener
             @Override
             public void onClick(View v) {
                 if (!makan){
+                    chipMakan.setChecked(true);
                     makan = true;
                     munch = false;
                     fc = false;
                     alllocations = false;
+
+                    chipClub.setChecked(false);
+                    chipMunch.setChecked(false);
 
                 }
 
@@ -204,6 +221,10 @@ public class GeneralViewPage extends AppCompatActivity implements SelectListener
                     fc = false;
                     munch = false;
                     makan = false;
+
+                    chipClub.setChecked(false);
+                    chipMakan.setChecked(false);
+                    chipMunch.setChecked(false);
                 }
 
                 limitoption();
@@ -215,10 +236,14 @@ public class GeneralViewPage extends AppCompatActivity implements SelectListener
             @Override
             public void onClick(View v) {
                 if (!munch){
+                    chipMunch.setChecked(true);
                     munch = true;
                     fc = false;
                     makan = false;
                     alllocations = false;
+
+                    chipMakan.setChecked(false);
+                    chipClub.setChecked(false);
 
                 }
                 //if munch is true
@@ -227,6 +252,10 @@ public class GeneralViewPage extends AppCompatActivity implements SelectListener
                     fc = false;
                     munch = false;
                     makan = false;
+
+                    chipClub.setChecked(false);
+                    chipMakan.setChecked(false);
+                    chipMunch.setChecked(false);
                 }
 
                 limitoption();
