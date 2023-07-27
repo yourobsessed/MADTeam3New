@@ -105,7 +105,7 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="127dp"
         android:layout_marginEnd="126dp"
-        android:layout_marginBottom="90dp"
+        android:layout_marginBottom="95dp"
         android:text="Not a User? Register now"
         android:textColor="#0091D4"
         android:textSize="14sp"
@@ -114,23 +114,6 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent" />
 
-    <TextView
-        android:id="@+id/textView8"
-        android:layout_width="43dp"
-        android:layout_height="23dp"
-        android:layout_marginStart="170dp"
-        android:layout_marginTop="15dp"
-        android:layout_marginEnd="170dp"
-        android:layout_marginBottom="10dp"
-        android:text="or"
-        android:textAlignment="center"
-        android:textColor="#B3B3B3"
-        android:textSize="14sp"
-        android:translationZ="8dp"
-        app:layout_constraintBottom_toTopOf="@+id/RegisterButton"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/SignInButton" />
 
     <TextView
         android:id="@+id/textView9"
@@ -165,7 +148,7 @@
         android:layout_width="120dp"
         android:layout_height="20dp"
         android:layout_marginStart="1dp"
-        android:layout_marginTop="6dp"
+        android:layout_marginTop="10dp"
         android:layout_marginEnd="227dp"
         android:text="Remember me"
         android:textSize="12sp"
