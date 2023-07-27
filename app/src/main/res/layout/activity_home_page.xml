@@ -57,7 +57,7 @@
 
         <View
             android:id="@+id/view7"
-            android:layout_width="392dp"
+            android:layout_width="415dp"
             android:layout_height="632dp"
             android:layout_marginStart="1dp"
             android:layout_marginTop="160dp"

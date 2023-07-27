@@ -12,12 +12,14 @@ import android.app.NotificationManager;
 import android.app.PendingIntent;
 import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.content.pm.PackageManager;
 import android.os.Build;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
+import android.widget.CheckBox;
 import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -41,6 +43,19 @@ public class LoginPage extends AppCompatActivity {
 
         createNotificationChannel();
         //scheduleDailyNotification(this);
+
+        SharedPreferences sharedPreferences = getSharedPreferences("MyPrefs", Context.MODE_PRIVATE);
+        String username = sharedPreferences.getString("username", "");
+        String password = sharedPreferences.getString("password", "");
+        Boolean rememberMe = sharedPreferences.getBoolean("RememberMe", false);
+
+        if(rememberMe){
+            Intent OpenMain = new Intent(LoginPage.this, HomePage.class);
+            OpenMain.putExtra("Username", username);
+            OpenMain.putExtra("Password", password);
+            DataHolder.username = username;
+            startActivity(OpenMain);
+        }
 
         FirebaseDatabase database = FirebaseDatabase.getInstance();
         DatabaseReference DatabaseRef = database.getReference();
@@ -83,6 +98,14 @@ public class LoginPage extends AppCompatActivity {
                                 existsText.setVisibility(View.INVISIBLE);
                                 if (dbPassword.equals(PasswordText.getText().toString())) {
                                     incorrectText.setVisibility(View.INVISIBLE);
+
+                                    CheckBox RememberMe = findViewById(R.id.checkBox);
+
+                                    SharedPreferences sharedPreferences = getSharedPreferences("MyPrefs", Context.MODE_PRIVATE);
+                                    SharedPreferences.Editor editor = sharedPreferences.edit();
+                                    editor.putBoolean("RememberMe", RememberMe.isChecked());
+                                    editor.apply();
+
                                     //Toast.makeText(getApplicationContext(), "Account Valid", Toast.LENGTH_SHORT).show();
                                     Intent OpenMain = new Intent(LoginPage.this, HomePage.class);
                                     OpenMain.putExtra("Username", UsernameText.getText().toString());
