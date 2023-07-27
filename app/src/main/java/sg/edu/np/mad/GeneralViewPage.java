@@ -83,11 +83,6 @@ public class GeneralViewPage extends AppCompatActivity implements SelectListener
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_general_view_page);
 
-        //CREATING DATABASE
-        SharedPreferences sharedPreferences = getSharedPreferences("MyPrefs", Context.MODE_PRIVATE);
-        String username = sharedPreferences.getString("wishlist", "");
-
-
         recyclerView=findViewById(R.id.recyclerView);
         searchView=findViewById(R.id.searchView);
         searchView.clearFocus();
@@ -379,6 +374,7 @@ public class GeneralViewPage extends AppCompatActivity implements SelectListener
 //        recyclerView.setLayoutManager(layoutManager);
 //        recyclerView.setItemAnimator(new DefaultItemAnimator());
 //        recyclerView.setAdapter(gAdapter);
+        gAdapter.notifyDataSetChanged();
     }
 
     @Override
@@ -459,13 +455,10 @@ public class GeneralViewPage extends AppCompatActivity implements SelectListener
             if (dessert && !food.getDessert()) {
                 itemsToRemove.add(food);
             }
-            /*if (drinks && !food.isDrinks()) {
-                itemsToRemove.add(food);
-            }*/
+
         }
 
         filteredList.removeAll(itemsToRemove);
-
 
         gAdapter.setFilteredList(filteredList);
     }
@@ -476,15 +469,16 @@ public class GeneralViewPage extends AppCompatActivity implements SelectListener
         for (Food food : foodList) {
             if (food.getFoodName().toLowerCase().contains(text.toLowerCase())) {
                 filteredList.add(food);
-
             }
         }
         if (filteredList.isEmpty()) {
             Toast.makeText(this,"No data found",Toast.LENGTH_SHORT).show();
         }
         else {
+
             gAdapter.setFilteredList(filteredList);
         }
+
 
     }
 

@@ -61,12 +61,9 @@
             android:name=".HomePage"
             android:exported="false"/>
         <activity
-            android:name=".Profile"
+            android:name=".ProfilePage"
             android:exported="false"/>
 
-        <activity
-            android:name=".map"
-            android:exported="false" />
         <activity
             android:name=".GeneralView_Filter" />
         <activity

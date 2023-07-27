@@ -9,13 +9,10 @@ import androidx.core.view.GravityCompat;
 import androidx.drawerlayout.widget.DrawerLayout;
 
 import android.app.AlarmManager;
-import android.app.NotificationChannel;
-import android.app.NotificationManager;
 import android.app.PendingIntent;
 import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
-import android.os.Build;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.MenuItem;
@@ -33,7 +30,6 @@ import java.time.Duration;
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
-import java.util.Calendar;
 import java.util.List;
 import java.util.Random;
 
@@ -177,7 +173,7 @@ public class HomePage extends AppCompatActivity implements NavigationView.OnNavi
             startActivity(todirectionPage);
 
         } else if (menuItem.getItemId() == R.id.nav_profileButton) {
-            Intent toProfilePage = new Intent(HomePage.this, Profile.class);
+            Intent toProfilePage = new Intent(HomePage.this, ProfilePage.class);
             startActivity(toProfilePage);
 
         } else if (menuItem.getItemId() == R.id.nav_aboutusbutton) {
