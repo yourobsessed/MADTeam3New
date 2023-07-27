@@ -51,6 +51,13 @@ public class RandomizerPage extends AppCompatActivity {
         generatebutton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+
+                List<String> keysAsArray = new ArrayList<String>(foodstalls.keySet());
+                Random r = new Random();
+
+                store = keysAsArray.get(r.nextInt(keysAsArray.size()));
+                court = foodstalls.get(keysAsArray.get(r.nextInt(keysAsArray.size())));
+
                 vibe.vibrate(100);
                 changetext.setText(store + " at " + court);
             }
@@ -60,11 +67,6 @@ public class RandomizerPage extends AppCompatActivity {
         foodstalls = CreateObject(foodstalls);
 
 
-        List<String> keysAsArray = new ArrayList<String>(foodstalls.keySet());
-        Random r = new Random();
-
-        store = keysAsArray.get(r.nextInt(keysAsArray.size()));
-        court = foodstalls.get(keysAsArray.get(r.nextInt(keysAsArray.size())));
 
         backbutton.setOnClickListener(new View.OnClickListener() {
             @Override
