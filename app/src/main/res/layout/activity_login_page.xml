@@ -107,28 +107,12 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="127dp"
         android:layout_marginEnd="126dp"
-        android:layout_marginBottom="40dp"
+        android:layout_marginBottom="80dp"
         android:text="Not a User? Register now"
         android:textColor="#0091D4"
         android:textSize="20sp"
         android:translationZ="8dp"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent" />
-
-    <TextView
-        android:id="@+id/textView8"
-        android:layout_width="56dp"
-        android:layout_height="40dp"
-        android:layout_marginStart="178dp"
-        android:layout_marginEnd="178dp"
-        android:layout_marginBottom="3dp"
-        android:text="or"
-        android:textAlignment="center"
-        android:textColor="#B3B3B3"
-        android:textSize="20sp"
-        android:translationZ="8dp"
-        app:layout_constraintBottom_toTopOf="@+id/RegisterButton"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent" />
 
