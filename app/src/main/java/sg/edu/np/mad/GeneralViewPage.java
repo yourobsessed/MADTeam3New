@@ -117,6 +117,24 @@ public class GeneralViewPage extends AppCompatActivity implements SelectListener
         //foodList = DataHolder.food_List;
         //System.out.println(DataHolder.food_List.size());
         //filteredListFromGVF = (ArrayList<Food>) getIntent().getSerializableExtra("filteredList");
+        FirebaseDatabase database = FirebaseDatabase.getInstance();
+        DatabaseReference accountsRef = database.getReference("Accounts").child(DataHolder.username);
+        accountsRef.addListenerForSingleValueEvent(new ValueEventListener() { //reading the data's wishlist
+            @Override
+            public void onDataChange(@NonNull DataSnapshot snapshot) {
+                Account acc = snapshot.getValue(Account.class);
+                DataHolder.wishlist_List = acc.wishlist;
+                gAdapter = new GeneralView_Adapter(GeneralViewPage.this, DataHolder.food_List, GeneralViewPage.this, GeneralViewPage.this);
+                LinearLayoutManager layoutManager = new LinearLayoutManager(GeneralViewPage.this);
+                recyclerView.setLayoutManager(layoutManager);
+                recyclerView.setItemAnimator(new DefaultItemAnimator());
+                recyclerView.setAdapter(gAdapter);
+            }
+
+            @Override
+            public void onCancelled(@NonNull DatabaseError error) {
+            }
+        });
 
         ImageView BackButton = findViewById(R.id.imageView7);
         BackButton.setOnClickListener(new View.OnClickListener() {
@@ -344,24 +362,7 @@ public class GeneralViewPage extends AppCompatActivity implements SelectListener
 //        recyclerView.setLayoutManager(layoutManager);
 //        recyclerView.setItemAnimator(new DefaultItemAnimator());
 //        recyclerView.setAdapter(gAdapter);
-        FirebaseDatabase database = FirebaseDatabase.getInstance();
-        DatabaseReference accountsRef = database.getReference("Accounts").child(DataHolder.username);
-        accountsRef.addListenerForSingleValueEvent(new ValueEventListener() { //reading the data's wishlist
-            @Override
-            public void onDataChange(@NonNull DataSnapshot snapshot) {
-                Account acc = snapshot.getValue(Account.class);
-                DataHolder.wishlist_List = acc.wishlist;
-                gAdapter = new GeneralView_Adapter(GeneralViewPage.this, DataHolder.food_List, GeneralViewPage.this, GeneralViewPage.this);
-                LinearLayoutManager layoutManager = new LinearLayoutManager(GeneralViewPage.this);
-                recyclerView.setLayoutManager(layoutManager);
-                recyclerView.setItemAnimator(new DefaultItemAnimator());
-                recyclerView.setAdapter(gAdapter);
-            }
 
-            @Override
-            public void onCancelled(@NonNull DatabaseError error) {
-            }
-        });
     }
 
     @Override

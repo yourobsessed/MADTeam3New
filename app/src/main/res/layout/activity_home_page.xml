@@ -49,7 +49,6 @@
 
     </com.google.android.material.navigation.NavigationView>
 
-
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent">
@@ -133,9 +132,9 @@
 
         <TextView
             android:id="@+id/randombutton"
-            android:layout_width="364dp"
-            android:layout_height="140dp"
-            android:layout_marginTop="19dp"
+            android:layout_width="369dp"
+            android:layout_height="135dp"
+            android:layout_marginTop="20dp"
             android:background="@drawable/rectangle2"
             android:backgroundTint="#A600BCD4"
             android:fontFamily="@font/alata"
@@ -144,8 +143,8 @@
             android:text="Can't think of what to eat?\n Click for a random recommendation"
             android:textAlignment="textStart"
             android:textStyle="bold"
-            app:layout_constraintEnd_toEndOf="@+id/MapButton"
-            app:layout_constraintStart_toStartOf="@+id/crowdbutton"
+            app:layout_constraintEnd_toEndOf="@+id/view7"
+            app:layout_constraintStart_toStartOf="@+id/view7"
             app:layout_constraintTop_toBottomOf="@+id/crowdbutton" />
 
         <ImageView
@@ -156,17 +155,19 @@
             android:layout_marginBottom="120dp"
             app:layout_constraintBottom_toBottomOf="@+id/randombutton"
             app:layout_constraintEnd_toEndOf="@+id/randombutton"
+            app:layout_constraintHorizontal_bias="1.0"
             app:layout_constraintStart_toStartOf="@+id/randombutton"
             app:layout_constraintTop_toTopOf="@+id/randombutton"
+            app:layout_constraintVertical_bias="0.0"
             app:srcCompat="@drawable/dice" />
 
         <TextView
             android:id="@+id/MapButton"
-            android:layout_width="140dp"
-            android:layout_height="140dp"
+            android:layout_width="141dp"
+            android:layout_height="139dp"
             android:layout_marginStart="19dp"
-            android:layout_marginTop="90dp"
-            android:layout_marginEnd="25dp"
+            android:layout_marginTop="88dp"
+            android:layout_marginEnd="28dp"
             android:background="@drawable/rectangle"
             android:fontFamily="@font/alata"
             android:gravity="center"
@@ -175,6 +176,7 @@
             android:textColor="#000000"
             android:textStyle="bold"
             app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="1.0"
             app:layout_constraintStart_toEndOf="@+id/crowdbutton"
             app:layout_constraintTop_toBottomOf="@+id/UsernameText" />
 
