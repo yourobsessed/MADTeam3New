@@ -320,10 +320,10 @@ public class WishlistPage extends AppCompatActivity implements SelectListenerFoo
 
 
 
-        Food saladbar1 = new Food(83,"Low Calorie Salad Bowl", "Food CLub", R.drawable.foodclubmap, 3.5, 350, "Greens + 3 Normal Sides",R.drawable.saladbowl, false,false,false, false, true, false);
-        Food saladbar2 = new Food(84,"Signature Salad Bowl", "Food CLub", R.drawable.foodclubmap, 4.2, 400, "Greens + 2 Normal Sides + 1 Premium Side",R.drawable.saladbowl, false,false,false, false, true, false);
-        Food saladbar3 = new Food(85,"Fill-me-up Salad Bowl", "Food CLub", R.drawable.foodclubmap, 4.5, 476, "Greens + 1 Normal Side + 2 Premium Sides",R.drawable.saladbowl, false,false,false, false, true, false);
-        Food saladbar4 = new Food(86,"Party Salad Bowl", "Food CLub", R.drawable.foodclubmap, 8, 700, "Greens + 5 Normal Sides + 3 Premium Sides",R.drawable.saladbowl, false,false,false, false, true, false);
+        Food saladbar1 = new Food(83,"Low Calorie Salad Bowl", "Food Club", R.drawable.foodclubmap, 3.5, 350, "Greens + 3 Normal Sides",R.drawable.saladbowl, false,false,false, false, true, false);
+        Food saladbar2 = new Food(84,"Signature Salad Bowl", "Food Club", R.drawable.foodclubmap, 4.2, 400, "Greens + 2 Normal Sides + 1 Premium Side",R.drawable.saladbowl, false,false,false, false, true, false);
+        Food saladbar3 = new Food(85,"Fill-me-up Salad Bowl", "Food Club", R.drawable.foodclubmap, 4.5, 476, "Greens + 1 Normal Side + 2 Premium Sides",R.drawable.saladbowl, false,false,false, false, true, false);
+        Food saladbar4 = new Food(86,"Party Salad Bowl", "Food Club", R.drawable.foodclubmap, 8, 700, "Greens + 5 Normal Sides + 3 Premium Sides",R.drawable.saladbowl, false,false,false, false, true, false);
 
         saladbar1.setFoodImage1(R.drawable.munchsalad);
         saladbar2.setFoodImage1(R.drawable.munchsalad);
@@ -342,11 +342,11 @@ public class WishlistPage extends AppCompatActivity implements SelectListenerFoo
         kkFriedRice4.setFoodImage1(R.drawable.fckingkong);
         kkFriedRice5.setFoodImage1(R.drawable.fckingkong);
 
-        Food Indonesian1 = new Food(92,"Ayam Penyet Set", "Food CLub", R.drawable.foodclubmap, 4.50, 650, "Signature! With a gigantic piece of drumstick, drenched in curry!", R.drawable.ayampenyet, false, false, true, true, false, false);
-        Food Indonesian2 = new Food(93,"Udang Penyet Set", "Food CLub", R.drawable.foodclubmap, 4.50, 502, "Signature! With prawn pieces, drenched in curry!", R.drawable.ayampenyet, false, false, true, true, false, false);
-        Food Indonesian3 = new Food(94,"Ikan Dory Set", "Food CLub", R.drawable.foodclubmap, 4.40, 657, "Huge portion of fish, drenched in curry!", R.drawable.ayampenyet, false, false, true, true, false, false);
-        Food Indonesian4 = new Food(95,"Otah Penyet Set", "Food CLub", R.drawable.foodclubmap, 4.50, 650, "Favourite fried otah, drenched in curry!", R.drawable.ayampenyet, false, false, true, true, false, false);
-        Food Indonesian5 = new Food(96,"Mee Siam Set", "Food CLub", R.drawable.foodclubmap, 4.50, 571, "Bee hoon with a unique sweet and sour gravy", R.drawable.meesiam, true, true, false, true, false, false);
+        Food Indonesian1 = new Food(92,"Ayam Penyet Set", "Food Club", R.drawable.foodclubmap, 4.50, 650, "Signature! With a gigantic piece of drumstick, drenched in curry!", R.drawable.ayampenyet, false, false, true, true, false, false);
+        Food Indonesian2 = new Food(93,"Udang Penyet Set", "Food Club", R.drawable.foodclubmap, 4.50, 502, "Signature! With prawn pieces, drenched in curry!", R.drawable.ayampenyet, false, false, true, true, false, false);
+        Food Indonesian3 = new Food(94,"Ikan Dory Set", "Food Club", R.drawable.foodclubmap, 4.40, 657, "Huge portion of fish, drenched in curry!", R.drawable.ayampenyet, false, false, true, true, false, false);
+        Food Indonesian4 = new Food(95,"Otah Penyet Set", "Food Club", R.drawable.foodclubmap, 4.50, 650, "Favourite fried otah, drenched in curry!", R.drawable.ayampenyet, false, false, true, true, false, false);
+        Food Indonesian5 = new Food(96,"Mee Siam Set", "Food Club", R.drawable.foodclubmap, 4.50, 571, "Bee hoon with a unique sweet and sour gravy", R.drawable.meesiam, true, true, false, true, false, false);
 
         Indonesian1.setFoodImage1(R.drawable.fcindonesian);
         Indonesian2.setFoodImage1(R.drawable.fcindonesian);
