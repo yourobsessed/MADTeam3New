@@ -7,6 +7,7 @@ import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
@@ -65,13 +66,14 @@ public class RegisterPage extends AppCompatActivity {
                 else {
                     EmptyText.setVisibility(View.INVISIBLE);
                     String username = UsernameText.getText().toString();
-                    DatabaseReference userRef = DatabaseRef.child("Accounts").child(username);
+                    DatabaseReference userRef = DatabaseRef.child("Accounts");
                     userRef.addListenerForSingleValueEvent(new ValueEventListener() {
                         @Override
                         public void onDataChange(@NonNull DataSnapshot snapshot) {
                             boolean exists = false;
                             for (DataSnapshot reviewSnapshot : snapshot.getChildren()) {
                                 Account account = reviewSnapshot.getValue(Account.class);
+                                System.out.println(account.username);
                                 if (account.username.equals(UsernameText.getText().toString())) {
                                     exists = true;
                                 }
@@ -86,7 +88,7 @@ public class RegisterPage extends AppCompatActivity {
                                 newAccount.setPassword(PasswordText.getText().toString());
                                 newAccount.setWishlist(wishlist);
 
-                                userRef.setValue(newAccount);
+                                userRef.child(username).setValue(newAccount);
 
                                 //DatabaseRef.child("Accounts").push().setValue(new Account(UsernameText.getText().toString(), PasswordText.getText().toString(), wishlist));
                                 Toast.makeText(getApplicationContext(), "Account Created", Toast.LENGTH_SHORT).show();
