@@ -28,6 +28,7 @@ import com.mapbox.mapboxsdk.Mapbox;
 import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
+import android.database.sqlite.SQLiteDatabase;
 import android.graphics.Color;
 import android.os.Bundle;
 import android.provider.ContactsContract;
@@ -78,6 +79,7 @@ public class GeneralViewPage extends AppCompatActivity implements SelectListener
 //    private int imageViewColour;
 //    int originalColour = Color.BLACK;
     //private Boolean drinks = false;
+    MyDBHandler myDBHandler = new MyDBHandler(this, "foodDatabase", null, 1);
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -85,9 +87,22 @@ public class GeneralViewPage extends AppCompatActivity implements SelectListener
         setContentView(R.layout.activity_general_view_page);
 
         //CREATING DATABASE
-        SharedPreferences sharedPreferences = getSharedPreferences("MyPrefs", Context.MODE_PRIVATE);
-        String username = sharedPreferences.getString("wishlist", "");
+//        SharedPreferences sharedPreferences = getSharedPreferences("MyPrefs", Context.MODE_PRIVATE);
+//        String username = sharedPreferences.getString("wishlist", "");
+        ArrayList<Food> foodArrayList = CreateObject(foodList);
+        Log.i("ran thru", "ran pass");
+        if (myDBHandler == null) {
+            for (Food f : foodArrayList) {
+                myDBHandler.addFood(f);
 
+                Log.i("food in Database", String.valueOf(f));
+            }
+        }
+        else{
+
+            Log.i("lol", "alr got things inside");
+        }
+        Log.i("ran thru2", "ran pass");
 
         recyclerView=findViewById(R.id.recyclerView);
         searchView=findViewById(R.id.searchView);
@@ -350,7 +365,7 @@ public class GeneralViewPage extends AppCompatActivity implements SelectListener
 
             @Override
             public boolean onQueryTextChange(String newText) {
-                filterList(newText);
+                //filterList(newText);
                 return true;
             }
         });
