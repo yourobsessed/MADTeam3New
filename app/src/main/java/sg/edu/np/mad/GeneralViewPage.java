@@ -151,7 +151,6 @@ public class GeneralViewPage extends AppCompatActivity implements SelectListener
 
         //chips
 
-
         chipClub.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
