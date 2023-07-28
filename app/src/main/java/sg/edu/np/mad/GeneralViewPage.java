@@ -79,8 +79,7 @@ public class GeneralViewPage extends AppCompatActivity implements SelectListener
 //    private int imageViewColour;
 //    int originalColour = Color.BLACK;
     //private Boolean drinks = false;
-    MyDBHandler myDBHandler = new MyDBHandler(this, "foodDatabase", null, 1);
-
+    MyDBHandler myDBHandler = new MyDBHandler(this, "FoodDatabase.db", null, 1);
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -89,6 +88,8 @@ public class GeneralViewPage extends AppCompatActivity implements SelectListener
         //CREATING DATABASE
 //        SharedPreferences sharedPreferences = getSharedPreferences("MyPrefs", Context.MODE_PRIVATE);
 //        String username = sharedPreferences.getString("wishlist", "");
+        //MyDBHandler myDBHandler = new MyDBHandler(this, "FoodMenu.db", null, 1);
+        Log.i("checking", String.valueOf(myDBHandler));
         ArrayList<Food> foodArrayList = CreateObject(foodList);
         Log.i("ran thru", "ran pass");
         if (myDBHandler == null) {
@@ -102,7 +103,7 @@ public class GeneralViewPage extends AppCompatActivity implements SelectListener
 
             Log.i("lol", "alr got things inside");
         }
-        Log.i("ran thru2", "ran pass");
+        Log.i("ran thru2", String.valueOf(myDBHandler));
 
         recyclerView=findViewById(R.id.recyclerView);
         searchView=findViewById(R.id.searchView);

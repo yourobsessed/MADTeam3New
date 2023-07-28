@@ -12,31 +12,37 @@ import android.util.Log;
 import java.util.Collections;
 
 public class MyDBHandler extends SQLiteOpenHelper {
-    private static final int DATABASE_VERSION = 1;
-    private static final String DATABASE_NAME = "Food2.db";
-    private static final String TABLE_FOOD = "foodDatabase";
-    private static final String FOOD_INDEX = "foodIndex";
-    private static final String FOOD_NAME = "foodName";
-    private static final String FOOD_LOCATION = "foodLocation";
-    private static final String FOOD_PRICE = "foodPrice";
-    private static final String FOOD_CALORIES = "foodCalories";
-    private static final String FOOD_DESCRIPTION = "foodDescription";
-    private static final String FOOD_NOODLE = "foodNoodle";
-    private static final String FOOD_SOUP = "foodSoup";
-    private static final String FOOD_RICE = "foodRice";
-    private static final String FOOD_HALAL = "foodHalal";
-    private static final String FOOD_VEGETARIAN = "foodVegetarian";
-    private static final String FOOD_DESSERT = "foodDessert";
-    private static final String FOOD_WISHLIST = "foodWishlist";
+    public static final int DATABASE_VERSION = 1;
+//    public static final String DATABASE_NAME = "FoodMenu.db";
+    private static final String TABLE_FOOD = "FoodDatabase.db";
+    public static final String FOOD_INDEX = "foodIndex";
+    public static final String FOOD_NAME = "foodName";
+    public static final String FOOD_LOCATION = "foodLocation";
+    public static final String FOOD_PRICE = "foodPrice";
+    public static final String COLUMN_FOOD_PRICE = FOOD_PRICE;
+    public static final String FOOD_CALORIES = "foodCalories";
+    public static final String FOOD_DESCRIPTION = "foodDescription";
+    public static final String FOOD_NOODLE = "foodNoodle";
+    public static final String FOOD_SOUP = "foodSoup";
+    public static final String FOOD_RICE = "foodRice";
+    public static final String FOOD_HALAL = "foodHalal";
+    public static final String FOOD_VEGETARIAN = "foodVegetarian";
+    public static final String FOOD_DESSERT = "foodDessert";
+    public static final String FOOD_WISHLIST = "foodWishlist";
+    public static final String TABLE_FOOD_NAME = "TABLE_FOOD";
+    public static final String COLUMN_FOOD_NAME = "FOOD_NAME";
+    public static final String COLUMN_FOOD_INDEX = "FOOD_INDEX";
 
     public MyDBHandler(Context context, String name, SQLiteDatabase.CursorFactory factory, int version){
-        super(context, DATABASE_NAME, factory, DATABASE_VERSION);
+        super(context, TABLE_FOOD, factory, DATABASE_VERSION);
     }
 
     @Override
     public void onCreate(SQLiteDatabase db){
+        //String CREATE_FOOD_MENU_TABLE = "CREATE TABLE " + TABLE_FOOD + " (" + COLUMN_FOOD_INDEX + " INTEGER PRIMARY KEY AUTOINCREMENT " + COLUMN_FOOD_NAME + "TEXT," + COLUMN_FOOD_PRICE + "TEXT,)";
+
         String CREATE_FOOD_TABLE = "CREATE TABLE " + TABLE_FOOD +
-                "(" + FOOD_INDEX + "INTEGER PRIMARY KEY AUTOINCREMENT," + FOOD_NAME + "TEXT" + FOOD_LOCATION + "TEXT," + FOOD_PRICE + "TEXT," + FOOD_CALORIES + "TEXT,"
+                "(" + FOOD_INDEX + "INTEGER PRIMARY KEY AUTOINCREMENT " + FOOD_NAME + "TEXT, " + FOOD_LOCATION + "TEXT," + FOOD_PRICE + "TEXT," + FOOD_CALORIES + "TEXT,"
                 + FOOD_DESCRIPTION + "TEXT," + FOOD_NOODLE + "TEXT," + FOOD_RICE + "TEXT," + FOOD_SOUP + "TEXT," + FOOD_HALAL + "TEXT,"
                 + FOOD_VEGETARIAN + "TEXT," + FOOD_DESSERT + "TEXT," + FOOD_WISHLIST + "TEXT )";
         db.execSQL(CREATE_FOOD_TABLE);
@@ -50,7 +56,7 @@ public class MyDBHandler extends SQLiteOpenHelper {
 
     public void addFood (Food food){
         ContentValues values = new ContentValues();
-        values.put(FOOD_INDEX, food.getFoodIndex());
+        //values.put(FOOD_INDEX, food.getFoodIndex());
         values.put(FOOD_NAME, food.getFoodName());
         values.put(FOOD_LOCATION, food.getLocation());
         values.put(FOOD_PRICE, food.getPrice());
@@ -66,7 +72,6 @@ public class MyDBHandler extends SQLiteOpenHelper {
 
         SQLiteDatabase db = this.getWritableDatabase();
         db.insert(TABLE_FOOD, null, values);
-        Log.i("db size", String.valueOf(db.getMaximumSize()));
         Log.i("CREATED TABLE", "INSERTED/CREATED USER" + values.toString());
         db.close();
 
