@@ -104,6 +104,13 @@ public class RandomizerPage extends AppCompatActivity {
         foodstalls.put("Western Cuisine","Makan Place");
         foodstalls.put("Pick & Bite","Makan Place");
         foodstalls.put("Hotto Neko","Makan Place");
+        foodstalls.put("Soul Salad","Makan Place");
+        foodstalls.put("Asian Delights","Makan Place");
+        foodstalls.put("Japanese Cuisine","Makan Place");
+        foodstalls.put("Ban Main & Fish Soup","Makan Place");
+        foodstalls.put("Mala Xiang Guo","Makan Place");
+        foodstalls.put("Yong Tau Foo","Makan Place");
+        foodstalls.put("GoPizza","Makan Place");
 
 
         //Munch
