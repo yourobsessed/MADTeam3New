@@ -141,7 +141,7 @@ public class GeneralView_Adapter extends RecyclerView.Adapter<GeneralView_Viewho
                             DataHolder.wishlist_List = acc.wishlist;
                             Log.i("dataholder.wishlist", String.valueOf(DataHolder.wishlist_List));
                             userWishList.setValue(acc.wishlist); //updating the database's wishlist for specific users
-                            //changeIconColor(f, holder);
+                            changeIconColor(f, holder);
                         }
 
                         else {
@@ -156,7 +156,7 @@ public class GeneralView_Adapter extends RecyclerView.Adapter<GeneralView_Viewho
                             DataHolder.wishlist_List = acc.wishlist;
                             Log.i("dataholder.wishlist", String.valueOf(DataHolder.wishlist_List));
                             userWishList.setValue(acc.wishlist);
-                            //changeIconColor(f, holder);
+                            changeIconColor(f, holder);
                         }
                         changeIconColor(f,holder);
                     }

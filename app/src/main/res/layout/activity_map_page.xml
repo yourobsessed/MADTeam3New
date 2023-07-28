@@ -44,9 +44,9 @@
 
     <TextView
         android:id="@+id/textView13"
-        android:layout_width="120dp"
-        android:layout_height="50dp"
-        android:layout_marginTop="25dp"
+        android:layout_width="118dp"
+        android:layout_height="37dp"
+        android:layout_marginTop="15dp"
         android:layout_marginEnd="16dp"
         android:fontFamily="@font/alata"
         android:text="please ensure location permission is enabled for the app"
