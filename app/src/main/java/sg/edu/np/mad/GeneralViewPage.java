@@ -55,13 +55,13 @@ public class GeneralViewPage extends AppCompatActivity implements SelectListener
     private ArrayList<Food> foodList = new ArrayList<>();
     //ArrayList<String> selectedChipData = new ArrayList<>();
 
-    private ArrayList<Food> filteredList = new ArrayList<>();
+    public ArrayList<Food> filteredList = new ArrayList<>();
 
     GeneralView_Adapter gAdapter;
     //ArrayList<Food> filteredListFromGVF = new ArrayList<>();
     //ArrayList<Food> secondFilterList = new ArrayList<>();
     //ArrayList<Food> originalList = new ArrayList<>();
-
+    public ArrayList<Food> readFoodDBList = new ArrayList<>();
     private Boolean alllocations = false;
     private Boolean makan = false;
     private Boolean fc = false;
@@ -76,34 +76,29 @@ public class GeneralViewPage extends AppCompatActivity implements SelectListener
     private Boolean soup = false;
     private Boolean dessert = false;
 
-    //MyDBHandler myDBHandler = new MyDBHandler(this, "FoodDatabase.db", null, 2);
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_general_view_page);
 
-        //CREATING DATABASE
-//        SharedPreferences sharedPreferences = getSharedPreferences("MyPrefs", Context.MODE_PRIVATE);
-//        String username = sharedPreferences.getString("wishlist", "");
-        MyDBHandler myDBHandler = new MyDBHandler(this);
-        Food MPSalad1 = new Food(145,"Garden Salad", "Makan Place", R.drawable.makanplacemap, 4.50, 345, "A bowl salad with vegetable. Do make a choice if you want to add on salad dressing!", R.drawable.saladbowl, false, false, false, false, true, false);
-        myDBHandler.addFood(MPSalad1);
-        //myDBHandler.addFood(MPSalad1);
-        //Log.i("ran thru", "ran pass");
-        /*if (myDBHandler == null) {
-            for (Food f : foodArrayList) {
-                myDBHandler.addFood(f);
+//        MyDBHandler myDBHandler = new MyDBHandler(this);
+//        ArrayList<Food> foodArrayList = CreateObject(foodList);
+//        if (myDBHandler.rowCount() == 0){
+//            for (Food f : foodArrayList) {
+//                myDBHandler.addFood(f);
+//                Log.i("food in Database", String.valueOf(f));
+//            }
+//        }
+//
+//        //ArrayList<Food> readFoodDBList = new ArrayList<>();
+//        readFoodDBList = myDBHandler.getFood();
+//
+//        Log.i("reading database", String.valueOf(readFoodDBList));
+//
+        DataHolder.food_List = CreateObject(foodList);
 
-                Log.i("food in Database", String.valueOf(f));
-            }
-        }
-        else{
-
-            Log.i("lol", "alr got things inside");
-        }
-        Log.i("ran thru2", String.valueOf(myDBHandler));
-*/
         recyclerView=findViewById(R.id.recyclerView);
         searchView=findViewById(R.id.searchView);
         searchView.clearFocus();
@@ -129,9 +124,6 @@ public class GeneralViewPage extends AppCompatActivity implements SelectListener
         //ArrayList<Food> foodList = new ArrayList<>();
 
 
-        //foodList = DataHolder.food_List;
-        //System.out.println(DataHolder.food_List.size());
-        //filteredListFromGVF = (ArrayList<Food>) getIntent().getSerializableExtra("filteredList");
         FirebaseDatabase database = FirebaseDatabase.getInstance();
         DatabaseReference accountsRef = database.getReference("Accounts").child(DataHolder.username);
         accountsRef.addListenerForSingleValueEvent(new ValueEventListener() { //reading the data's wishlist
@@ -152,6 +144,9 @@ public class GeneralViewPage extends AppCompatActivity implements SelectListener
         });
 
 
+
+
+
         ImageView BackButton = findViewById(R.id.imageView7);
         BackButton.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -162,11 +157,7 @@ public class GeneralViewPage extends AppCompatActivity implements SelectListener
             }
         });
 
-
-
-
         //chips
-
         chipClub.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -193,11 +184,10 @@ public class GeneralViewPage extends AppCompatActivity implements SelectListener
                     chipMakan.setChecked(false);
                     chipMunch.setChecked(false);
                 }
-
                 limitoption();
+                //limitoption(readFoodDBList);
             }
         });
-
         chipMakan.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -226,10 +216,11 @@ public class GeneralViewPage extends AppCompatActivity implements SelectListener
                 }
 
                 limitoption();
+                //limitoption(readFoodDBList);
+
             }
 
         });
-
         chipMunch.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -257,6 +248,7 @@ public class GeneralViewPage extends AppCompatActivity implements SelectListener
                 }
 
                 limitoption();
+                //limitoption(readFoodDBList);
             }
         });
         chipHalal.setOnClickListener(new View.OnClickListener() {
@@ -269,6 +261,7 @@ public class GeneralViewPage extends AppCompatActivity implements SelectListener
                     halal = false;
                 }
                 limitoption();
+                //limitoption(readFoodDBList);
             }
         });
         chipVegeterian.setOnClickListener(new View.OnClickListener() {
@@ -281,6 +274,7 @@ public class GeneralViewPage extends AppCompatActivity implements SelectListener
                     vegetarian = false;
                 }
                 limitoption();
+                //limitoption(readFoodDBList);
             }
         });
         chipHealthy.setOnClickListener(new View.OnClickListener() {
@@ -293,6 +287,7 @@ public class GeneralViewPage extends AppCompatActivity implements SelectListener
                     healthy = false;
                 }
                 limitoption();
+                //limitoption(readFoodDBList);
             }
         });
         chipAffordable.setOnClickListener(new View.OnClickListener() {
@@ -305,6 +300,7 @@ public class GeneralViewPage extends AppCompatActivity implements SelectListener
                     affordable = false;
                 }
                 limitoption();
+                //limitoption(readFoodDBList);
             }
         });
         chipNoodles.setOnClickListener(new View.OnClickListener() {
@@ -317,6 +313,7 @@ public class GeneralViewPage extends AppCompatActivity implements SelectListener
                     noodles = false;
                 }
                 limitoption();
+                //limitoption(readFoodDBList);
             }
         });
         chipRice.setOnClickListener(new View.OnClickListener() {
@@ -329,6 +326,7 @@ public class GeneralViewPage extends AppCompatActivity implements SelectListener
                     rice = false;
                 }
                 limitoption();
+                //limitoption(readFoodDBList);
             }
         });
         chipSoup.setOnClickListener(new View.OnClickListener() {
@@ -341,6 +339,7 @@ public class GeneralViewPage extends AppCompatActivity implements SelectListener
                     soup = false;
                 }
                 limitoption();
+                //limitoption(readFoodDBList);
             }
         });
         chipDessert.setOnClickListener(new View.OnClickListener() {
@@ -353,11 +352,9 @@ public class GeneralViewPage extends AppCompatActivity implements SelectListener
                     dessert = false;
                 }
                 limitoption();
+                //limitoption(readFoodDBList);
             }
         });
-
-
-
         searchView.setOnQueryTextListener(new SearchView.OnQueryTextListener() {
             @Override
             public boolean onQueryTextSubmit(String query) {
@@ -371,13 +368,6 @@ public class GeneralViewPage extends AppCompatActivity implements SelectListener
             }
         });
 
-
-//        gAdapter = new GeneralView_Adapter(GeneralViewPage.this, DataHolder.food_List, this, this);
-//        LinearLayoutManager layoutManager = new LinearLayoutManager(GeneralViewPage.this);
-//        recyclerView.setLayoutManager(layoutManager);
-//        recyclerView.setItemAnimator(new DefaultItemAnimator());
-//        recyclerView.setAdapter(gAdapter);
-
     }
 
     @Override
@@ -388,7 +378,6 @@ public class GeneralViewPage extends AppCompatActivity implements SelectListener
     @Override
     protected void onResume(){
         super.onResume();
-        DataHolder.food_List = CreateObject(foodList);
     }
 
     @Override
@@ -409,8 +398,8 @@ public class GeneralViewPage extends AppCompatActivity implements SelectListener
     }
 
 
-    private void limitoption() {
-        List<Food> filteredList = new ArrayList<>();
+    private void limitoption(){//(ArrayList<Food> readFoodDBList) {
+        ArrayList<Food> filteredList = new ArrayList<>();
         for (Food food : DataHolder.food_List) {
             filteredList.add(food);
         }
@@ -466,6 +455,8 @@ public class GeneralViewPage extends AppCompatActivity implements SelectListener
         filteredList.removeAll(itemsToRemove);
 
         gAdapter.setFilteredList(filteredList);
+        //gAdapter.notifyDataSetChanged();
+        //return filteredList;
     }
 
 
@@ -477,73 +468,14 @@ public class GeneralViewPage extends AppCompatActivity implements SelectListener
 
             }
         }
-        /*if (filteredList.isEmpty()) {
+        if (filteredList.isEmpty()) {
             Toast.makeText(this,"No data found!",Toast.LENGTH_SHORT).show();
-        }*/
+        }
 
         gAdapter.setFilteredList(filteredList);
 
 
     }
-
-
-    /*searchView.setOnQueryTextListener(new SearchView.OnQueryTextListener(){
-        @Override
-        public boolean onQueryTextSubmit(String query){
-            searchList=new ArrayList<>();
-            if (query.length()>0){
-                for(int i=0;i <arrayList.size();i++){
-                    if (arrayList.get(1). getFruitName(). toUpperCase(). contains(query. toUpperCase() ) ){
-                        ModelClass modelClass=new ModelClass();modelClass.setFruitName(arrayList.get(i).getFruitName());modelClass. setFruitNum(arrayList. get(i).getFruitNum());modelClass.setImg(arrayList.get(i).getImg());searchList. add(modelClass);
-                        {
-                            {
-                                RecyclerView.LayoutManager layoutManager=new LinearLayoutManager( context: MainActivity.this);recyclerView.setLayoutManager(layoutManager) ;
-                                FruitAdapter fruitAdapter=new FruitAdapter( context: MainActivity.this,searchList);recyclerView. setAdapter(fruitAdapter);
-                            }
-                            return false;*/
-
-
-
-    /*@Override
-    protected void onActivityResult(int requestCode,int resultCode, @Nullable Intent data){
-        super.onActivityResult(requestCode,resultCode,data);
-        String selectedDataString = data.getStringExtra("data");
-        if(requestCode==101)
-        {
-            String[] foodStrings = selectedDataString.split(",");
-
-            List<Food> filteredList = new ArrayList<>();
-
-            for (Food food : foodList)
-            {
-                for (String chip : foodStrings){
-                    if (chip.equals("Makan Place")){
-
-                        if (food.getLocation() == "Makan Place")
-                        {
-                            filteredList.add(food);
-                        }
-                    }
-                    else if (chip.equals("Food Club")){
-                        if (food.getLocation() == "Food Club")
-                        {
-                            filteredList.add(food);
-                        }
-                    }
-                    else if (chip.equals("Munch")){
-                        if (food.getLocation() == "Munch")
-                        {
-                            filteredList.add(food);
-                        }
-                    }
-                }
-
-            }
-
-            gAdapter.setFilteredList(filteredList);
-        }
-
-    }*/
 
     public ArrayList<Food> CreateObject(ArrayList<Food> foodList){
         //creating all the food items
@@ -662,9 +594,9 @@ public class GeneralViewPage extends AppCompatActivity implements SelectListener
         munchPizza9.setFoodImage1(R.drawable.munchpizza);
 
 
-        Food munchKorean1 = new Food(46, "Bibimbap", "Munch", R.drawable.munchmap, 4.40, 460, "A flavorful Korean dish consisting of a bowl of mixed rice topped with various vegetables, meat or tofu, and a fried egg, served with spicy gochujang sauce.", R.drawable.bibimbap, false, true, true, true, false, false);
-        Food munchKorean2 = new Food(47,"Hot Stone Bibimbap", "Munch", R.drawable.munchmap, 5.30, 460, "A flavorful Korean dish consisting of a bowl of mixed rice topped with various vegetables, meat or tofu, and a fried egg, served with spicy gochujang sauce in a hot stone bowl", R.drawable.bibimbap, false, true, true, true, false, false);
-        Food munchKorean3 = new Food(48,"BBQ Crisy chicken Omelette", "Munch", R.drawable.munchmap, 4.80, 530, "BBQ Crispy Omelette is a delicious combination of a fluffy omelette filled with smoky barbecue-flavored meat or vegetables, featuring a satisfying crisp exterior.", R.drawable.store, false, true, true, true, false, false);
+        Food munchKorean1 = new Food(46, "Bibimbap", "Munch", R.drawable.munchmap, 4.40, 460, "A flavorful Korean dish consisting of a bowl of rice with various ingredients, served with spicy gochujang sauce.", R.drawable.bibimbap, false, true, true, true, false, false);
+        Food munchKorean2 = new Food(47,"Hot Stone Bibimbap", "Munch", R.drawable.munchmap, 5.30, 460, "A flavorful Korean dish consisting of a bowl of rice with various ingredients,with spicy gochujang sauce.", R.drawable.bibimbap, false, true, true, true, false, false);
+        //Food munchKorean3 = new Food(48,"BBQ Crisy chicken Omelette", "Munch", R.drawable.munchmap, 4.80, 530, "BBQ Crispy Omelette is a delicious combination of a fluffy omelette filled with smoky barbecue-flavored meat or vegetables.", R.drawable.store, false, true, true, true, false, false);
         Food munchKorean4 = new Food(49,"BBQ Chicken set", "Munch", R.drawable.munchmap, 5.0, 510, "Generous amount of spicy barbecue-flavoured chicken, served with crunchy beansprout and onions.", R.drawable.koreanbbq, false, true, true, true, false, false);
         Food munchKorean5 = new Food(50,"BBQ Saba Fish set", "Munch", R.drawable.munchmap, 5.30, 460, "A whole grilled Saba Fish ", R.drawable.sabafish, false, true, true, true, false, false);
         Food munchKorean6 = new Food(51,"BBQ Beef set", "Munch", R.drawable.munchmap, 5.30, 550, "Generous amount of non-spicy barbecue-flavoured beef, served with crunchy beansprout and onions", R.drawable.koreanbbq, false, true, true, true, false, false);
@@ -674,11 +606,11 @@ public class GeneralViewPage extends AppCompatActivity implements SelectListener
         Food munchKorean10 = new Food(55,"Chicken Ramen", "Munch", R.drawable.munchmap, 4.50, 560, "Hot Instant Noodles with marinated chicken", R.drawable.koreanramen, true, true, false, true, false, false);
         Food munchKorean11 = new Food(56,"Beef Ramen", "Munch", R.drawable.munchmap, 5.30, 570, "Hot Instant Noodles with marinated beef", R.drawable.koreanramen, true, true, false, true, false, false);
         Food munchKorean12 = new Food(57,"Sundubu", "Munch", R.drawable.munchmap, 4.00, 460, "Spicy tofu stew", R.drawable.koreanstew, false, true, true, true, false, false);
-        Food munchKorean13 = new Food(58,"Kimchi Jjigae", "Munch", R.drawable.munchmap, 4.00, 500, "Kimchi jjigae is a flavorful Korean stew made with fermented kimchi, tofu or pork, and a variety of vegetables, resulting in a spicy and tangy dish that warms both the palate and the soul.", R.drawable.koreanstew, false, true, true, true, false, false);
+        Food munchKorean13 = new Food(58,"Kimchi Jjigae", "Munch", R.drawable.munchmap, 4.00, 500, "Kimchi Jjigae is a flavorful Korean stew made with fermented kimchi, tofu or pork, creating a spicy and tangy dish that warms the palate.", R.drawable.koreanstew, false, true, true, true, false, false);
         Food munchKorean14 = new Food(59,"Bulgogi Jungol", "Munch", R.drawable.munchmap, 5.00, 530, "Korean beef stew - non spicy", R.drawable.koreanstew, false, true, true, true, false, false);
         Food munchKorean15 = new Food(60,"Kimchi Fried Rice", "Munch", R.drawable.munchmap, 3.8, 470, "Kimchi fried rice is a savory Korean dish that combines fried rice with spicy and tangy kimchi, creating a flavorful and satisfying meal.", R.drawable.kimchifriedrice, false, true, true, true, false, false);
         Food munchKorean16 = new Food(61,"Chicken Fried Rice", "Munch", R.drawable.munchmap, 4.20, 460, "Chicken fried rice infused with korean flavours", R.drawable.kimchifriedrice, false, true, true, true, false, false);
-        Food munchKorean17 = new Food(62,"beef Fried Rice", "Munch", R.drawable.munchmap, 4.40, 550, "Beef fried rice infused with korean flavours", R.drawable.kimchifriedrice, false, true, true, true, false, false);
+        Food munchKorean17 = new Food(62,"Beef Fried Rice", "Munch", R.drawable.munchmap, 4.40, 550, "Beef fried rice infused with korean flavours", R.drawable.kimchifriedrice, false, true, true, true, false, false);
         Food munchKorean18 = new Food(63,"Fried Chicken with Omurice", "Munch", R.drawable.munchmap, 4.40, 550, "Fluffy omelette filled with fried rice, and comes with flavourful and crispy chicken ", R.drawable.omurice, false, true, true, true, false, false);
         Food munchKorean19 = new Food(64,"Fried Fish with Omurice", "Munch", R.drawable.munchmap, 4.40, 556, "Fluffy omelette filled with fried rice, and comes with flavourful and crispy chicken ", R.drawable.omurice, false, true, true, true, false, false);
         Food munchKorean20 = new Food(65,"Fried Prawn with Omurice", "Munch", R.drawable.munchmap, 4.40, 610, "Fluffy omelette filled with fried rice, and comes with flavourful and crispy prawn ", R.drawable.omurice, false, true, true, true, false, false);
@@ -690,7 +622,7 @@ public class GeneralViewPage extends AppCompatActivity implements SelectListener
 
         munchKorean1.setFoodImage1(R.drawable.munchkorean);
         munchKorean2.setFoodImage1(R.drawable.munchkorean);
-        munchKorean3.setFoodImage1(R.drawable.munchkorean);
+        //munchKorean3.setFoodImage1(R.drawable.munchkorean);
         munchKorean4.setFoodImage1(R.drawable.munchkorean);
         munchKorean5.setFoodImage1(R.drawable.munchkorean);
         munchKorean6.setFoodImage1(R.drawable.munchkorean);
@@ -732,7 +664,7 @@ public class GeneralViewPage extends AppCompatActivity implements SelectListener
 
         Food pasta1 = new Food(76,"Aglio Olio", "Food Club", R.drawable.foodclubmap,2.5, 300, "A plate of flavourful pasta. Do add on more ingredients to make it healthier meal!", R.drawable.aglioolio, true, false, false, true, false, false);
         Food pasta2 = new Food(77,"Tomato pasta", "Food Club", R.drawable.foodclubmap,2.5, 325, "A plate of tomato pasta that is slightly tangy. Do add on more ingredients to make it healthier meal!", R.drawable.tomatopasta, true, false, false, true, false, false);
-        Food pasta3 = new Food(78,"Cream pasta", "Food Club", R.drawable.foodclubmap,2.5, 375, "A plate of creamy pasta, with every strand of noodle clung with the creamy sauce. Do add on more ingredients to make it healthier meal! ", R.drawable.creampasta, true, false, false, true, false, false);
+        Food pasta3 = new Food(78,"Cream pasta", "Food Club", R.drawable.foodclubmap,2.5, 375, "A plate of creamy pasta, with every strand of noodle clung with the creamy sauce.", R.drawable.creampasta, true, false, false, true, false, false);
         Food pasta4 = new Food(79,"Tom yum pasta", "Food Club", R.drawable.foodclubmap,2.5, 350, "A plate of pasta that has a spicy and sour taste. Do add on more ingredients to make it healthier meal!", R.drawable.tomyumpasta, true, false, false, true, false, false);
         Food pasta5 = new Food(80,"Vegetable: corn", "Food Club", R.drawable.foodclubmap,0.5, 30, "Wide varieties of Vegetable for you to choose", R.drawable.corn, false, false, false, true, false, false);
         Food pasta6 = new Food(81,"Meat: Chicken Breast", "Food Club", R.drawable.foodclubmap,1, 50, "Wide varieties of meat options for you to choose", R.drawable.chickenbreast, false, false, false, true, false, false);
@@ -786,7 +718,7 @@ public class GeneralViewPage extends AppCompatActivity implements SelectListener
         Food creamyDuck1 = new Food(97,"Waffles", "Food Club", R.drawable.foodclubmap, 1.8, 200, "Multiple variations of the waffle filling to choose from!", R.drawable.waffles, false, false, false, true, false, true);
         Food creamyDuck2 = new Food(98,"Corn butter salt", "Food Club", R.drawable.foodclubmap, 1.9, 173, "Steamed corn mixed with butter and salt, buttery and savoury", R.drawable.corn, false, false, false, true, false, true);
         Food creamyDuck3 = new Food(99,"Corn butter choc", "Food Club", R.drawable.foodclubmap, 1.9, 173, "Steamed corn mixed with butter and chocolate, sweet and savoury", R.drawable.corn, false, false, false, true, false, true);
-        Food creamyDuck4 = new Food(100,"Takoyaki", "Food Club", R.drawable.foodclubmap, 2.8, 350, "Multiple variations of the Takoyaki fillings to choose from! Either choose prawn, ham, octopus or crabstick!", R.drawable.corn, false, false, false, true, false, true);
+        Food creamyDuck4 = new Food(100,"Takoyaki", "Food Club", R.drawable.foodclubmap, 2.8, 350, "Multiple variations of the Takoyaki fillings to choose from! Either choose prawn, ham, octopus or crabstick!", R.drawable.takoyaki, false, false, false, true, false, true);
         Food creamyDuck5 = new Food(101,"Ice Cream", "Food Club", R.drawable.foodclubmap, 1.8, 230, "Comes in different sizes, choose either 6oz or 12oz single scoop", R.drawable.icecream, false, false, false, true, false, true);
 
         creamyDuck1.setFoodImage1(R.drawable.fcwaffle);
@@ -984,7 +916,7 @@ public class GeneralViewPage extends AppCompatActivity implements SelectListener
 
         foodList.add(munchKorean1);
         foodList.add(munchKorean2);
-        foodList.add(munchKorean3);
+        //foodList.add(munchKorean3);
         foodList.add(munchKorean4);
         foodList.add(munchKorean5);
         foodList.add(munchKorean6);

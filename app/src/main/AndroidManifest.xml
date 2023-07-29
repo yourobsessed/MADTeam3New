@@ -43,9 +43,6 @@
         <activity
             android:name=".Information"
             android:exported="false" />
-        <activity
-            android:name=".Direction"
-            android:exported="false" />
 
         <activity android:name=".RandomizerPage"
             android:exported="false"/>
@@ -69,9 +66,6 @@
             android:exported="false" />
         <activity
             android:name=".GeneralViewPage"
-            android:exported="false" />
-        <activity
-            android:name=".StoreViewPage"
             android:exported="false" />
         <activity
             android:name=".RegisterPage"

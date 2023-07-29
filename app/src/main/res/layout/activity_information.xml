@@ -24,8 +24,8 @@
 
     <ImageView
         android:id="@+id/imageView16"
-        android:layout_width="29dp"
-        android:layout_height="29dp"
+        android:layout_width="45dp"
+        android:layout_height="35dp"
         android:layout_marginStart="15dp"
         android:layout_marginTop="26dp"
         app:layout_constraintEnd_toStartOf="@+id/searchView"
@@ -157,23 +157,26 @@
         android:id="@+id/fc_card"
         android:layout_width="367dp"
         android:layout_height="153dp"
-        android:layout_marginStart="15dp"
+        android:layout_marginStart="16dp"
         android:layout_marginTop="8dp"
-        android:layout_marginEnd="9dp"
+        android:layout_marginEnd="16dp"
         android:foregroundTint="#FFFFFF"
         app:cardBackgroundColor="#00FFFFFF"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textView15" />
 
     <androidx.cardview.widget.CardView
         android:id="@+id/munch_card"
-        android:layout_width="362dp"
-        android:layout_height="146dp"
+        android:layout_width="367dp"
+        android:layout_height="153dp"
         android:layout_marginStart="16dp"
         android:layout_marginTop="20dp"
+        android:layout_marginEnd="16dp"
         app:cardBackgroundColor="#00FFFFFF"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/mp_card">
 
@@ -201,11 +204,14 @@
 
     <androidx.cardview.widget.CardView
         android:id="@+id/mp_card"
-        android:layout_width="365dp"
-        android:layout_height="156dp"
+        android:layout_width="367dp"
+        android:layout_height="153dp"
         android:layout_marginStart="15dp"
         android:layout_marginTop="15dp"
+        android:layout_marginEnd="16dp"
         app:cardBackgroundColor="#00FFFFFF"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/fc_card">
 
