@@ -363,7 +363,7 @@ public class GeneralViewPage extends AppCompatActivity implements SelectListener
 
             @Override
             public boolean onQueryTextChange(String newText) {
-                //filterList(newText);
+                filterList(newText);
                 return true;
             }
         });
@@ -413,7 +413,7 @@ public class GeneralViewPage extends AppCompatActivity implements SelectListener
         }
 
         for (Food food : filteredList) {
-            if (fc && food.getLocation()!="Food CLub") {
+            if (fc && food.getLocation()!="Food Club") {
                 itemsToRemove.add(food);
             }
             if (munch && food.getLocation()!="Munch") {
@@ -468,9 +468,9 @@ public class GeneralViewPage extends AppCompatActivity implements SelectListener
 
             }
         }
-        if (filteredList.isEmpty()) {
+        /*if (filteredList.isEmpty()) {
             Toast.makeText(this,"No data found!",Toast.LENGTH_SHORT).show();
-        }
+        }*/
 
         gAdapter.setFilteredList(filteredList);
 

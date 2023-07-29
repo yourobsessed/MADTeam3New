@@ -8,6 +8,7 @@ import android.os.Bundle;
 import android.os.Handler;
 import android.os.Vibrator;
 import android.text.TextUtils;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.CompoundButton;
@@ -56,12 +57,24 @@ public class RandomizerPage extends AppCompatActivity {
                 vibe.vibrate(200);
                 List<String> keysAsArray = new ArrayList<String>(foodstalls.keySet());
 
-                Random r = new Random();
-                store = keysAsArray.get(r.nextInt(keysAsArray.size()));
-                court = foodstalls.get(store);
 
-                changetext.setText(store + " at " + court);
+                for (int i = 0; i < 5; i++) {
+                    try {
 
+                        Thread.sleep(20);
+
+                    } catch (InterruptedException e) {
+
+                        e.printStackTrace();
+
+                    }
+                    Random r = new Random();
+                    store = keysAsArray.get(r.nextInt(keysAsArray.size()));
+                    court = foodstalls.get(store);
+                    changetext.setText(store + " at " + court);
+                    Log.i("hi",store);
+
+                }
 
 
             }
