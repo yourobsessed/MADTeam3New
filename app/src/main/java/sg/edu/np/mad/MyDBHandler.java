@@ -13,13 +13,12 @@ import java.util.Collections;
 
 public class MyDBHandler extends SQLiteOpenHelper {
     public static final int DATABASE_VERSION = 1;
-//    public static final String DATABASE_NAME = "FoodMenu.db";
-    private static final String TABLE_FOOD = "FoodDB.db";
+    private static final String DATABASE_NAME = "FoodMenu.db";
+    private static final String TABLE_FOOD = "FoodTable";
     public static final String FOOD_INDEX = "foodIndex";
     public static final String FOOD_NAME = "foodName";
     public static final String FOOD_LOCATION = "foodLocation";
     public static final String FOOD_PRICE = "foodPrice";
-    public static final String COLUMN_FOOD_PRICE = FOOD_PRICE;
     public static final String FOOD_CALORIES = "foodCalories";
     public static final String FOOD_DESCRIPTION = "foodDescription";
     public static final String FOOD_NOODLE = "foodNoodle";
@@ -29,33 +28,37 @@ public class MyDBHandler extends SQLiteOpenHelper {
     public static final String FOOD_VEGETARIAN = "foodVegetarian";
     public static final String FOOD_DESSERT = "foodDessert";
     public static final String FOOD_WISHLIST = "foodWishlist";
-    public static final String TABLE_FOOD_NAME = "TABLE_FOOD";
-    public static final String COLUMN_FOOD_NAME = "FOOD_NAME";
-    public static final String COLUMN_FOOD_INDEX = "FOOD_INDEX";
 
-    public MyDBHandler(Context context, String name, SQLiteDatabase.CursorFactory factory, int version){
-        super(context, TABLE_FOOD, factory, DATABASE_VERSION);
+    public MyDBHandler(Context context) {
+        super(context, DATABASE_NAME, null, DATABASE_VERSION);
     }
 
     @Override
-    public void onCreate(SQLiteDatabase db){
-        //String CREATE_FOOD_MENU_TABLE = "CREATE TABLE " + TABLE_FOOD + " (" + COLUMN_FOOD_INDEX + " INTEGER PRIMARY KEY AUTOINCREMENT " + COLUMN_FOOD_NAME + "TEXT," + COLUMN_FOOD_PRICE + "TEXT,)";
-
+    public void onCreate(SQLiteDatabase db) {
         String CREATE_FOOD_TABLE = "CREATE TABLE " + TABLE_FOOD +
-                "(" + FOOD_INDEX + "INTEGER PRIMARY KEY AUTOINCREMENT, " + FOOD_NAME + "TEXT, " +
-                "" + FOOD_LOCATION + "TEXT, " + FOOD_PRICE + "TEXT, " + FOOD_CALORIES + "TEXT, "
-                + FOOD_DESCRIPTION + "TEXT, " + FOOD_NOODLE + "TEXT, " + FOOD_RICE + "TEXT, " + FOOD_SOUP + "TEXT, " + FOOD_HALAL + "TEXT, "
-                + FOOD_VEGETARIAN + "TEXT, " + FOOD_DESSERT + "TEXT, " + FOOD_WISHLIST + "TEXT )";
+                "(" + FOOD_INDEX + " INTEGER PRIMARY KEY AUTOINCREMENT, " +
+                FOOD_NAME + " TEXT, " +
+                FOOD_LOCATION + " TEXT, " +
+                FOOD_PRICE + " REAL, " +
+                FOOD_CALORIES + " INTEGER, " +
+                FOOD_DESCRIPTION + " TEXT, " +
+                FOOD_NOODLE + " INTEGER, " +
+                FOOD_RICE + " INTEGER, " +
+                FOOD_SOUP + " INTEGER, " +
+                FOOD_HALAL + " INTEGER, " +
+                FOOD_VEGETARIAN + " INTEGER, " +
+                FOOD_DESSERT + " INTEGER, " +
+                FOOD_WISHLIST + " INTEGER)";
         db.execSQL(CREATE_FOOD_TABLE);
     }
 
     @Override
-    public void onUpgrade(SQLiteDatabase db, int oldVersion, int newVersion){
-        db.execSQL(" DROP TABLE IF EXISTS " + TABLE_FOOD );
+    public void onUpgrade(SQLiteDatabase db, int oldVersion, int newVersion) {
+        db.execSQL("DROP TABLE IF EXISTS " + TABLE_FOOD);
         onCreate(db);
     }
 
-    public void addFood (Food food){
+    public void addFood(Food food) {
         ContentValues values = new ContentValues();
         //values.put(FOOD_INDEX, food.getFoodIndex());
         values.put(FOOD_NAME, food.getFoodName());
@@ -75,18 +78,17 @@ public class MyDBHandler extends SQLiteOpenHelper {
         db.insert(TABLE_FOOD, null, values);
         Log.i("CREATED TABLE", "INSERTED/CREATED USER" + values.toString());
         db.close();
-
     }
 
-    public Food findFood(int foodIndex){
-        String query = "SELECT * FROM " + TABLE_FOOD + "WHERE" + FOOD_INDEX + "=\"" + foodIndex + "\"";
+    public Food findFood(int foodIndex) {
+        String query = "SELECT * FROM " + TABLE_FOOD + " WHERE " + FOOD_INDEX + "=" + foodIndex;
         Log.i("checking query", query);
 
         Food queryResult = new Food();
         SQLiteDatabase db = this.getWritableDatabase();
         Cursor cursor = db.rawQuery(query, null);
 
-        if (cursor.moveToFirst()){
+        if (cursor.moveToFirst()) {
             queryResult.setFoodIndex(Integer.parseInt(cursor.getString(0)));
             queryResult.setFoodName(cursor.getString(1));
             queryResult.setLocation(cursor.getString(2));
@@ -102,14 +104,10 @@ public class MyDBHandler extends SQLiteOpenHelper {
             queryResult.setAddedWishlist(Boolean.parseBoolean(cursor.getString(12)));
 
             cursor.close();
-        }
-        else{
+        } else {
             queryResult = null;
         }
 
-        //db.close();
         return queryResult;
     }
-
-
 }

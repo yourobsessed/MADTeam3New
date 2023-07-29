@@ -86,11 +86,11 @@ public class GeneralViewPage extends AppCompatActivity implements SelectListener
         //CREATING DATABASE
 //        SharedPreferences sharedPreferences = getSharedPreferences("MyPrefs", Context.MODE_PRIVATE);
 //        String username = sharedPreferences.getString("wishlist", "");
-        MyDBHandler myDBHandler = new MyDBHandler(this, "FoodDB.db", null, 1);
-        Log.i("checking", String.valueOf(myDBHandler));
+        MyDBHandler myDBHandler = new MyDBHandler(this);
         Food MPSalad1 = new Food(145,"Garden Salad", "Makan Place", R.drawable.makanplacemap, 4.50, 345, "A bowl salad with vegetable. Do make a choice if you want to add on salad dressing!", R.drawable.saladbowl, false, false, false, false, true, false);
         myDBHandler.addFood(MPSalad1);
-        Log.i("ran thru", "ran pass");
+        //myDBHandler.addFood(MPSalad1);
+        //Log.i("ran thru", "ran pass");
         /*if (myDBHandler == null) {
             for (Food f : foodArrayList) {
                 myDBHandler.addFood(f);
