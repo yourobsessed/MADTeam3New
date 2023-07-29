@@ -468,6 +468,7 @@ public class GeneralViewPage extends AppCompatActivity implements SelectListener
 
             }
         }
+
         /*if (filteredList.isEmpty()) {
             Toast.makeText(this,"No data found!",Toast.LENGTH_SHORT).show();
         }*/
