@@ -76,10 +76,8 @@ public class GeneralViewPage extends AppCompatActivity implements SelectListener
     private Boolean soup = false;
     private Boolean dessert = false;
 
-//    private int imageViewColour;
-//    int originalColour = Color.BLACK;
-    //private Boolean drinks = false;
-    MyDBHandler myDBHandler = new MyDBHandler(this, "FoodDatabase.db", null, 1);
+    //MyDBHandler myDBHandler = new MyDBHandler(this, "FoodDatabase.db", null, 2);
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -88,11 +86,12 @@ public class GeneralViewPage extends AppCompatActivity implements SelectListener
         //CREATING DATABASE
 //        SharedPreferences sharedPreferences = getSharedPreferences("MyPrefs", Context.MODE_PRIVATE);
 //        String username = sharedPreferences.getString("wishlist", "");
-        //MyDBHandler myDBHandler = new MyDBHandler(this, "FoodMenu.db", null, 1);
+        MyDBHandler myDBHandler = new MyDBHandler(this, "FoodDB.db", null, 1);
         Log.i("checking", String.valueOf(myDBHandler));
-        ArrayList<Food> foodArrayList = CreateObject(foodList);
+        Food MPSalad1 = new Food(145,"Garden Salad", "Makan Place", R.drawable.makanplacemap, 4.50, 345, "A bowl salad with vegetable. Do make a choice if you want to add on salad dressing!", R.drawable.saladbowl, false, false, false, false, true, false);
+        myDBHandler.addFood(MPSalad1);
         Log.i("ran thru", "ran pass");
-        if (myDBHandler == null) {
+        /*if (myDBHandler == null) {
             for (Food f : foodArrayList) {
                 myDBHandler.addFood(f);
 
@@ -104,7 +103,7 @@ public class GeneralViewPage extends AppCompatActivity implements SelectListener
             Log.i("lol", "alr got things inside");
         }
         Log.i("ran thru2", String.valueOf(myDBHandler));
-
+*/
         recyclerView=findViewById(R.id.recyclerView);
         searchView=findViewById(R.id.searchView);
         searchView.clearFocus();
@@ -151,6 +150,7 @@ public class GeneralViewPage extends AppCompatActivity implements SelectListener
             public void onCancelled(@NonNull DatabaseError error) {
             }
         });
+
 
         ImageView BackButton = findViewById(R.id.imageView7);
         BackButton.setOnClickListener(new View.OnClickListener() {

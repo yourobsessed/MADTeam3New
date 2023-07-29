@@ -14,7 +14,7 @@ import java.util.Collections;
 public class MyDBHandler extends SQLiteOpenHelper {
     public static final int DATABASE_VERSION = 1;
 //    public static final String DATABASE_NAME = "FoodMenu.db";
-    private static final String TABLE_FOOD = "FoodDatabase.db";
+    private static final String TABLE_FOOD = "FoodDB.db";
     public static final String FOOD_INDEX = "foodIndex";
     public static final String FOOD_NAME = "foodName";
     public static final String FOOD_LOCATION = "foodLocation";
@@ -42,9 +42,10 @@ public class MyDBHandler extends SQLiteOpenHelper {
         //String CREATE_FOOD_MENU_TABLE = "CREATE TABLE " + TABLE_FOOD + " (" + COLUMN_FOOD_INDEX + " INTEGER PRIMARY KEY AUTOINCREMENT " + COLUMN_FOOD_NAME + "TEXT," + COLUMN_FOOD_PRICE + "TEXT,)";
 
         String CREATE_FOOD_TABLE = "CREATE TABLE " + TABLE_FOOD +
-                "(" + FOOD_INDEX + "INTEGER PRIMARY KEY AUTOINCREMENT " + FOOD_NAME + "TEXT, " + FOOD_LOCATION + "TEXT," + FOOD_PRICE + "TEXT," + FOOD_CALORIES + "TEXT,"
-                + FOOD_DESCRIPTION + "TEXT," + FOOD_NOODLE + "TEXT," + FOOD_RICE + "TEXT," + FOOD_SOUP + "TEXT," + FOOD_HALAL + "TEXT,"
-                + FOOD_VEGETARIAN + "TEXT," + FOOD_DESSERT + "TEXT," + FOOD_WISHLIST + "TEXT )";
+                "(" + FOOD_INDEX + "INTEGER PRIMARY KEY AUTOINCREMENT, " + FOOD_NAME + "TEXT, " +
+                "" + FOOD_LOCATION + "TEXT, " + FOOD_PRICE + "TEXT, " + FOOD_CALORIES + "TEXT, "
+                + FOOD_DESCRIPTION + "TEXT, " + FOOD_NOODLE + "TEXT, " + FOOD_RICE + "TEXT, " + FOOD_SOUP + "TEXT, " + FOOD_HALAL + "TEXT, "
+                + FOOD_VEGETARIAN + "TEXT, " + FOOD_DESSERT + "TEXT, " + FOOD_WISHLIST + "TEXT )";
         db.execSQL(CREATE_FOOD_TABLE);
     }
 
@@ -106,7 +107,7 @@ public class MyDBHandler extends SQLiteOpenHelper {
             queryResult = null;
         }
 
-        db.close();
+        //db.close();
         return queryResult;
     }
 
