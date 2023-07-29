@@ -7,6 +7,7 @@ import static android.icu.text.DisplayContext.LENGTH_SHORT;
 import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
+import android.database.sqlite.SQLiteDatabase;
 import android.graphics.Color;
 import android.graphics.PorterDuff;
 import android.graphics.drawable.Icon;
@@ -45,12 +46,14 @@ public class GeneralView_Adapter extends RecyclerView.Adapter<GeneralView_Viewho
     //private FirebaseDatabase database;
 
     String tag;
+    //private MyDBHandler myDBHandler;
 
-    public GeneralView_Adapter(Context context, List<Food> input, SelectListenerFood ListenerFood, IconClickListener listener) {
+    public GeneralView_Adapter(Context context, List<Food> input, SelectListenerFood ListenerFood, IconClickListener listener){//, MyDBHandler mydbHandler) {
         this.context = context;
         this.data = input;
         this.listenerFood = ListenerFood;
         this.listenerWL = listener;
+        //this.myDBHandler = mydbHandler;
     }
     /*public void setIconClickListener(IconClickListener listener) {
         this.listenerWL = listener;
@@ -70,27 +73,16 @@ public class GeneralView_Adapter extends RecyclerView.Adapter<GeneralView_Viewho
     public GeneralView_Viewholder onCreateViewHolder(ViewGroup parent, int viewType) {
         View item = LayoutInflater.from(parent.getContext()).inflate(R.layout.general_view_viewholder, parent, false);
         return new GeneralView_Viewholder(item);
-        /*if (DataHolder.viewHoldering == null) {
-            //inflating the generalView holder with the relevant details
-            View item = LayoutInflater.from(parent.getContext()).inflate(R.layout.general_view_viewholder, parent, false);
-            return new GeneralView_Viewholder(item);
-        } else {
-            return DataHolder.viewHoldering;
-        }*/
 
     }
 
     @Override
     public void onBindViewHolder(GeneralView_Viewholder holder, int position) {
+        //MyDBHandler myDBHandler = new MyDBHandler(context);
         Food f = data.get(position);
-        //Log.i("data", String.valueOf(f));
-        //Log.i("holder number", String.valueOf(holder));
-        //Log.i("status check", String.valueOf(f.getAddedWishlist()));
         holder.foodName.setText(f.getFoodName());
         holder.foodDescription.setText(f.getDescription());
         holder.foodImage.setImageResource(f.getFoodImage2());
-
-
 
         //creating onclick intent of the cardView to the catalogue page
         holder.cardView.setOnClickListener(new View.OnClickListener() {
@@ -111,13 +103,15 @@ public class GeneralView_Adapter extends RecyclerView.Adapter<GeneralView_Viewho
 
             }
         });
+
         FirebaseDatabase database = FirebaseDatabase.getInstance();
         DatabaseReference accountsRef = database.getReference("Accounts").child(DataHolder.username);
 
         if(DataHolder.wishlist_List.contains(f.getFoodIndex())) {
             holder.wishlisticon.setColorFilter(Color.RED);
+        } else {
+            holder.wishlisticon.setColorFilter(Color.GRAY);
         }
-
         holder.wishlisticon.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -141,7 +135,7 @@ public class GeneralView_Adapter extends RecyclerView.Adapter<GeneralView_Viewho
                             DataHolder.wishlist_List = acc.wishlist;
                             Log.i("dataholder.wishlist", String.valueOf(DataHolder.wishlist_List));
                             userWishList.setValue(acc.wishlist); //updating the database's wishlist for specific users
-                            changeIconColor(f, holder);
+                            //changeIconColor(f, holder);
                         }
 
                         else {
@@ -156,9 +150,10 @@ public class GeneralView_Adapter extends RecyclerView.Adapter<GeneralView_Viewho
                             DataHolder.wishlist_List = acc.wishlist;
                             Log.i("dataholder.wishlist", String.valueOf(DataHolder.wishlist_List));
                             userWishList.setValue(acc.wishlist);
-                            changeIconColor(f, holder);
+                            //changeIconColor(f, holder);
                         }
                         changeIconColor(f,holder);
+                        //myDBHandler.updateFood(f);
                     }
 
                     @Override
@@ -182,6 +177,7 @@ public class GeneralView_Adapter extends RecyclerView.Adapter<GeneralView_Viewho
 
     @Override
     public int getItemViewType(int position) {
+        System.out.println(data.get(position));
         return position;
     }
 

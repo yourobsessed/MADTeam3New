@@ -3,28 +3,28 @@ package sg.edu.np.mad;
 import android.util.Log;
 
 public class Food {
-    private int foodIndex;
-    private String foodName; //
-    private String description; //
-    private String location; //
-    private double price; //
-    private int calories; //
-    private int foodImage1; //
+    public int foodIndex;
+    public String foodName; //
+    public String description; //
+    public String location; //
+    public double price; //
+    public int calories; //
+    public int foodImage1; //
 
-    private int foodImage2; //
-    private int foodImage3; //
+    public int foodImage2; //
+    public int foodImage3; //
 
-    private int locationImage; //
-    private Boolean addedWishlist = false;
+    public int locationImage; //
+    public Boolean addedWishlist = false;
 
     //considering one food item as per order
-    private Boolean noodle;
-    private Boolean soup;
-    private Boolean rice;
-    private Boolean dessert;
+    public Boolean noodle;
+    public Boolean soup;
+    public Boolean rice;
+    public Boolean dessert;
 
-    private Boolean halal;
-    private Boolean vegetarian;
+    public Boolean halal;
+    public Boolean vegetarian;
 
 
 

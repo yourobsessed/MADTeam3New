@@ -11,8 +11,8 @@
     android:orientation="vertical">
 
     <ImageView
-        android:layout_width="100dp"
-        android:layout_height="88dp"
+        android:layout_width="118dp"
+        android:layout_height="105dp"
         android:cropToPadding="false"
         android:src="@drawable/npfoodielogo" />
 
