@@ -28,6 +28,7 @@ import com.mapbox.mapboxsdk.Mapbox;
 import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
+import android.database.sqlite.SQLiteDatabase;
 import android.graphics.Color;
 import android.os.Bundle;
 import android.provider.ContactsContract;
@@ -75,9 +76,7 @@ public class GeneralViewPage extends AppCompatActivity implements SelectListener
     private Boolean soup = false;
     private Boolean dessert = false;
 
-//    private int imageViewColour;
-//    int originalColour = Color.BLACK;
-    //private Boolean drinks = false;
+    //MyDBHandler myDBHandler = new MyDBHandler(this, "FoodDatabase.db", null, 2);
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -85,10 +84,26 @@ public class GeneralViewPage extends AppCompatActivity implements SelectListener
         setContentView(R.layout.activity_general_view_page);
 
         //CREATING DATABASE
-        SharedPreferences sharedPreferences = getSharedPreferences("MyPrefs", Context.MODE_PRIVATE);
-        String username = sharedPreferences.getString("wishlist", "");
+//        SharedPreferences sharedPreferences = getSharedPreferences("MyPrefs", Context.MODE_PRIVATE);
+//        String username = sharedPreferences.getString("wishlist", "");
+        MyDBHandler myDBHandler = new MyDBHandler(this, "FoodDB.db", null, 1);
+        Log.i("checking", String.valueOf(myDBHandler));
+        Food MPSalad1 = new Food(145,"Garden Salad", "Makan Place", R.drawable.makanplacemap, 4.50, 345, "A bowl salad with vegetable. Do make a choice if you want to add on salad dressing!", R.drawable.saladbowl, false, false, false, false, true, false);
+        myDBHandler.addFood(MPSalad1);
+        Log.i("ran thru", "ran pass");
+        /*if (myDBHandler == null) {
+            for (Food f : foodArrayList) {
+                myDBHandler.addFood(f);
 
+                Log.i("food in Database", String.valueOf(f));
+            }
+        }
+        else{
 
+            Log.i("lol", "alr got things inside");
+        }
+        Log.i("ran thru2", String.valueOf(myDBHandler));
+*/
         recyclerView=findViewById(R.id.recyclerView);
         searchView=findViewById(R.id.searchView);
         searchView.clearFocus();
@@ -135,6 +150,7 @@ public class GeneralViewPage extends AppCompatActivity implements SelectListener
             public void onCancelled(@NonNull DatabaseError error) {
             }
         });
+
 
         ImageView BackButton = findViewById(R.id.imageView7);
         BackButton.setOnClickListener(new View.OnClickListener() {
@@ -350,7 +366,7 @@ public class GeneralViewPage extends AppCompatActivity implements SelectListener
 
             @Override
             public boolean onQueryTextChange(String newText) {
-                filterList(newText);
+                //filterList(newText);
                 return true;
             }
         });
