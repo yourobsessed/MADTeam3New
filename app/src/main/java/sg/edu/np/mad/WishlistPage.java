@@ -33,6 +33,9 @@ public class WishlistPage extends AppCompatActivity implements SelectListenerFoo
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_wishlist_page);
 
+        //creating the food objects and passing them into the DataHolder
+        //in the case where by the user enters the wishlist activity first
+
         DataHolder.food_List = CreateObject(foodList);
         FirebaseDatabase database = FirebaseDatabase.getInstance();
         DatabaseReference accountsRef = database.getReference("Accounts").child(DataHolder.username);
@@ -41,8 +44,8 @@ public class WishlistPage extends AppCompatActivity implements SelectListenerFoo
             public void onDataChange(@NonNull DataSnapshot snapshot) {
                 Account acc = snapshot.getValue(Account.class);
                 ArrayList<Food> WishlistFood = new ArrayList<>();
-                for (Food f : DataHolder.food_List){
-                    if (acc.wishlist.contains(f.getFoodIndex())){
+                for (Food f : DataHolder.food_List){ //checking through using the foodlist
+                    if (acc.wishlist.contains(f.getFoodIndex())){  //checking if the user's wishlist in database has specific food
                         WishlistFood.add(f);
                         Log.i("wishlistFood", String.valueOf(WishlistFood));
                     }
@@ -50,7 +53,7 @@ public class WishlistPage extends AppCompatActivity implements SelectListenerFoo
                 receivedList = WishlistFood;
                 Log.i("received", String.valueOf(receivedList));
                 RecyclerView WLrecyclerView = findViewById(R.id.wishlist_RV);
-                mAdapter = new WishList_Adapter(WishlistPage.this, receivedList);
+                mAdapter = new WishList_Adapter(WishlistPage.this, receivedList); //passing the received food into the adapter
                 LinearLayoutManager mLayoutManger = new LinearLayoutManager(WishlistPage.this);
                 WLrecyclerView.setLayoutManager(mLayoutManger);
                 WLrecyclerView.setItemAnimator(new DefaultItemAnimator());
@@ -72,12 +75,6 @@ public class WishlistPage extends AppCompatActivity implements SelectListenerFoo
 
             }
         });
-//        RecyclerView WLrecyclerView = findViewById(R.id.wishlist_RV);
-//        mAdapter = new WishList_Adapter(this, receivedList);
-//        LinearLayoutManager mLayoutManger = new LinearLayoutManager(this);
-//        WLrecyclerView.setLayoutManager(mLayoutManger);
-//        WLrecyclerView.setItemAnimator(new DefaultItemAnimator());
-//        WLrecyclerView.setAdapter(mAdapter);
 
         ImageView BackButton = findViewById(R.id.backButton);
         BackButton.setOnClickListener(new View.OnClickListener() {
@@ -99,7 +96,6 @@ public class WishlistPage extends AppCompatActivity implements SelectListenerFoo
     @Override
     protected void onResume(){
         super.onResume();
-
 
         RecyclerView WLrecyclerView = findViewById(R.id.wishlist_RV);
         mAdapter = new WishList_Adapter(WishlistPage.this, receivedList);

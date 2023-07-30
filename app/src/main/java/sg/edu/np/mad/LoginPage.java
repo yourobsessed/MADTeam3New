@@ -49,7 +49,7 @@ public class LoginPage extends AppCompatActivity {
         setContentView(R.layout.activity_login_page);
 
 
-        createNotificationChannel();
+        createNotificationChannel(); //creating a channel for the notification
         //scheduleDailyNotification(this);
 
         SharedPreferences sharedPreferences = getSharedPreferences("MyPrefs", Context.MODE_PRIVATE);
@@ -196,18 +196,18 @@ public class LoginPage extends AppCompatActivity {
     private void scheduleDailyNotification(Context context){
         Calendar calendar = Calendar.getInstance();
         calendar.setTimeInMillis(System.currentTimeMillis());
-        calendar.set(Calendar.HOUR_OF_DAY, 12);
-        calendar.set(Calendar.MINUTE, 00);
+        calendar.set(Calendar.HOUR_OF_DAY, 12);  //setting the time for the notification
+        calendar.set(Calendar.MINUTE, 00);  //at 12pm, notification pops up
         calendar.set(Calendar.SECOND, 00);
         if (calendar.getTimeInMillis() <= System.currentTimeMillis()) {
             calendar.add(Calendar.DAY_OF_MONTH, 1);
         }
         AlarmManager alarmManager = (AlarmManager) context.getSystemService(Context.ALARM_SERVICE);
-        Intent intent = new Intent(this, AlarmReceiver.class);
+        Intent intent = new Intent(this, AlarmReceiver.class); //using the broadcast
         intent.setAction("TO CATALOGUE PAGE");
         PendingIntent pendingIntent = PendingIntent.getBroadcast(this, 101, intent, PendingIntent.FLAG_IMMUTABLE | PendingIntent.FLAG_UPDATE_CURRENT);
 
-
+        //checking for the system's version and making sure the notification will work on all devices
         if (Build.VERSION.SDK_INT >= 23){
             alarmManager.setRepeating(AlarmManager.RTC_WAKEUP, calendar.getTimeInMillis(), AlarmManager.INTERVAL_DAY, pendingIntent);
         }
@@ -221,7 +221,7 @@ public class LoginPage extends AppCompatActivity {
             alarmManager.set(AlarmManager.RTC_WAKEUP, calendar.getTimeInMillis(), pendingIntent);
         }
 
-
+        //creating the pop up for the various permission to ask user for permission
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.TIRAMISU){
             alarmManager.setExactAndAllowWhileIdle(AlarmManager.RTC_WAKEUP, calendar.getTimeInMillis(), pendingIntent);
             if (ContextCompat.checkSelfPermission(LoginPage.this, android.Manifest.permission.POST_NOTIFICATIONS) != PackageManager.PERMISSION_GRANTED) {

@@ -39,6 +39,8 @@ public class CataloguePage extends AppCompatActivity implements Serializable {
         setContentView(R.layout.activity_catalogue_page);
         //DataHolder.food_List = CreateObject(foodList);
 
+
+        //finding the view from the viewholder
         foodName = findViewById(R.id.CATfoodName);
         foodName2 = findViewById(R.id.CATfoodName3);
         foodPrice = findViewById(R.id.CATfoodPrice);
@@ -60,7 +62,7 @@ public class CataloguePage extends AppCompatActivity implements Serializable {
 
         int foodImg2 = getIntent().getIntExtra("FoodImg2", 0);
         foodImage2.setImageResource(foodImg2);
-        foodImage3.setImageResource(foodImg2);
+        foodImage3.setImageResource(foodImg2);  //due to insufficient images of the food, food image 2 and 3 are the same
 
         Button FoodReview = findViewById(R.id.OpenAllFoodReviews);
 

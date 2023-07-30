@@ -45,12 +45,13 @@ public class AlarmReceiver extends BroadcastReceiver {
 
         DataHolder.food_List = CreateObject(foodList);
         Random randomPicker = new Random();
-        int position = randomPicker.nextInt(DataHolder.food_List.size());
+        int position = randomPicker.nextInt(DataHolder.food_List.size()); //randomly selecting a food that will be pass into the notification
         Food selectedFood = DataHolder.food_List.get(position);
         Log.i("selectedFood", String.valueOf(selectedFood));
 
         Log.i("selected foodIndex", String.valueOf(selectedFood.getFoodIndex()));
 
+        //passing the food information into the intent
         notificationToCat.putExtra("FoodName", selectedFood.getFoodName());
         notificationToCat.putExtra("FoodPrice", selectedFood.getPrice());
         notificationToCat.putExtra("FoodCalories", selectedFood.getCalories());
@@ -61,7 +62,7 @@ public class AlarmReceiver extends BroadcastReceiver {
 
 
         String channelID = "CHANNEL_ID_NOTIFICATION";
-        NotificationCompat.Builder builder = new NotificationCompat.Builder(context, channelID)
+        NotificationCompat.Builder builder = new NotificationCompat.Builder(context, channelID)  //creating the notification
                 .setSmallIcon(R.drawable.notification)
                 .setContentTitle("Time for Lunch!")
                 .setContentText("Try out this dish during your lunch break! Find out more!")
@@ -70,15 +71,13 @@ public class AlarmReceiver extends BroadcastReceiver {
                 .setAutoCancel(true);
 
         NotificationManagerCompat notificationManagerCompat = NotificationManagerCompat.from(context);
-        if (ActivityCompat.checkSelfPermission(context, android.Manifest.permission.POST_NOTIFICATIONS) != PackageManager.PERMISSION_GRANTED) {
+        if (ActivityCompat.checkSelfPermission(context, android.Manifest.permission.POST_NOTIFICATIONS) != PackageManager.PERMISSION_GRANTED) {  //checking for the notification permission of the app
             if (!notificationManagerCompat.areNotificationsEnabled()) {
-                // Notifications are not enabled, so you may want to handle this case accordingly
-                // For example, you could show a toast message or a dialog to prompt the user to enable notifications.
                 Toast.makeText(context, "Notification permission not allowed", Toast.LENGTH_SHORT).show();
                 return;
             }
         }
-        notificationManagerCompat.notify(101, builder.build());
+        notificationManagerCompat.notify(101, builder.build());  //builder the notification
 
     }
 

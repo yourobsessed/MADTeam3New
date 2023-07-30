@@ -104,17 +104,23 @@ public class GeneralView_Adapter extends RecyclerView.Adapter<GeneralView_Viewho
             }
         });
 
+        //reading the database with the updated information
         FirebaseDatabase database = FirebaseDatabase.getInstance();
         DatabaseReference accountsRef = database.getReference("Accounts").child(DataHolder.username);
 
+        //changing the colour based on the status
+        //remove the random colouring of the heart icon problem
         if(DataHolder.wishlist_List.contains(f.getFoodIndex())) {
             holder.wishlisticon.setColorFilter(Color.RED);
         } else {
-            holder.wishlisticon.setColorFilter(Color.GRAY);
+            int newColor = Color.parseColor("#D3D3D3");
+            holder.wishlisticon.setColorFilter(newColor);
         }
+
         holder.wishlisticon.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                //reading the database
                 accountsRef.addListenerForSingleValueEvent(new ValueEventListener() {
                     @Override
                     public void onDataChange(@NonNull DataSnapshot snapshot) {
@@ -126,10 +132,10 @@ public class GeneralView_Adapter extends RecyclerView.Adapter<GeneralView_Viewho
                         if (!acc.wishlist.contains(f.getFoodIndex())) { //checking if the food is added in the wishlist
                             acc.wishlist.add(f.getFoodIndex()); //adds the food to the wishlist
                             f.setAddedWishlist(true); //changing the food status to help with the changing of colours
-                            Toast.makeText(v.getContext(), "Food added to the wishlist!", Toast.LENGTH_SHORT).show();
+                            Toast.makeText(v.getContext(), "Food added to the wishlist!", Toast.LENGTH_SHORT).show(); //showing the toast
 
                             Log.i("wishlist: f", String.valueOf(acc.wishlist));
-                            DatabaseReference userWishList = accountsRef.child("wishlist");
+                            DatabaseReference userWishList = accountsRef.child("wishlist"); //reading the database for the specific wishlist of the username account
 
                             //passinig the db data into the project data for use
                             DataHolder.wishlist_List = acc.wishlist;
@@ -140,19 +146,19 @@ public class GeneralView_Adapter extends RecyclerView.Adapter<GeneralView_Viewho
 
                         else {
                             Log.i("acc before", String.valueOf(acc.wishlist));
-                            int itemToRemove = acc.wishlist.indexOf(f.getFoodIndex());
-                            acc.wishlist.remove(itemToRemove);
+                            int itemToRemove = acc.wishlist.indexOf(f.getFoodIndex()); //finding the item to remove
+                            acc.wishlist.remove(itemToRemove); //removing the item from the wishlist
                             Log.i("acc after", String.valueOf(acc.wishlist));
-                            f.setAddedWishlist(false);
-                            Toast.makeText(v.getContext(), "Food removed from the wishlist!", Toast.LENGTH_SHORT).show();
+                            f.setAddedWishlist(false); //chaning the status
+                            Toast.makeText(v.getContext(), "Food removed from the wishlist!", Toast.LENGTH_SHORT).show(); //showing the toast
 
-                            DatabaseReference userWishList = accountsRef.child("wishlist");
-                            DataHolder.wishlist_List = acc.wishlist;
+                            DatabaseReference userWishList = accountsRef.child("wishlist"); //having access to the wishlist of the specific user's wishlist
+                            DataHolder.wishlist_List = acc.wishlist; //setting the global wishlist to the database wishlist
                             Log.i("dataholder.wishlist", String.valueOf(DataHolder.wishlist_List));
-                            userWishList.setValue(acc.wishlist);
+                            userWishList.setValue(acc.wishlist); //updating the database's wishlist for specific users
                             //changeIconColor(f, holder);
                         }
-                        changeIconColor(f,holder);
+                        changeIconColor(f,holder);  //chaning the icon onclick based on the status of each food item
                         //myDBHandler.updateFood(f);
                     }
 
@@ -177,7 +183,7 @@ public class GeneralView_Adapter extends RecyclerView.Adapter<GeneralView_Viewho
 
     @Override
     public int getItemViewType(int position) {
-        System.out.println(data.get(position));
+        //System.out.println(data.get(position));
         return position;
     }
 
@@ -185,14 +191,14 @@ public class GeneralView_Adapter extends RecyclerView.Adapter<GeneralView_Viewho
         // Change the color of the icon
 
 
-        if (f.getAddedWishlist() == true) {
+        if (f.getAddedWishlist() == true) { //checking the status of each app
             int newColor = Color.parseColor("#FF0000"); // changing the colour to red
             holder.wishlisticon.setColorFilter(newColor);
 
 
-        } else if (f.getAddedWishlist() == false) {
+        } else if (f.getAddedWishlist() == false) { //checking the status of each app
             int newColor = Color.parseColor("#D3D3D3"); //chaning colour to black
-            holder.wishlisticon.setColorFilter(newColor);
+            holder.wishlisticon.setColorFilter(newColor); //setting
         }
     }
 
