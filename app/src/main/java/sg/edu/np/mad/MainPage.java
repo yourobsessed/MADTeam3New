@@ -36,7 +36,6 @@ import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
 import java.util.List;
 
-import sg.edu.np.mad.databinding.DrawerHeaderBinding;
 
 
 public class MainPage extends AppCompatActivity {
@@ -95,34 +94,6 @@ public class MainPage extends AppCompatActivity {
         });
 
 
-
-        /*ImageView CatalogueButton = findViewById(R.id.CatalogueButton);
-        CatalogueButton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent OpenCatalogue = new Intent(MainPage.this, GeneralViewPage.class);
-                startActivity(OpenCatalogue);
-            }
-        });
-
-        ImageView NotificationButton = findViewById(R.id.NotificationButton);
-        NotificationButton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent OpenNotification = new Intent(MainPage.this, MainPage.class);
-                startActivity(OpenNotification);
-                //to be implemented in stage 2
-            }
-        });*/
-
-        /*ImageView sidePanelButton = findViewById(R.id.SidePanelButtonMain);
-        sidePanelButton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent toSidePanel = new Intent(MainPage.this, PanelPage.class);
-                startActivity(toSidePanel);
-            }
-        });*/
     }
     @Override
     public void onStart(){
@@ -161,13 +132,16 @@ public class MainPage extends AppCompatActivity {
             public void onDataChange(@NonNull DataSnapshot snapshot) {
                 for (DataSnapshot reviewSnapshot : snapshot.getChildren()) {
                     CrowdReview crowdReview = reviewSnapshot.getValue(CrowdReview.class);
+                    //gets the date of ech review
                     DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd'T'HH:mm:ss.SSS");
                     LocalDateTime ReviewDate = LocalDateTime.parse(crowdReview.time, formatter);
 
                     if (Duration.between(LocalDateTime.now(), ReviewDate).abs().toHours() < 1) {
+                        //if review is within one hour, add to list
                         CrowdReviewsList.add(crowdReview);
 
                     } else {
+                        //if review is beyond one hour, remove from firebase
                         reviewSnapshot.getRef().removeValue();
                     }
                 }
@@ -200,7 +174,6 @@ public class MainPage extends AppCompatActivity {
         List<Integer> MPCrowdlist = new ArrayList<>();
         List<Integer> MCrowdlist = new ArrayList<>();
 
-        //Toast.makeText(getApplicationContext(), "" + list.size(), Toast.LENGTH_SHORT).show();
 
         for (CrowdReview crowdReview : list) {
 

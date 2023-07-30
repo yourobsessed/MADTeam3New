@@ -80,12 +80,14 @@ public class AllReviewsPage extends AppCompatActivity {
                 float avgstars = 0;
                 for (DataSnapshot reviewSnapshot : dataSnapshot.getChildren()) {
                     FoodReview foodReview = reviewSnapshot.getValue(FoodReview.class);
+                    //check if the current review is the same food dish
                     if (foodReview != null && foodReview.FoodName.equals(text.getText().toString())) {
                         numofreviews++;
                         totalstars += foodReview.Rating;
                         itemList.add(foodReview);
                     }
                 }
+                //set the text to display rating and number of reviews
                 if(numofreviews != 0){
                     avgstars = totalstars/numofreviews;
                     TextView text = findViewById(R.id.txt);
@@ -99,6 +101,7 @@ public class AllReviewsPage extends AppCompatActivity {
                     }
 
                 }
+                //pass list to adapter to display on recycler view
                 Collections.reverse(itemList);
                 RecyclerView recyclerView;
                 FoodReviewAdapter itemAdapter;
@@ -123,13 +126,13 @@ public class AllReviewsPage extends AppCompatActivity {
             @Override
             public void onItemSelected(AdapterView<?> parentView, View selectedItemView, int position, long id) {
                 String selectedOption = spinner.getSelectedItem().toString();
-                if (selectedOption.equals("Sort by Date")) {
+                if (selectedOption.equals("Sort by Date")) {                                    //sort by date
                     reviewsRef.addListenerForSingleValueEvent(reviewsListener);
 
                 } else if (selectedOption.equals("Sort by Highest")) {
                     Collections.sort(itemList, new Comparator<FoodReview>() {
                         @Override
-                        public int compare(FoodReview review1, FoodReview review2) {
+                        public int compare(FoodReview review1, FoodReview review2) {                // sort by highest
                             return Integer.compare(review2.Rating, review1.Rating);
                         }
                     });
@@ -144,7 +147,7 @@ public class AllReviewsPage extends AppCompatActivity {
 
                 } else if (selectedOption.equals("Sort by Lowest")) {
                     Collections.sort(itemList, new Comparator<FoodReview>() {
-                        @Override
+                        @Override                                                                      //sort by lowest
                         public int compare(FoodReview review1, FoodReview review2) {
                             return Integer.compare(review1.Rating, review2.Rating);
                         }
