@@ -16,6 +16,7 @@ import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.text.Html;
 import android.util.Log;
+import android.util.Pair;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.HorizontalScrollView;
@@ -33,7 +34,10 @@ import java.time.Duration;
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
+import java.util.Collections;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 public class HomePage extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener{
     DrawerLayout drawer;
@@ -128,6 +132,87 @@ public class HomePage extends AppCompatActivity implements NavigationView.OnNavi
         if (navigationView != null) {
             navigationView.setNavigationItemSelectedListener(this);
         }
+//
+        //gets top 3 foods and displays them based on reviews
+        DatabaseRef.child("Reviews").addListenerForSingleValueEvent(new ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull DataSnapshot snapshot) {
+                ArrayList<FoodReview> reviewsList = new ArrayList<>();
+
+                HashMap<String, Pair<Integer, Integer> > foodRatings = new HashMap<>();
+
+                //for every review, add to a hashmap, which contains food name, total ratings, and number of ratings
+                for (DataSnapshot reviewSnapshot : snapshot.getChildren()) {
+                    FoodReview foodReview = reviewSnapshot.getValue(FoodReview.class);
+                    reviewsList.add(foodReview);
+
+                    if (foodRatings.containsKey(foodReview.FoodName)) {
+                        Pair<Integer, Integer> ratingsPair = foodRatings.get(foodReview.FoodName);
+                        int totalRatings = ratingsPair.first + foodReview.Rating;
+                        int count = ratingsPair.second + 1;
+                        foodRatings.put(foodReview.FoodName, new Pair<>(totalRatings, count));
+                    } else {
+                        foodRatings.put(foodReview.FoodName, new Pair<>(foodReview.Rating, 1));
+                    }
+                }
+                //gets the average rating of each food then puts into a hashmap
+                HashMap<String, Double> averageRatings = new HashMap<>();
+                for (Map.Entry<String, Pair<Integer, Integer>> entry : foodRatings.entrySet()) {
+                    String foodName = entry.getKey();
+                    Pair<Integer, Integer> ratingsPair = entry.getValue();
+                    double averageRating = (double) ratingsPair.first / ratingsPair.second;
+                    averageRatings.put(foodName, averageRating);
+                }
+
+                //sorts the hashmap so that we can get the top 3
+                List<Map.Entry<String, Double>> sortedRatings = new ArrayList<>(averageRatings.entrySet());
+                Collections.sort(sortedRatings, (entry1, entry2) -> entry2.getValue().compareTo(entry1.getValue()));
+
+                List<Map.Entry<String, Double>> top3Dishes = sortedRatings.subList(0, Math.min(3, sortedRatings.size()));
+
+                for (int i = 0; i < top3Dishes.size(); i++) {
+                    Map.Entry<String, Double> entry = top3Dishes.get(i);
+                    String foodName = entry.getKey();
+                    double averageRating = entry.getValue();
+                    Log.d("Top3Dishes", (i + 1) + ". Food: " + foodName + ", Average Rating: " + averageRating/20);
+                }
+                TextView top1 = findViewById(R.id.top1food);
+                TextView top2 = findViewById(R.id.top2food);
+                TextView top3 = findViewById(R.id.top3food);
+                ImageView top1pic = findViewById(R.id.top1pic);
+                ImageView top2pic = findViewById(R.id.top2pic);
+                ImageView top3pic = findViewById(R.id.top3pic);
+
+
+                top1.setText(top3Dishes.get(0).getKey() + "\n" + top3Dishes.get(0).getValue()/20 + " Stars");
+                for (Food dish : foodList){
+                    if(dish.foodName.equals(top3Dishes.get(0).getKey())){
+                        top1pic.setImageResource(dish.foodImage2);
+                        break;
+                    }
+                }
+                top2.setText(top3Dishes.get(1).getKey() + "\n" + top3Dishes.get(1).getValue()/20 + " Stars");
+                for (Food dish : foodList){
+                    if(dish.foodName.equals(top3Dishes.get(1).getKey())){
+                        top2pic.setImageResource(dish.foodImage2);
+                        break;
+                    }
+                }
+                top3.setText(top3Dishes.get(2).getKey() + "\n" + top3Dishes.get(2).getValue()/20 + " Stars");
+                for (Food dish : foodList){
+                    if(dish.foodName.equals(top3Dishes.get(2).getKey())){
+                        top3pic.setImageResource(dish.foodImage2);
+                        break;
+                    }
+                }
+
+            }
+
+            @Override
+            public void onCancelled(@NonNull DatabaseError error) {
+            }
+        });
+
 
     }
     @Override

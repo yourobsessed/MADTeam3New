@@ -34,7 +34,7 @@
         app:srcCompat="@drawable/backb" />
 
     <TextView
-        android:id="@+id/textView15"
+        android:id="@+id/top3"
         android:layout_width="185dp"
         android:layout_height="34dp"
         android:layout_marginStart="16dp"
@@ -58,7 +58,7 @@
         android:text="Food Club"
         android:textStyle="bold"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView15" />
+        app:layout_constraintTop_toBottomOf="@+id/top3" />
 
     <TextView
         android:id="@+id/fc_hours"
@@ -165,7 +165,7 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView15" />
+        app:layout_constraintTop_toBottomOf="@+id/top3" />
 
     <androidx.cardview.widget.CardView
         android:id="@+id/munch_card"
