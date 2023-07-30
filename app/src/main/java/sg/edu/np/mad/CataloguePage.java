@@ -278,9 +278,9 @@ public class CataloguePage extends AppCompatActivity implements Serializable {
         munchPizza9.setFoodImage1(R.drawable.munchpizza);
 
 
-        Food munchKorean1 = new Food(46, "Bibimbap", "Munch", R.drawable.munchmap, 4.40, 460, "A flavorful Korean dish consisting of a bowl of mixed rice topped with various vegetables, meat or tofu, and a fried egg, served with spicy gochujang sauce.", R.drawable.bibimbap, false, true, true, true, false, false);
-        Food munchKorean2 = new Food(47,"Hot Stone Bibimbap", "Munch", R.drawable.munchmap, 5.30, 460, "A flavorful Korean dish consisting of a bowl of mixed rice topped with various vegetables, meat or tofu, and a fried egg, served with spicy gochujang sauce in a hot stone bowl", R.drawable.bibimbap, false, true, true, true, false, false);
-        Food munchKorean3 = new Food(48,"BBQ Crisy chicken Omelette", "Munch", R.drawable.munchmap, 4.80, 530, "BBQ Crispy Omelette is a delicious combination of a fluffy omelette filled with smoky barbecue-flavored meat or vegetables, featuring a satisfying crisp exterior.", R.drawable.store, false, true, true, true, false, false);
+        Food munchKorean1 = new Food(46, "Bibimbap", "Munch", R.drawable.munchmap, 4.40, 460, "A flavorful Korean dish consisting of a bowl of rice with various ingredients, served with spicy gochujang sauce.", R.drawable.bibimbap, false, true, true, true, false, false);
+        Food munchKorean2 = new Food(47,"Hot Stone Bibimbap", "Munch", R.drawable.munchmap, 5.30, 460, "A flavorful Korean dish consisting of a bowl of rice with various ingredients,with spicy gochujang sauce.", R.drawable.bibimbap, false, true, true, true, false, false);
+        //Food munchKorean3 = new Food(48,"BBQ Crisy chicken Omelette", "Munch", R.drawable.munchmap, 4.80, 530, "BBQ Crispy Omelette is a delicious combination of a fluffy omelette filled with smoky barbecue-flavored meat or vegetables.", R.drawable.store, false, true, true, true, false, false);
         Food munchKorean4 = new Food(49,"BBQ Chicken set", "Munch", R.drawable.munchmap, 5.0, 510, "Generous amount of spicy barbecue-flavoured chicken, served with crunchy beansprout and onions.", R.drawable.koreanbbq, false, true, true, true, false, false);
         Food munchKorean5 = new Food(50,"BBQ Saba Fish set", "Munch", R.drawable.munchmap, 5.30, 460, "A whole grilled Saba Fish ", R.drawable.sabafish, false, true, true, true, false, false);
         Food munchKorean6 = new Food(51,"BBQ Beef set", "Munch", R.drawable.munchmap, 5.30, 550, "Generous amount of non-spicy barbecue-flavoured beef, served with crunchy beansprout and onions", R.drawable.koreanbbq, false, true, true, true, false, false);
@@ -290,11 +290,11 @@ public class CataloguePage extends AppCompatActivity implements Serializable {
         Food munchKorean10 = new Food(55,"Chicken Ramen", "Munch", R.drawable.munchmap, 4.50, 560, "Hot Instant Noodles with marinated chicken", R.drawable.koreanramen, true, true, false, true, false, false);
         Food munchKorean11 = new Food(56,"Beef Ramen", "Munch", R.drawable.munchmap, 5.30, 570, "Hot Instant Noodles with marinated beef", R.drawable.koreanramen, true, true, false, true, false, false);
         Food munchKorean12 = new Food(57,"Sundubu", "Munch", R.drawable.munchmap, 4.00, 460, "Spicy tofu stew", R.drawable.koreanstew, false, true, true, true, false, false);
-        Food munchKorean13 = new Food(58,"Kimchi Jjigae", "Munch", R.drawable.munchmap, 4.00, 500, "Kimchi jjigae is a flavorful Korean stew made with fermented kimchi, tofu or pork, and a variety of vegetables, resulting in a spicy and tangy dish that warms both the palate and the soul.", R.drawable.koreanstew, false, true, true, true, false, false);
+        Food munchKorean13 = new Food(58,"Kimchi Jjigae", "Munch", R.drawable.munchmap, 4.00, 500, "Kimchi Jjigae is a flavorful Korean stew made with fermented kimchi, tofu or pork, creating a spicy and tangy dish that warms the palate.", R.drawable.koreanstew, false, true, true, true, false, false);
         Food munchKorean14 = new Food(59,"Bulgogi Jungol", "Munch", R.drawable.munchmap, 5.00, 530, "Korean beef stew - non spicy", R.drawable.koreanstew, false, true, true, true, false, false);
         Food munchKorean15 = new Food(60,"Kimchi Fried Rice", "Munch", R.drawable.munchmap, 3.8, 470, "Kimchi fried rice is a savory Korean dish that combines fried rice with spicy and tangy kimchi, creating a flavorful and satisfying meal.", R.drawable.kimchifriedrice, false, true, true, true, false, false);
         Food munchKorean16 = new Food(61,"Chicken Fried Rice", "Munch", R.drawable.munchmap, 4.20, 460, "Chicken fried rice infused with korean flavours", R.drawable.kimchifriedrice, false, true, true, true, false, false);
-        Food munchKorean17 = new Food(62,"beef Fried Rice", "Munch", R.drawable.munchmap, 4.40, 550, "Beef fried rice infused with korean flavours", R.drawable.kimchifriedrice, false, true, true, true, false, false);
+        Food munchKorean17 = new Food(62,"Beef Fried Rice", "Munch", R.drawable.munchmap, 4.40, 550, "Beef fried rice infused with korean flavours", R.drawable.kimchifriedrice, false, true, true, true, false, false);
         Food munchKorean18 = new Food(63,"Fried Chicken with Omurice", "Munch", R.drawable.munchmap, 4.40, 550, "Fluffy omelette filled with fried rice, and comes with flavourful and crispy chicken ", R.drawable.omurice, false, true, true, true, false, false);
         Food munchKorean19 = new Food(64,"Fried Fish with Omurice", "Munch", R.drawable.munchmap, 4.40, 556, "Fluffy omelette filled with fried rice, and comes with flavourful and crispy chicken ", R.drawable.omurice, false, true, true, true, false, false);
         Food munchKorean20 = new Food(65,"Fried Prawn with Omurice", "Munch", R.drawable.munchmap, 4.40, 610, "Fluffy omelette filled with fried rice, and comes with flavourful and crispy prawn ", R.drawable.omurice, false, true, true, true, false, false);
@@ -306,7 +306,7 @@ public class CataloguePage extends AppCompatActivity implements Serializable {
 
         munchKorean1.setFoodImage1(R.drawable.munchkorean);
         munchKorean2.setFoodImage1(R.drawable.munchkorean);
-        munchKorean3.setFoodImage1(R.drawable.munchkorean);
+        //munchKorean3.setFoodImage1(R.drawable.munchkorean);
         munchKorean4.setFoodImage1(R.drawable.munchkorean);
         munchKorean5.setFoodImage1(R.drawable.munchkorean);
         munchKorean6.setFoodImage1(R.drawable.munchkorean);
@@ -348,7 +348,7 @@ public class CataloguePage extends AppCompatActivity implements Serializable {
 
         Food pasta1 = new Food(76,"Aglio Olio", "Food Club", R.drawable.foodclubmap,2.5, 300, "A plate of flavourful pasta. Do add on more ingredients to make it healthier meal!", R.drawable.aglioolio, true, false, false, true, false, false);
         Food pasta2 = new Food(77,"Tomato pasta", "Food Club", R.drawable.foodclubmap,2.5, 325, "A plate of tomato pasta that is slightly tangy. Do add on more ingredients to make it healthier meal!", R.drawable.tomatopasta, true, false, false, true, false, false);
-        Food pasta3 = new Food(78,"Cream pasta", "Food Club", R.drawable.foodclubmap,2.5, 375, "A plate of creamy pasta, with every strand of noodle clung with the creamy sauce. Do add on more ingredients to make it healthier meal! ", R.drawable.creampasta, true, false, false, true, false, false);
+        Food pasta3 = new Food(78,"Cream pasta", "Food Club", R.drawable.foodclubmap,2.5, 375, "A plate of creamy pasta, with every strand of noodle clung with the creamy sauce.", R.drawable.creampasta, true, false, false, true, false, false);
         Food pasta4 = new Food(79,"Tom yum pasta", "Food Club", R.drawable.foodclubmap,2.5, 350, "A plate of pasta that has a spicy and sour taste. Do add on more ingredients to make it healthier meal!", R.drawable.tomyumpasta, true, false, false, true, false, false);
         Food pasta5 = new Food(80,"Vegetable: corn", "Food Club", R.drawable.foodclubmap,0.5, 30, "Wide varieties of Vegetable for you to choose", R.drawable.corn, false, false, false, true, false, false);
         Food pasta6 = new Food(81,"Meat: Chicken Breast", "Food Club", R.drawable.foodclubmap,1, 50, "Wide varieties of meat options for you to choose", R.drawable.chickenbreast, false, false, false, true, false, false);
@@ -364,10 +364,10 @@ public class CataloguePage extends AppCompatActivity implements Serializable {
 
 
 
-        Food saladbar1 = new Food(83,"Low Calorie Salad Bowl", "Food CLub", R.drawable.foodclubmap, 3.5, 350, "Greens + 3 Normal Sides",R.drawable.saladbowl, false,false,false, false, true, false);
-        Food saladbar2 = new Food(84,"Signature Salad Bowl", "Food CLub", R.drawable.foodclubmap, 4.2, 400, "Greens + 2 Normal Sides + 1 Premium Side",R.drawable.saladbowl, false,false,false, false, true, false);
-        Food saladbar3 = new Food(85,"Fill-me-up Salad Bowl", "Food CLub", R.drawable.foodclubmap, 4.5, 476, "Greens + 1 Normal Side + 2 Premium Sides",R.drawable.saladbowl, false,false,false, false, true, false);
-        Food saladbar4 = new Food(86,"Party Salad Bowl", "Food CLub", R.drawable.foodclubmap, 8, 700, "Greens + 5 Normal Sides + 3 Premium Sides",R.drawable.saladbowl, false,false,false, false, true, false);
+        Food saladbar1 = new Food(83,"Low Calorie Salad Bowl", "Food Club", R.drawable.foodclubmap, 3.5, 350, "Greens + 3 Normal Sides",R.drawable.saladbowl, false,false,false, false, true, false);
+        Food saladbar2 = new Food(84,"Signature Salad Bowl", "Food Club", R.drawable.foodclubmap, 4.2, 400, "Greens + 2 Normal Sides + 1 Premium Side",R.drawable.saladbowl, false,false,false, false, true, false);
+        Food saladbar3 = new Food(85,"Fill-me-up Salad Bowl", "Food Club", R.drawable.foodclubmap, 4.5, 476, "Greens + 1 Normal Side + 2 Premium Sides",R.drawable.saladbowl, false,false,false, false, true, false);
+        Food saladbar4 = new Food(86,"Party Salad Bowl", "Food Club", R.drawable.foodclubmap, 8, 700, "Greens + 5 Normal Sides + 3 Premium Sides",R.drawable.saladbowl, false,false,false, false, true, false);
 
         saladbar1.setFoodImage1(R.drawable.munchsalad);
         saladbar2.setFoodImage1(R.drawable.munchsalad);
@@ -386,11 +386,11 @@ public class CataloguePage extends AppCompatActivity implements Serializable {
         kkFriedRice4.setFoodImage1(R.drawable.fckingkong);
         kkFriedRice5.setFoodImage1(R.drawable.fckingkong);
 
-        Food Indonesian1 = new Food(92,"Ayam Penyet Set", "Food CLub", R.drawable.foodclubmap, 4.50, 650, "Signature! With a gigantic piece of drumstick, drenched in curry!", R.drawable.ayampenyet, false, false, true, true, false, false);
-        Food Indonesian2 = new Food(93,"Udang Penyet Set", "Food CLub", R.drawable.foodclubmap, 4.50, 502, "Signature! With prawn pieces, drenched in curry!", R.drawable.ayampenyet, false, false, true, true, false, false);
-        Food Indonesian3 = new Food(94,"Ikan Dory Set", "Food CLub", R.drawable.foodclubmap, 4.40, 657, "Huge portion of fish, drenched in curry!", R.drawable.ayampenyet, false, false, true, true, false, false);
-        Food Indonesian4 = new Food(95,"Otah Penyet Set", "Food CLub", R.drawable.foodclubmap, 4.50, 650, "Favourite fried otah, drenched in curry!", R.drawable.ayampenyet, false, false, true, true, false, false);
-        Food Indonesian5 = new Food(96,"Mee Siam Set", "Food CLub", R.drawable.foodclubmap, 4.50, 571, "Bee hoon with a unique sweet and sour gravy", R.drawable.meesiam, true, true, false, true, false, false);
+        Food Indonesian1 = new Food(92,"Ayam Penyet Set", "Food Club", R.drawable.foodclubmap, 4.50, 650, "Signature! With a gigantic piece of drumstick, drenched in curry!", R.drawable.ayampenyet, false, false, true, true, false, false);
+        Food Indonesian2 = new Food(93,"Udang Penyet Set", "Food Club", R.drawable.foodclubmap, 4.50, 502, "Signature! With prawn pieces, drenched in curry!", R.drawable.ayampenyet, false, false, true, true, false, false);
+        Food Indonesian3 = new Food(94,"Ikan Dory Set", "Food Club", R.drawable.foodclubmap, 4.40, 657, "Huge portion of fish, drenched in curry!", R.drawable.ayampenyet, false, false, true, true, false, false);
+        Food Indonesian4 = new Food(95,"Otah Penyet Set", "Food Club", R.drawable.foodclubmap, 4.50, 650, "Favourite fried otah, drenched in curry!", R.drawable.ayampenyet, false, false, true, true, false, false);
+        Food Indonesian5 = new Food(96,"Mee Siam Set", "Food Club", R.drawable.foodclubmap, 4.50, 571, "Bee hoon with a unique sweet and sour gravy", R.drawable.meesiam, true, true, false, true, false, false);
 
         Indonesian1.setFoodImage1(R.drawable.fcindonesian);
         Indonesian2.setFoodImage1(R.drawable.fcindonesian);
@@ -402,7 +402,7 @@ public class CataloguePage extends AppCompatActivity implements Serializable {
         Food creamyDuck1 = new Food(97,"Waffles", "Food Club", R.drawable.foodclubmap, 1.8, 200, "Multiple variations of the waffle filling to choose from!", R.drawable.waffles, false, false, false, true, false, true);
         Food creamyDuck2 = new Food(98,"Corn butter salt", "Food Club", R.drawable.foodclubmap, 1.9, 173, "Steamed corn mixed with butter and salt, buttery and savoury", R.drawable.corn, false, false, false, true, false, true);
         Food creamyDuck3 = new Food(99,"Corn butter choc", "Food Club", R.drawable.foodclubmap, 1.9, 173, "Steamed corn mixed with butter and chocolate, sweet and savoury", R.drawable.corn, false, false, false, true, false, true);
-        Food creamyDuck4 = new Food(100,"Takoyaki", "Food Club", R.drawable.foodclubmap, 2.8, 350, "Multiple variations of the Takoyaki fillings to choose from! Either choose prawn, ham, octopus or crabstick!", R.drawable.corn, false, false, false, true, false, true);
+        Food creamyDuck4 = new Food(100,"Takoyaki", "Food Club", R.drawable.foodclubmap, 2.8, 350, "Multiple variations of the Takoyaki fillings to choose from! Either choose prawn, ham, octopus or crabstick!", R.drawable.takoyaki, false, false, false, true, false, true);
         Food creamyDuck5 = new Food(101,"Ice Cream", "Food Club", R.drawable.foodclubmap, 1.8, 230, "Comes in different sizes, choose either 6oz or 12oz single scoop", R.drawable.icecream, false, false, false, true, false, true);
 
         creamyDuck1.setFoodImage1(R.drawable.fcwaffle);
@@ -600,7 +600,7 @@ public class CataloguePage extends AppCompatActivity implements Serializable {
 
         foodList.add(munchKorean1);
         foodList.add(munchKorean2);
-        foodList.add(munchKorean3);
+        //foodList.add(munchKorean3);
         foodList.add(munchKorean4);
         foodList.add(munchKorean5);
         foodList.add(munchKorean6);
