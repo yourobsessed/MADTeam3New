@@ -56,9 +56,21 @@ Users can add their desired foods to a wishlist for future reference. Around lun
 
 (Done by Jovin)
 
-**Information Page and Profile Feature**
+**Notifications**
 
-The information page shows information about all the foodcourts available at Ngee Ann Polytechnic. It would include general details like opening and closing timings. Furthermore, the profile feature allows users to edit their username and password to ensure security and to their liking. 
+When it hits 12pm, users will receive a notification reminding them that it's time for lunch! This will not only ensure that users eat on time but it also encourages users to click on the app and browse their food options. Imagine how much time the notification saves them as after class they can run straight to their preferred food court and eat instead of having to decide for another 10 minutes. 
+
+(Done by Jovin)
+
+**Information Page**
+
+The information page shows information about all the foodcourts available at Ngee Ann Polytechnic. It would include general details like opening and closing timings. This will allow students to have all this information at the tip of their fingers instead of being confused. 
+
+(Done by Rae)
+
+**Profile Page**
+
+The profile page allows users to change their username and password easily. Some users might not like the name they created at the start and might want something different, hence, this feature allows them to do so easily, as long as the name has not been taken up. Other users might wish to change their passwords for additional security which can also be easily done as long as they remember their current password.
 
 (Done by Rae)
 
@@ -66,7 +78,7 @@ The information page shows information about all the foodcourts available at Nge
 
 The food generator page generates random food on click. For students who have trouble deciding on what to eat every day, they can use this feature to plan on what to have that day!
 
-(Done by Jovin)
+(Done by Leroy)
 
 **How NP Eats work**
 
