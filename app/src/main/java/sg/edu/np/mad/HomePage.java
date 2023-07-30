@@ -231,7 +231,7 @@ public class HomePage extends AppCompatActivity implements NavigationView.OnNavi
 
         if (DataHolder.wishlist_List.size() == 0){
             //horizontalScrollView.setVisibility(View.GONE);
-            wlImage.setVisibility(View.GONE);
+            //wlImage.setVisibility(View.GONE);
         }
         else{
 
