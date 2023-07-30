@@ -59,6 +59,7 @@ public class FoodReviewPage extends AppCompatActivity {
         openCameraButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                //check for camera permission enabled, if not then request
                 if (ContextCompat.checkSelfPermission(FoodReviewPage.this, "android.permission.CAMERA") != PackageManager.PERMISSION_GRANTED) {
                     ActivityCompat.requestPermissions(FoodReviewPage.this, new String[]{"android.permission.CAMERA"}, REQUEST_CAMERA_PERMISSION);
                 } else {
@@ -79,11 +80,12 @@ public class FoodReviewPage extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 if(imagebyte != null){
+                    //stores image taken into firebase storage with name as the current time for unique name always.
                     StorageReference storageRef = FirebaseStorage.getInstance().getReference();
                     StorageReference imageRef = storageRef.child(String.valueOf(System.currentTimeMillis()));
                     UploadTask uploadTask = imageRef.putBytes(imagebyte);
                     uploadTask.addOnSuccessListener(taskSnapshot -> {
-
+                        //get image's url then stores it together with the review object, so that when retriveing image later, url can be used
                         imageRef.getDownloadUrl().addOnSuccessListener(downloadUri -> {
                             String imageUrl = downloadUri.toString();
                             DatabaseRef.child("Reviews").push().setValue(new FoodReview(getIntent().getExtras().getString("foodname"), Math.round(ratingbar.getRating()*20), DescriptionEdit.getText().toString(), username, imageUrl));
@@ -93,6 +95,7 @@ public class FoodReviewPage extends AppCompatActivity {
 
                 }
                 else{
+                    //if no picture taken
                     DatabaseRef.child("Reviews").push().setValue(new FoodReview(getIntent().getExtras().getString("foodname"), Math.round(ratingbar.getRating()*20), DescriptionEdit.getText().toString(), username, ""));
                     finish();
                 }
@@ -106,6 +109,7 @@ public class FoodReviewPage extends AppCompatActivity {
     }
 
     private void startCameraActivity() {
+        //opens camera app
         Intent cameraIntent = new Intent(MediaStore.ACTION_IMAGE_CAPTURE);
         startActivityForResult(cameraIntent, CAMERA_REQUEST_CODE);
     }
@@ -126,6 +130,7 @@ public class FoodReviewPage extends AppCompatActivity {
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
         if (requestCode == CAMERA_REQUEST_CODE && resultCode == RESULT_OK) {
+            //after picture taken, displays on screen
             image = (Bitmap) data.getExtras().get("data");
             ImageView imageView = findViewById(R.id.imageView17);
             imageView.setImageBitmap(image);
