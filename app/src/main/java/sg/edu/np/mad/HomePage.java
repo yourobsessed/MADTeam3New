@@ -207,35 +207,35 @@ public class HomePage extends AppCompatActivity implements NavigationView.OnNavi
             }
         });
 
-
-    }
-    @Override
-    public void onResume() {
-        super.onResume();
-        TextView MapButton = findViewById(R.id.MapButton);
-        TextView CrowdButton = findViewById(R.id.crowdbutton);
-        List<CrowdReview> CrowdReviewsList = new ArrayList<>();
-        getCrowd(CrowdReviewsList, CrowdButton, MapButton);
-
-        TextView UsernameText = findViewById(R.id.UsernameText);
-        UsernameText.setText("Hi, " + DataHolder.username + " \uD83D\uDC4B\uD83C\uDFFB");
-        HorizontalScrollView horizontalScrollView = findViewById(R.id.horizontalScrollView2);
-
         TextView wishlistButton = findViewById(R.id.wl);
-        wlImage = findViewById(R.id.image1);
+        wlImage = findViewById(R.id.image);
         wlImage2 = findViewById(R.id.image2);
         wlImage3 = findViewById(R.id.image3);
         wlName = findViewById(R.id.name);
         wlName2 = findViewById(R.id.name2);
         wlName3 = findViewById(R.id.name3);
 
+       //FirebaseDatabase database = FirebaseDatabase.getInstance();
+        DatabaseReference accountsRef = database.getReference("Accounts").child(DataHolder.username);
+        accountsRef.addListenerForSingleValueEvent(new ValueEventListener() { //reading the data's wishlist
+            @Override
+            public void onDataChange(@NonNull DataSnapshot snapshot) {
+                Account acc = snapshot.getValue(Account.class);
+                DataHolder.wishlist_List = acc.wishlist;
+            }
+            @Override
+            public void onCancelled(@NonNull DatabaseError error) {
+            }
+        });
         if (DataHolder.wishlist_List.size() == 0){
             //horizontalScrollView.setVisibility(View.GONE);
             //wlImage.setVisibility(View.GONE);
+            Log.i("ran thru", "ranthru");
         }
         else{
-
+            Log.i("ran thru got food", "ranthru");
             for (Food food : foodList){
+
                 if (count <= 3) {
                     Random random = new Random();
                     int position = random.nextInt(DataHolder.wishlist_List.size());
@@ -257,6 +257,32 @@ public class HomePage extends AppCompatActivity implements NavigationView.OnNavi
                 }
             }
         }
+    }
+    @Override
+    public void onResume() {
+        super.onResume();
+//        FirebaseDatabase database = FirebaseDatabase.getInstance();
+//        DatabaseReference accountsRef = database.getReference("Accounts").child(DataHolder.username);
+//        accountsRef.addListenerForSingleValueEvent(new ValueEventListener() { //reading the data's wishlist
+//           @Override
+//           public void onDataChange(@NonNull DataSnapshot snapshot) {
+//               Account acc = snapshot.getValue(Account.class);
+//               DataHolder.wishlist_List = acc.wishlist;
+//           }
+//            @Override
+//            public void onCancelled(@NonNull DatabaseError error) {
+//            }
+//        });
+        TextView MapButton = findViewById(R.id.MapButton);
+        TextView CrowdButton = findViewById(R.id.crowdbutton);
+        List<CrowdReview> CrowdReviewsList = new ArrayList<>();
+        getCrowd(CrowdReviewsList, CrowdButton, MapButton);
+
+        TextView UsernameText = findViewById(R.id.UsernameText);
+        UsernameText.setText("Hi, " + DataHolder.username + " \uD83D\uDC4B\uD83C\uDFFB");
+        HorizontalScrollView horizontalScrollView = findViewById(R.id.horizontalScrollView2);
+
+
     }
 
     @Override
