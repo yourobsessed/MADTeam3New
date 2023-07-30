@@ -38,6 +38,7 @@ import java.util.Collections;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+import java.util.Random;
 
 public class HomePage extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener{
     DrawerLayout drawer;
@@ -224,47 +225,34 @@ public class HomePage extends AppCompatActivity implements NavigationView.OnNavi
         wlImage = findViewById(R.id.image1);
         wlImage2 = findViewById(R.id.image2);
         wlImage3 = findViewById(R.id.image3);
-        wlImage4 = findViewById(R.id.image4);
-        wlImage5 = findViewById(R.id.image5);
         wlName = findViewById(R.id.name);
         wlName2 = findViewById(R.id.name2);
         wlName3 = findViewById(R.id.name3);
-        wlName4 = findViewById(R.id.name4);
-        wlName5 = findViewById(R.id.name5);
 
         if (DataHolder.wishlist_List.size() == 0){
-            horizontalScrollView.setVisibility(View.GONE);
+            //horizontalScrollView.setVisibility(View.GONE);
             wlImage.setVisibility(View.GONE);
         }
         else{
-            horizontalScrollView.setVisibility(View.VISIBLE);
 
             for (Food food : foodList){
-                if (count <= 5) {
-                    if (DataHolder.wishlist_List.contains(food.getFoodIndex())){
+                if (count <= 3) {
+                    Random random = new Random();
+                    int position = random.nextInt(DataHolder.wishlist_List.size());
+                    if (DataHolder.wishlist_List.get(position) == (food.getFoodIndex())){
                         count = 1;
                         wlImage.setImageResource(food.getFoodImage2());
                         wlName.setText(food.getFoodName());
                     }
-                    if (DataHolder.wishlist_List.contains(food.getFoodIndex())){
+                    if (DataHolder.wishlist_List.get(position) == (food.getFoodIndex())){
                         count = 2;
                         wlImage2.setImageResource(food.getFoodImage2());
                         wlName2.setText(food.getFoodName());
                     }
-                    if (DataHolder.wishlist_List.contains(food.getFoodIndex())){
+                    if (DataHolder.wishlist_List.get(position) == (food.getFoodIndex())){
                         count = 3;
                         wlImage3.setImageResource(food.getFoodImage2());
                         wlName3.setText(food.getFoodName());
-                    }
-                    if (DataHolder.wishlist_List.contains(food.getFoodIndex())){
-                        count = 4;
-                        wlImage4.setImageResource(food.getFoodImage2());
-                        wlName4.setText(food.getFoodName());
-                    }
-                    if (DataHolder.wishlist_List.contains(food.getFoodIndex())){
-                        count = 5;
-                        wlImage5.setImageResource(food.getFoodImage2());
-                        wlName5.setText(food.getFoodName());
                     }
                 }
             }
