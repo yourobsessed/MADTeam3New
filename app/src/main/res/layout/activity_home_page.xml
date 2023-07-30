@@ -266,13 +266,17 @@
                             <androidx.cardview.widget.CardView
                                 android:layout_width="87dp"
                                 android:layout_height="82dp"
-                                app:cardCornerRadius="8dp">
+                                app:cardCornerRadius="8dp"
+                                app:cardElevation="2dp">
 
-                                <androidx.appcompat.widget.AppCompatImageView
+                                <ImageView
                                     android:id="@+id/image1"
                                     android:layout_width="match_parent"
                                     android:layout_height="match_parent"
-                                    android:scaleType="centerCrop" />
+                                    android:scaleType="centerCrop"
+                                    app:srcCompat="@drawable/aglioolio">
+
+                                </ImageView>
 
                             </androidx.cardview.widget.CardView>
 
@@ -294,13 +298,15 @@
                             <androidx.cardview.widget.CardView
                                 android:layout_width="87dp"
                                 android:layout_height="82dp"
-                                app:cardCornerRadius="8dp">
+                                app:cardCornerRadius="8dp"
+                                android:translationZ="20dp">
 
-                                <androidx.appcompat.widget.AppCompatImageView
+                                <ImageView
                                     android:id="@+id/image2"
                                     android:layout_width="match_parent"
                                     android:layout_height="match_parent"
-                                    android:scaleType="centerCrop" />
+                                    android:scaleType="centerCrop"
+                                    app:srcCompat="@drawable/aglioolio"/>
 
                             </androidx.cardview.widget.CardView>
 
@@ -318,18 +324,20 @@
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:orientation="vertical"
-                            android:layout_margin="8dp">
+                            android:layout_margin="8dp"
+                            android:translationZ="13dp">
 
                             <androidx.cardview.widget.CardView
                                 android:layout_width="87dp"
                                 android:layout_height="82dp"
                                 app:cardCornerRadius="8dp">
 
-                                <androidx.appcompat.widget.AppCompatImageView
+                                <ImageView
                                     android:id="@+id/image3"
                                     android:layout_width="match_parent"
                                     android:layout_height="match_parent"
-                                    android:scaleType="centerCrop" />
+                                    android:scaleType="centerCrop"
+                                    app:srcCompat="@drawable/aglioolio"/>
 
                             </androidx.cardview.widget.CardView>
 
@@ -353,11 +361,12 @@
                                 android:layout_height="82dp"
                                 app:cardCornerRadius="8dp">
 
-                                <androidx.appcompat.widget.AppCompatImageView
+                                <ImageView
                                     android:id="@+id/image4"
                                     android:layout_width="match_parent"
                                     android:layout_height="match_parent"
-                                    android:scaleType="centerCrop" />
+                                    android:scaleType="centerCrop"
+                                    app:srcCompat="@drawable/aglioolio"/>
 
                             </androidx.cardview.widget.CardView>
 
@@ -382,13 +391,14 @@
                                 android:layout_height="82dp"
                                 app:cardCornerRadius="8dp">
 
-                                <androidx.appcompat.widget.AppCompatImageView
+                                <ImageView
                                     android:id="@+id/image5"
                                     android:layout_width="match_parent"
                                     android:layout_height="match_parent"
-                                    android:scaleType="centerCrop">
+                                    android:scaleType="centerCrop"
+                                    app:srcCompat="@drawable/aglioolio">
 
-                                </androidx.appcompat.widget.AppCompatImageView>
+                                </ImageView>
 
                             </androidx.cardview.widget.CardView>
 

@@ -220,7 +220,7 @@ public class HomePage extends AppCompatActivity implements NavigationView.OnNavi
         UsernameText.setText("Hi, " + DataHolder.username + " \uD83D\uDC4B\uD83C\uDFFB");
         HorizontalScrollView horizontalScrollView = findViewById(R.id.horizontalScrollView2);
 
-
+        TextView wishlistButton = findViewById(R.id.wl);
         wlImage = findViewById(R.id.image1);
         wlImage2 = findViewById(R.id.image2);
         wlImage3 = findViewById(R.id.image3);
@@ -233,13 +233,14 @@ public class HomePage extends AppCompatActivity implements NavigationView.OnNavi
         wlName5 = findViewById(R.id.name5);
 
         if (DataHolder.wishlist_List.size() == 0){
-            horizontalScrollView.setVisibility(View.INVISIBLE);
+            horizontalScrollView.setVisibility(View.GONE);
+            wlImage.setVisibility(View.GONE);
         }
         else{
             horizontalScrollView.setVisibility(View.VISIBLE);
 
             for (Food food : foodList){
-                if (count == 5) {
+                if (count <= 5) {
                     if (DataHolder.wishlist_List.contains(food.getFoodIndex())){
                         count = 1;
                         wlImage.setImageResource(food.getFoodImage2());
