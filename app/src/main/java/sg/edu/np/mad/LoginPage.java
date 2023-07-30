@@ -180,6 +180,7 @@ public class LoginPage extends AppCompatActivity {
         //scheduleDailyNotification(this);
     }
 
+
     private void createNotificationChannel() {
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
             CharSequence name = "Lunch Notification";

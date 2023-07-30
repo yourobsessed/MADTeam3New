@@ -319,11 +319,6 @@ public class HomePage extends AppCompatActivity implements NavigationView.OnNavi
 
         TextView UsernameText = findViewById(R.id.UsernameText);
         UsernameText.setText("Hi, " + DataHolder.username + " \uD83D\uDC4B\uD83C\uDFFB");
-        HorizontalScrollView horizontalScrollView = findViewById(R.id.horizontalScrollView2);
-
-
-
-
     }
 
     @Override
@@ -336,7 +331,14 @@ public class HomePage extends AppCompatActivity implements NavigationView.OnNavi
         super.onDestroy();
 
     }
-
+    @Override
+    protected void onStart() {
+        super.onStart();
+    }
+    @Override
+    protected void onStop() {
+        super.onStop();
+    }
 
     @Override
     public void onBackPressed(){

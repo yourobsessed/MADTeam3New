@@ -106,7 +106,20 @@ public class WishlistPage extends AppCompatActivity implements SelectListenerFoo
 
 
     }
+    @Override
+    protected void onStop() {
+        super.onStop();
+    }
 
+    @Override
+    protected void onDestroy() {
+        super.onDestroy();
+    }
+
+    @Override
+    protected void onPause() {
+        super.onPause();
+    }
     @Override
     public void onItemClicked(Food food) {
         Intent toCataloguePage = new Intent(WishlistPage.this, CataloguePage.class);

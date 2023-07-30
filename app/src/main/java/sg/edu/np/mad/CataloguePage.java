@@ -127,7 +127,7 @@ public class CataloguePage extends AppCompatActivity implements Serializable {
     }
 
     @Override
-    protected void onResume(){
+    protected void onResume() {
         super.onResume();
         DatabaseReference reviewsRef = FirebaseDatabase.getInstance().getReference("Reviews");
         ValueEventListener reviewsListener = new ValueEventListener() {
@@ -162,6 +162,20 @@ public class CataloguePage extends AppCompatActivity implements Serializable {
         reviewsRef.addListenerForSingleValueEvent(reviewsListener);
     }
 
+    @Override
+    protected void onStop() {
+        super.onStop();
+    }
+
+    @Override
+    protected void onDestroy() {
+        super.onDestroy();
+    }
+
+    @Override
+    protected void onPause() {
+        super.onPause();
+    }
 
     public ArrayList<Food> CreateObject(ArrayList<Food> foodList){
         //creating all the food items

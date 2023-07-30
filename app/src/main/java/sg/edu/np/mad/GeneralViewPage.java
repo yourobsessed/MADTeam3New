@@ -385,7 +385,15 @@ public class GeneralViewPage extends AppCompatActivity implements SelectListener
         super.onDestroy();
     }
 
+    @Override
+    protected void onStop() {
+        super.onStop();
+    }
 
+    @Override
+    protected void onPause() {
+        super.onPause();
+    }
     @Override
     public void onItemClicked(Food food) {
         Intent toCataloguePage = new Intent(GeneralViewPage.this, CataloguePage.class);

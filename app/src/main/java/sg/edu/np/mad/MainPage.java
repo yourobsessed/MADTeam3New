@@ -121,8 +121,9 @@ public class MainPage extends AppCompatActivity {
     @Override
     protected void onDestroy(){
         super.onDestroy();
-
     }
+
+
     public void getCrowd(List CrowdReviewsList) {
         CrowdReviewsList.clear();
         FirebaseDatabase database = FirebaseDatabase.getInstance();

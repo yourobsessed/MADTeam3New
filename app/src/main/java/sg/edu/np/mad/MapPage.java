@@ -50,6 +50,7 @@ public class MapPage extends AppCompatActivity implements OnMapReadyCallback {
         });
     }
 
+
     @Override
     public void onMapReady(@NonNull MapboxMap mapboxMap) {
         this.mapboxMap = mapboxMap;
