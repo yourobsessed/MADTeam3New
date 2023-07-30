@@ -46,27 +46,27 @@ Stage 2:
 
 **Rating of Food**
 
-Users can rate the dishes they have tried, providing a range from 1 to 5 stars and a short review explaining their rating. The ratings and reviews are visible to other users, helping them make informed decisions about their food choices. Users can also include a photo of the food along with their review. Other users can view every review made, along with the average rating and also sort the reviews by date, highest rated and lowest rated.
+Users can rate the dishes they have tried, providing a range from 1 to 5 stars and a short review explaining their rating. The ratings and reviews are visible to other users, helping them make informed decisions about their food choices. Users can also include a photo of the food along with their review. Other users can view every review made, along with the average rating, and also sort the reviews by date, highest rated, and lowest rated.
 
-(To be done by Colin)
+(Done by Colin)
 
-**Wishlist with Notifications**
+**Wishlist**
 
 Users can add their desired foods to a wishlist for future reference. Around lunchtime, the app sends a food suggestion notification with a randomly generated food item, prompting users to consider it for their meal. The notification includes information about the food court where the dish can be found and its name. The main page may feature an image view that changes daily, reminding users to try new foods soon.
 
-(To be done by Jovin)
+(Done by Jovin)
 
-**Information Page**
+**Information Page and Profile Feature**
 
-The information page shows the information about all the foodcourts available at Ngee Ann Polytechnic. It would include general details like opening and closing timings and most importantly, how to get there video! This would ensure that students would know how to get to the foodcourt, especially for the freshies!
+The information page shows information about all the foodcourts available at Ngee Ann Polytechnic. It would include general details like opening and closing timings. Furthermore, the profile feature allows users to edit their username and password to ensure security and to their liking. 
 
-(To be done by Rae)
+(Done by Rae)
 
 **Food Generator Page**
 
-The food generator page generates random food on click. For students who have trouble to decide on what to eat everyday, they can use this feature to plan on what to have that day!
+The food generator page generates random food on click. For students who have trouble deciding on what to eat every day, they can use this feature to plan on what to have that day!
 
-(To be done by Jovin)
+(Done by Jovin)
 
 **How NP Eats work**
 
@@ -80,11 +80,11 @@ Make use to turn on the location, and allow the use of location permission in th
 
 ![image](https://github.com/yourobsessed/MADTeam3New/assets/130966829/148e5f1a-ed30-41c4-8651-b758727bd638)
 
-Use the above siide panel to get to other activities of the app! Either swipe right from the left side of the screen or press the side panel button on left hand corner of the home screen
+Use the above side panel to get to other activities of the app! Either swipe right from the left side of the screen or press the side panel button on left-hand corner of the home screen
 
 ![image](https://github.com/yourobsessed/MADTeam3New/assets/130966829/b2e0a372-911c-4553-b66a-ae5df54c2d2d)
 
-Use the filters and search bar to find the food that you feel like having. Filter them according to their locations, food categories and many more!
+Use the filters and search bar to find the food that you feel like having. Filter them according to their locations, food categories, and many more!
 
 ![image](https://github.com/yourobsessed/MADTeam3New/assets/130966829/e3207e8b-fc90-485b-aab0-a577b97161d8)
 
