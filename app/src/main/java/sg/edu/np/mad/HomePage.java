@@ -220,6 +220,7 @@ public class HomePage extends AppCompatActivity implements NavigationView.OnNavi
         wlName = findViewById(R.id.name);
         wlName2 = findViewById(R.id.name2);
         wlName3 = findViewById(R.id.name3);
+        TextView wlName4 = findViewById(R.id.name4);
         FirebaseDatabase database = FirebaseDatabase.getInstance();
         DatabaseReference accountsRef = database.getReference("Accounts").child(DataHolder.username);
         accountsRef.addListenerForSingleValueEvent(new ValueEventListener() { //reading the data's wishlist
@@ -227,7 +228,7 @@ public class HomePage extends AppCompatActivity implements NavigationView.OnNavi
            public void onDataChange(@NonNull DataSnapshot snapshot) {
                Account acc = snapshot.getValue(Account.class);
                DataHolder.wishlist_List = acc.wishlist;
-               Toast.makeText(getApplicationContext(), acc.wishlist.toString() , Toast.LENGTH_SHORT).show();
+               //Toast.makeText(getApplicationContext(), acc.wishlist.toString() , Toast.LENGTH_SHORT).show();
                /*
                if (DataHolder.wishlist_List.size() == 0){
                    //horizontalScrollView.setVisibility(View.GONE);
@@ -281,7 +282,30 @@ public class HomePage extends AppCompatActivity implements NavigationView.OnNavi
                    }
                }
 
-
+               if(DataHolder.wishlist_List.size() == 1) {
+                   wlImage.setImageResource(0);
+                   wlName.setText("");
+                   wlImage2.setImageResource(0);
+                   wlName2.setText("");
+                   wlName4.setText("Try adding some food dishes into your Wishlist!");
+                   wlImage3.setImageResource(0);
+                   wlName3.setText("");
+               }
+               if(DataHolder.wishlist_List.size() == 2) {
+                   wlImage2.setImageResource(0);
+                   wlName2.setText("");
+                   wlName4.setText("");
+                   wlImage3.setImageResource(0);
+                   wlName3.setText("");
+               }
+               if(DataHolder.wishlist_List.size() == 3) {
+                   wlName4.setText("");
+                   wlImage3.setImageResource(0);
+                   wlName3.setText("");
+               }
+               if(DataHolder.wishlist_List.size() == 4) {
+                   wlName4.setText("");
+               }
 
            }
             @Override
