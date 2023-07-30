@@ -212,6 +212,18 @@ public class HomePage extends AppCompatActivity implements NavigationView.OnNavi
     @Override
     public void onResume() {
         super.onResume();
+        FirebaseDatabase database = FirebaseDatabase.getInstance();
+        DatabaseReference accountsRef = database.getReference("Accounts").child(DataHolder.username);
+        accountsRef.addListenerForSingleValueEvent(new ValueEventListener() { //reading the data's wishlist
+           @Override
+           public void onDataChange(@NonNull DataSnapshot snapshot) {
+               Account acc = snapshot.getValue(Account.class);
+               DataHolder.wishlist_List = acc.wishlist;
+           }
+            @Override
+            public void onCancelled(@NonNull DatabaseError error) {
+            }
+        });
         TextView MapButton = findViewById(R.id.MapButton);
         TextView CrowdButton = findViewById(R.id.crowdbutton);
         List<CrowdReview> CrowdReviewsList = new ArrayList<>();
@@ -234,7 +246,6 @@ public class HomePage extends AppCompatActivity implements NavigationView.OnNavi
             //wlImage.setVisibility(View.GONE);
         }
         else{
-
             for (Food food : foodList){
                 if (count <= 3) {
                     Random random = new Random();
