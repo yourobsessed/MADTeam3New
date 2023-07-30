@@ -14,9 +14,11 @@ import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
+import android.text.Html;
 import android.util.Log;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.google.android.material.navigation.NavigationView;
@@ -31,7 +33,6 @@ import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Random;
 
 public class HomePage extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener{
     DrawerLayout drawer;
@@ -235,6 +236,8 @@ public class HomePage extends AppCompatActivity implements NavigationView.OnNavi
         TextView MPText = findViewById(R.id.MPText);
         TextView MText = findViewById(R.id.MText);
 
+        ImageView imageView = findViewById(R.id.imageView2);
+
         int FCCrowd = 0;
         int MPCrowd = 0;
         int MCrowd = 0;
@@ -264,26 +267,31 @@ public class HomePage extends AppCompatActivity implements NavigationView.OnNavi
         MCrowd = calculateAverage(MCrowdlist);
 
         if(FCCrowd == 150 ||  MPCrowd == 150 || MCrowd == 150){
-            txt.setText("Click to view crowdedness of each food court");
-            txt2.setText("Food Courts Map");
+            txt.setText(Html.fromHtml( "<b>Food Courts</b><br/>Click to view crowdedness\nof each food court"));
+            imageView.setImageResource(R.drawable.fcc3);
+            imageView.setPadding(0,0,0,0);
         }
         else{
             if(FCCrowd < MPCrowd){
                 if(FCCrowd < MCrowd){
-                    txt.setText("Food Club is currently the least crowded.");
-                    txt2.setText("Map to get to\nFood Club");
+                    txt.setText(Html.fromHtml( "<b>Food Club</b><br/>Food Club is currently the least crowded."));
+                    imageView.setImageResource(R.drawable.fc);
+                    imageView.setPadding(0,0,60,0);
                 }
 
             }
             else if(MPCrowd < MCrowd){
                 if(MPCrowd < FCCrowd){
-                    txt.setText("Makan Place is currently the least crowded.");
-                    txt2.setText("Map to get to\nMakan Place");
+                    txt.setText(Html.fromHtml( "<b>Makan Place</b><br/>Makan Place is currently the least crowded."));
+                    imageView.setImageResource(R.drawable.makan_place);
+                    imageView.setPadding(0,0,60,0);
                 }
             }
             else{
-                txt.setText("Munch is currently the least crowded.");
-                txt2.setText("Map to get to\nMunch");
+                //txt.setText("Food Courts\n\nMunch is currently the least crowded.");
+                txt.setText(Html.fromHtml( "<b>Munch</b><br/>Munch is currently the least crowded."));
+                imageView.setImageResource(R.drawable.munch);
+                imageView.setPadding(0,0,0,0);
             }
 
         }

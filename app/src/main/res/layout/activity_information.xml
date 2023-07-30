@@ -31,7 +31,7 @@
         app:layout_constraintEnd_toStartOf="@+id/searchView"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:srcCompat="@drawable/img" />
+        app:srcCompat="@drawable/backb" />
 
     <TextView
         android:id="@+id/textView15"

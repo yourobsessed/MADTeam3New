@@ -3,6 +3,8 @@ package sg.edu.np.mad;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import android.app.AlertDialog;
+import android.content.Context;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.text.TextUtils;
 import android.view.LayoutInflater;
@@ -192,6 +194,12 @@ public class ProfilePage extends AppCompatActivity{
                     databaseReference.child("Accounts").child(newuname).setValue(acc);
                     databaseReference.child("Accounts").child(DataHolder.username).removeValue();
                     DataHolder.username = newuname;
+
+                    SharedPreferences sharedPreferences = getSharedPreferences("MyPrefs", Context.MODE_PRIVATE);
+                    SharedPreferences.Editor editor = sharedPreferences.edit();
+                    editor.putString("username", newuname);
+                    editor.apply();
+
                     Toast.makeText(ProfilePage.this, "Changed Username", Toast.LENGTH_LONG).show();
                 }
                 else {

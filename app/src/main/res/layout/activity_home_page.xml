@@ -53,6 +53,75 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent">
 
+        <ImageView
+            android:id="@+id/imageView4"
+            android:layout_width="80dp"
+            android:layout_height="72dp"
+            android:layout_marginStart="1dp"
+            android:layout_marginTop="1dp"
+            android:layout_marginEnd="280dp"
+            android:layout_marginBottom="1dp"
+            android:translationZ="16dp"
+            app:layout_constraintBottom_toBottomOf="@+id/randombutton"
+            app:layout_constraintEnd_toEndOf="@+id/randombutton"
+            app:layout_constraintStart_toStartOf="@+id/randombutton"
+            app:layout_constraintTop_toTopOf="@+id/randombutton"
+            app:srcCompat="@drawable/dice" />
+
+        <TextView
+            android:id="@+id/textView6"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="20dp"
+            android:layout_marginTop="15dp"
+            android:layout_marginEnd="300dp"
+            android:fontFamily="@font/alata"
+            android:text="Food Courts"
+            android:textStyle="bold"
+            android:translationZ="15dp"
+            app:layout_constraintEnd_toEndOf="@+id/view7"
+            app:layout_constraintStart_toStartOf="@+id/view7"
+            app:layout_constraintTop_toBottomOf="@+id/usernameText" />
+
+        <TextView
+            android:id="@+id/textView8"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="20dp"
+            android:layout_marginTop="25dp"
+            android:layout_marginEnd="345dp"
+            android:fontFamily="@font/alata"
+            android:text="Food"
+            android:textStyle="bold"
+            android:translationZ="15dp"
+            app:layout_constraintEnd_toEndOf="@+id/view7"
+            app:layout_constraintStart_toStartOf="@+id/view7"
+            app:layout_constraintTop_toBottomOf="@+id/crowdbutton" />
+
+        <androidx.cardview.widget.CardView
+            android:layout_width="130dp"
+            android:layout_height="107dp"
+            android:layout_marginStart="1dp"
+            android:layout_marginTop="1dp"
+            android:layout_marginEnd="210dp"
+            android:layout_marginBottom="1dp"
+            android:translationZ="16dp"
+            app:cardCornerRadius="8dp"
+            app:layout_constraintBottom_toBottomOf="@+id/crowdbutton"
+            app:layout_constraintEnd_toEndOf="@+id/crowdbutton"
+            app:layout_constraintStart_toStartOf="@+id/crowdbutton"
+            app:layout_constraintTop_toTopOf="@+id/crowdbutton">
+
+            <ImageView
+                android:id="@+id/imageView2"
+                android:layout_width="132dp"
+                android:layout_height="113dp"
+
+                android:paddingRight="60sp"
+                android:scaleType="centerCrop"
+                app:srcCompat="@drawable/makan_place" />
+        </androidx.cardview.widget.CardView>
+
         <View
             android:id="@+id/view7"
             android:layout_width="match_parent"
@@ -112,20 +181,20 @@
 
         <TextView
             android:id="@+id/crowdbutton"
-            android:layout_width="205dp"
-            android:layout_height="140dp"
-            android:layout_marginStart="21dp"
-            android:layout_marginTop="90dp"
-            android:layout_marginEnd="21dp"
-            android:background="@drawable/rectangle2"
-            android:backgroundTint="#A600BCD4"
+            android:layout_width="367dp"
+            android:layout_height="155dp"
+            android:layout_marginTop="100dp"
+            android:background="@drawable/rectangle"
+            android:backgroundTint="#FFFFFF"
             android:fontFamily="@font/alata"
-            android:gravity="center"
-            android:paddingLeft="10sp"
-            android:text="Click to view crowdedness of each food court"
-            android:textAlignment="textStart"
-            android:textStyle="bold"
-            app:layout_constraintEnd_toStartOf="@+id/MapButton"
+            android:gravity="top"
+            android:paddingLeft="160sp"
+            android:paddingTop="25sp"
+            android:text="Food Courts\nClick to view crowdedness\nof each food court"
+            android:textAlignment="viewStart"
+            android:textStyle="normal"
+            android:translationZ="15dp"
+            app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/UsernameText" />
 
@@ -133,77 +202,64 @@
         <TextView
             android:id="@+id/randombutton"
             android:layout_width="369dp"
-            android:layout_height="135dp"
+            android:layout_height="105dp"
             android:layout_marginStart="21dp"
-            android:layout_marginTop="20dp"
+            android:layout_marginTop="60dp"
             android:layout_marginEnd="21dp"
             android:background="@drawable/rectangle2"
-            android:backgroundTint="#A600BCD4"
+            android:backgroundTint="#FFFFFF"
             android:fontFamily="@font/alata"
             android:gravity="center"
-            android:paddingLeft="10sp"
-            android:text="Can't think of what to eat?\n Click for a random recommendation"
+            android:paddingLeft="90sp"
+            android:text="Can't think of what to eat?\nClick for a random recommendation"
             android:textAlignment="textStart"
             android:textStyle="bold"
+            android:translationZ="15dp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/crowdbutton" />
 
-        <ImageView
-            android:id="@+id/imageView"
-            android:layout_width="42dp"
-            android:layout_height="40dp"
-            android:layout_marginEnd="317dp"
-            android:layout_marginBottom="120dp"
-            app:layout_constraintBottom_toBottomOf="@+id/randombutton"
-            app:layout_constraintEnd_toEndOf="@+id/randombutton"
-            app:layout_constraintHorizontal_bias="1.0"
-            app:layout_constraintStart_toStartOf="@+id/randombutton"
-            app:layout_constraintTop_toTopOf="@+id/randombutton"
-            app:layout_constraintVertical_bias="0.0"
-            app:srcCompat="@drawable/dice" />
+        <TextView
+            android:id="@+id/wl"
+            android:layout_width="369dp"
+            android:layout_height="175dp"
+            android:layout_marginStart="21dp"
+            android:layout_marginTop="20dp"
+            android:layout_marginEnd="21dp"
+            android:layout_marginBottom="20dp"
+            android:background="@drawable/rectangle2"
+            android:backgroundTint="#FFFFFF"
+            android:fontFamily="@font/alata"
+            android:gravity="center"
+            android:paddingLeft="90sp"
+            android:textAlignment="textStart"
+            android:textStyle="bold"
+            android:translationZ="15dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/randombutton" />
 
         <TextView
             android:id="@+id/MapButton"
-            android:layout_width="141dp"
-            android:layout_height="139dp"
-            android:layout_marginTop="88dp"
-            android:layout_marginEnd="21dp"
-            android:background="@drawable/rectangle"
+            android:layout_width="93dp"
+            android:layout_height="30dp"
+            android:layout_marginTop="100dp"
+            android:layout_marginEnd="118dp"
+            android:background="@drawable/rectangle2"
+            android:backgroundTint="#0073A8"
             android:fontFamily="@font/alata"
             android:gravity="center"
-            android:text="Food Courts Map"
+            android:paddingBottom="3sp"
+            android:text="Directions"
             android:textAlignment="center"
-            android:textColor="#000000"
-            android:textStyle="bold"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/UsernameText" />
-
-        <ImageView
-            android:id="@+id/imageView5"
-            android:layout_width="42dp"
-            android:layout_height="40dp"
-            android:layout_marginEnd="90dp"
-            android:layout_marginBottom="120dp"
-            app:layout_constraintBottom_toBottomOf="@+id/MapButton"
-            app:layout_constraintEnd_toEndOf="@+id/MapButton"
-            app:layout_constraintStart_toStartOf="@+id/MapButton"
-            app:layout_constraintTop_toTopOf="@+id/MapButton"
-            app:layout_constraintVertical_bias="0.7"
-            app:srcCompat="@drawable/mapicon" />
-
-
-        <ImageView
-            android:id="@+id/imageView4"
-            android:layout_width="42dp"
-            android:layout_height="40dp"
-            android:layout_marginEnd="160dp"
-            android:layout_marginBottom="120dp"
-            app:layout_constraintBottom_toBottomOf="@+id/crowdbutton"
+            android:textColor="#FFFFFF"
+            android:textSize="12sp"
+            android:textStyle="normal"
+            android:translationZ="15dp"
             app:layout_constraintEnd_toEndOf="@+id/crowdbutton"
-            app:layout_constraintStart_toStartOf="@+id/crowdbutton"
-            app:layout_constraintTop_toTopOf="@+id/crowdbutton"
-            app:srcCompat="@drawable/forkicon" />
+            app:layout_constraintTop_toTopOf="@+id/crowdbutton" />
+
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 

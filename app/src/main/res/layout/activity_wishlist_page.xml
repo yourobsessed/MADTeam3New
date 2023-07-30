@@ -44,7 +44,7 @@
         android:layout_marginTop="26dp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:srcCompat="@drawable/img" />
+        app:srcCompat="@drawable/backb" />
 
 
     <androidx.recyclerview.widget.RecyclerView
