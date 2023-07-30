@@ -83,7 +83,8 @@
         android:textSize="14sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/UsernameEdit" />
+        app:layout_constraintTop_toBottomOf="@+id/UsernameEdit"
+        app:passwordToggleEnabled="true"/>
 
     <Button
         android:id="@+id/SignInButton"
@@ -126,6 +127,7 @@
         android:text="Login"
         android:textColor="#5A5A5A"
         android:textSize="30sp"
+        android:textStyle="bold"
         android:translationZ="8dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
