@@ -46,6 +46,14 @@ public class HomePage extends AppCompatActivity implements NavigationView.OnNavi
     ImageView wlImage;
     ImageView wlImage2;
     ImageView wlImage3;
+    ImageView wlImage4;
+    ImageView wlImage5;
+    TextView wlName;
+    TextView wlName2;
+    TextView wlName3;
+    TextView wlName4;
+    TextView wlName5;
+    int count;
 
     public Food selectedFood;
     ArrayList<Food> foodList = new ArrayList<>();
@@ -56,22 +64,7 @@ public class HomePage extends AppCompatActivity implements NavigationView.OnNavi
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_home_page);
         foodList = CreateObject(receivedList);
-        wlImage = findViewById(R.id.image1);
-        wlImage2 = findViewById(R.id.image2);
-        wlImage3 = findViewById(R.id.image3);
-        HorizontalScrollView horizontalScrollView = findViewById(R.id.horizontalScrollView2);
-//        if (DataHolder.wishlist_List.size() == 0){
-//            horizontalScrollView.setVisibility(View.INVISIBLE);
-//        }
-//        if{
-            horizontalScrollView.setVisibility(View.VISIBLE);
 
-            for (Food f : foodList){
-                if (DataHolder.wishlist_List.contains(f.getFoodIndex())){
-                    wlImage.setImageResource(f.getFoodImage2());
-                }
-            }
-//        }
 
         String Username = getIntent().getStringExtra("Username");
 
@@ -225,7 +218,56 @@ public class HomePage extends AppCompatActivity implements NavigationView.OnNavi
 
         TextView UsernameText = findViewById(R.id.UsernameText);
         UsernameText.setText("Hi, " + DataHolder.username + " \uD83D\uDC4B\uD83C\uDFFB");
+        HorizontalScrollView horizontalScrollView = findViewById(R.id.horizontalScrollView2);
 
+
+        wlImage = findViewById(R.id.image1);
+        wlImage2 = findViewById(R.id.image2);
+        wlImage3 = findViewById(R.id.image3);
+        wlImage4 = findViewById(R.id.image4);
+        wlImage5 = findViewById(R.id.image5);
+        wlName = findViewById(R.id.name);
+        wlName2 = findViewById(R.id.name2);
+        wlName3 = findViewById(R.id.name3);
+        wlName4 = findViewById(R.id.name4);
+        wlName5 = findViewById(R.id.name5);
+
+        if (DataHolder.wishlist_List.size() == 0){
+            horizontalScrollView.setVisibility(View.INVISIBLE);
+        }
+        else{
+            horizontalScrollView.setVisibility(View.VISIBLE);
+
+            for (Food food : foodList){
+                if (count == 5) {
+                    if (DataHolder.wishlist_List.contains(food.getFoodIndex())){
+                        count = 1;
+                        wlImage.setImageResource(food.getFoodImage2());
+                        wlName.setText(food.getFoodName());
+                    }
+                    if (DataHolder.wishlist_List.contains(food.getFoodIndex())){
+                        count = 2;
+                        wlImage2.setImageResource(food.getFoodImage2());
+                        wlName2.setText(food.getFoodName());
+                    }
+                    if (DataHolder.wishlist_List.contains(food.getFoodIndex())){
+                        count = 3;
+                        wlImage3.setImageResource(food.getFoodImage2());
+                        wlName3.setText(food.getFoodName());
+                    }
+                    if (DataHolder.wishlist_List.contains(food.getFoodIndex())){
+                        count = 4;
+                        wlImage4.setImageResource(food.getFoodImage2());
+                        wlName4.setText(food.getFoodName());
+                    }
+                    if (DataHolder.wishlist_List.contains(food.getFoodIndex())){
+                        count = 5;
+                        wlImage5.setImageResource(food.getFoodImage2());
+                        wlName5.setText(food.getFoodName());
+                    }
+                }
+            }
+        }
     }
 
     @Override
