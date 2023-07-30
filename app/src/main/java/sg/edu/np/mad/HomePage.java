@@ -274,24 +274,27 @@ public class HomePage extends AppCompatActivity implements NavigationView.OnNavi
         else{
             if(FCCrowd < MPCrowd){
                 if(FCCrowd < MCrowd){
-                    txt.setText(Html.fromHtml( "<b>Food Club</b><br/>Food Club is currently the least crowded."));
+                    txt.setText(Html.fromHtml( "<b>Food Club</b><br/><br/>Food Club is currently the least crowded."));
                     imageView.setImageResource(R.drawable.fc);
                     imageView.setPadding(0,0,60,0);
+                    txt2.setText("Directions to Food Club");
                 }
 
             }
             else if(MPCrowd < MCrowd){
                 if(MPCrowd < FCCrowd){
-                    txt.setText(Html.fromHtml( "<b>Makan Place</b><br/>Makan Place is currently the least crowded."));
+                    txt.setText(Html.fromHtml( "<b>Makan Place</b><br/><br/>Makan Place is currently the least crowded."));
                     imageView.setImageResource(R.drawable.makan_place);
                     imageView.setPadding(0,0,60,0);
+                    txt2.setText("Directions to Makan Place");
                 }
             }
             else{
                 //txt.setText("Food Courts\n\nMunch is currently the least crowded.");
-                txt.setText(Html.fromHtml( "<b>Munch</b><br/>Munch is currently the least crowded."));
+                txt.setText(Html.fromHtml( "<b>Munch</b><br/><br/>Munch is currently the least crowded."));
                 imageView.setImageResource(R.drawable.munch);
                 imageView.setPadding(0,0,0,0);
+                txt2.setText("Directions to Munch");
             }
 
         }
