@@ -46,7 +46,7 @@ Stage 2:
 
 **Rating of Food**
 
-Users can rate the dishes they have tried, providing a range from 1 to 5 stars and a short review explaining their rating. The ratings and reviews are visible to other users, helping them make informed decisions about their food choices. Users can also include a photo of the food along with their review. Other users can view every review made, along with the average rating, and also sort the reviews by date, highest rated, and lowest rated.
+Users can rate the dishes they have tried, providing a range from 1 to 5 stars and a short review explaining their rating. The ratings and reviews are visible to other users, helping them make informed decisions about their food choices. Users can also include a photo of the food along with their review. Other users can view every review made, along with the average rating, and also sort the reviews by date, highest rated, and lowest rated. In the home screen, users can view the current top 3 highest rated dishes.
 
 (Done by Colin)
 
