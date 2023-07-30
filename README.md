@@ -46,7 +46,7 @@ Stage 2:
 
 **Rating of Food**
 
-Users can rate the dishes they have tried, providing a range from 1 to 5 stars and a short review explaining their rating. The ratings and reviews are visible to other users, helping them make informed decisions about their food choices. Users can also include a photo of the food along with their review. Other users can view every review made, along with the average rating, and also sort the reviews by date, highest rated, and lowest rated. In the home screen, users can view the current top 3 highest rated dishes.
+Users can rate the dishes they have tried, providing a range from 1 to 5 stars and a short review explaining their rating. The ratings and reviews are visible to other users, helping them make informed decisions about their food choices. Users can also include a photo of the food along with their review. Other users can view every review made, along with the average rating, and also sort the reviews by date, highest rated, and lowest rated. In the home screen, users can view the current top 3 highest-rated dishes.
 
 (Done by Colin)
 
@@ -76,13 +76,13 @@ The profile page allows users to change their username and password easily. Some
 
 **Food Generator Page**
 
-The food generator page generates random food on click. For students who have trouble deciding on what to eat every day, they can use this feature to plan on what to have that day!
+The food generator page generates random food on click. For students who have trouble deciding on what to eat every day, they can use this feature to plan what to have that day!
 
 (Done by Leroy)
 
 **How NP Eats work**
 
-![image](https://github.com/yourobsessed/MADTeam3New/assets/130966829/5d9572c0-209f-401e-b313-a08a1d6388cf)
+![image](https://github.com/yourobsessed/MADTeam3New/assets/130966829/913e3f6f-94c0-4f8d-893d-a9fe9c43a5be)
 
 This is the home screen, click on any of the boxes to check out the crowdedness of the foodcourts and the location of the three foodcourts
 
@@ -92,13 +92,18 @@ Make use to turn on the location, and allow the use of location permission in th
 
 ![image](https://github.com/yourobsessed/MADTeam3New/assets/130966829/148e5f1a-ed30-41c4-8651-b758727bd638)
 
-Use the above side panel to get to other activities of the app! Either swipe right from the left side of the screen or press the side panel button on left-hand corner of the home screen
+Use the above side panel to get to other activities of the app! Either swipe right from the left side of the screen or press the side panel button on the left-hand corner of the home screen
 
 ![image](https://github.com/yourobsessed/MADTeam3New/assets/130966829/b2e0a372-911c-4553-b66a-ae5df54c2d2d)
 
 Use the filters and search bar to find the food that you feel like having. Filter them according to their locations, food categories, and many more!
 
+Other features of our app! Download to find out more!
+
 ![image](https://github.com/yourobsessed/MADTeam3New/assets/130966829/e3207e8b-fc90-485b-aab0-a577b97161d8)
 
+![image](https://github.com/yourobsessed/MADTeam3New/assets/130966829/bad586eb-f9a1-4f6c-8c27-a05199637449)
+
+![image](https://github.com/yourobsessed/MADTeam3New/assets/130966829/ad784054-d6df-4681-9168-658b626ffb8f)
 
 
