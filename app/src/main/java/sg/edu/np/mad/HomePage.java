@@ -468,7 +468,7 @@ public class HomePage extends AppCompatActivity implements NavigationView.OnNavi
         MCrowd = calculateAverage(MCrowdlist);
 
         if(FCCrowd == 150 ||  MPCrowd == 150 || MCrowd == 150){
-            txt.setText(Html.fromHtml( "<b>Food Courts</b><br/><br/>Click to view crowdedness\nof each food court"));
+            txt.setText(Html.fromHtml( "<b>Food Courts</b><br/><br/>Click to view crowdedness<br/>of each food court"));
             imageView.setImageResource(R.drawable.fcc3);
             imageView.setPadding(0,0,0,0);
         }
