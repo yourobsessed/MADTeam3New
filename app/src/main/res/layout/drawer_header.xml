@@ -14,7 +14,7 @@
         android:layout_width="118dp"
         android:layout_height="105dp"
         android:cropToPadding="false"
-        android:src="@drawable/npfoodielogo" />
+        android:src="@mipmap/ic_launcher_round" />
 
     <TextView
         android:layout_width="78dp"
