@@ -22,6 +22,7 @@ import android.view.View;
 import android.widget.HorizontalScrollView;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.google.android.material.navigation.NavigationView;
 import com.google.firebase.database.DataSnapshot;
@@ -212,6 +213,13 @@ public class HomePage extends AppCompatActivity implements NavigationView.OnNavi
     @Override
     public void onResume() {
         super.onResume();
+        TextView wishlistButton = findViewById(R.id.wl);
+        wlImage = findViewById(R.id.image);
+        wlImage2 = findViewById(R.id.image2);
+        wlImage3 = findViewById(R.id.image3);
+        wlName = findViewById(R.id.name);
+        wlName2 = findViewById(R.id.name2);
+        wlName3 = findViewById(R.id.name3);
         FirebaseDatabase database = FirebaseDatabase.getInstance();
         DatabaseReference accountsRef = database.getReference("Accounts").child(DataHolder.username);
         accountsRef.addListenerForSingleValueEvent(new ValueEventListener() { //reading the data's wishlist
@@ -219,6 +227,62 @@ public class HomePage extends AppCompatActivity implements NavigationView.OnNavi
            public void onDataChange(@NonNull DataSnapshot snapshot) {
                Account acc = snapshot.getValue(Account.class);
                DataHolder.wishlist_List = acc.wishlist;
+               Toast.makeText(getApplicationContext(), acc.wishlist.toString() , Toast.LENGTH_SHORT).show();
+               /*
+               if (DataHolder.wishlist_List.size() == 0){
+                   //horizontalScrollView.setVisibility(View.GONE);
+                   //wlImage.setVisibility(View.GONE);
+               }
+               else{
+                   for (Food food : foodList){
+                       if (count <= 3) {
+                           Random random = new Random();
+                           int position = random.nextInt(DataHolder.wishlist_List.size());
+                           if (DataHolder.wishlist_List.get(position) == (food.getFoodIndex())){
+                               count = 1;
+                               wlImage.setImageResource(food.getFoodImage2());
+                               wlName.setText(food.getFoodName());
+                           }
+                           if (DataHolder.wishlist_List.get(position) == (food.getFoodIndex())){
+                               count = 2;
+                               wlImage2.setImageResource(food.getFoodImage2());
+                               wlName2.setText(food.getFoodName());
+                           }
+                           if (DataHolder.wishlist_List.get(position) == (food.getFoodIndex())){
+                               count = 3;
+                               wlImage3.setImageResource(food.getFoodImage2());
+                               wlName3.setText(food.getFoodName());
+                           }
+                       }
+                   }
+               }*/
+               if(DataHolder.wishlist_List.size() >=2) {
+                   for (Food food : foodList) {
+                       if (food.foodIndex == DataHolder.wishlist_List.get(1)) {
+                           wlImage.setImageResource(food.foodImage2);
+                           wlName.setText(food.getFoodName());
+                       }
+                   }
+               }
+               if(DataHolder.wishlist_List.size() >= 3) {
+                   for (Food food : foodList) {
+                       if (food.foodIndex == DataHolder.wishlist_List.get(2)) {
+                           wlImage2.setImageResource(food.foodImage2);
+                           wlName2.setText(food.getFoodName());
+                       }
+                   }
+               }
+               if(DataHolder.wishlist_List.size() >= 4) {
+                   for (Food food : foodList) {
+                       if (food.foodIndex == DataHolder.wishlist_List.get(3)) {
+                           wlImage3.setImageResource(food.foodImage2);
+                           wlName3.setText(food.getFoodName());
+                       }
+                   }
+               }
+
+
+
            }
             @Override
             public void onCancelled(@NonNull DatabaseError error) {
@@ -233,41 +297,9 @@ public class HomePage extends AppCompatActivity implements NavigationView.OnNavi
         UsernameText.setText("Hi, " + DataHolder.username + " \uD83D\uDC4B\uD83C\uDFFB");
         HorizontalScrollView horizontalScrollView = findViewById(R.id.horizontalScrollView2);
 
-        TextView wishlistButton = findViewById(R.id.wl);
-        wlImage = findViewById(R.id.image1);
-        wlImage2 = findViewById(R.id.image2);
-        wlImage3 = findViewById(R.id.image3);
-        wlName = findViewById(R.id.name);
-        wlName2 = findViewById(R.id.name2);
-        wlName3 = findViewById(R.id.name3);
 
-        if (DataHolder.wishlist_List.size() == 0){
-            //horizontalScrollView.setVisibility(View.GONE);
-            //wlImage.setVisibility(View.GONE);
-        }
-        else{
-            for (Food food : foodList){
-                if (count <= 3) {
-                    Random random = new Random();
-                    int position = random.nextInt(DataHolder.wishlist_List.size());
-                    if (DataHolder.wishlist_List.get(position) == (food.getFoodIndex())){
-                        count = 1;
-                        wlImage.setImageResource(food.getFoodImage2());
-                        wlName.setText(food.getFoodName());
-                    }
-                    if (DataHolder.wishlist_List.get(position) == (food.getFoodIndex())){
-                        count = 2;
-                        wlImage2.setImageResource(food.getFoodImage2());
-                        wlName2.setText(food.getFoodName());
-                    }
-                    if (DataHolder.wishlist_List.get(position) == (food.getFoodIndex())){
-                        count = 3;
-                        wlImage3.setImageResource(food.getFoodImage2());
-                        wlName3.setText(food.getFoodName());
-                    }
-                }
-            }
-        }
+
+
     }
 
     @Override
