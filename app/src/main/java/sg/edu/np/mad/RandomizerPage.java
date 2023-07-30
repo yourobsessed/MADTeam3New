@@ -53,30 +53,32 @@ public class RandomizerPage extends AppCompatActivity {
         generatebutton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-
+                Handler handler = new Handler();
                 vibe.vibrate(200);
                 List<String> keysAsArray = new ArrayList<String>(foodstalls.keySet());
 
+                Runnable updateUITask = new Runnable() {
+                    int counter = 0;
 
-                for (int i = 0; i < 5; i++) {
-                    try {
+                    @Override
+                    public void run() {
+                        if (counter < 5) {
+                            Random r = new Random();
+                            store = keysAsArray.get(r.nextInt(keysAsArray.size()));
+                            court = foodstalls.get(store);
+                            changetext.setText(store + " at " + court);
+                            Log.i("hi", store);
 
-                        Thread.sleep(20);
+                            counter++; // Increment the counter
 
-                    } catch (InterruptedException e) {
-
-                        e.printStackTrace();
-
+                            // Schedule the next update after a delay (e.g., 1000 milliseconds or 1 second)
+                            handler.postDelayed(this, 150); // Change 1000 to the desired delay in milliseconds
+                        }
                     }
-                    Random r = new Random();
-                    store = keysAsArray.get(r.nextInt(keysAsArray.size()));
-                    court = foodstalls.get(store);
-                    changetext.setText(store + " at " + court);
-                    Log.i("hi",store);
+                };
 
-                }
-
-
+                // Start the updates
+                handler.post(updateUITask);
             }
         });
 
