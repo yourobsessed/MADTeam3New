@@ -256,7 +256,7 @@ public class HomePage extends AppCompatActivity implements NavigationView.OnNavi
                        }
                    }
                }*/
-               if(DataHolder.wishlist_List.size() >=2) {
+               if(DataHolder.wishlist_List.size() >= 2) {
                    for (Food food : foodList) {
                        if (food.foodIndex == DataHolder.wishlist_List.get(1)) {
                            wlImage.setImageResource(food.foodImage2);
