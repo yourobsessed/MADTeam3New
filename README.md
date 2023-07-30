@@ -56,14 +56,6 @@ Users can add their desired foods to a wishlist for future reference. Around lun
 
 (To be done by Jovin)
 
-**All-Time Favorite Page**
-
-The All-Time Favorite page showcases a collection of the top 10 favorite foods. Users can browse through the displayed information about each food item in a RecyclerView format. Clicking on a food item provides detailed information, and users can choose to add it to their wishlist for future reference.
-
-Experience the ultimate dining companion with Food@NP! Discover a wide range of food options, navigate with ease, rate and review dishes, and create your personalized wishlist. Download the app now to enhance your dining experience at Ngee Ann Polytechnic.
-
-(To be done by leroy)
-
 **Information Page**
 
 The information page shows the information about all the foodcourts available at Ngee Ann Polytechnic. It would include general details like opening and closing timings and most importantly, how to get there video! This would ensure that students would know how to get to the foodcourt, especially for the freshies!
