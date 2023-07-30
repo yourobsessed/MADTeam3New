@@ -62,7 +62,7 @@ public class RandomizerPage extends AppCompatActivity {
 
                     @Override
                     public void run() {
-                        if (counter < 5) {
+                        if (counter < 11) {
                             Random r = new Random();
                             store = keysAsArray.get(r.nextInt(keysAsArray.size()));
                             court = foodstalls.get(store);
@@ -72,7 +72,7 @@ public class RandomizerPage extends AppCompatActivity {
                             counter++; // Increment the counter
 
                             // Schedule the next update after a delay (e.g., 1000 milliseconds or 1 second)
-                            handler.postDelayed(this, 150); // Change 1000 to the desired delay in milliseconds
+                            handler.postDelayed(this, 100); // Change 1000 to the desired delay in milliseconds
                         }
                     }
                 };
